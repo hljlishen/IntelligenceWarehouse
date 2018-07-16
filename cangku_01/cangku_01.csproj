@@ -76,6 +76,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="style.cs" />
+    <Compile Include="YT\Class1.cs" />
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,7 +131,6 @@
     <Folder Include="LX\" />
     <Folder Include="MH\" />
     <Folder Include="SQQ\" />
-    <Folder Include="YT\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
