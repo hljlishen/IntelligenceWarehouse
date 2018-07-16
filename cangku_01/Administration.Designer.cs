@@ -90,6 +90,7 @@
             this.到期提醒ToolStripMenuItem.Name = "到期提醒ToolStripMenuItem";
             this.到期提醒ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.到期提醒ToolStripMenuItem.Text = "到期提醒";
+            this.到期提醒ToolStripMenuItem.Click += new System.EventHandler(this.到期提醒ToolStripMenuItem_Click);
             // 
             // 器件管理ToolStripMenuItem
             // 

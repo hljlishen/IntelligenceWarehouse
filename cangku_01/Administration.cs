@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01;
+using cangku_01.YT;
 
 namespace cangku_01
 {
@@ -30,6 +31,14 @@ namespace cangku_01
         private void Administration_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void 到期提醒ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            s.b(this);
+            Form fr = new due_to_remind();
+            fr.MdiParent = this;
+            fr.Show();
         }
     }
 }
