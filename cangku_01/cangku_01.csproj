@@ -124,5 +124,13 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LK\" />
+    <Folder Include="LS\" />
+    <Folder Include="LX\" />
+    <Folder Include="MH\" />
+    <Folder Include="SQQ\" />
+    <Folder Include="YT\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
