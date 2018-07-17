@@ -73,8 +73,21 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\Takein_Warehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Takein_Warehouse.designer.cs">
+      <DependentUpon>Takein_Warehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MH\Takeout_Warehouse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MH\Takeout_Warehouse.designer.cs">
+      <DependentUpon>Takeout_Warehouse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQQ\Class1.cs" />
     <Compile Include="style.cs" />
     <Compile Include="YT\Date_remind.cs" />
     <Compile Include="YT\Due_to_remind.cs">
@@ -95,6 +108,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\Takein_Warehouse.resx">
+      <DependentUpon>Takein_Warehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MH\Takeout_Warehouse.resx">
+      <DependentUpon>Takeout_Warehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,6 +158,7 @@
     <Folder Include="LK\" />
     <Folder Include="LS\" />
     <Folder Include="LX\" />
+    <Folder Include="YT\" />
     <Folder Include="MH\" />
     <Folder Include="SQQ\" />
   </ItemGroup>
