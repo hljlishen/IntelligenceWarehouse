@@ -53,7 +53,5 @@ namespace cangku_01
             dataGridView1.Rows.Add(values);
         }
 
-        
-       
     }
 }
