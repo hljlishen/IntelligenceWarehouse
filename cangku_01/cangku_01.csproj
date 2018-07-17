@@ -73,6 +73,7 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="LX\instrument_User.cs" />
     <Compile Include="MH\Class_Warehouse.cs" />
     <Compile Include="MH\Take_Window_style.cs" />
     <Compile Include="MH\Takein_Warehouse.cs">
@@ -185,7 +186,6 @@
   <ItemGroup>
     <Folder Include="LK\" />
     <Folder Include="LS\" />
-    <Folder Include="LX\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
