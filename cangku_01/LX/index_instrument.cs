@@ -21,8 +21,9 @@ namespace cangku_01
 
         private void index_instrument_Load(object sender, EventArgs e) //整个页面
         {
-            style index = new style();
-            index.a(this);
+            //style win_sty = new style();
+            this.Left = 0;
+            this.Top = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)  //添加仪器按钮
