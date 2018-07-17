@@ -36,7 +36,7 @@ namespace cangku_01
         private void 到期提醒ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             s.b(this);
-            Form fr = new due_to_remind();
+            Form fr = new Due_to_remind();
             fr.MdiParent = this;
             fr.Show();
         }

@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace cangku_01.YT
 {
-    class window_style
+    class Window_style
     {
         public void Top_and_Left(Form fr)
         {
             fr.Top = 0;
             fr.Left = 0;
         }
-        public void window(Form fr)
+        public void Window(Form fr)
         {
             foreach (Form f in fr.MdiChildren)
             {

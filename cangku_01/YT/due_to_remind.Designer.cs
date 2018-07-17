@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.YT
 {
-    partial class due_to_remind
+    partial class Due_to_remind
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.la_nowtxt = new System.Windows.Forms.Label();
-            this.la_nowtime = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,6 +38,10 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
+            this.la_nowtxt = new System.Windows.Forms.Label();
+            this.La_nowtime = new System.Windows.Forms.Label();
+            this.la_time = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,31 +62,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1294, 700);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            // 
-            // la_nowtxt
-            // 
-            this.la_nowtxt.AutoSize = true;
-            this.la_nowtxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_nowtxt.Location = new System.Drawing.Point(55, 45);
-            this.la_nowtxt.Name = "la_nowtxt";
-            this.la_nowtxt.Size = new System.Drawing.Size(90, 21);
-            this.la_nowtxt.TabIndex = 1;
-            this.la_nowtxt.Text = "当前时间：";
-            // 
-            // la_nowtime
-            // 
-            this.la_nowtime.AutoSize = true;
-            this.la_nowtime.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_nowtime.Location = new System.Drawing.Point(151, 45);
-            this.la_nowtime.Name = "la_nowtime";
-            this.la_nowtime.Size = new System.Drawing.Size(80, 21);
-            this.la_nowtime.TabIndex = 2;
-            this.la_nowtime.Text = "Nowtime";
-            this.la_nowtime.Click += new System.EventHandler(this.label2_Click);
             // 
             // Column1
             // 
@@ -136,16 +112,54 @@
             this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.Column8.Width = 160;
             // 
-            // due_to_remind
+            // Tr_nowtime
+            // 
+            this.Tr_nowtime.Enabled = true;
+            this.Tr_nowtime.Interval = 1000;
+            this.Tr_nowtime.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // la_nowtxt
+            // 
+            this.la_nowtxt.AutoSize = true;
+            this.la_nowtxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_nowtxt.Location = new System.Drawing.Point(56, 45);
+            this.la_nowtxt.Name = "la_nowtxt";
+            this.la_nowtxt.Size = new System.Drawing.Size(90, 21);
+            this.la_nowtxt.TabIndex = 1;
+            this.la_nowtxt.Text = "当前时间：";
+            // 
+            // La_nowtime
+            // 
+            this.La_nowtime.AutoSize = true;
+            this.La_nowtime.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_nowtime.Location = new System.Drawing.Point(151, 45);
+            this.La_nowtime.Name = "La_nowtime";
+            this.La_nowtime.Size = new System.Drawing.Size(0, 21);
+            this.La_nowtime.TabIndex = 2;
+            this.La_nowtime.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // la_time
+            // 
+            this.la_time.AutoSize = true;
+            this.la_time.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_time.Location = new System.Drawing.Point(152, 45);
+            this.la_time.Name = "la_time";
+            this.la_time.Size = new System.Drawing.Size(80, 21);
+            this.la_time.TabIndex = 3;
+            this.la_time.Text = "Nowtime";
+            this.la_time.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // Due_to_remind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1420, 840);
-            this.Controls.Add(this.la_nowtime);
+            this.Controls.Add(this.la_time);
+            this.Controls.Add(this.La_nowtime);
             this.Controls.Add(this.la_nowtxt);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "due_to_remind";
+            this.Name = "Due_to_remind";
             this.Text = "due_to_remind";
             this.Load += new System.EventHandler(this.due_to_remind_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -157,9 +171,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer Tr_nowtime;
         private System.Windows.Forms.Label la_nowtxt;
-        private System.Windows.Forms.Label la_nowtime;
+        private System.Windows.Forms.Label La_nowtime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -168,5 +182,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private System.Windows.Forms.Label la_time;
     }
 }
