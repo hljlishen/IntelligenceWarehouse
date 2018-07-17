@@ -36,7 +36,6 @@
             this.到期提醒ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.器件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仪器管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.仪器入库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.元器件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.元器件清单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.器件出入记录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +54,7 @@
             this.器件出入记录ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1424, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 25);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,30 +101,23 @@
             // 
             // 仪器管理ToolStripMenuItem
             // 
-            this.仪器管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.仪器入库ToolStripMenuItem});
             this.仪器管理ToolStripMenuItem.Name = "仪器管理ToolStripMenuItem";
-            this.仪器管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.仪器管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.仪器管理ToolStripMenuItem.Text = "仪器管理";
-            // 
-            // 仪器入库ToolStripMenuItem
-            // 
-            this.仪器入库ToolStripMenuItem.Name = "仪器入库ToolStripMenuItem";
-            this.仪器入库ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.仪器入库ToolStripMenuItem.Text = "仪器清单";
+            this.仪器管理ToolStripMenuItem.Click += new System.EventHandler(this.仪器管理ToolStripMenuItem_Click);
             // 
             // 元器件管理ToolStripMenuItem
             // 
             this.元器件管理ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.元器件清单ToolStripMenuItem});
             this.元器件管理ToolStripMenuItem.Name = "元器件管理ToolStripMenuItem";
-            this.元器件管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.元器件管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.元器件管理ToolStripMenuItem.Text = "元器件管理";
             // 
             // 元器件清单ToolStripMenuItem
             // 
             this.元器件清单ToolStripMenuItem.Name = "元器件清单ToolStripMenuItem";
-            this.元器件清单ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.元器件清单ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.元器件清单ToolStripMenuItem.Text = "元器件清单";
             // 
             // 器件出入记录ToolStripMenuItem
@@ -138,7 +130,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1424, 862);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
@@ -164,7 +156,6 @@
         private System.Windows.Forms.ToolStripMenuItem 到期提醒ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 器件管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 仪器管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 仪器入库ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 元器件管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 元器件清单ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 器件出入记录ToolStripMenuItem;
