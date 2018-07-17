@@ -19,7 +19,8 @@ namespace cangku_01.MH
 
         private void Takein_Warehouse_Load(object sender, EventArgs e)
         {
-            
+            Take_Window_style win_sty = new Take_Window_style();
+            win_sty.Top_and_Left_(this);
         }
     }
 }

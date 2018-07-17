@@ -73,6 +73,8 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="MH\Class_Warehouse.cs" />
+    <Compile Include="MH\Take_Window_style.cs" />
     <Compile Include="MH\Takein_Warehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,9 +160,6 @@
     <Folder Include="LK\" />
     <Folder Include="LS\" />
     <Folder Include="LX\" />
-    <Folder Include="YT\" />
-    <Folder Include="MH\" />
-    <Folder Include="SQQ\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
