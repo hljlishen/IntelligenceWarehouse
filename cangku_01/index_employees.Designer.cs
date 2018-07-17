@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tb_found = new System.Windows.Forms.TextBox();
             this.bt_found = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt_addUser = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tb_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,10 +50,7 @@
             this.tb_temp = new System.Windows.Forms.TextBox();
             this.tb_job = new System.Windows.Forms.TextBox();
             this.tb_salary = new System.Windows.Forms.TextBox();
-            this.tb_jobtime = new System.Windows.Forms.TextBox();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tb_jobtime = new System.Windows.Forms.DateTimePicker();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,7 +59,11 @@
             this.职位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.薪资 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.入职时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.操作 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.del = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).BeginInit();
@@ -88,15 +89,16 @@
             this.bt_found.UseVisualStyleBackColor = true;
             this.bt_found.Click += new System.EventHandler(this.bt_found_Click);
             // 
-            // button2
+            // bt_addUser
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            resources.ApplyResources(this.bt_addUser, "bt_addUser");
+            this.bt_addUser.Name = "bt_addUser";
+            this.bt_addUser.UseVisualStyleBackColor = true;
+            this.bt_addUser.Click += new System.EventHandler(this.button2_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -107,9 +109,11 @@
             this.职位,
             this.薪资,
             this.入职时间,
-            this.操作});
+            this.del,
+            this.update_});
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -193,6 +197,75 @@
             resources.ApplyResources(this.tb_jobtime, "tb_jobtime");
             this.tb_jobtime.Name = "tb_jobtime";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "01";
+            resources.ApplyResources(this.ID, "ID");
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // 姓名
+            // 
+            resources.ApplyResources(this.姓名, "姓名");
+            this.姓名.Name = "姓名";
+            this.姓名.ReadOnly = true;
+            // 
+            // 性别
+            // 
+            resources.ApplyResources(this.性别, "性别");
+            this.性别.Name = "性别";
+            this.性别.ReadOnly = true;
+            // 
+            // 联系电话
+            // 
+            resources.ApplyResources(this.联系电话, "联系电话");
+            this.联系电话.Name = "联系电话";
+            this.联系电话.ReadOnly = true;
+            // 
+            // 所属部门
+            // 
+            resources.ApplyResources(this.所属部门, "所属部门");
+            this.所属部门.Name = "所属部门";
+            this.所属部门.ReadOnly = true;
+            // 
+            // 职位
+            // 
+            resources.ApplyResources(this.职位, "职位");
+            this.职位.Name = "职位";
+            this.职位.ReadOnly = true;
+            // 
+            // 薪资
+            // 
+            resources.ApplyResources(this.薪资, "薪资");
+            this.薪资.Name = "薪资";
+            this.薪资.ReadOnly = true;
+            // 
+            // 入职时间
+            // 
+            resources.ApplyResources(this.入职时间, "入职时间");
+            this.入职时间.Name = "入职时间";
+            this.入职时间.ReadOnly = true;
+            // 
+            // del
+            // 
+            this.del.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            resources.ApplyResources(this.del, "del");
+            this.del.Name = "del";
+            this.del.ReadOnly = true;
+            this.del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.del.Text = "删除";
+            this.del.UseColumnTextForButtonValue = true;
+            // 
+            // update_
+            // 
+            this.update_.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            resources.ApplyResources(this.update_, "update_");
+            this.update_.Name = "update_";
+            this.update_.ReadOnly = true;
+            this.update_.Text = "修改";
+            this.update_.UseColumnTextForButtonValue = true;
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(cangku_01.entity.User);
@@ -204,57 +277,6 @@
             // userInterfaceBindingSource
             // 
             this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "01";
-            resources.ApplyResources(this.ID, "ID");
-            this.ID.Name = "ID";
-            // 
-            // 姓名
-            // 
-            resources.ApplyResources(this.姓名, "姓名");
-            this.姓名.Name = "姓名";
-            // 
-            // 性别
-            // 
-            resources.ApplyResources(this.性别, "性别");
-            this.性别.Name = "性别";
-            // 
-            // 联系电话
-            // 
-            resources.ApplyResources(this.联系电话, "联系电话");
-            this.联系电话.Name = "联系电话";
-            // 
-            // 所属部门
-            // 
-            resources.ApplyResources(this.所属部门, "所属部门");
-            this.所属部门.Name = "所属部门";
-            // 
-            // 职位
-            // 
-            resources.ApplyResources(this.职位, "职位");
-            this.职位.Name = "职位";
-            // 
-            // 薪资
-            // 
-            resources.ApplyResources(this.薪资, "薪资");
-            this.薪资.Name = "薪资";
-            // 
-            // 入职时间
-            // 
-            resources.ApplyResources(this.入职时间, "入职时间");
-            this.入职时间.Name = "入职时间";
-            // 
-            // 操作
-            // 
-            this.操作.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            resources.ApplyResources(this.操作, "操作");
-            this.操作.Name = "操作";
-            this.操作.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.操作.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.操作.Text = "删除";
-            this.操作.UseColumnTextForButtonValue = true;
             // 
             // index_employees
             // 
@@ -276,7 +298,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tb_id);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.bt_addUser);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bt_found);
             this.Controls.Add(this.tb_found);
@@ -298,7 +320,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_found;
         private System.Windows.Forms.Button bt_found;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_addUser;
         private System.Windows.Forms.BindingSource userInterfaceBindingSource;
         private System.Windows.Forms.BindingSource userInterfaceImpBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -318,7 +340,7 @@
         private System.Windows.Forms.TextBox tb_temp;
         private System.Windows.Forms.TextBox tb_job;
         private System.Windows.Forms.TextBox tb_salary;
-        private System.Windows.Forms.TextBox tb_jobtime;
+        private System.Windows.Forms.DateTimePicker tb_jobtime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
@@ -327,6 +349,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 职位;
         private System.Windows.Forms.DataGridViewTextBoxColumn 薪资;
         private System.Windows.Forms.DataGridViewTextBoxColumn 入职时间;
-        private System.Windows.Forms.DataGridViewButtonColumn 操作;
+        private System.Windows.Forms.DataGridViewButtonColumn del;
+        private System.Windows.Forms.DataGridViewButtonColumn update_;
     }
 }

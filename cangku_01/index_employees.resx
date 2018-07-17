@@ -198,31 +198,31 @@
   <data name="&gt;&gt;bt_found.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="bt_addUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="bt_addUser.Location" type="System.Drawing.Point, System.Drawing">
     <value>1152, 477</value>
   </data>
-  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="bt_addUser.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
-  <data name="button2.TabIndex" type="System.Int32, mscorlib">
+  <data name="bt_addUser.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="button2.Text" xml:space="preserve">
+  <data name="bt_addUser.Text" xml:space="preserve">
     <value>添加员工</value>
   </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
+  <data name="&gt;&gt;bt_addUser.Name" xml:space="preserve">
+    <value>bt_addUser</value>
   </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
+  <data name="&gt;&gt;bt_addUser.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bt_addUser.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;bt_addUser.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -276,17 +276,23 @@
   <data name="入职时间.HeaderText" xml:space="preserve">
     <value>入职时间</value>
   </data>
-  <metadata name="操作.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="del.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="操作.HeaderText" xml:space="preserve">
-    <value>操作</value>
+  <data name="del.HeaderText" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <metadata name="update_.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="update_.HeaderText" xml:space="preserve">
+    <value>修改</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 39</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>943, 849</value>
+    <value>1043, 849</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -691,19 +697,19 @@
     <value>1</value>
   </data>
   <data name="tb_jobtime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1170, 396</value>
+    <value>1170, 405</value>
   </data>
   <data name="tb_jobtime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 21</value>
+    <value>200, 21</value>
   </data>
   <data name="tb_jobtime.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="&gt;&gt;tb_jobtime.Name" xml:space="preserve">
     <value>tb_jobtime</value>
   </data>
   <data name="&gt;&gt;tb_jobtime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tb_jobtime.Parent" xml:space="preserve">
     <value>$this</value>
@@ -734,24 +740,6 @@
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>index_employees</value>
-  </data>
-  <data name="&gt;&gt;userBindingSource.Name" xml:space="preserve">
-    <value>userBindingSource</value>
-  </data>
-  <data name="&gt;&gt;userBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceImpBindingSource.Name" xml:space="preserve">
-    <value>userInterfaceImpBindingSource</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceImpBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceBindingSource.Name" xml:space="preserve">
-    <value>userInterfaceBindingSource</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ID.Name" xml:space="preserve">
     <value>ID</value>
@@ -801,11 +789,35 @@
   <data name="&gt;&gt;入职时间.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;操作.Name" xml:space="preserve">
-    <value>操作</value>
+  <data name="&gt;&gt;del.Name" xml:space="preserve">
+    <value>del</value>
   </data>
-  <data name="&gt;&gt;操作.Type" xml:space="preserve">
+  <data name="&gt;&gt;del.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;update_.Name" xml:space="preserve">
+    <value>update_</value>
+  </data>
+  <data name="&gt;&gt;update_.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userBindingSource.Name" xml:space="preserve">
+    <value>userBindingSource</value>
+  </data>
+  <data name="&gt;&gt;userBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceImpBindingSource.Name" xml:space="preserve">
+    <value>userInterfaceImpBindingSource</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceImpBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceBindingSource.Name" xml:space="preserve">
+    <value>userInterfaceBindingSource</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>index_employees</value>
