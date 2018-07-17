@@ -16,6 +16,7 @@ namespace cangku_01.MH
             fr.Top = 0;
             fr.Left = 0;
         }
+        //关闭父类窗口
         public void Window(Form fr)
         {
             foreach (Form f in fr.MdiChildren)

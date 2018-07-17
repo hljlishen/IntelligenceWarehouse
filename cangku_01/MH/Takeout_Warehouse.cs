@@ -1,4 +1,6 @@
-﻿using System;
+﻿using cangku_01.MH.interfaceImp;
+using cangku_01.MH.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,10 @@ namespace cangku_01.MH
     //仪器出库页面
     public partial class Takeout_Warehouse : Form
     {
+        WarehInterface dao = new WarehInterfaceImp();
+        style sty = new style();
+        String s = "请输入员工的姓名";
+        Class_Warehouse user = new Class_Warehouse();
         public Takeout_Warehouse()
         {
             InitializeComponent();
@@ -22,6 +28,11 @@ namespace cangku_01.MH
         {
             Take_Window_style win_sty = new Take_Window_style();
             win_sty.Top_and_Left_(this);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
