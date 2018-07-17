@@ -17,23 +17,23 @@ namespace cangku_01.YT
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
             this.La_nowtime.Text = DateTime.Now.ToString();
         }
 
-        private void due_to_remind_Load(object sender, EventArgs e)
+        private void Due_to_remind_Load(object sender, EventArgs e)
         {
             Window_style win_sty = new Window_style();
             win_sty.Top_and_Left(this);
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             this.la_time.Text = DateTime.Now.ToString();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }

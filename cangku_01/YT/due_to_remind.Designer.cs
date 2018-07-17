@@ -116,7 +116,7 @@
             // 
             this.Tr_nowtime.Enabled = true;
             this.Tr_nowtime.Interval = 1000;
-            this.Tr_nowtime.Tick += new System.EventHandler(this.timer1_Tick);
+            this.Tr_nowtime.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // la_nowtxt
             // 
@@ -136,7 +136,7 @@
             this.La_nowtime.Name = "La_nowtime";
             this.La_nowtime.Size = new System.Drawing.Size(0, 21);
             this.La_nowtime.TabIndex = 2;
-            this.La_nowtime.Click += new System.EventHandler(this.label2_Click);
+            this.La_nowtime.Click += new System.EventHandler(this.Label2_Click);
             // 
             // la_time
             // 
@@ -147,7 +147,7 @@
             this.la_time.Size = new System.Drawing.Size(80, 21);
             this.la_time.TabIndex = 3;
             this.la_time.Text = "Nowtime";
-            this.la_time.Click += new System.EventHandler(this.label1_Click);
+            this.la_time.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Due_to_remind
             // 
@@ -161,7 +161,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Due_to_remind";
             this.Text = "due_to_remind";
-            this.Load += new System.EventHandler(this.due_to_remind_Load);
+            this.Load += new System.EventHandler(this.Due_to_remind_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
