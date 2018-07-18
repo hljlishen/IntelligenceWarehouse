@@ -17,6 +17,7 @@ namespace cangku_01
         public Form1()
         {
             InitializeComponent();
+            this.skinEngine1.SkinFile = "Longhorn.ssk";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
