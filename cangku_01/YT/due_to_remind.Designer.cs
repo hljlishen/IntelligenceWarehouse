@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
+            this.la_nowtxt = new System.Windows.Forms.Label();
+            this.La_nowtime = new System.Windows.Forms.Label();
+            this.la_time = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,10 +42,6 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
-            this.la_nowtxt = new System.Windows.Forms.Label();
-            this.La_nowtime = new System.Windows.Forms.Label();
-            this.la_time = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,55 +62,7 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(1294, 700);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "编号";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "名称";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "生产厂商";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 160;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "上次检查日期";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 180;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "检查周期";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 160;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "下一次检查日期";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 180;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "剩余检查时间";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 160;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "操作";
-            this.Column8.Name = "Column8";
-            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column8.Width = 160;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Tr_nowtime
             // 
@@ -149,6 +101,64 @@
             this.la_time.Text = "Nowtime";
             this.la_time.Click += new System.EventHandler(this.Label1_Click);
             // 
+            // Column1
+            // 
+            this.Column1.Frozen = true;
+            this.Column1.HeaderText = "编号";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.Frozen = true;
+            this.Column2.HeaderText = "名称";
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 150;
+            // 
+            // Column3
+            // 
+            this.Column3.Frozen = true;
+            this.Column3.HeaderText = "生产厂商";
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 160;
+            // 
+            // Column4
+            // 
+            this.Column4.Frozen = true;
+            this.Column4.HeaderText = "上次检查日期";
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 180;
+            // 
+            // Column5
+            // 
+            this.Column5.Frozen = true;
+            this.Column5.HeaderText = "检查周期";
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 160;
+            // 
+            // Column6
+            // 
+            this.Column6.Frozen = true;
+            this.Column6.HeaderText = "下一次检查日期";
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 180;
+            // 
+            // Column7
+            // 
+            this.Column7.Frozen = true;
+            this.Column7.HeaderText = "剩余检查时间";
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 160;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "操作";
+            this.Column8.Name = "Column8";
+            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Column8.Text = "修改检查时间";
+            this.Column8.UseColumnTextForButtonValue = true;
+            this.Column8.Width = 160;
+            // 
             // Due_to_remind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -174,6 +184,7 @@
         private System.Windows.Forms.Timer Tr_nowtime;
         private System.Windows.Forms.Label la_nowtxt;
         private System.Windows.Forms.Label La_nowtime;
+        private System.Windows.Forms.Label la_time;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -182,6 +193,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
-        private System.Windows.Forms.Label la_time;
     }
 }
