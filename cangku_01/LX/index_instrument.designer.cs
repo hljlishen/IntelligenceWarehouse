@@ -45,6 +45,7 @@
             this.有效日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.历次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,12 @@
             this.检定周期,
             this.有效日期,
             this.历次检验时间,
-            this.负责人});
+            this.负责人,
+            this.Column1});
             this.dataGridView1.Location = new System.Drawing.Point(12, 78);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1223, 849);
+            this.dataGridView1.Size = new System.Drawing.Size(1325, 849);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -170,6 +172,13 @@
             this.负责人.HeaderText = "负责人";
             this.负责人.Name = "负责人";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "删除";
+            this.Column1.Name = "Column1";
+            this.Column1.Text = "删除";
+            this.Column1.UseColumnTextForButtonValue = true;
+            // 
             // index_instrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -210,5 +219,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 有效日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 历次检验时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
+        private System.Windows.Forms.DataGridViewButtonColumn Column1;
     }
 }

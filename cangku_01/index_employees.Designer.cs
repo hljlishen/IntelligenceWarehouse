@@ -35,6 +35,16 @@
             this.bt_found = new System.Windows.Forms.Button();
             this.bt_addUser = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.联系电话 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.职位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.薪资 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.入职时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.del = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tb_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,16 +61,6 @@
             this.tb_job = new System.Windows.Forms.TextBox();
             this.tb_salary = new System.Windows.Forms.TextBox();
             this.tb_jobtime = new System.Windows.Forms.DateTimePicker();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.联系电话 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.职位 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.薪资 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.入职时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.del = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -116,6 +116,75 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "01";
+            resources.ApplyResources(this.ID, "ID");
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // 姓名
+            // 
+            resources.ApplyResources(this.姓名, "姓名");
+            this.姓名.Name = "姓名";
+            this.姓名.ReadOnly = true;
+            // 
+            // 性别
+            // 
+            resources.ApplyResources(this.性别, "性别");
+            this.性别.Name = "性别";
+            this.性别.ReadOnly = true;
+            // 
+            // 联系电话
+            // 
+            resources.ApplyResources(this.联系电话, "联系电话");
+            this.联系电话.Name = "联系电话";
+            this.联系电话.ReadOnly = true;
+            // 
+            // 所属部门
+            // 
+            resources.ApplyResources(this.所属部门, "所属部门");
+            this.所属部门.Name = "所属部门";
+            this.所属部门.ReadOnly = true;
+            // 
+            // 职位
+            // 
+            resources.ApplyResources(this.职位, "职位");
+            this.职位.Name = "职位";
+            this.职位.ReadOnly = true;
+            // 
+            // 薪资
+            // 
+            resources.ApplyResources(this.薪资, "薪资");
+            this.薪资.Name = "薪资";
+            this.薪资.ReadOnly = true;
+            // 
+            // 入职时间
+            // 
+            resources.ApplyResources(this.入职时间, "入职时间");
+            this.入职时间.Name = "入职时间";
+            this.入职时间.ReadOnly = true;
+            // 
+            // del
+            // 
+            this.del.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            resources.ApplyResources(this.del, "del");
+            this.del.Name = "del";
+            this.del.ReadOnly = true;
+            this.del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.del.Text = "删除";
+            this.del.UseColumnTextForButtonValue = true;
+            // 
+            // update_
+            // 
+            this.update_.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            resources.ApplyResources(this.update_, "update_");
+            this.update_.Name = "update_";
+            this.update_.ReadOnly = true;
+            this.update_.Text = "修改";
+            this.update_.UseColumnTextForButtonValue = true;
             // 
             // tb_id
             // 
@@ -196,75 +265,6 @@
             // 
             resources.ApplyResources(this.tb_jobtime, "tb_jobtime");
             this.tb_jobtime.Name = "tb_jobtime";
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "01";
-            resources.ApplyResources(this.ID, "ID");
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // 姓名
-            // 
-            resources.ApplyResources(this.姓名, "姓名");
-            this.姓名.Name = "姓名";
-            this.姓名.ReadOnly = true;
-            // 
-            // 性别
-            // 
-            resources.ApplyResources(this.性别, "性别");
-            this.性别.Name = "性别";
-            this.性别.ReadOnly = true;
-            // 
-            // 联系电话
-            // 
-            resources.ApplyResources(this.联系电话, "联系电话");
-            this.联系电话.Name = "联系电话";
-            this.联系电话.ReadOnly = true;
-            // 
-            // 所属部门
-            // 
-            resources.ApplyResources(this.所属部门, "所属部门");
-            this.所属部门.Name = "所属部门";
-            this.所属部门.ReadOnly = true;
-            // 
-            // 职位
-            // 
-            resources.ApplyResources(this.职位, "职位");
-            this.职位.Name = "职位";
-            this.职位.ReadOnly = true;
-            // 
-            // 薪资
-            // 
-            resources.ApplyResources(this.薪资, "薪资");
-            this.薪资.Name = "薪资";
-            this.薪资.ReadOnly = true;
-            // 
-            // 入职时间
-            // 
-            resources.ApplyResources(this.入职时间, "入职时间");
-            this.入职时间.Name = "入职时间";
-            this.入职时间.ReadOnly = true;
-            // 
-            // del
-            // 
-            this.del.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            resources.ApplyResources(this.del, "del");
-            this.del.Name = "del";
-            this.del.ReadOnly = true;
-            this.del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.del.Text = "删除";
-            this.del.UseColumnTextForButtonValue = true;
-            // 
-            // update_
-            // 
-            this.update_.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            resources.ApplyResources(this.update_, "update_");
-            this.update_.Name = "update_";
-            this.update_.ReadOnly = true;
-            this.update_.Text = "修改";
-            this.update_.UseColumnTextForButtonValue = true;
             // 
             // userBindingSource
             // 

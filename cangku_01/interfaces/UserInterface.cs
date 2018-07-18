@@ -20,5 +20,8 @@ namespace cangku_01.interfaces
        void delUser(int id);
         //根据id查找用户信息
         List<User> findUserById(int id);
+        //根据id已经查到的数值
+        List<User> UpdateUserList();
+       
     }
 }

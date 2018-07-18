@@ -42,8 +42,8 @@
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.bt_people_search = new System.Windows.Forms.Button();
+            this.bt_time_search = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -164,25 +164,25 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(124, 21);
             this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "请输入姓名";
             // 
-            // button1
+            // bt_people_search
             // 
-            this.button1.Location = new System.Drawing.Point(291, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bt_people_search.Location = new System.Drawing.Point(291, 35);
+            this.bt_people_search.Name = "bt_people_search";
+            this.bt_people_search.Size = new System.Drawing.Size(75, 23);
+            this.bt_people_search.TabIndex = 4;
+            this.bt_people_search.Text = "查询";
+            this.bt_people_search.UseVisualStyleBackColor = true;
+            this.bt_people_search.Click += new System.EventHandler(this.bt_people_search_Click);
             // 
-            // button2
+            // bt_time_search
             // 
-            this.button2.Location = new System.Drawing.Point(998, 47);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "查询";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bt_time_search.Location = new System.Drawing.Point(998, 47);
+            this.bt_time_search.Name = "bt_time_search";
+            this.bt_time_search.Size = new System.Drawing.Size(75, 23);
+            this.bt_time_search.TabIndex = 5;
+            this.bt_time_search.Text = "查询";
+            this.bt_time_search.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -225,8 +225,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bt_time_search);
+            this.Controls.Add(this.bt_people_search);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
@@ -256,8 +256,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bt_people_search;
+        private System.Windows.Forms.Button bt_time_search;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label3;

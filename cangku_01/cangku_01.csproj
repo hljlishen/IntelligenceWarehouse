@@ -32,8 +32,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IrisSkin2">
+      <HintPath>F:\Visual stadio 2017\Test\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\IrisSkin2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -73,10 +77,12 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LX\instrument_User.cs" />
-    <Compile Include="MH\Class_Warehouse.cs" />
-    <Compile Include="MH\interfaceImp\WarehInterfaceImp.cs" />
-    <Compile Include="MH\interfaces\WarehInterface.cs" />
+    <Compile Include="LX\instrument_entity.cs" />
+    <Compile Include="LX\InterfaceImp_instrument.cs" />
+    <Compile Include="LX\Interface_instrument.cs" />
+    <Compile Include="MH\entity\Warehouse.cs" />
+    <Compile Include="MH\interfaceImp\InterfaceImp_warehouse.cs" />
+    <Compile Include="MH\interfaces\Interface_warehouse.cs" />
     <Compile Include="MH\Take_Window_style.cs" />
     <Compile Include="MH\Takein_Warehouse.cs">
       <SubType>Form</SubType>
@@ -104,6 +110,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SQQ\entity\ComponentFind.cs" />
+    <Compile Include="SQQ\entity\InstrumentFind.cs" />
+    <Compile Include="SQQ\Find_Items.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SQQ\Find_Items.Designer.cs">
+      <DependentUpon>Find_Items.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SQQ\interfaceImp\ComponentFindInterfaceImp.cs" />
+    <Compile Include="SQQ\interfaceImp\InstrumentFindInterfaceImp.cs" />
+    <Compile Include="SQQ\interfaces\ComponentFindInterfaces.cs" />
+    <Compile Include="SQQ\interfaces\InstrumentFindInterface.cs" />
     <Compile Include="SQQ\updata_user.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +180,9 @@
     </Compile>
     <EmbeddedResource Include="YT\Alter_remind.resx">
       <DependentUpon>Alter_remind.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SQQ\Find_Items.resx">
+      <DependentUpon>Find_Items.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="YT\Due_to_remind.resx">
       <DependentUpon>Due_to_remind.cs</DependentUpon>

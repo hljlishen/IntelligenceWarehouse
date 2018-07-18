@@ -37,15 +37,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.update_tb_id = new System.Windows.Forms.TextBox();
+            this.update_tb_name = new System.Windows.Forms.TextBox();
+            this.update_tb_sex = new System.Windows.Forms.TextBox();
+            this.update_tb_tel = new System.Windows.Forms.TextBox();
+            this.update_tb_temp = new System.Windows.Forms.TextBox();
+            this.update_tb_job = new System.Windows.Forms.TextBox();
+            this.update_tb_salary = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.update_tb_jobtime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -130,55 +130,55 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "入职时间：";
             // 
-            // textBox1
+            // update_tb_id
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 62);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 9;
+            this.update_tb_id.Location = new System.Drawing.Point(86, 62);
+            this.update_tb_id.Name = "update_tb_id";
+            this.update_tb_id.ReadOnly = true;
+            this.update_tb_id.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_id.TabIndex = 9;
             // 
-            // textBox2
+            // update_tb_name
             // 
-            this.textBox2.Location = new System.Drawing.Point(86, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 10;
+            this.update_tb_name.Location = new System.Drawing.Point(86, 94);
+            this.update_tb_name.Name = "update_tb_name";
+            this.update_tb_name.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_name.TabIndex = 10;
             // 
-            // textBox3
+            // update_tb_sex
             // 
-            this.textBox3.Location = new System.Drawing.Point(86, 129);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 21);
-            this.textBox3.TabIndex = 11;
+            this.update_tb_sex.Location = new System.Drawing.Point(86, 129);
+            this.update_tb_sex.Name = "update_tb_sex";
+            this.update_tb_sex.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_sex.TabIndex = 11;
             // 
-            // textBox4
+            // update_tb_tel
             // 
-            this.textBox4.Location = new System.Drawing.Point(86, 167);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 21);
-            this.textBox4.TabIndex = 12;
+            this.update_tb_tel.Location = new System.Drawing.Point(86, 167);
+            this.update_tb_tel.Name = "update_tb_tel";
+            this.update_tb_tel.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_tel.TabIndex = 12;
             // 
-            // textBox5
+            // update_tb_temp
             // 
-            this.textBox5.Location = new System.Drawing.Point(86, 205);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 21);
-            this.textBox5.TabIndex = 13;
+            this.update_tb_temp.Location = new System.Drawing.Point(86, 205);
+            this.update_tb_temp.Name = "update_tb_temp";
+            this.update_tb_temp.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_temp.TabIndex = 13;
             // 
-            // textBox6
+            // update_tb_job
             // 
-            this.textBox6.Location = new System.Drawing.Point(86, 243);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 21);
-            this.textBox6.TabIndex = 14;
+            this.update_tb_job.Location = new System.Drawing.Point(86, 243);
+            this.update_tb_job.Name = "update_tb_job";
+            this.update_tb_job.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_job.TabIndex = 14;
             // 
-            // textBox7
+            // update_tb_salary
             // 
-            this.textBox7.Location = new System.Drawing.Point(86, 278);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 21);
-            this.textBox7.TabIndex = 15;
+            this.update_tb_salary.Location = new System.Drawing.Point(86, 278);
+            this.update_tb_salary.Name = "update_tb_salary";
+            this.update_tb_salary.Size = new System.Drawing.Size(100, 21);
+            this.update_tb_salary.TabIndex = 15;
             // 
             // button1
             // 
@@ -188,28 +188,29 @@
             this.button1.TabIndex = 17;
             this.button1.Text = "确认修改";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // update_tb_jobtime
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(86, 320);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 18;
+            this.update_tb_jobtime.Location = new System.Drawing.Point(86, 320);
+            this.update_tb_jobtime.Name = "update_tb_jobtime";
+            this.update_tb_jobtime.Size = new System.Drawing.Size(200, 21);
+            this.update_tb_jobtime.TabIndex = 18;
             // 
             // updata_user
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(318, 449);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.update_tb_jobtime);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.update_tb_salary);
+            this.Controls.Add(this.update_tb_job);
+            this.Controls.Add(this.update_tb_temp);
+            this.Controls.Add(this.update_tb_tel);
+            this.Controls.Add(this.update_tb_sex);
+            this.Controls.Add(this.update_tb_name);
+            this.Controls.Add(this.update_tb_id);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -238,14 +239,14 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox update_tb_id;
+        private System.Windows.Forms.TextBox update_tb_name;
+        private System.Windows.Forms.TextBox update_tb_sex;
+        private System.Windows.Forms.TextBox update_tb_tel;
+        private System.Windows.Forms.TextBox update_tb_temp;
+        private System.Windows.Forms.TextBox update_tb_job;
+        private System.Windows.Forms.TextBox update_tb_salary;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker update_tb_jobtime;
     }
 }
