@@ -86,7 +86,7 @@
             this.管理员ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1386, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1440, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,19 +94,9 @@
             // 
             this.管理员ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.管理员ToolStripMenuItem.Name = "管理员ToolStripMenuItem";
-            this.管理员ToolStripMenuItem.Size = new System.Drawing.Size(102, 25);
-            this.管理员ToolStripMenuItem.Text = "管理员登录";
+            this.管理员ToolStripMenuItem.Size = new System.Drawing.Size(112, 25);
+            this.管理员ToolStripMenuItem.Text = "  管理员登录";
             this.管理员ToolStripMenuItem.Click += new System.EventHandler(this.管理员ToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1079, 635);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 34);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -135,7 +125,7 @@
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(1336, 2);
+            this.panel1.Location = new System.Drawing.Point(1378, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(50, 23);
             this.panel1.TabIndex = 6;
@@ -176,7 +166,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 764);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 877);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1440, 25);
             this.pictureBox2.TabIndex = 10;
@@ -197,7 +187,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.MediumBlue;
-            this.label5.Location = new System.Drawing.Point(565, 770);
+            this.label5.Location = new System.Drawing.Point(552, 885);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(311, 12);
             this.label5.TabIndex = 12;
@@ -207,7 +197,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(1250, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
             this.pictureBox4.TabIndex = 13;
@@ -215,9 +205,10 @@
             // 
             // Bt_Find
             // 
+            this.Bt_Find.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Bt_Find.Location = new System.Drawing.Point(1287, 772);
             this.Bt_Find.Name = "Bt_Find";
-            this.Bt_Find.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Find.Size = new System.Drawing.Size(75, 33);
             this.Bt_Find.TabIndex = 3;
             this.Bt_Find.Text = "查询";
             this.Bt_Find.UseVisualStyleBackColor = true;
@@ -229,7 +220,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1440, 900);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox3);
