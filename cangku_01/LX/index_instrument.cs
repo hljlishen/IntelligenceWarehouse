@@ -62,7 +62,9 @@ namespace cangku_01
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //表
-        {//方法CellDoubleClick双击事件
+        {
+            //方法CellDoubleClick双击事件
+
             if (e.ColumnIndex == 12)//点击在删除按钮上
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
