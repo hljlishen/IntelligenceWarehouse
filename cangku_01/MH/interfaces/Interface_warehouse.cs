@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace cangku_01.MH.interfaces
 {
-    interface WarehInterface
+    //仪器出入库接口
+    interface Interface_warehouse
     {
+        //查询仪器
+        List<Class_Warehouse> All_warehouse();
         //仪器进出库中的人员查询
         //根据人名进行查询
         List<Class_Warehouse> findUserByName(String Name);

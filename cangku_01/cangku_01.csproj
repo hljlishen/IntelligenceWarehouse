@@ -74,9 +74,9 @@
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
     <Compile Include="LX\instrument_User.cs" />
-    <Compile Include="MH\Class_Warehouse.cs" />
-    <Compile Include="MH\interfaceImp\WarehInterfaceImp.cs" />
-    <Compile Include="MH\interfaces\WarehInterface.cs" />
+    <Compile Include="MH\entity\Warehouse.cs" />
+    <Compile Include="MH\interfaceImp\InterfaceImp_warehouse.cs" />
+    <Compile Include="MH\interfaces\Interface_warehouse.cs" />
     <Compile Include="MH\Take_Window_style.cs" />
     <Compile Include="MH\Takein_Warehouse.cs">
       <SubType>Form</SubType>
