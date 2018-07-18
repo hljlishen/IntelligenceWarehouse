@@ -57,5 +57,19 @@ namespace cangku_01.interfaceImp
             //修改的sql语句
             return arr;
         }
+
+        public List<User> UpdateUserList()
+        {
+            user.Id = 1;
+            user.Name = "张三";
+            user.Sex = "男";
+            user.Temp = "研发部";
+            user.Tel = "15091229044";
+            user.Salary = 5000.0;
+            user.Job = "程序员";
+            user.Time = DateTime.Now;
+            arr.Add(user);
+            return arr;
+        }
     }
 }
