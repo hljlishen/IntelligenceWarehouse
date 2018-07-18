@@ -7,15 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using cangku_01.LK;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
+        interface_peopleinformation dao = new interfaceImp_peopleinformation();
         public Form1()
         {
             InitializeComponent();
             this.skinEngine1.SkinFile = "Longhorn.ssk";
+            List<entity_peopleinformation> list = dao.All_information();
+            foreach(entity_peopleinformation en in list)
+            {
+                Tb_id.Text = en.Id.ToString();
+                Tb_name.Text = en.Name;
+                Tb_temp.Text = en.Department;
+            }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -50,6 +60,11 @@ namespace cangku_01
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

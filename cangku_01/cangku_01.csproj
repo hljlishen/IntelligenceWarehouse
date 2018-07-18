@@ -71,6 +71,9 @@
     </Compile>
     <Compile Include="interfaceImp\UserInterfaceImp.cs" />
     <Compile Include="interfaces\UserInterface.cs" />
+    <Compile Include="LK\entity_peopleinformation.cs" />
+    <Compile Include="LK\interfaceImp_peopleinformation.cs" />
+    <Compile Include="LK\interface_peopleinformation.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,7 +206,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LK\" />
     <Folder Include="LS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
