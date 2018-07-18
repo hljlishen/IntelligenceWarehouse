@@ -33,11 +33,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.La_id = new System.Windows.Forms.Label();
+            this.La_name = new System.Windows.Forms.Label();
+            this.La_manufacturer = new System.Windows.Forms.Label();
+            this.Bt_alterremind = new System.Windows.Forms.Button();
+            this.Dtp_lasttime = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -90,63 +90,64 @@
             this.label4.TabIndex = 5;
             this.label4.Text = "生产厂商：";
             // 
-            // label6
+            // La_id
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(167, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "label6";
+            this.La_id.AutoSize = true;
+            this.La_id.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_id.Location = new System.Drawing.Point(167, 57);
+            this.La_id.Name = "La_id";
+            this.La_id.Size = new System.Drawing.Size(22, 20);
+            this.La_id.TabIndex = 6;
+            this.La_id.Text = "id";
             // 
-            // label7
+            // La_name
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(167, 107);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(50, 20);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "label7";
+            this.La_name.AutoSize = true;
+            this.La_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_name.Location = new System.Drawing.Point(167, 107);
+            this.La_name.Name = "La_name";
+            this.La_name.Size = new System.Drawing.Size(47, 20);
+            this.La_name.TabIndex = 7;
+            this.La_name.Text = "name";
             // 
-            // label8
+            // La_manufacturer
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(167, 150);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 20);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "label8";
+            this.La_manufacturer.AutoSize = true;
+            this.La_manufacturer.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_manufacturer.Location = new System.Drawing.Point(167, 150);
+            this.La_manufacturer.Name = "La_manufacturer";
+            this.La_manufacturer.Size = new System.Drawing.Size(100, 20);
+            this.La_manufacturer.TabIndex = 8;
+            this.La_manufacturer.Text = "manufacturer";
             // 
-            // button1
+            // Bt_alterremind
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(171, 282);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(119, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "确认修改";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Bt_alterremind.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Bt_alterremind.Location = new System.Drawing.Point(171, 282);
+            this.Bt_alterremind.Name = "Bt_alterremind";
+            this.Bt_alterremind.Size = new System.Drawing.Size(119, 34);
+            this.Bt_alterremind.TabIndex = 10;
+            this.Bt_alterremind.Text = "确认修改";
+            this.Bt_alterremind.UseVisualStyleBackColor = true;
+            this.Bt_alterremind.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dateTimePicker1
+            // Dtp_lasttime
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(171, 195);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 21);
-            this.dateTimePicker1.TabIndex = 11;
+            this.Dtp_lasttime.Location = new System.Drawing.Point(171, 195);
+            this.Dtp_lasttime.Name = "Dtp_lasttime";
+            this.Dtp_lasttime.Size = new System.Drawing.Size(200, 21);
+            this.Dtp_lasttime.TabIndex = 11;
             // 
             // Alter_remind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 362);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.Dtp_lasttime);
+            this.Controls.Add(this.Bt_alterremind);
+            this.Controls.Add(this.La_manufacturer);
+            this.Controls.Add(this.La_name);
+            this.Controls.Add(this.La_id);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -154,6 +155,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Alter_remind";
             this.Text = "Alter_remind";
+            this.Load += new System.EventHandler(this.Alter_remind_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,10 +168,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label La_id;
+        private System.Windows.Forms.Label La_name;
+        private System.Windows.Forms.Label La_manufacturer;
+        private System.Windows.Forms.Button Bt_alterremind;
+        private System.Windows.Forms.DateTimePicker Dtp_lasttime;
     }
 }

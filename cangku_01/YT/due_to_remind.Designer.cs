@@ -42,6 +42,10 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.La_day0 = new System.Windows.Forms.Label();
+            this.La_day30 = new System.Windows.Forms.Label();
+            this.La_day3060 = new System.Windows.Forms.Label();
+            this.La_day60 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +135,7 @@
             // Column5
             // 
             this.Column5.Frozen = true;
-            this.Column5.HeaderText = "检查周期";
+            this.Column5.HeaderText = "检查周期（日）";
             this.Column5.Name = "Column5";
             this.Column5.Width = 160;
             // 
@@ -145,7 +149,7 @@
             // Column7
             // 
             this.Column7.Frozen = true;
-            this.Column7.HeaderText = "剩余检查时间";
+            this.Column7.HeaderText = "剩余检查时间（日）";
             this.Column7.Name = "Column7";
             this.Column7.Width = 160;
             // 
@@ -159,11 +163,59 @@
             this.Column8.UseColumnTextForButtonValue = true;
             this.Column8.Width = 160;
             // 
+            // La_day0
+            // 
+            this.La_day0.AutoSize = true;
+            this.La_day0.BackColor = System.Drawing.Color.Crimson;
+            this.La_day0.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_day0.Location = new System.Drawing.Point(331, 45);
+            this.La_day0.Name = "La_day0";
+            this.La_day0.Size = new System.Drawing.Size(122, 21);
+            this.La_day0.TabIndex = 4;
+            this.La_day0.Text = "已超过检查日期";
+            // 
+            // La_day30
+            // 
+            this.La_day30.AutoSize = true;
+            this.La_day30.BackColor = System.Drawing.Color.Yellow;
+            this.La_day30.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_day30.Location = new System.Drawing.Point(511, 45);
+            this.La_day30.Name = "La_day30";
+            this.La_day30.Size = new System.Drawing.Size(92, 21);
+            this.La_day30.TabIndex = 5;
+            this.La_day30.Text = "30天内到检";
+            // 
+            // La_day3060
+            // 
+            this.La_day3060.AutoSize = true;
+            this.La_day3060.BackColor = System.Drawing.Color.DodgerBlue;
+            this.La_day3060.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_day3060.Location = new System.Drawing.Point(654, 45);
+            this.La_day3060.Name = "La_day3060";
+            this.La_day3060.Size = new System.Drawing.Size(117, 21);
+            this.La_day3060.TabIndex = 6;
+            this.La_day3060.Text = "30-60天内到检";
+            // 
+            // La_day60
+            // 
+            this.La_day60.AutoSize = true;
+            this.La_day60.BackColor = System.Drawing.Color.Lavender;
+            this.La_day60.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_day60.Location = new System.Drawing.Point(838, 45);
+            this.La_day60.Name = "La_day60";
+            this.La_day60.Size = new System.Drawing.Size(92, 21);
+            this.La_day60.TabIndex = 7;
+            this.La_day60.Text = "60天后到检";
+            // 
             // Due_to_remind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1420, 840);
+            this.Controls.Add(this.La_day60);
+            this.Controls.Add(this.La_day3060);
+            this.Controls.Add(this.La_day30);
+            this.Controls.Add(this.La_day0);
             this.Controls.Add(this.la_time);
             this.Controls.Add(this.La_nowtime);
             this.Controls.Add(this.la_nowtxt);
@@ -193,5 +245,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewButtonColumn Column8;
+        private System.Windows.Forms.Label La_day0;
+        private System.Windows.Forms.Label La_day30;
+        private System.Windows.Forms.Label La_day3060;
+        private System.Windows.Forms.Label La_day60;
     }
 }

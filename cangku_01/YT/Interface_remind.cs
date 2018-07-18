@@ -14,7 +14,7 @@ namespace cangku_01.YT
         //查询所有快要到期的仪器
         List<Entity_remind> All_remind();
         //进行修改
-        void Alter_remind(Entity_remind remind);
+        int Alter_remind(int Remind_id,DateTime Remind_lastdate);
 
     }
 }
