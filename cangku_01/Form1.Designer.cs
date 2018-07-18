@@ -1,4 +1,6 @@
-﻿namespace cangku_01
+﻿using System.Windows.Forms;
+
+namespace cangku_01
 {
     partial class Form1
     {
@@ -35,7 +37,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.管理员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Tb_temp = new System.Windows.Forms.TextBox();
+            this.Tb_name = new System.Windows.Forms.TextBox();
+            this.Tb_id = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
@@ -48,6 +58,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Bt_Find = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -94,14 +106,32 @@
             // 
             this.管理员ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.管理员ToolStripMenuItem.Name = "管理员ToolStripMenuItem";
-            this.管理员ToolStripMenuItem.Size = new System.Drawing.Size(112, 25);
-            this.管理员ToolStripMenuItem.Text = "  管理员登录";
+            this.管理员ToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
+            this.管理员ToolStripMenuItem.Text = "  管理员";
             this.管理员ToolStripMenuItem.Click += new System.EventHandler(this.管理员ToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.button1.Location = new System.Drawing.Point(1079, 635);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(90, 34);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "查询";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.groupBox1.Controls.Add(this.Tb_temp);
+            this.groupBox1.Controls.Add(this.Tb_name);
+            this.groupBox1.Controls.Add(this.Tb_id);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox1.Location = new System.Drawing.Point(51, 62);
@@ -111,6 +141,71 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "人员信息";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Tb_temp
+            // 
+            this.Tb_temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Tb_temp.Location = new System.Drawing.Point(392, 194);
+            this.Tb_temp.Name = "Tb_temp";
+            this.Tb_temp.ReadOnly = true;
+            this.Tb_temp.Size = new System.Drawing.Size(129, 26);
+            this.Tb_temp.TabIndex = 6;
+            // 
+            // Tb_name
+            // 
+            this.Tb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Tb_name.Location = new System.Drawing.Point(392, 124);
+            this.Tb_name.Name = "Tb_name";
+            this.Tb_name.ReadOnly = true;
+            this.Tb_name.Size = new System.Drawing.Size(129, 26);
+            this.Tb_name.TabIndex = 5;
+            // 
+            // Tb_id
+            // 
+            this.Tb_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Tb_id.Location = new System.Drawing.Point(392, 59);
+            this.Tb_id.Name = "Tb_id";
+            this.Tb_id.ReadOnly = true;
+            this.Tb_id.Size = new System.Drawing.Size(129, 26);
+            this.Tb_id.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(285, 196);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 21);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "所属部门：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(285, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 21);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "员工姓名：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(285, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "员工编号：";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(90, 61);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(123, 140);
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // groupBox2
             // 
@@ -197,7 +292,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
             this.pictureBox4.TabIndex = 13;
@@ -242,6 +337,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -258,6 +356,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 管理员ToolStripMenuItem;
+        private Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
@@ -270,6 +369,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Button Bt_Find;
+        private System.Windows.Forms.TextBox Tb_temp;
+        private System.Windows.Forms.TextBox Tb_name;
+        private System.Windows.Forms.TextBox Tb_id;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
 

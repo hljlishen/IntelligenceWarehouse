@@ -16,8 +16,7 @@ namespace cangku_01.YT
         String manufacturer; //生产厂商
         DateTime lastdate;  //上一次检查时间
         int cycle;  //检查周期
-        // DateTime nextdate;  //下一次检查日期
-        // DateTime expiredate; //剩余检查时间
+
 
 
         //set、get方法
@@ -26,7 +25,6 @@ namespace cangku_01.YT
         public string Manufacturer { get => manufacturer; set => manufacturer = value; }
         public DateTime Lastdate { get => lastdate; set => lastdate = value; }
         public int Cycle { get => cycle; set => cycle = value; }
-       // public DateTime Nextdate { get => nextdate; set => nextdate = value; }
-       // public DateTime Expiredate { get => expiredate; set => expiredate = value; }
+
     }
 }
