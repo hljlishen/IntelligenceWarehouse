@@ -18,15 +18,15 @@ namespace cangku_01.MH
         Interface_warehouse dao = new InterfaceImp_warehouse();
         style sty = new style();
         String s = "请输入员工的姓名";
-        Class_Warehouse warehouse = new Class_Warehouse();
+        Warehouse warehouse = new Warehouse();
         public Takeout_Warehouse()
         {
             InitializeComponent();
             //将全部出入库仪器加载
-            List<Class_Warehouse> allwarehouse = dao.All_warehouse();
+            List<Warehouse> allwarehouse = dao.All_warehouse();
 
             //循环遍历
-            foreach (Class_Warehouse wh in allwarehouse)
+            foreach (Warehouse wh in allwarehouse)
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dataGridView1.Rows.Add(row);

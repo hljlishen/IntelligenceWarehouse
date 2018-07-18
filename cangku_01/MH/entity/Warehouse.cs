@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace cangku_01.MH
 {
     //实体类
-    class Class_Warehouse
+    class Warehouse
     {
         int warehouse_id;          //仪器id
         String warehouse_name;        //仪器名

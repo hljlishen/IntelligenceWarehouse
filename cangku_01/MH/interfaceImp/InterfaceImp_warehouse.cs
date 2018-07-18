@@ -11,15 +11,15 @@ namespace cangku_01.MH.interfaceImp
     class InterfaceImp_warehouse : Interface_warehouse
     {
         //定义接收实体类数据的数组
-        List<Class_Warehouse> Warehouses_list = new List<Class_Warehouse>();
+        List<Warehouse> Warehouses_list = new List<Warehouse>();
 
         //实例化实体类
-        Class_Warehouse warehouse1 = new Class_Warehouse();
-        Class_Warehouse warehouse2 = new Class_Warehouse();
+        Warehouse warehouse1 = new Warehouse();
+        Warehouse warehouse2 = new Warehouse();
 
         //在数据库查询所有出入库仪器，并存放在数组中
 
-        List<Class_Warehouse> Interface_warehouse.All_warehouse()
+        List<Warehouse> Interface_warehouse.All_warehouse()
         {
 
             warehouse1.Warehouse_id = 1 ;
@@ -55,7 +55,7 @@ namespace cangku_01.MH.interfaceImp
             return Warehouses_list;
         }
         //在数据库查询所有出入库仪器，并存放在数组中
-        public List<Class_Warehouse> findUserByName(string Name)
+        public List<Warehouse> findUserByName(string Name)
         {
             //写sql语句返回
             return Warehouses_list;

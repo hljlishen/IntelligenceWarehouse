@@ -80,10 +80,6 @@
     <Compile Include="LX\instrument_entity.cs" />
     <Compile Include="LX\InterfaceImp_instrument.cs" />
     <Compile Include="LX\Interface_instrument.cs" />
-    <Compile Include="MH\Class_Warehouse.cs" />
-    <Compile Include="MH\interfaceImp\WarehInterfaceImp.cs" />
-    <Compile Include="MH\interfaces\WarehInterface.cs" />
-    <Compile Include="LX\instrument_User.cs" />
     <Compile Include="MH\entity\Warehouse.cs" />
     <Compile Include="MH\interfaceImp\InterfaceImp_warehouse.cs" />
     <Compile Include="MH\interfaces\Interface_warehouse.cs" />
@@ -209,7 +205,6 @@
   <ItemGroup>
     <Folder Include="LK\" />
     <Folder Include="LS\" />
-    <Folder Include="LX\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

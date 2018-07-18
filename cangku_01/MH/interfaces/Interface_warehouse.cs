@@ -10,9 +10,9 @@ namespace cangku_01.MH.interfaces
     interface Interface_warehouse
     {
         //查询仪器
-        List<Class_Warehouse> All_warehouse();
+        List<Warehouse> All_warehouse();
         //仪器进出库中的人员查询
         //根据人名进行查询
-        List<Class_Warehouse> findUserByName(String Name);
+        List<Warehouse> findUserByName(String Name);
     }
 }
