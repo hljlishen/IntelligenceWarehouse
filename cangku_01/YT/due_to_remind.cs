@@ -19,23 +19,55 @@ namespace cangku_01.YT
         {
             InitializeComponent();
 
-            //将全部员工加载
+            //获取所有的要提示的快过期信息
             List<Entity_remind> All_re = dao.All_remind();
 
-            //循环遍历
+            //循环遍历在列表中
             foreach (Entity_remind re in All_re)
             {
+                //获取当前时间并且赋值给dt
                 DateTime dt = DateTime.Now;
-
+               
+                //创建新的行
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dataGridView1.Rows.Add(row);
-                dataGridView1.Rows[index].Cells[0].Value = re.Id;
-                dataGridView1.Rows[index].Cells[1].Value = re.Name;
-                dataGridView1.Rows[index].Cells[2].Value = re.Manufacturer;
-                dataGridView1.Rows[index].Cells[3].Value = re.Lastdate;
-                dataGridView1.Rows[index].Cells[4].Value = re.Cycle;
-                dataGridView1.Rows[index].Cells[5].Value = re.Lastdate.AddDays(re.Cycle);
-                dataGridView1.Rows[index].Cells[6].Value = re.Lastdate.AddDays(re.Cycle) - DateTime.Now; 
+               
+                //给同一行的每一列赋值
+                 //id
+                 dataGridView1.Rows[index].Cells[0].Value = re.Id;  
+                 //name
+                 dataGridView1.Rows[index].Cells[1].Value = re.Name;
+                 //生产厂商
+                 dataGridView1.Rows[index].Cells[2].Value = re.Manufacturer;
+                 //上一次检查时间，时间格式转化，只显示年月日
+                 String St_Lastdate = re.Lastdate.Year.ToString() + "年" + re.Lastdate.Month.ToString() + "月" + re.Lastdate.Day.ToString() + "日";
+                 dataGridView1.Rows[index].Cells[3].Value = St_Lastdate;
+                 //检查周期
+                 String St_Cycle = re.Cycle.ToString();
+                 dataGridView1.Rows[index].Cells[4].Value = St_Cycle;
+                 //下一次最晚检查时间，时间格式转化，只显示年月日（下一次最晚检查时间=上次检查时间+检查周期）
+                 String St_Nextdate = re.Lastdate.AddDays(re.Cycle).Year.ToString() + "年" + re.Lastdate.AddDays(re.Cycle).Month.ToString() + "月" + re.Lastdate.AddDays(re.Cycle).Day.ToString() + "日";
+                 dataGridView1.Rows[index].Cells[5].Value = St_Nextdate;
+                 //剩余检查时间=下一次最晚检查时间-当前时间,只显示剩余天数
+                 String St_Expiredate = (re.Lastdate.AddDays(re.Cycle) - DateTime.Now).Days.ToString();
+                 dataGridView1.Rows[index].Cells[6].Value = St_Expiredate;
+
+
+                //判断剩余日期，并划分不同的背景色颜色
+                for (int x = 0; x < this.dataGridView1.Rows.Count - 1; x++)
+                {
+                    String s = dataGridView1.Rows[x].Cells[6].Value.ToString();
+                    int Day = int.Parse(s);
+                    if (Day <= 0)
+                        this.dataGridView1.Rows[x].DefaultCellStyle.BackColor = Color.Crimson;
+                    else if(Day > 0 && Day <= 30)
+                        this.dataGridView1.Rows[x].DefaultCellStyle.BackColor = Color.Yellow;
+                    else  if(Day >30 && Day <= 60)
+                        this.dataGridView1.Rows[x].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                    else
+                        this.dataGridView1.Rows[x].DefaultCellStyle.BackColor = Color.Lavender;
+                }
+
 
             }
 
@@ -64,14 +96,20 @@ namespace cangku_01.YT
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 7)//点击在删除按钮上
+
+
+            if (e.ColumnIndex == 7)//点击在修改按钮上
             {
-                if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("是否确认修改检查时间？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    int id = int.Parse(currentIndex);
-                    this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                   
+                    //获取要修改的id、名字、生产厂商
+                    string Remind_id = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    string Remind_name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    string Remind_manufacturer = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+
+                    //跳转到日期修改页面、并将相关数据传入Alter_remind界面
+                    Alter_remind Al_remind = new Alter_remind(Remind_id, Remind_name, Remind_manufacturer);
+                    Al_remind.Show();
                 }
             }
 

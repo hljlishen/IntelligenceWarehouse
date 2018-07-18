@@ -35,7 +35,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.管理员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -47,6 +46,7 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Bt_Find = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -295,6 +295,16 @@
             this.Tb_temp.Size = new System.Drawing.Size(129, 26);
             this.Tb_temp.TabIndex = 6;
             // 
+            // Bt_Find
+            // 
+            this.Bt_Find.Location = new System.Drawing.Point(1287, 772);
+            this.Bt_Find.Name = "Bt_Find";
+            this.Bt_Find.Size = new System.Drawing.Size(75, 23);
+            this.Bt_Find.TabIndex = 3;
+            this.Bt_Find.Text = "查询";
+            this.Bt_Find.UseVisualStyleBackColor = true;
+            this.Bt_Find.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -312,7 +322,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Bt_Find);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -342,7 +352,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 管理员ToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel panel1;
@@ -354,6 +363,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button Bt_Find;
         private System.Windows.Forms.TextBox Tb_temp;
         private System.Windows.Forms.TextBox Tb_name;
         private System.Windows.Forms.TextBox Tb_id;

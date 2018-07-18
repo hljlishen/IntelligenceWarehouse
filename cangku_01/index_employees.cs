@@ -22,6 +22,11 @@ namespace cangku_01
         style sty = new style();
         String s = "请输入员工的姓名";
         User user = new User();
+        String currentIndex;
+        List<User> updateUser;
+        
+       
+
         public index_employees()
         {
             InitializeComponent();
@@ -50,7 +55,10 @@ namespace cangku_01
             this.tb_found.Text = s;
             this.tb_found.MouseClick += textBox1_MouseClick;
             this.tb_found.Leave += textBox1_Leave;
-            
+
+            style style1 = new style();
+            style1.Location(this);
+
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -86,10 +94,10 @@ namespace cangku_01
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //获取要修改的id
-                    string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     //根据用户id查询
-                    dao.findUserById(id);
+                    updateUser= dao.findUserById(id);
 
                     //跳转到修改页面
                     updata_user updata_User = new updata_user();
@@ -103,7 +111,7 @@ namespace cangku_01
         //添加用户
         private void button2_Click(object sender, EventArgs e)
         {
-           
+
             
             //将获取到的数据添加到最后一栏中
             DataGridViewRow row = new DataGridViewRow();
@@ -138,7 +146,22 @@ namespace cangku_01
             //获取搜索框中的值
             String tb_text = tb_found.Text;
             //根据搜索框的内容查询对应的值
-            dao.findUserByName(tb_text);
+            List<User> findUserById =dao.findUserByName(tb_text);
+            //将查询到的结果    循环遍历到datagridview里
+            //foreach (User u in findUserById)
+            //{
+              //  DataGridViewRow row = new DataGridViewRow();
+                //int index = dataGridView1.Rows.Add(row);
+                //dataGridView1.Rows[index].Cells[0].Value = u.Id;
+                //dataGridView1.Rows[index].Cells[1].Value = u.Name;
+                //dataGridView1.Rows[index].Cells[2].Value = u.Sex;
+                //dataGridView1.Rows[index].Cells[3].Value = u.Tel;
+                //dataGridView1.Rows[index].Cells[4].Value = u.Temp;
+                //dataGridView1.Rows[index].Cells[5].Value = u.Job;
+                //dataGridView1.Rows[index].Cells[6].Value = u.Salary;
+                //dataGridView1.Rows[index].Cells[7].Value = u.Time;
+
+            //}
 
         }
     }

@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using cangku_01.SQQ;
 using cangku_01.LK;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
+        Find_Items find_Items = null;
         interface_peopleinformation dao = new interfaceImp_peopleinformation();
         public Form1()
         {
@@ -46,9 +48,8 @@ namespace cangku_01
             Form login = new login();
             login.Show();
 
-
         }
-
+        //点击关闭按钮
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             DialogResult result = MessageBox.Show("是否退出？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -61,6 +62,27 @@ namespace cangku_01
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
+
+        }
+        //点击查询按钮
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //如果窗口已经存在就不能再次打开
+           
+            if (find_Items==null)
+            {
+                find_Items = new Find_Items();
+                find_Items.Show();
+            }else if (find_Items.IsDisposed)
+            {
+                find_Items = null;
+            }
+            else if (find_Items != null) { 
+            {
+                DialogResult result = MessageBox.Show("查询窗口已经存在！！");
+            }
+            }
+
 
         }
 

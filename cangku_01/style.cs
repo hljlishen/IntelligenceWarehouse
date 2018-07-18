@@ -9,12 +9,14 @@ namespace cangku_01
 {
     public class style
     {
-        public void a(Form fr)
+        //子窗口在父类中的位置
+        public void Location(Form fr)
         {
-            fr.Top = 40;
-            fr.Left = 50;
+            fr.Top = 0;
+            fr.Left = 0;
         }
-        public void b(Form fr)
+        //在父窗口中刷新，关闭子窗口
+        public void Mdi_close(Form fr)
         {
             foreach(Form f in fr.MdiChildren)
             {
