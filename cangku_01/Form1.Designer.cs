@@ -39,6 +39,13 @@ namespace cangku_01
             this.管理员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Tb_temp = new System.Windows.Forms.TextBox();
+            this.Tb_name = new System.Windows.Forms.TextBox();
+            this.Tb_id = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
@@ -50,20 +57,13 @@ namespace cangku_01
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Bt_Find = new System.Windows.Forms.Button();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.Tb_id = new System.Windows.Forms.TextBox();
-            this.Tb_name = new System.Windows.Forms.TextBox();
-            this.Tb_temp = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -98,7 +98,7 @@ namespace cangku_01
             this.管理员ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1386, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1440, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,6 +141,71 @@ namespace cangku_01
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "人员信息";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // Tb_temp
+            // 
+            this.Tb_temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Tb_temp.Location = new System.Drawing.Point(392, 194);
+            this.Tb_temp.Name = "Tb_temp";
+            this.Tb_temp.ReadOnly = true;
+            this.Tb_temp.Size = new System.Drawing.Size(129, 26);
+            this.Tb_temp.TabIndex = 6;
+            // 
+            // Tb_name
+            // 
+            this.Tb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Tb_name.Location = new System.Drawing.Point(392, 124);
+            this.Tb_name.Name = "Tb_name";
+            this.Tb_name.ReadOnly = true;
+            this.Tb_name.Size = new System.Drawing.Size(129, 26);
+            this.Tb_name.TabIndex = 5;
+            // 
+            // Tb_id
+            // 
+            this.Tb_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Tb_id.Location = new System.Drawing.Point(392, 59);
+            this.Tb_id.Name = "Tb_id";
+            this.Tb_id.ReadOnly = true;
+            this.Tb_id.Size = new System.Drawing.Size(129, 26);
+            this.Tb_id.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label8.Location = new System.Drawing.Point(285, 196);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(90, 21);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "所属部门：";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label7.Location = new System.Drawing.Point(285, 126);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(90, 21);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "员工姓名：";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.Location = new System.Drawing.Point(285, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(90, 21);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "员工编号：";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(90, 61);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(123, 140);
+            this.pictureBox5.TabIndex = 0;
+            this.pictureBox5.TabStop = false;
             // 
             // groupBox2
             // 
@@ -227,86 +292,19 @@ namespace cangku_01
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 6);
+            this.pictureBox4.Location = new System.Drawing.Point(0, 3);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(23, 23);
             this.pictureBox4.TabIndex = 13;
             this.pictureBox4.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(90, 61);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(123, 140);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(285, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 21);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "员工编号：";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(285, 126);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 21);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "员工姓名：";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(285, 196);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 21);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "所属部门：";
-            // 
-            // Tb_id
-            // 
-            this.Tb_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_id.Location = new System.Drawing.Point(392, 59);
-            this.Tb_id.Name = "Tb_id";
-            this.Tb_id.ReadOnly = true;
-            this.Tb_id.Size = new System.Drawing.Size(129, 26);
-            this.Tb_id.TabIndex = 4;
-            // 
-            // Tb_name
-            // 
-            this.Tb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_name.Location = new System.Drawing.Point(392, 124);
-            this.Tb_name.Name = "Tb_name";
-            this.Tb_name.ReadOnly = true;
-            this.Tb_name.Size = new System.Drawing.Size(129, 26);
-            this.Tb_name.TabIndex = 5;
-            // 
-            // Tb_temp
-            // 
-            this.Tb_temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_temp.Location = new System.Drawing.Point(392, 194);
-            this.Tb_temp.Name = "Tb_temp";
-            this.Tb_temp.ReadOnly = true;
-            this.Tb_temp.Size = new System.Drawing.Size(129, 26);
-            this.Tb_temp.TabIndex = 6;
-            // 
             // Bt_Find
             // 
-            this.Bt_Find.Location = new System.Drawing.Point(1287, 772);
+            this.Bt_Find.Location = new System.Drawing.Point(1289, 724);
             this.Bt_Find.Name = "Bt_Find";
             this.Bt_Find.Size = new System.Drawing.Size(75, 23);
-            this.Bt_Find.TabIndex = 3;
+            this.Bt_Find.TabIndex = 14;
             this.Bt_Find.Text = "查询";
-            this.Bt_Find.UseVisualStyleBackColor = true;
-            this.Bt_Find.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
@@ -314,7 +312,7 @@ namespace cangku_01
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1440, 900);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pictureBox3);
@@ -338,11 +336,11 @@ namespace cangku_01
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
