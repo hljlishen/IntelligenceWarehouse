@@ -4,11 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace cangku_01.MH
 {
@@ -19,6 +21,7 @@ namespace cangku_01.MH
         style sty = new style();
         String s = "请输入员工的姓名";
         Warehouse warehouse = new Warehouse();
+
         public Takeout_Warehouse()
         {
             InitializeComponent();
@@ -50,8 +53,11 @@ namespace cangku_01.MH
             this.textBox1.Text = s;
             this.textBox1.MouseClick += textBox1_MouseClick;
             this.textBox1.Leave += textBox1_Leave;
+
             Take_Window_style win_sty = new Take_Window_style();
             win_sty.Top_and_Left_(this);
+
+
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -77,6 +83,21 @@ namespace cangku_01.MH
             String tb_text = textBox1.Text;
             //根据搜索框的内容查询对应的值
             dao.findUserByName(tb_text);
+        }
+
+        private void bt_time_search_Click(object sender, EventArgs e)
+        {
+            List<DateTime> li = new List<DateTime>();
+            DateTime dt1 = Convert.ToDateTime(dateTimePicker1.Value.Date.ToString("yyyy-MM-dd"));  //获取的日期1
+            DateTime dt2 = Convert.ToDateTime(dateTimePicker2.Value.Date.ToString("yyyy-MM-dd"));   //获取的日期2,需增加部分代码使dt2大于dt1
+            if (DateTime.Compare(dt1, dt2) > 0) //判断日期大小
+            {
+
+                MessageBox.Show("dateTimePicker1的日期大于dateTimePicker2的日期");
+            }
+
+            //根据搜索框的内容查询对应的值
+            dao.findDate(li.ToString());
         }
     }
 }

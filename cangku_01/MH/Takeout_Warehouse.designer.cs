@@ -192,6 +192,7 @@
             this.bt_time_search.TabIndex = 6;
             this.bt_time_search.Text = "查询";
             this.bt_time_search.UseVisualStyleBackColor = true;
+            this.bt_time_search.Click += new System.EventHandler(this.bt_time_search_Click);
             // 
             // dateTimePicker1
             // 
@@ -199,6 +200,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(103, 21);
             this.dateTimePicker1.TabIndex = 7;
+
             // 
             // label3
             // 
@@ -215,6 +217,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(103, 21);
             this.dateTimePicker2.TabIndex = 9;
+
             // 
             // Takeout_Warehouse
             // 
