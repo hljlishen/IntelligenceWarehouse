@@ -15,6 +15,8 @@ namespace cangku_01
 {
     public partial class index_instrument : Form
     {
+        string currentIndex;
+
         Interface_instrument dao = new InterfaceImp_instrument();
         instrument_entity instrument = new instrument_entity();
 
@@ -72,7 +74,22 @@ namespace cangku_01
                     string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+                }
+            }
 
+            if (e.ColumnIndex == 13)//点击在修改按钮上
+            {
+                if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    //获取要修改的id
+                    currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                    int id = int.Parse(currentIndex);
+                    //根据用户id查询 copy
+                    //  updateUser = dao.findUserById(id);
+
+                    //跳转到修改页面
+                    Updata_instrument up = new Updata_instrument();
+                    up.Show();
                 }
             }
         }
