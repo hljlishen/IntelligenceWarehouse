@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cangku_01.LX
 {
-    class instrument_entity
+    public class instrument_entity
     {
 
         public int id;       //ID

@@ -20,6 +20,7 @@ namespace cangku_01.LX
         void Alter_instrument(instrument_entity instrument);
         //查询
         void Select_instrument(instrument_entity instrument);
-
+        //根据id查找，显示仪器信息
+        //List<instrument_entity> findUserById(int id);
     }
 }

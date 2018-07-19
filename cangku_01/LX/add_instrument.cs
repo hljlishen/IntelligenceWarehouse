@@ -48,7 +48,8 @@ namespace cangku_01
             foreach (instrument_entity ins in s) {
                 MessageBox.Show("ID:" + ins.id + "\r\n" + "name:" + ins.name + ins.specifications + ins.vendor +
                     ins.number + ins.productiondate + ins.address + ins.state + ins.cycle + ins.effectivedate +
-                    ins.date + ins.head);
+                    ins.date + ins.head+ "\r\n" +"获取到值，后期存到数据库中");
+
             }
                 this.Close();
             
@@ -127,7 +128,7 @@ namespace cangku_01
             head = txt_head;
         }
 
-        List<instrument_entity> Collection()        //输入的值放在数组中
+        public List<instrument_entity> Collection()        //输入的值放在数组中
         {
             List<instrument_entity> list = new List<instrument_entity>();
             instrument_entity a = new instrument_entity();

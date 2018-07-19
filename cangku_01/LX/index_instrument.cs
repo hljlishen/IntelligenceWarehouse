@@ -45,9 +45,8 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[9].Value = ins.Effectivedate;
                 dataGridView1.Rows[index].Cells[10].Value = ins.Date;
                 dataGridView1.Rows[index].Cells[11].Value = ins.Head;
-
             }
-
+           
         }
 
         private void index_instrument_Load(object sender, EventArgs e) //整个页面
