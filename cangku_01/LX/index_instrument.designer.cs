@@ -46,12 +46,13 @@
             this.历次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(45, 29);
+            this.button1.Location = new System.Drawing.Point(35, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 25);
             this.button1.TabIndex = 0;
@@ -62,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(216, 35);
+            this.label1.Location = new System.Drawing.Point(206, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 1;
@@ -70,7 +71,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(287, 32);
+            this.textBox1.Location = new System.Drawing.Point(277, 16);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(161, 21);
             this.textBox1.TabIndex = 2;
@@ -78,7 +79,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(477, 30);
+            this.button2.Location = new System.Drawing.Point(467, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -102,11 +103,12 @@
             this.有效日期,
             this.历次检验时间,
             this.负责人,
-            this.Column1});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 78);
+            this.Column1,
+            this.Column2});
+            this.dataGridView1.Location = new System.Drawing.Point(3, 59);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1325, 849);
+            this.dataGridView1.Size = new System.Drawing.Size(1344, 849);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -114,13 +116,11 @@
             // 
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
-            this.ID.Width = 42;
             // 
             // name
             // 
             this.name.HeaderText = "仪器名称";
             this.name.Name = "name";
-            this.name.Width = 138;
             // 
             // 型号规格
             // 
@@ -151,11 +151,13 @@
             // 
             this.在库状态.HeaderText = "在库状态";
             this.在库状态.Name = "在库状态";
+            this.在库状态.Width = 80;
             // 
             // 检定周期
             // 
             this.检定周期.HeaderText = "检定周期";
             this.检定周期.Name = "检定周期";
+            this.检定周期.Width = 80;
             // 
             // 有效日期
             // 
@@ -171,6 +173,7 @@
             // 
             this.负责人.HeaderText = "负责人";
             this.负责人.Name = "负责人";
+            this.负责人.Width = 80;
             // 
             // Column1
             // 
@@ -178,6 +181,15 @@
             this.Column1.Name = "Column1";
             this.Column1.Text = "删除";
             this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "修改";
+            this.Column2.Name = "Column2";
+            this.Column2.Text = "修改";
+            this.Column2.UseColumnTextForButtonValue = true;
+            this.Column2.Width = 80;
             // 
             // index_instrument
             // 
@@ -220,5 +232,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 历次检验时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
+        private System.Windows.Forms.DataGridViewButtonColumn Column2;
     }
 }
