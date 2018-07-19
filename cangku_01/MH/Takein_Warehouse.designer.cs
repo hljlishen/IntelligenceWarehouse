@@ -183,6 +183,7 @@
             this.bt_time_search.TabIndex = 5;
             this.bt_time_search.Text = "查询";
             this.bt_time_search.UseVisualStyleBackColor = true;
+            this.bt_time_search.Click += new System.EventHandler(this.bt_time_search_Click);
             // 
             // label2
             // 
