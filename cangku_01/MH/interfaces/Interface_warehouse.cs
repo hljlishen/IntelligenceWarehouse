@@ -16,6 +16,6 @@ namespace cangku_01.MH.interfaces
         List<Warehouse> findUserByName(String Name);
         //仪器进出库中的时间查询
         //根据时间段进行查询
-        List<Warehouse> findDate(String Date);
+        List<Warehouse> findDate(DateTime Date1,DateTime Date2);
     }
 }

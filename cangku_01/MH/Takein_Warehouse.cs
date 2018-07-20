@@ -72,9 +72,9 @@ namespace cangku_01.MH
         private void bt_people_search_Click(object sender, EventArgs e)
         {
             //获取搜索框中的值
-            String tb_text = textBox1.Text;
+            String tb_name = textBox1.Text;
             //根据搜索框的内容查询对应的值
-            dao.findUserByName(tb_text);
+            dao.findUserByName(tb_name);
         }
 
         private void bt_time_search_Click(object sender, EventArgs e)
@@ -86,11 +86,9 @@ namespace cangku_01.MH
 
                 MessageBox.Show("dateTimePicker1的日期大于dateTimePicker2的日期");
             }
-            List<DateTime> li = new List<DateTime>();
-            
-
+     
             //根据搜索框的内容查询对应的值
-            dao.findDate(li.ToString());
+            dao.findDate(dt1,dt2);
         }
     }
 }
