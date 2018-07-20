@@ -16,7 +16,7 @@ namespace cangku_01.LX
         instrument_entity a1 = new instrument_entity();
         instrument_entity a2 = new instrument_entity();
 
-        List<instrument_entity> Interface_instrument.All_instrument()
+        List<instrument_entity> Interface_instrument.All_instrument()//显示所有
         {
             a1.id = 0001;   //ID
             a1.name = "离心机";     //仪器名称
@@ -50,24 +50,38 @@ namespace cangku_01.LX
             return list;
             }
 
-        public void Add_instrument(instrument_entity instrument)    //增
+        public void Add_instrument(List<instrument_entity> instrument)    //增
         {
-            //list.Add(instrument);
+            //sql语句
+            Console.WriteLine("添加成功");
         }
 
-        public void Delete_instrument(instrument_entity instrument)     //删
+        public void Delete_instrument(int id)     //删
         {
-
+            //sql语句
+            Console.WriteLine("删除成功");
         }
 
-        public void Alter_instrument(instrument_entity instrument)     //改
+        public void Alter_instrument(List<instrument_entity> instrument)     //改
         {
-            
+            //sql语句
+            Console.WriteLine("更改成功");
         }
 
-        public void Select_instrument(instrument_entity instrument)     //查
+       
+
+        public List<instrument_entity> findInstrumentById(int id)
         {
-            
+            //写sql语句返回
+            Console.WriteLine("id查找成功");
+            return list;
+        }
+
+        public List<instrument_entity> findInstrumentByName(string name)
+        {
+            //写sql语句返回
+            Console.WriteLine("name查找成功");
+            return list;
         }
     }
 }

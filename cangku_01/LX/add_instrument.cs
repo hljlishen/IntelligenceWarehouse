@@ -15,6 +15,8 @@ namespace cangku_01
 {
     public partial class add_instrument : Form
     {
+        Interface_instrument dao = new InterfaceImp_instrument();
+
         public int id;       //ID
         public string name;     //仪器名称
         public string specifications;       //型号规格
@@ -51,6 +53,7 @@ namespace cangku_01
                     ins.date + ins.head+ "\r\n" +"获取到值，后期存到数据库中");
 
             }
+            dao.Add_instrument(s);
                 this.Close();
             
         }

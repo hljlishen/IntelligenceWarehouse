@@ -30,7 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_found = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,13 +69,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "搜索仪器：";
             // 
-            // textBox1
+            // txt_found
             // 
-            this.textBox1.Location = new System.Drawing.Point(277, 16);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(161, 21);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = "请输入仪器名称，id...";
+            this.txt_found.Location = new System.Drawing.Point(277, 16);
+            this.txt_found.Name = "txt_found";
+            this.txt_found.Size = new System.Drawing.Size(161, 21);
+            this.txt_found.TabIndex = 2;
+            this.txt_found.Text = "请输入仪器名称，id...";
             // 
             // button2
             // 
@@ -198,7 +198,7 @@
             this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_found);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -216,7 +216,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_found;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
