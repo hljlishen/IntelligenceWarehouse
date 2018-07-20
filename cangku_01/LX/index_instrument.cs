@@ -15,7 +15,7 @@ namespace cangku_01
 {
     public partial class index_instrument : Form
     {
-        string currentIndex;
+        string currentIndex;//放id
 
         Interface_instrument dao = new InterfaceImp_instrument();
         instrument_entity instrument = new instrument_entity();
@@ -45,9 +45,8 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[9].Value = ins.Effectivedate;
                 dataGridView1.Rows[index].Cells[10].Value = ins.Date;
                 dataGridView1.Rows[index].Cells[11].Value = ins.Head;
-
             }
-
+           
         }
 
         private void index_instrument_Load(object sender, EventArgs e) //整个页面
@@ -74,6 +73,8 @@ namespace cangku_01
                     string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     this.dataGridView1.Rows.RemoveAt(e.RowIndex);
+
+                    dao.Delete_instrument(id);
                 }
             }
 
@@ -96,7 +97,10 @@ namespace cangku_01
 
         private void button2_Click(object sender, EventArgs e)  //搜索按钮
         {
-            
+            //获取搜索框中的值  name查
+            String tb_text = txt_found.Text;
+            //根据搜索框的内容查询对应的值
+            dao.findInstrumentByName(tb_text);
         }
 
     }

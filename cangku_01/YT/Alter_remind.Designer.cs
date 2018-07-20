@@ -135,7 +135,7 @@
             // 
             this.Dtp_lasttime.Location = new System.Drawing.Point(171, 195);
             this.Dtp_lasttime.Name = "Dtp_lasttime";
-            this.Dtp_lasttime.Size = new System.Drawing.Size(200, 21);
+            this.Dtp_lasttime.Size = new System.Drawing.Size(214, 21);
             this.Dtp_lasttime.TabIndex = 11;
             // 
             // Alter_remind
