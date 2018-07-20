@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cangku_01.LX;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,16 +15,16 @@ namespace cangku_01
 {
     public partial class add_instrument : Form
     {
-        public string id;       //ID
+        public int id;       //ID
         public string name;     //仪器名称
         public string specifications;       //型号规格
         public string vendor;       //生产厂商
         public string number;       //出厂编号
-        public string productiondate;     //生产日期
+        public DateTime productiondate;     //生产日期
         public string address;      //货架位置
         public string state;        //在库状态
         public string cycle;        //检定周期
-        public string effectivedate;        //有效日期
+        public DateTime effectivedate;        //有效日期
         public string date;     //历次检验时间
         public string head;      //负责人
 
@@ -42,97 +43,113 @@ namespace cangku_01
         private void button1_Click(object sender, EventArgs e)      //确定按钮
         {
             //点击确定,弹出输入信息,可以获取到输入的值
-            // MessageBox.Show("ID:"+id+"\r\n"+"name:"+name+ specifications+ vendor+ number+ productiondate+ address+
-            //   state+ cycle+ effectivedate+ date+ head);
-            String[] s = Values();
-            foreach (String st in s) {
-                MessageBox.Show(st);
+            
+             List<instrument_entity> s = Collection();
+            foreach (instrument_entity ins in s) {
+                MessageBox.Show("ID:" + ins.id + "\r\n" + "name:" + ins.name + ins.specifications + ins.vendor +
+                    ins.number + ins.productiondate + ins.address + ins.state + ins.cycle + ins.effectivedate +
+                    ins.date + ins.head+ "\r\n" +"获取到值，后期存到数据库中");
+
             }
-            this.Close();
-            //index_instrument ins = new index_instrument();
-            //ins.dataGridView1_CellContentClick.
+                this.Close();
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e) //ID
         {
             //获取textbox中的值
-            string idd = textBox1.Text.ToString();
-            id = idd;
+            string txt_id = textBox1.Text.ToString();
+            id = int.Parse(txt_id);
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)  //name
         {
-            string namee = textBox2.Text.ToString();
-            name = namee;
+            string txt_name = textBox2.Text.ToString();
+            name = txt_name;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)   //specifications
         {
-            string specificationss = textBox3.Text.ToString();
-            specifications = specificationss;
+            string txt_specifications = textBox3.Text.ToString();
+            specifications = txt_specifications;
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)   //vendor
         {
-            string vendorr = textBox4.Text.ToString();
-            vendor = vendorr;
+            string txt_vendor = textBox4.Text.ToString();
+            vendor = txt_vendor;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)   //number
         {
-            string numberr = textBox5.Text.ToString();
-            number = numberr;
+            string txt_number = textBox5.Text.ToString();
+            number = txt_number;
         }
 
-        private void textBox6_TextChanged(object sender, EventArgs e)   //productiondate
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)//productiondate
         {
-            string productiondatee = textBox6.Text.ToString();
-            productiondate = productiondatee;
+            string txt_productiondate = Time1.Text.ToString();
+            productiondate = Convert.ToDateTime(txt_productiondate);
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)   //address
         {
-            string addresss = textBox7.Text.ToString();
-            address = addresss;
+            string txt_address = textBox7.Text.ToString();
+            address = txt_address;
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)   //state
         {
-            string statee = textBox8.Text.ToString();
-            state = statee;
+            string txt_state = textBox8.Text.ToString();
+            state = txt_state;
         }
 
         private void textBox9_TextChanged(object sender, EventArgs e)   //cycle
         {
-            string cyclee = textBox9.Text.ToString();
-            cycle = cyclee;
+            string txt_cycle = textBox9.Text.ToString();
+            cycle = txt_cycle;
         }
 
-        private void textBox10_TextChanged(object sender, EventArgs e)  //effectivedate
+        private void Time2_ValueChanged(object sender, EventArgs e)  //effectivedate
         {
-            string effectivedatee = textBox10.Text.ToString();
-            effectivedate = effectivedatee;
+            string txt_effectivedate =  Time2.Text.ToString();
+            effectivedate = Convert.ToDateTime(txt_effectivedate);
         }
 
         private void textBox11_TextChanged(object sender, EventArgs e)  //date
         {
-            string datee = textBox11.Text.ToString();
-            date = datee;
+            string txt_date = textBox11.Text.ToString();
+            date = txt_date;
         }
 
         private void textBox12_TextChanged(object sender, EventArgs e)  //headd
         {
-            string headd = textBox12.Text.ToString();
-            head = headd;
+            string txt_head = textBox12.Text.ToString();
+            head = txt_head;
         }
 
-        public string[] Values()        //输入的值放在数组中，在其他窗口获取不到数组中的值
+        public List<instrument_entity> Collection()        //输入的值放在数组中
         {
-            string[] values = {id,name,specifications,vendor,number,productiondate,
-                address,state,cycle,effectivedate,date,head};
-            
-            return values;
+            List<instrument_entity> list = new List<instrument_entity>();
+            instrument_entity a = new instrument_entity();
+            a.id = id;
+            a.name = name;
+            a.specifications = specifications;
+            a.vendor = vendor;
+            a.number = number;
+            a.productiondate = productiondate;
+            a.address = address;
+            a.state = state;
+            a.cycle = cycle;
+            a.effectivedate = effectivedate;
+            a.date = date;
+            a.head = head;
+
+            list.Add(a);
+            return list;
         }
 
+       
+       
     }
 }

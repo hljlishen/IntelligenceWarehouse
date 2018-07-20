@@ -54,12 +54,17 @@ namespace cangku_01.MH.interfaceImp
 
             return Warehouses_list;
         }
-        //在数据库查询所有出入库仪器，并存放在数组中
+        //在数据库查询所有出入库仪器，并存放在数组   人员查询
         public List<Warehouse> findUserByName(string Name)
         {
             //写sql语句返回
             return Warehouses_list;
         }
-
+        //时间查询
+        public List<Warehouse> findDate(string Date)
+        {
+            //写sql语句返回
+            return Warehouses_list;
+        }
     }
 }
