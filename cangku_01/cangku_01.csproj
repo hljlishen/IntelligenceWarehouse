@@ -80,7 +80,7 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LX\instrument_entity.cs" />
+    <Compile Include="LX\instrument.cs" />
     <Compile Include="LX\InterfaceImp_instrument.cs" />
     <Compile Include="LX\Interface_instrument.cs" />
     <Compile Include="LX\Updata_instrument.cs">

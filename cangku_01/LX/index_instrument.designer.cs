@@ -42,7 +42,6 @@
             this.货架位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.有效日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.历次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -75,7 +74,7 @@
             this.txt_found.Name = "txt_found";
             this.txt_found.Size = new System.Drawing.Size(161, 21);
             this.txt_found.TabIndex = 2;
-            this.txt_found.Text = "请输入仪器名称，id...";
+            this.txt_found.TextChanged += new System.EventHandler(this.txt_found_TextChanged);
             // 
             // button2
             // 
@@ -100,7 +99,6 @@
             this.货架位置,
             this.在库状态,
             this.检定周期,
-            this.有效日期,
             this.历次检验时间,
             this.负责人,
             this.Column1,
@@ -114,7 +112,7 @@
             // 
             // ID
             // 
-            this.ID.HeaderText = "ID";
+            this.ID.HeaderText = "标签ID";
             this.ID.Name = "ID";
             // 
             // name
@@ -151,18 +149,11 @@
             // 
             this.在库状态.HeaderText = "在库状态";
             this.在库状态.Name = "在库状态";
-            this.在库状态.Width = 80;
             // 
             // 检定周期
             // 
             this.检定周期.HeaderText = "检定周期";
             this.检定周期.Name = "检定周期";
-            this.检定周期.Width = 80;
-            // 
-            // 有效日期
-            // 
-            this.有效日期.HeaderText = "有效日期";
-            this.有效日期.Name = "有效日期";
             // 
             // 历次检验时间
             // 
@@ -173,7 +164,6 @@
             // 
             this.负责人.HeaderText = "负责人";
             this.负责人.Name = "负责人";
-            this.负责人.Width = 80;
             // 
             // Column1
             // 
@@ -181,7 +171,6 @@
             this.Column1.Name = "Column1";
             this.Column1.Text = "删除";
             this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 80;
             // 
             // Column2
             // 
@@ -189,7 +178,6 @@
             this.Column2.Name = "Column2";
             this.Column2.Text = "修改";
             this.Column2.UseColumnTextForButtonValue = true;
-            this.Column2.Width = 80;
             // 
             // index_instrument
             // 
@@ -228,7 +216,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 货架位置;
         private System.Windows.Forms.DataGridViewTextBoxColumn 在库状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 检定周期;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 有效日期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 历次检验时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;

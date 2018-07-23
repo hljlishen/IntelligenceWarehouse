@@ -28,24 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Time2 = new System.Windows.Forms.DateTimePicker();
-            this.Time1 = new System.Windows.Forms.DateTimePicker();
+            this.time_productionDate = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_manager = new System.Windows.Forms.TextBox();
+            this.tb_previousCheckTimes = new System.Windows.Forms.TextBox();
+            this.tb_checkCycle = new System.Windows.Forms.TextBox();
+            this.tb_isInWareHouse = new System.Windows.Forms.TextBox();
+            this.tb_position = new System.Windows.Forms.TextBox();
+            this.tb_serialNumber = new System.Windows.Forms.TextBox();
+            this.tb_manufactor = new System.Windows.Forms.TextBox();
+            this.tb_model = new System.Windows.Forms.TextBox();
+            this.tb_name = new System.Windows.Forms.TextBox();
+            this.tb_tagid = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,22 +55,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Time2
+            // time_productionDate
             // 
-            this.Time2.Location = new System.Drawing.Point(469, 226);
-            this.Time2.Name = "Time2";
-            this.Time2.Size = new System.Drawing.Size(125, 21);
-            this.Time2.TabIndex = 55;
-            this.Time2.ValueChanged += new System.EventHandler(this.Time2_ValueChanged);
-            // 
-            // Time1
-            // 
-            this.Time1.Location = new System.Drawing.Point(160, 337);
-            this.Time1.Name = "Time1";
-            this.Time1.Size = new System.Drawing.Size(125, 21);
-            this.Time1.TabIndex = 54;
-            this.Time1.Value = new System.DateTime(2018, 7, 19, 11, 11, 56, 0);
-            this.Time1.ValueChanged += new System.EventHandler(this.Time1_ValueChanged);
+            this.time_productionDate.Location = new System.Drawing.Point(160, 337);
+            this.time_productionDate.Name = "time_productionDate";
+            this.time_productionDate.Size = new System.Drawing.Size(125, 21);
+            this.time_productionDate.TabIndex = 54;
+            this.time_productionDate.Value = new System.DateTime(2018, 7, 19, 11, 11, 56, 0);
+
             // 
             // label13
             // 
@@ -104,90 +94,91 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox12
+            // tb_manager
             // 
-            this.textBox12.Location = new System.Drawing.Point(469, 334);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(125, 21);
-            this.textBox12.TabIndex = 50;
-            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            this.tb_manager.Location = new System.Drawing.Point(469, 281);
+            this.tb_manager.Name = "tb_manager";
+            this.tb_manager.Size = new System.Drawing.Size(125, 21);
+            this.tb_manager.TabIndex = 50;
+  
             // 
-            // textBox11
+            // tb_previousCheckTimes
             // 
-            this.textBox11.Location = new System.Drawing.Point(469, 281);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(125, 21);
-            this.textBox11.TabIndex = 49;
-            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            this.tb_previousCheckTimes.Location = new System.Drawing.Point(469, 229);
+            this.tb_previousCheckTimes.Name = "tb_previousCheckTimes";
+            this.tb_previousCheckTimes.Size = new System.Drawing.Size(125, 21);
+            this.tb_previousCheckTimes.TabIndex = 49;
+      
             // 
-            // textBox9
+            // tb_checkCycle
             // 
-            this.textBox9.Location = new System.Drawing.Point(469, 176);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(125, 21);
-            this.textBox9.TabIndex = 48;
-            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.tb_checkCycle.Location = new System.Drawing.Point(469, 176);
+            this.tb_checkCycle.Name = "tb_checkCycle";
+            this.tb_checkCycle.Size = new System.Drawing.Size(125, 21);
+            this.tb_checkCycle.TabIndex = 48;
+      
             // 
-            // textBox8
+            // tb_isInWareHouse
             // 
-            this.textBox8.Location = new System.Drawing.Point(469, 130);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(125, 21);
-            this.textBox8.TabIndex = 47;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            this.tb_isInWareHouse.Location = new System.Drawing.Point(469, 130);
+            this.tb_isInWareHouse.Name = "tb_isInWareHouse";
+            this.tb_isInWareHouse.Size = new System.Drawing.Size(125, 21);
+            this.tb_isInWareHouse.TabIndex = 47;
+        
             // 
-            // textBox7
+            // tb_position
             // 
-            this.textBox7.Location = new System.Drawing.Point(469, 81);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(125, 21);
-            this.textBox7.TabIndex = 46;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
+            this.tb_position.Location = new System.Drawing.Point(469, 81);
+            this.tb_position.Name = "tb_position";
+            this.tb_position.Size = new System.Drawing.Size(125, 21);
+            this.tb_position.TabIndex = 46;
+ 
             // 
-            // textBox5
+            // tb_serialNumber
             // 
-            this.textBox5.Location = new System.Drawing.Point(160, 281);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(125, 21);
-            this.textBox5.TabIndex = 45;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.tb_serialNumber.Location = new System.Drawing.Point(160, 281);
+            this.tb_serialNumber.Name = "tb_serialNumber";
+            this.tb_serialNumber.Size = new System.Drawing.Size(125, 21);
+            this.tb_serialNumber.TabIndex = 45;
+       
             // 
-            // textBox4
+            // tb_manufactor
             // 
-            this.textBox4.Location = new System.Drawing.Point(160, 226);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(125, 21);
-            this.textBox4.TabIndex = 44;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.tb_manufactor.Location = new System.Drawing.Point(160, 226);
+            this.tb_manufactor.Name = "tb_manufactor";
+            this.tb_manufactor.Size = new System.Drawing.Size(125, 21);
+            this.tb_manufactor.TabIndex = 44;
+
             // 
-            // textBox3
+            // tb_model
             // 
-            this.textBox3.Location = new System.Drawing.Point(160, 176);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(125, 21);
-            this.textBox3.TabIndex = 43;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.tb_model.Location = new System.Drawing.Point(160, 176);
+            this.tb_model.Name = "tb_model";
+            this.tb_model.Size = new System.Drawing.Size(125, 21);
+            this.tb_model.TabIndex = 43;
+      
             // 
-            // textBox2
+            // tb_name
             // 
-            this.textBox2.Location = new System.Drawing.Point(160, 130);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(125, 21);
-            this.textBox2.TabIndex = 42;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.tb_name.Location = new System.Drawing.Point(160, 130);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.Size = new System.Drawing.Size(125, 21);
+            this.tb_name.TabIndex = 42;
+   
             // 
-            // textBox1
+            // tb_tagid
             // 
-            this.textBox1.Location = new System.Drawing.Point(160, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 21);
-            this.textBox1.TabIndex = 41;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.tb_tagid.Location = new System.Drawing.Point(160, 81);
+            this.tb_tagid.Name = "tb_tagid";
+            this.tb_tagid.ReadOnly = true;
+            this.tb_tagid.Size = new System.Drawing.Size(125, 21);
+            this.tb_tagid.TabIndex = 41;
+          
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(371, 337);
+            this.label12.Location = new System.Drawing.Point(371, 290);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 12);
             this.label12.TabIndex = 40;
@@ -196,20 +187,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(371, 284);
+            this.label11.Location = new System.Drawing.Point(371, 235);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 12);
             this.label11.TabIndex = 39;
             this.label11.Text = "历次检验时间：";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(371, 229);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
-            this.label10.TabIndex = 38;
-            this.label10.Text = "有效日期：";
             // 
             // label9
             // 
@@ -288,33 +270,31 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(83, 84);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 12);
+            this.label1.Size = new System.Drawing.Size(53, 12);
             this.label1.TabIndex = 29;
-            this.label1.Text = "I D:";
+            this.label1.Text = "标签 ID:";
             // 
             // Updata_instrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 461);
-            this.Controls.Add(this.Time2);
-            this.Controls.Add(this.Time1);
+            this.Controls.Add(this.time_productionDate);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_manager);
+            this.Controls.Add(this.tb_previousCheckTimes);
+            this.Controls.Add(this.tb_checkCycle);
+            this.Controls.Add(this.tb_isInWareHouse);
+            this.Controls.Add(this.tb_position);
+            this.Controls.Add(this.tb_serialNumber);
+            this.Controls.Add(this.tb_manufactor);
+            this.Controls.Add(this.tb_model);
+            this.Controls.Add(this.tb_name);
+            this.Controls.Add(this.tb_tagid);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -332,25 +312,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker Time2;
-        private System.Windows.Forms.DateTimePicker Time1;
+        private System.Windows.Forms.DateTimePicker time_productionDate;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_manager;
+        private System.Windows.Forms.TextBox tb_previousCheckTimes;
+        private System.Windows.Forms.TextBox tb_checkCycle;
+        private System.Windows.Forms.TextBox tb_isInWareHouse;
+        private System.Windows.Forms.TextBox tb_position;
+        private System.Windows.Forms.TextBox tb_serialNumber;
+        private System.Windows.Forms.TextBox tb_manufactor;
+        private System.Windows.Forms.TextBox tb_model;
+        private System.Windows.Forms.TextBox tb_name;
+        private System.Windows.Forms.TextBox tb_tagid;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
