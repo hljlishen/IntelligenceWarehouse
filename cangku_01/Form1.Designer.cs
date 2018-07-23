@@ -47,7 +47,6 @@ namespace cangku_01
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,9 +56,18 @@ namespace cangku_01
             this.label5 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Bt_Find = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Tb_ShowId = new System.Windows.Forms.TextBox();
+            this.Tb_ShowName = new System.Windows.Forms.TextBox();
+            this.Tb_ShowState = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Tb_ShowTime = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -209,6 +217,14 @@ namespace cangku_01
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Tb_ShowTime);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.Tb_ShowState);
+            this.groupBox2.Controls.Add(this.Tb_ShowName);
+            this.groupBox2.Controls.Add(this.Tb_ShowId);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox2.Location = new System.Drawing.Point(51, 406);
             this.groupBox2.Name = "groupBox2";
@@ -216,15 +232,6 @@ namespace cangku_01
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "物品信息";
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Location = new System.Drawing.Point(1378, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(50, 23);
-            this.panel1.TabIndex = 6;
-            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // skinEngine1
             // 
@@ -309,6 +316,78 @@ namespace cangku_01
             this.Bt_Find.UseVisualStyleBackColor = true;
             this.Bt_Find.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(289, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "仪器编号：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(289, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "仪器名称：";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(289, 153);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 20);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "状态：";
+            // 
+            // Tb_ShowId
+            // 
+            this.Tb_ShowId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowId.Location = new System.Drawing.Point(375, 57);
+            this.Tb_ShowId.Name = "Tb_ShowId";
+            this.Tb_ShowId.ReadOnly = true;
+            this.Tb_ShowId.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowId.TabIndex = 3;
+            // 
+            // Tb_ShowName
+            // 
+            this.Tb_ShowName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowName.Location = new System.Drawing.Point(375, 106);
+            this.Tb_ShowName.Name = "Tb_ShowName";
+            this.Tb_ShowName.ReadOnly = true;
+            this.Tb_ShowName.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowName.TabIndex = 4;
+            // 
+            // Tb_ShowState
+            // 
+            this.Tb_ShowState.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowState.Location = new System.Drawing.Point(375, 151);
+            this.Tb_ShowState.Name = "Tb_ShowState";
+            this.Tb_ShowState.ReadOnly = true;
+            this.Tb_ShowState.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowState.TabIndex = 5;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(289, 197);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 20);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "时间：";
+            // 
+            // Tb_ShowTime
+            // 
+            this.Tb_ShowTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowTime.Location = new System.Drawing.Point(375, 195);
+            this.Tb_ShowTime.Name = "Tb_ShowTime";
+            this.Tb_ShowTime.ReadOnly = true;
+            this.Tb_ShowTime.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowTime.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -323,14 +402,12 @@ namespace cangku_01
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Bt_Find);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Main";
@@ -340,6 +417,8 @@ namespace cangku_01
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -359,7 +438,6 @@ namespace cangku_01
         private Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Panel panel1;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
@@ -376,6 +454,14 @@ namespace cangku_01
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private TextBox Tb_ShowState;
+        private TextBox Tb_ShowName;
+        private TextBox Tb_ShowId;
+        private Label label11;
+        private Label label10;
+        private Label label9;
+        private TextBox Tb_ShowTime;
+        private Label label12;
     }
 }
 

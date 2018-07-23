@@ -16,6 +16,7 @@ namespace cangku_01
     {
         Find_Items find_Items = null;
         interface_peopleinformation dao = new interfaceImp_peopleinformation();
+        InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         public Form1()
         {
             InitializeComponent();
@@ -27,6 +28,22 @@ namespace cangku_01
                 Tb_name.Text = en.Name;
                 Tb_temp.Text = en.Department;
             }
+
+            Door door = new Door();
+            Instrument instrument = new Instrument(door);
+            door.Pass();
+            //物品信息的显示
+            List<Instrument> ins_list = instrumentDao.find_ins();
+            foreach (Instrument ins in ins_list)
+            {
+                Tb_ShowId.Text = ins.Ins_id.ToString();
+                Tb_ShowName.Text = ins.Ins_name;
+                Tb_ShowState.Text = ins.Ins_state.ToString();
+                Tb_ShowTime.Text = ins.Ins_dateTime.ToString();
+
+            }
+
+
 
         }
 
@@ -40,6 +57,8 @@ namespace cangku_01
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.timer1.Start();
+
+           
         }
 
         private void 管理员ToolStripMenuItem_Click(object sender, EventArgs e)

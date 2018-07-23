@@ -114,6 +114,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQQ\entity\ComponentFind.cs" />
+    <Compile Include="SQQ\entity\Door.cs" />
+    <Compile Include="SQQ\entity\Instrument.cs" />
     <Compile Include="SQQ\entity\InstrumentFind.cs" />
     <Compile Include="SQQ\Find_Items.cs">
       <SubType>Form</SubType>
@@ -123,8 +125,12 @@
     </Compile>
     <Compile Include="SQQ\interfaceImp\ComponentFindInterfaceImp.cs" />
     <Compile Include="SQQ\interfaceImp\InstrumentFindInterfaceImp.cs" />
+    <Compile Include="SQQ\interfaceImp\instrumentInterfaceImp.cs" />
     <Compile Include="SQQ\interfaces\ComponentFindInterfaces.cs" />
     <Compile Include="SQQ\interfaces\InstrumentFindInterface.cs" />
+    <Compile Include="SQQ\interfaces\InstrumentInterfaces.cs" />
+    <Compile Include="SQQ\Observer.cs" />
+    <Compile Include="SQQ\Subject.cs" />
     <Compile Include="SQQ\updata_user.cs">
       <SubType>Form</SubType>
     </Compile>
