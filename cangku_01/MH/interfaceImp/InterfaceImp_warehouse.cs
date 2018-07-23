@@ -37,29 +37,34 @@ namespace cangku_01.MH.interfaceImp
             warehouse1.InboundDate = DateTime.Now;
             Warehouses_list.Add(warehouse1);
 
-            //warehouse1.Warehouse_id = 2;
-            //warehouse1.Warehouse_name = "笔记本";
-            //warehouse1.Location = "07-02-06-07";
-            //warehouse1.Model = "360s";
-            //warehouse1.Manufacturers = "红叶2";
-            //warehouse1.ProductionDate = DateTime.Parse("2018-07-18");
-           // warehouse1.Name = "张三";
-            //warehouse1.Principal = "王五";
-            //warehouse1.Outbound_number = 100;
-           // warehouse1.Inbound_number = 50;
-            //warehouse1.Remaining_number = 50;
-            //warehouse1.OutboundDate = DateTime.Parse("2018-07-18");
-           // warehouse1.InboundDate = DateTime.Parse("2018-07-18");
-            //Warehouses_list.Add(warehouse2);
+            warehouse2.Warehouse_id = 2;
+            warehouse2.Warehouse_name = "笔记本";
+            warehouse2.Location = "07-02-06-07";
+            warehouse2.Model = "360s";
+            warehouse2.Manufacturers = "红叶2";
+            warehouse2.ProductionDate = DateTime.Parse("2018-07-18");
+            warehouse2.Name = "张三";
+            warehouse2.Principal = "王五";
+            warehouse2.Outbound_number = 100;
+            warehouse2.Inbound_number = 50;
+            warehouse2.Remaining_number = 50;
+            warehouse2.OutboundDate = DateTime.Parse("2018-07-18");
+            warehouse2.InboundDate = DateTime.Parse("2018-07-18");
+            Warehouses_list.Add(warehouse2);
 
             return Warehouses_list;
         }
-        //在数据库查询所有出入库仪器，并存放在数组中
+        //在数据库查询所有出入库仪器，并存放在集合   人员查询
         public List<Warehouse> findUserByName(string Name)
         {
             //写sql语句返回
             return Warehouses_list;
         }
-
+        //时间查询
+        public List<Warehouse> findDate(DateTime Date1, DateTime Date2)
+        {
+            //写sql语句返回
+            return Warehouses_list;
+        }
     }
 }

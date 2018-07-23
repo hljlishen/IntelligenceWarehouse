@@ -80,9 +80,15 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LX\instrument_entity.cs" />
+    <Compile Include="LX\instrument.cs" />
     <Compile Include="LX\InterfaceImp_instrument.cs" />
     <Compile Include="LX\Interface_instrument.cs" />
+    <Compile Include="LX\Updata_instrument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LX\Updata_instrument.Designer.cs">
+      <DependentUpon>Updata_instrument.cs</DependentUpon>
+    </Compile>
     <Compile Include="MH\entity\Warehouse.cs" />
     <Compile Include="MH\interfaceImp\InterfaceImp_warehouse.cs" />
     <Compile Include="MH\interfaces\Interface_warehouse.cs" />
@@ -166,6 +172,9 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LX\Updata_instrument.resx">
+      <DependentUpon>Updata_instrument.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MH\Takein_Warehouse.resx">
       <DependentUpon>Takein_Warehouse.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,7 +236,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LS\" />
+    <Folder Include="interfaces\LS\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

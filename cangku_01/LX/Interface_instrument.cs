@@ -11,15 +11,17 @@ namespace cangku_01.LX
     interface Interface_instrument
     {
         //列表上显示所有
-        List<instrument_entity> All_instrument();
+        List<instrument> All_instrument();
         //添加
-        void Add_instrument(instrument_entity instrument);
-        //删除
-        void Delete_instrument(instrument_entity instrument);
+        void Add_instrument(List<instrument> instrument);
+        //id 删除
+        void Delete_instrument(int id);
         //修改
-        void Alter_instrument(instrument_entity instrument);
-        //查询
-        void Select_instrument(instrument_entity instrument);
-
+        void Alter_instrument(List<instrument> instrument);
+       
+        //根据id查找，显示仪器信息
+        List<instrument> findInstrumentById(int id);
+        //根据name查找，显示仪器信息
+        List<instrument> findInstrumentByName(string name);
     }
 }
