@@ -28,6 +28,7 @@ namespace cangku_01.LX
             a1.isInWareHouse = "在库";        //在库状态
             a1.checkCycle = "2个月";        //检定周期
             a1.previousCheckTimes = "2017-5-7,2017-7-7";     //历次检验时间
+            a1.instrumentNumber = 111;          //当前数量
             a1.manager = "张三";       //负责人
             list.Add(a1);
 
@@ -41,7 +42,8 @@ namespace cangku_01.LX
             a2.position = "4-2-1";      
             a2.isInWareHouse = "良好";        
             a2.checkCycle = "2年";             
-            a2.previousCheckTimes = "2013-5-20，2015-5-20，2017-5-20";   
+            a2.previousCheckTimes = "2013-5-20，2015-5-20，2017-5-20";
+            a2.instrumentNumber = 222;
             a2.manager = "李四";     
             list.Add(a2);
 

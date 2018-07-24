@@ -43,6 +43,7 @@
             this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.历次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.当前数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -100,6 +101,7 @@
             this.在库状态,
             this.检定周期,
             this.历次检验时间,
+            this.当前数量,
             this.负责人,
             this.Column1,
             this.Column2});
@@ -160,10 +162,17 @@
             this.历次检验时间.HeaderText = "历次检验时间";
             this.历次检验时间.Name = "历次检验时间";
             // 
+            // 当前数量
+            // 
+            this.当前数量.HeaderText = "当前数量";
+            this.当前数量.Name = "当前数量";
+            this.当前数量.Width = 80;
+            // 
             // 负责人
             // 
             this.负责人.HeaderText = "负责人";
             this.负责人.Name = "负责人";
+            this.负责人.Width = 80;
             // 
             // Column1
             // 
@@ -171,6 +180,7 @@
             this.Column1.Name = "Column1";
             this.Column1.Text = "删除";
             this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 70;
             // 
             // Column2
             // 
@@ -178,6 +188,7 @@
             this.Column2.Name = "Column2";
             this.Column2.Text = "修改";
             this.Column2.UseColumnTextForButtonValue = true;
+            this.Column2.Width = 70;
             // 
             // index_instrument
             // 
@@ -217,6 +228,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 在库状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 检定周期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 历次检验时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 当前数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;

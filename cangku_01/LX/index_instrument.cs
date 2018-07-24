@@ -44,7 +44,8 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[7].Value = ins.isInWareHouse;
                 dataGridView1.Rows[index].Cells[8].Value = ins.checkCycle;
                 dataGridView1.Rows[index].Cells[9].Value = ins.previousCheckTimes;
-                dataGridView1.Rows[index].Cells[10].Value = ins.manager;
+                dataGridView1.Rows[index].Cells[10].Value = ins.instrumentNumber;
+                dataGridView1.Rows[index].Cells[11].Value = ins.manager;
             }
            
         }
@@ -68,7 +69,7 @@ namespace cangku_01
         {
             //方法CellDoubleClick双击事件
 
-            if (e.ColumnIndex == 11)//点击在删除按钮上
+            if (e.ColumnIndex == 12)//点击在删除按钮上
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -80,7 +81,7 @@ namespace cangku_01
                 }
             }
 
-            if (e.ColumnIndex == 12)//点击在修改按钮上
+            if (e.ColumnIndex == 13)//点击在修改按钮上
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {

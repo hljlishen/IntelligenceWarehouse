@@ -32,7 +32,7 @@ namespace cangku_01.LX
             {
                 MessageBox.Show("ID:" + i.tagId + "\r\n" + "name:" + i.name + i.model + i.manufactor +
                     i.serialNumber + i.productionDate + i.position + i.isInWareHouse + i.checkCycle +
-                    i.previousCheckTimes + i.manager + "\r\n" + "获取到值，后期存到数据库中");
+                    i.previousCheckTimes + i.instrumentNumber+i.manager + "\r\n" + "获取到值，后期存到数据库中");
 
             }
             dao.Alter_instrument(s);
@@ -59,6 +59,7 @@ namespace cangku_01.LX
             a.isInWareHouse = tb_isInWareHouse.Text.ToString();
             a.checkCycle = tb_checkCycle.Text.ToString();
             a.previousCheckTimes = tb_previousCheckTimes.Text.ToString();
+            a.instrumentNumber = int.Parse(tb_instrumentNumber.Text.ToString());
             a.manager = tb_manager.Text.ToString();
 
             list.Add(a);
