@@ -30,9 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.员工管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.系统字典ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仓库管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.仓库状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.到期提醒ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.器件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仪器管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,9 +46,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.员工管理ToolStripMenuItem,
-            this.系统字典ToolStripMenuItem,
             this.仓库管理ToolStripMenuItem,
-            this.仓库状态ToolStripMenuItem,
             this.到期提醒ToolStripMenuItem,
             this.器件管理ToolStripMenuItem,
             this.器件出入记录ToolStripMenuItem});
@@ -68,23 +64,11 @@
             this.员工管理ToolStripMenuItem.Text = "员工管理";
             this.员工管理ToolStripMenuItem.Click += new System.EventHandler(this.员工管理ToolStripMenuItem_Click);
             // 
-            // 系统字典ToolStripMenuItem
-            // 
-            this.系统字典ToolStripMenuItem.Name = "系统字典ToolStripMenuItem";
-            this.系统字典ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.系统字典ToolStripMenuItem.Text = "系统字典";
-            // 
             // 仓库管理ToolStripMenuItem
             // 
             this.仓库管理ToolStripMenuItem.Name = "仓库管理ToolStripMenuItem";
             this.仓库管理ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.仓库管理ToolStripMenuItem.Text = "仓库管理";
-            // 
-            // 仓库状态ToolStripMenuItem
-            // 
-            this.仓库状态ToolStripMenuItem.Name = "仓库状态ToolStripMenuItem";
-            this.仓库状态ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
-            this.仓库状态ToolStripMenuItem.Text = "仓库状态";
             // 
             // 到期提醒ToolStripMenuItem
             // 
@@ -170,9 +154,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 员工管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 系统字典ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 仓库管理ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 仓库状态ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 到期提醒ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 器件管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 仪器管理ToolStripMenuItem;

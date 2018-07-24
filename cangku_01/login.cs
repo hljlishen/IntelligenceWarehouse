@@ -26,15 +26,17 @@ namespace cangku_01
         private void button1_Click(object sender, EventArgs e)
         {
             //获取用户名和密码
-            String name = textBox1.Text;
-            String password = textBox2.Text;
+            //String name = textBox1.Text;
+            //String password = textBox2.Text;
+            String name = "admin";
+            String password = "admin";
             if (name.Equals("admin") && password.Equals("admin"))
             {
                 MessageBox.Show("登录成功！！");
                 //跳转到管理员操作界面，将登录界面关闭
                 this.Close();
                 Form administration = new Administration();
-                administration.Show();
+                administration.ShowDialog();
 
 
             }
@@ -42,6 +44,11 @@ namespace cangku_01
             {
                 MessageBox.Show("用户名或密码错误！！");
             }
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

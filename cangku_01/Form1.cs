@@ -16,10 +16,15 @@ namespace cangku_01
     {
         Find_Items find_Items = null;
         interface_peopleinformation dao = new interfaceImp_peopleinformation();
+        InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         public Form1()
         {
             InitializeComponent();
             this.skinEngine1.SkinFile = "Longhorn.ssk";
+
+            
+
+
             List<entity_peopleinformation> list = dao.All_information();
             foreach(entity_peopleinformation en in list)
             {
@@ -27,6 +32,22 @@ namespace cangku_01
                 Tb_name.Text = en.Name;
                 Tb_temp.Text = en.Department;
             }
+
+            Door door = new Door();
+            Instrument instrument = new Instrument(door);
+            door.Pass();
+            //物品信息的显示
+            List<Instrument> ins_list = instrumentDao.find_ins();
+            foreach (Instrument ins in ins_list)
+            {
+                Tb_ShowId.Text = ins.Ins_id.ToString();
+                Tb_ShowName.Text = ins.Ins_name;
+                Tb_ShowState.Text = ins.Ins_state.ToString();
+                Tb_ShowTime.Text = ins.Ins_dateTime.ToString();
+
+            }
+
+
 
         }
 
@@ -40,6 +61,10 @@ namespace cangku_01
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.timer1.Start();
+            
+            //设置icon
+            //this.Icon=
+           
         }
 
         private void 管理员ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,5 +111,20 @@ namespace cangku_01
 
         }
 
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Form login = new login();
+            login.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }
