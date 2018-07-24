@@ -21,6 +21,10 @@ namespace cangku_01
         {
             InitializeComponent();
             this.skinEngine1.SkinFile = "Longhorn.ssk";
+
+            
+
+
             List<entity_peopleinformation> list = dao.All_information();
             foreach(entity_peopleinformation en in list)
             {
@@ -57,7 +61,9 @@ namespace cangku_01
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             this.timer1.Start();
-
+            
+            //设置icon
+            //this.Icon=
            
         }
 
@@ -105,5 +111,20 @@ namespace cangku_01
 
         }
 
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Form login = new login();
+            login.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
     }
 }

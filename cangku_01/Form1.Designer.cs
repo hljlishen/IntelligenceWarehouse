@@ -36,7 +36,6 @@ namespace cangku_01
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.管理员ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Tb_temp = new System.Windows.Forms.TextBox();
@@ -47,31 +46,41 @@ namespace cangku_01
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.Bt_Find = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.Tb_ShowId = new System.Windows.Forms.TextBox();
-            this.Tb_ShowName = new System.Windows.Forms.TextBox();
-            this.Tb_ShowState = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.Tb_ShowTime = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Tb_ShowState = new System.Windows.Forms.TextBox();
+            this.Tb_ShowName = new System.Windows.Forms.TextBox();
+            this.Tb_ShowId = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
+            this.label5 = new System.Windows.Forms.Label();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -83,7 +92,7 @@ namespace cangku_01
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(362, 724);
+            this.label1.Location = new System.Drawing.Point(361, 756);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 25);
             this.label1.TabIndex = 0;
@@ -94,7 +103,7 @@ namespace cangku_01
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(185, 724);
+            this.label2.Location = new System.Drawing.Point(172, 756);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 25);
             this.label2.TabIndex = 1;
@@ -103,20 +112,15 @@ namespace cangku_01
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.管理员ToolStripMenuItem});
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1440, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1424, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 管理员ToolStripMenuItem
-            // 
-            this.管理员ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.管理员ToolStripMenuItem.Name = "管理员ToolStripMenuItem";
-            this.管理员ToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
-            this.管理员ToolStripMenuItem.Text = "  管理员";
-            this.管理员ToolStripMenuItem.Click += new System.EventHandler(this.管理员ToolStripMenuItem_Click);
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // button1
             // 
@@ -142,9 +146,9 @@ namespace cangku_01
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(51, 62);
+            this.groupBox1.Location = new System.Drawing.Point(161, 110);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(700, 300);
+            this.groupBox1.Size = new System.Drawing.Size(648, 300);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "人员信息";
@@ -209,6 +213,8 @@ namespace cangku_01
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.Location = new System.Drawing.Point(90, 61);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(123, 140);
@@ -226,158 +232,12 @@ namespace cangku_01
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(51, 406);
+            this.groupBox2.Location = new System.Drawing.Point(161, 431);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(700, 300);
+            this.groupBox2.Size = new System.Drawing.Size(648, 300);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "物品信息";
-            // 
-            // skinEngine1
-            // 
-            this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = null;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(964, 218);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(309, 334);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(1049, 258);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 28);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "仓库管理系统";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1027, 504);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(197, 12);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "陕西物理化学研究所国防重点实验室";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 877);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1440, 25);
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1029, 305);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(180, 180);
-            this.pictureBox3.TabIndex = 11;
-            this.pictureBox3.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.MediumBlue;
-            this.label5.Location = new System.Drawing.Point(552, 885);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(311, 12);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "仓库管理系统    陕西物理化学研究所国防重点实验室   ";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(0, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(23, 23);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // Bt_Find
-            // 
-            this.Bt_Find.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Bt_Find.Location = new System.Drawing.Point(1287, 772);
-            this.Bt_Find.Name = "Bt_Find";
-            this.Bt_Find.Size = new System.Drawing.Size(75, 33);
-            this.Bt_Find.TabIndex = 3;
-            this.Bt_Find.Text = "查询";
-            this.Bt_Find.UseVisualStyleBackColor = true;
-            this.Bt_Find.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(289, 59);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 20);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "仪器编号：";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(289, 108);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 20);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "仪器名称：";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(289, 153);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(51, 20);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "状态：";
-            // 
-            // Tb_ShowId
-            // 
-            this.Tb_ShowId.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Tb_ShowId.Location = new System.Drawing.Point(375, 57);
-            this.Tb_ShowId.Name = "Tb_ShowId";
-            this.Tb_ShowId.ReadOnly = true;
-            this.Tb_ShowId.Size = new System.Drawing.Size(146, 19);
-            this.Tb_ShowId.TabIndex = 3;
-            // 
-            // Tb_ShowName
-            // 
-            this.Tb_ShowName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Tb_ShowName.Location = new System.Drawing.Point(375, 106);
-            this.Tb_ShowName.Name = "Tb_ShowName";
-            this.Tb_ShowName.ReadOnly = true;
-            this.Tb_ShowName.Size = new System.Drawing.Size(146, 19);
-            this.Tb_ShowName.TabIndex = 4;
-            // 
-            // Tb_ShowState
-            // 
-            this.Tb_ShowState.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Tb_ShowState.Location = new System.Drawing.Point(375, 151);
-            this.Tb_ShowState.Name = "Tb_ShowState";
-            this.Tb_ShowState.ReadOnly = true;
-            this.Tb_ShowState.Size = new System.Drawing.Size(146, 19);
-            this.Tb_ShowState.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(289, 197);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(51, 20);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "时间：";
             // 
             // Tb_ShowTime
             // 
@@ -388,23 +248,266 @@ namespace cangku_01
             this.Tb_ShowTime.Size = new System.Drawing.Size(146, 19);
             this.Tb_ShowTime.TabIndex = 7;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(289, 197);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(51, 20);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "时间：";
+            // 
+            // Tb_ShowState
+            // 
+            this.Tb_ShowState.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowState.Location = new System.Drawing.Point(375, 151);
+            this.Tb_ShowState.Name = "Tb_ShowState";
+            this.Tb_ShowState.ReadOnly = true;
+            this.Tb_ShowState.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowState.TabIndex = 5;
+            // 
+            // Tb_ShowName
+            // 
+            this.Tb_ShowName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowName.Location = new System.Drawing.Point(375, 106);
+            this.Tb_ShowName.Name = "Tb_ShowName";
+            this.Tb_ShowName.ReadOnly = true;
+            this.Tb_ShowName.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowName.TabIndex = 4;
+            // 
+            // Tb_ShowId
+            // 
+            this.Tb_ShowId.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Tb_ShowId.Location = new System.Drawing.Point(375, 57);
+            this.Tb_ShowId.Name = "Tb_ShowId";
+            this.Tb_ShowId.ReadOnly = true;
+            this.Tb_ShowId.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowId.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(289, 153);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(51, 20);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "状态：";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(289, 108);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "仪器名称：";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(289, 59);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(79, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "仪器编号：";
+            // 
+            // skinEngine1
+            // 
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = null;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Location = new System.Drawing.Point(515, 879);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(311, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "仓库管理系统    陕西物理化学研究所国防重点实验室   ";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem2});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(102, 25);
+            this.toolStripMenuItem1.Text = "管理员选项";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 26);
+            this.toolStripMenuItem2.Text = "管理员登录";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem5});
+            this.toolStripMenuItem3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(54, 25);
+            this.toolStripMenuItem3.Text = "仪器";
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem6});
+            this.toolStripMenuItem4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(70, 25);
+            this.toolStripMenuItem4.Text = "元器件";
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 26);
+            this.toolStripMenuItem5.Text = "查询";
+            // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 26);
+            this.toolStripMenuItem6.Text = "借用";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Location = new System.Drawing.Point(562, 841);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(299, 12);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "仓库管理系统     陕西物理化学研究所国防重点实验室";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox3.Location = new System.Drawing.Point(884, 306);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(374, 425);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "到期物品一览表";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.label17);
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label15);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.pictureBox2);
+            this.groupBox4.Controls.Add(this.pictureBox1);
+            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox4.Location = new System.Drawing.Point(884, 110);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(374, 147);
+            this.groupBox4.TabIndex = 15;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "温湿度实时监测";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(30, 55);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(193, 55);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(143, 55);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 26);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "℃";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.Location = new System.Drawing.Point(303, 55);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(31, 26);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "％";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(101, 55);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(36, 26);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "15";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(261, 55);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(36, 26);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "60";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(91, 90);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(96, 28);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "仓库温度";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.Location = new System.Drawing.Point(251, 92);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(88, 25);
+            this.label17.TabIndex = 7;
+            this.label17.Text = "仓库湿度";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1440, 900);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(1424, 862);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.Bt_Find);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -419,10 +522,10 @@ namespace cangku_01
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -434,19 +537,11 @@ namespace cangku_01
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 管理员ToolStripMenuItem;
         private Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button Bt_Find;
         private System.Windows.Forms.TextBox Tb_temp;
         private System.Windows.Forms.TextBox Tb_name;
         private System.Windows.Forms.TextBox Tb_id;
@@ -462,6 +557,24 @@ namespace cangku_01
         private Label label9;
         private TextBox Tb_ShowTime;
         private Label label12;
+        private ToolStripMenuItem toolStripMenuItem1;
+        private ToolStripMenuItem toolStripMenuItem2;
+        private ToolStripMenuItem toolStripMenuItem3;
+        private ToolStripMenuItem toolStripMenuItem5;
+        private ToolStripMenuItem toolStripMenuItem4;
+        private ToolStripMenuItem toolStripMenuItem6;
+        private Label label3;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Label label17;
+        private Label label16;
+        private Label label15;
+        private Label label14;
+        private Label label13;
+        private Label label4;
+        private NotifyIcon notifyIcon1;
     }
 }
 
