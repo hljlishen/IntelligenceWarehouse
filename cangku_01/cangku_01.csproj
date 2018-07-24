@@ -83,6 +83,9 @@
     <Compile Include="LX\instrument.cs" />
     <Compile Include="LX\InterfaceImp_instrument.cs" />
     <Compile Include="LX\Interface_instrument.cs" />
+    <Compile Include="LX\Object.cs" />
+    <Compile Include="LX\Observer.cs" />
+    <Compile Include="LX\Subject.cs" />
     <Compile Include="LX\Updata_instrument.cs">
       <SubType>Form</SubType>
     </Compile>
