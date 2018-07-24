@@ -43,7 +43,7 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[6].Value = ins.position;
                 dataGridView1.Rows[index].Cells[7].Value = ins.isInWareHouse;
                 dataGridView1.Rows[index].Cells[8].Value = ins.checkCycle;
-                dataGridView1.Rows[index].Cells[9].Value = ins.previousCheckTimes;
+                dataGridView1.Rows[index].Cells[9].Value = ins.lastCheckTimes;
                 dataGridView1.Rows[index].Cells[10].Value = ins.instrumentNumber;
                 dataGridView1.Rows[index].Cells[11].Value = ins.manager;
             }

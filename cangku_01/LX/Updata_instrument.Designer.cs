@@ -33,7 +33,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tb_manager = new System.Windows.Forms.TextBox();
-            this.tb_previousCheckTimes = new System.Windows.Forms.TextBox();
             this.tb_checkCycle = new System.Windows.Forms.TextBox();
             this.tb_isInWareHouse = new System.Windows.Forms.TextBox();
             this.tb_position = new System.Windows.Forms.TextBox();
@@ -55,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tb_instrumentNumber = new System.Windows.Forms.TextBox();
+            this.time_lastCheckTimes = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // time_productionDate
@@ -101,13 +101,6 @@
             this.tb_manager.Name = "tb_manager";
             this.tb_manager.Size = new System.Drawing.Size(125, 21);
             this.tb_manager.TabIndex = 50;
-            // 
-            // tb_previousCheckTimes
-            // 
-            this.tb_previousCheckTimes.Location = new System.Drawing.Point(469, 229);
-            this.tb_previousCheckTimes.Name = "tb_previousCheckTimes";
-            this.tb_previousCheckTimes.Size = new System.Drawing.Size(125, 21);
-            this.tb_previousCheckTimes.TabIndex = 49;
             // 
             // tb_checkCycle
             // 
@@ -182,7 +175,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 12);
             this.label11.TabIndex = 39;
-            this.label11.Text = "历次检验时间：";
+            this.label11.Text = "上次检验时间：";
             // 
             // label9
             // 
@@ -281,11 +274,19 @@
             this.tb_instrumentNumber.Size = new System.Drawing.Size(125, 21);
             this.tb_instrumentNumber.TabIndex = 56;
             // 
+            // time_lastCheckTimes
+            // 
+            this.time_lastCheckTimes.Location = new System.Drawing.Point(469, 226);
+            this.time_lastCheckTimes.Name = "time_lastCheckTimes";
+            this.time_lastCheckTimes.Size = new System.Drawing.Size(125, 21);
+            this.time_lastCheckTimes.TabIndex = 57;
+            // 
             // Updata_instrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 461);
+            this.Controls.Add(this.time_lastCheckTimes);
             this.Controls.Add(this.tb_instrumentNumber);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.time_productionDate);
@@ -293,7 +294,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tb_manager);
-            this.Controls.Add(this.tb_previousCheckTimes);
             this.Controls.Add(this.tb_checkCycle);
             this.Controls.Add(this.tb_isInWareHouse);
             this.Controls.Add(this.tb_position);
@@ -326,7 +326,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox tb_manager;
-        private System.Windows.Forms.TextBox tb_previousCheckTimes;
         private System.Windows.Forms.TextBox tb_checkCycle;
         private System.Windows.Forms.TextBox tb_isInWareHouse;
         private System.Windows.Forms.TextBox tb_position;
@@ -348,5 +347,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tb_instrumentNumber;
+        private System.Windows.Forms.DateTimePicker time_lastCheckTimes;
     }
 }

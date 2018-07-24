@@ -42,7 +42,7 @@
             this.货架位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.历次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.上次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.当前数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -100,7 +100,7 @@
             this.货架位置,
             this.在库状态,
             this.检定周期,
-            this.历次检验时间,
+            this.上次检验时间,
             this.当前数量,
             this.负责人,
             this.Column1,
@@ -157,10 +157,10 @@
             this.检定周期.HeaderText = "检定周期";
             this.检定周期.Name = "检定周期";
             // 
-            // 历次检验时间
+            // 上次检验时间
             // 
-            this.历次检验时间.HeaderText = "历次检验时间";
-            this.历次检验时间.Name = "历次检验时间";
+            this.上次检验时间.HeaderText = "上次检验时间";
+            this.上次检验时间.Name = "上次检验时间";
             // 
             // 当前数量
             // 
@@ -227,7 +227,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 货架位置;
         private System.Windows.Forms.DataGridViewTextBoxColumn 在库状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 检定周期;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 历次检验时间;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 上次检验时间;
         private System.Windows.Forms.DataGridViewTextBoxColumn 当前数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
