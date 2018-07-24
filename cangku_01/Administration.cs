@@ -35,22 +35,6 @@ namespace cangku_01
            
         }
 
-        private void 仪器出库ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            s.Mdi_close(this);
-            Form fr = new Takeout_Warehouse();
-            fr.MdiParent = this;
-            fr.Show();
-        }
-
-        private void 仪器入库ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            s.Mdi_close(this);
-            Form fr = new Takein_Warehouse();
-            fr.MdiParent = this;
-            fr.Show();
-        }
-
         private void 到期提醒ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             s.Mdi_close(this);
@@ -63,6 +47,14 @@ namespace cangku_01
         {
             s.Mdi_close(this);
             Form fr = new index_instrument();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void 仪器ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            s.Mdi_close(this);
+            Form fr = new InstrumentQuery();
             fr.MdiParent = this;
             fr.Show();
         }

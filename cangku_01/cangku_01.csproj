@@ -89,21 +89,13 @@
     <Compile Include="LX\Updata_instrument.Designer.cs">
       <DependentUpon>Updata_instrument.cs</DependentUpon>
     </Compile>
-    <Compile Include="MH\entity\Warehouse.cs" />
-    <Compile Include="MH\interfaceImp\InterfaceImp_warehouse.cs" />
-    <Compile Include="MH\interfaces\Interface_warehouse.cs" />
-    <Compile Include="MH\Take_Window_style.cs" />
-    <Compile Include="MH\Takein_Warehouse.cs">
+    <Compile Include="MH\interfaceImp\InstrumentQueryImp.cs" />
+    <Compile Include="MH\interfaces\InstrumentQuery.cs" />
+    <Compile Include="MH\InstrumentQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MH\Takein_Warehouse.designer.cs">
-      <DependentUpon>Takein_Warehouse.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MH\Takeout_Warehouse.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MH\Takeout_Warehouse.designer.cs">
-      <DependentUpon>Takeout_Warehouse.cs</DependentUpon>
+    <Compile Include="MH\InstrumentQuery.designer.cs">
+      <DependentUpon>InstrumentQuery.cs</DependentUpon>
     </Compile>
     <Compile Include="LX\add_instrument.cs">
       <SubType>Form</SubType>
@@ -169,11 +161,8 @@
     <EmbeddedResource Include="LX\Updata_instrument.resx">
       <DependentUpon>Updata_instrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MH\Takein_Warehouse.resx">
-      <DependentUpon>Takein_Warehouse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MH\Takeout_Warehouse.resx">
-      <DependentUpon>Takeout_Warehouse.cs</DependentUpon>
+    <EmbeddedResource Include="MH\InstrumentQuery.resx">
+      <DependentUpon>InstrumentQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LX\add_instrument.resx">
       <DependentUpon>add_instrument.cs</DependentUpon>
