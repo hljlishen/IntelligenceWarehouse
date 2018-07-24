@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace cangku_01.SQQ
 {
-    class InstrumentFind
+    class Door:Subject
     {
-        public String Ins_name { get; set; }
-
-        public String Ins_Localtion { get; set; }
-
+        public Door()
+        {
+            Console.WriteLine("门  通过标签！！！");
+        }
 
     }
 }

@@ -8,11 +8,10 @@ namespace cangku_01.SQQ
 {
     class ComponentFind
     {
-        private String com_name;
+        public String Com_name { get; set; }
 
-        private String com_Location;
+        public String Com_Location { get; set; }
 
-        public string Com_name { get => com_name; set => com_name = value; }
-        public string Com_Location { get => com_Location; set => com_Location = value; }
+      
     }
 }

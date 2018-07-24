@@ -44,6 +44,7 @@ namespace cangku_01.SQQ
         private void button1_Click(object sender, EventArgs e)
         {
             //关闭修改界面
+            DialogResult dialogResult = MessageBox.Show("修改成功!!");
             index_employees index_Employees = new index_employees();
             this.Close();
 
