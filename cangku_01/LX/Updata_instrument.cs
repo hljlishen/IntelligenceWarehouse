@@ -56,8 +56,8 @@ namespace cangku_01.LX
             a.serialNumber = tb_serialNumber.Text.ToString();
             a.productionDate = Convert.ToDateTime(time_productionDate.Text.ToString());
             a.position = tb_position.Text.ToString();
-            a.isInWareHouse = tb_isInWareHouse.Text.ToString();
-            a.checkCycle = tb_checkCycle.Text.ToString();
+            a.isInWareHouse = Boolean.Parse(tb_isInWareHouse.Text.ToString());
+            a.checkCycle = int.Parse(tb_checkCycle.Text.ToString());
             a.lastCheckTimes = Convert.ToDateTime(time_lastCheckTimes.Text.ToString());
             a.instrumentNumber = int.Parse(tb_instrumentNumber.Text.ToString());
             a.manager = tb_manager.Text.ToString();

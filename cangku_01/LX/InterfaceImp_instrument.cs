@@ -25,8 +25,8 @@ namespace cangku_01.LX
             a1.serialNumber = "qwev123";       //出厂编号
             a1.productionDate = DateTime.Parse("2017-3-7");     //生产日期
             a1.position = "2-1-14";      //货架位置
-            a1.isInWareHouse = "在库";        //在库状态
-            a1.checkCycle = "2个月";        //检定周期
+            a1.isInWareHouse = true;        //在库状态
+            a1.checkCycle = 7;        //检定周期
             a1.lastCheckTimes = DateTime.Parse("2017 -7-7");     //历次检验时间
             a1.instrumentNumber = 111;          //当前数量
             a1.manager = "张三";       //负责人
@@ -40,8 +40,8 @@ namespace cangku_01.LX
             a2.serialNumber = "ty120868";       
             a2.productionDate = DateTime.Parse("2013-5-12");     
             a2.position = "4-2-1";      
-            a2.isInWareHouse = "良好";        
-            a2.checkCycle = "2年";             
+            a2.isInWareHouse = false;        
+            a2.checkCycle = 2;             
             a2.lastCheckTimes = DateTime.Parse("2013-5-20");
             a2.instrumentNumber = 222;
             a2.manager = "李四";     
