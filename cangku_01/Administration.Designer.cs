@@ -121,6 +121,7 @@
             this.仪器ToolStripMenuItem.Name = "仪器ToolStripMenuItem";
             this.仪器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.仪器ToolStripMenuItem.Text = "仪器";
+            this.仪器ToolStripMenuItem.Click += new System.EventHandler(this.仪器ToolStripMenuItem_Click);
             // 
             // 元器件ToolStripMenuItem
             // 
