@@ -99,7 +99,7 @@ namespace cangku_01
                     currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     //根据用户id查询
-                    updateUser= dao.findUserById(id);
+                    List<User> updateUser= dao.findUserById(id);
                     foreach (User u in updateUser)
                     {
                         tb_id.Text = u.Id.ToString();

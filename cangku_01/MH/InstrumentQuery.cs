@@ -110,7 +110,7 @@ namespace cangku_01.MH
 
 
         interfaces.InstrumentQuery dao = new InstrumentQueryImp();
-        style sty = new style();
+        //style sty = new style();
         String s = "请输入员工的姓名";
         instrument warehouse = new instrument();
 

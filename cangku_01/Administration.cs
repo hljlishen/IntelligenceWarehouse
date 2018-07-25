@@ -35,9 +35,16 @@ namespace cangku_01
 
  
 
-        private void 仪器ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 到期提醒ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form fr = new Due_to_remind();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void 仪器ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fr = new InstrumentQuery();
             fr.MdiParent = this;
             fr.Show();
         }
@@ -48,5 +55,6 @@ namespace cangku_01
             fr.MdiParent = this;
             fr.Show();
         }
+
     }
 }
