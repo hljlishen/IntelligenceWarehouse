@@ -145,7 +145,6 @@
     <Compile Include="YT\Alter_remind.Designer.cs">
       <DependentUpon>Alter_remind.cs</DependentUpon>
     </Compile>
-    <Compile Include="YT\Entity_remind.cs" />
     <Compile Include="YT\Due_to_remind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,7 +153,6 @@
     </Compile>
     <Compile Include="YT\InterfaceImp_remind.cs" />
     <Compile Include="YT\Interface_remind.cs" />
-    <Compile Include="YT\Window_style.cs" />
     <EmbeddedResource Include="Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>

@@ -17,7 +17,7 @@ namespace cangku_01.LX
         public DateTime productionDate { get; set; }     //生产日期
         public string position { get; set; }      //货架位置    写成类！！！！！！！！！
         public string isInWareHouse { get; set; }       //在库状态       bool!!!!!!!!!!!!!
-        public string checkCycle { get; set; }       //检定周期
+        public int checkCycle { get; set; }       //检定周期
         public DateTime lastCheckTimes { get; set; }       //上一次检查时间
         public string manager { get; set; }    //负责人
 
