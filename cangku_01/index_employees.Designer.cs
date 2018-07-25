@@ -64,6 +64,8 @@
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Tital = new System.Windows.Forms.Label();
+            this.Bt_change = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).BeginInit();
@@ -278,10 +280,24 @@
             // 
             this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
             // 
+            // Tital
+            // 
+            resources.ApplyResources(this.Tital, "Tital");
+            this.Tital.Name = "Tital";
+            // 
+            // Bt_change
+            // 
+            resources.ApplyResources(this.Bt_change, "Bt_change");
+            this.Bt_change.Name = "Bt_change";
+            this.Bt_change.UseVisualStyleBackColor = true;
+            this.Bt_change.Click += new System.EventHandler(this.Bt_change_Click);
+            // 
             // index_employees
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Bt_change);
+            this.Controls.Add(this.Tital);
             this.Controls.Add(this.tb_jobtime);
             this.Controls.Add(this.tb_salary);
             this.Controls.Add(this.tb_job);
@@ -351,5 +367,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 入职时间;
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
+        private System.Windows.Forms.Label Tital;
+        private System.Windows.Forms.Button Bt_change;
     }
 }

@@ -55,11 +55,6 @@ namespace cangku_01.interfaceImp
         public List<User> findUserById(int id)
         {
             //修改的sql语句
-            return arr;
-        }
-
-        public List<User> UpdateUserList()
-        {
             user.Id = 1;
             user.Name = "张三";
             user.Sex = "男";
@@ -69,6 +64,12 @@ namespace cangku_01.interfaceImp
             user.Job = "程序员";
             user.Time = DateTime.Now;
             arr.Add(user);
+            return arr;
+        }
+
+        public List<User> UpdateUserList()
+        {
+            
             return arr;
         }
     }

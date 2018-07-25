@@ -137,13 +137,6 @@
     <Compile Include="SQQ\interfaces\InstrumentInterfaces.cs" />
     <Compile Include="SQQ\Observer.cs" />
     <Compile Include="SQQ\Subject.cs" />
-    <Compile Include="SQQ\updata_user.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SQQ\updata_user.Designer.cs">
-      <DependentUpon>updata_user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="style.cs" />
     <Compile Include="YT\Alter_remind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,9 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="YT\Due_to_remind.resx">
       <DependentUpon>Due_to_remind.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SQQ\updata_user.resx">
-      <DependentUpon>updata_user.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Administration.datasource" />
     <None Include="Properties\DataSources\cangku_01.entity.User.datasource" />
