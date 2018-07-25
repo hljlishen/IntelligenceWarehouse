@@ -62,7 +62,7 @@ namespace cangku_01.LX
             Console.WriteLine("删除成功");
         }
 
-        public void Alter_instrument(List<instrument> instrument)     //改
+        public void Modify_instrument(List<instrument> instrument)     //改
         {
             //sql语句
             Console.WriteLine("更改成功");

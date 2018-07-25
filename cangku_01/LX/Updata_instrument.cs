@@ -35,7 +35,7 @@ namespace cangku_01.LX
                     i.lastCheckTimes + i.instrumentNumber+i.manager + "\r\n" + "获取到值，后期存到数据库中");
 
             }
-            dao.Alter_instrument(s);
+            dao.Modify_instrument(s);
             this.Close();
         }
 
