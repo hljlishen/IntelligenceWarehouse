@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.SQQ;
 using cangku_01.LK;
+using cangku_01.entity;
 
 namespace cangku_01
 {
@@ -26,12 +27,12 @@ namespace cangku_01
             
 
 
-            List<entity_peopleinformation> list = dao.All_information();
-            foreach(entity_peopleinformation en in list)
+            List<User> list = dao.All_information();
+            foreach(User en in list)
             {
                 Tb_id.Text = en.Id.ToString();
                 Tb_name.Text = en.Name;
-                Tb_temp.Text = en.Department;
+                Tb_temp.Text = en.Temp;
             }
 
             Door door = new Door();
