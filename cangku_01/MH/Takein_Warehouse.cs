@@ -16,7 +16,6 @@ namespace cangku_01.MH
     public partial class Takein_Warehouse : Form
     {
         Interface_warehouse dao = new InterfaceImp_warehouse();
-        style sty = new style();
         String s = "请输入员工的姓名";
         Warehouse user = new Warehouse();
         public Takein_Warehouse()

@@ -53,9 +53,9 @@ namespace cangku_01
             this.tb_found.Text = s;
             this.tb_found.MouseClick += textBox1_MouseClick;
             this.tb_found.Leave += textBox1_Leave;
-
             this.Top = 0;
             this.Left = 0;
+          
 
         }
 
@@ -93,17 +93,14 @@ namespace cangku_01
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    
-                    
+                    Tital.Text = "修改员工";
+                    Bt_change.Text = "确认修改";
                     //获取要修改的id
                     currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     //根据用户id查询
-                    Title.Text = "修改界面";
-                    Bt_Change.Text = "确认修改";
-
-                    List<User> list = dao.findUserById(id);
-                    foreach (User u in list)
+                    updateUser= dao.findUserById(id);
+                    foreach (User u in updateUser)
                     {
                         tb_id.Text = u.Id.ToString();
                         tb_name.Text = u.Name;
@@ -115,6 +112,8 @@ namespace cangku_01
                         tb_jobtime.Text = u.Time.ToString();
                     }
 
+                   
+
                 }
             }
 
@@ -123,17 +122,20 @@ namespace cangku_01
         //添加用户
         private void button2_Click(object sender, EventArgs e)
         {
-            //点击添加员工    将文本框置空
-            Title.Text = "添加员工界面";
-            Bt_Change.Text = "确认添加";
+            Tital.Text = "添加员工";
+            Bt_change.Text = "确认添加";
             tb_id.Text = null;
             tb_name.Text = null;
             tb_sex.Text = null;
-            tb_temp.Text = null;
-            tb_jobtime.Text = null;
-            tb_salary.Text = null;
             tb_tel.Text = null;
             tb_job.Text = null;
+            tb_temp.Text = null;
+            tb_salary.Text = null;
+            tb_jobtime.Text = null;
+
+
+            
+
         }
         //搜索框
         private void bt_found_Click(object sender, EventArgs e)
@@ -160,9 +162,9 @@ namespace cangku_01
 
         }
 
-        private void Bt_Change_Click(object sender, EventArgs e)
+        private void Bt_change_Click(object sender, EventArgs e)
         {
-            if (Bt_Change.Text == "确认添加")
+            if (Bt_change.Text == "确认添加")
             {
                 //将获取到的数据添加到最后一栏中
                 DataGridViewRow row = new DataGridViewRow();
@@ -177,8 +179,9 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[7].Value = tb_jobtime.Text;
                 //从用户获取的数值添加到数据库
                 //日期格式的转化
-
+                //DateTime dt = DateTime.ParseExact(tb_jobtime.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
                 DateTime dt = Convert.ToDateTime(tb_jobtime.Text);
+                // Console.WriteLine("dt=" + dt);
                 user.Id = int.Parse(tb_id.Text);
                 user.Name = tb_name.Text;
                 user.Sex = tb_sex.Text;
@@ -188,17 +191,10 @@ namespace cangku_01
                 user.Job = tb_job.Text;
                 user.Salary = double.Parse(tb_salary.Text);
                 dao.addUser(user);
-
-               
-               
             }
-            if (Bt_Change.Text == "确认修改")
+            if (Bt_change.Text == "确认修改")
             {
                 DialogResult dialogResult = MessageBox.Show("修改成功!!");
-                
-
-
-                //调用dao层   插入数据库中
             }
         }
     }

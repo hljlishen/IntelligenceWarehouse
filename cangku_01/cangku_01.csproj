@@ -160,7 +160,6 @@
     <Compile Include="SQQ\interfaces\InstrumentInterfaces.cs" />
     <Compile Include="SQQ\Observer.cs" />
     <Compile Include="SQQ\Subject.cs" />
-    <Compile Include="style.cs" />
     <Compile Include="YT\Alter_remind.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -20,6 +20,7 @@ namespace cangku_01
         {
             InitializeComponent();
         }
+
         private void 员工管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Form fr = new index_employees();
@@ -32,19 +33,7 @@ namespace cangku_01
            
         }
 
-        private void 仪器出库ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form fr = new Takeout_Warehouse();
-            fr.MdiParent = this;
-            fr.Show();
-        }
-
-        private void 仪器入库ToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            Form fr = new Takein_Warehouse();
-            fr.MdiParent = this;
-            fr.Show();
-        }
+ 
 
         private void 到期提醒ToolStripMenuItem_Click(object sender, EventArgs e)
         {

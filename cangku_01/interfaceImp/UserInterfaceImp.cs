@@ -66,11 +66,5 @@ namespace cangku_01.interfaceImp
             arr.Add(user);
             return arr;
         }
-
-        public List<User> UpdateUserList()
-        {
-           
-            return arr;
-        }
     }
 }
