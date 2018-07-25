@@ -19,6 +19,7 @@ namespace cangku_01
         InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         public Form1()
         {
+            
             InitializeComponent();
             this.skinEngine1.SkinFile = "Longhorn.ssk";
             List<entity_peopleinformation> list = dao.All_information();

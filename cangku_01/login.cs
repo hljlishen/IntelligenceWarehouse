@@ -43,5 +43,10 @@ namespace cangku_01
                 MessageBox.Show("用户名或密码错误！！");
             }
         }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
