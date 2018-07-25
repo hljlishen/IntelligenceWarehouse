@@ -19,100 +19,59 @@ namespace cangku_01.MH
     public partial class InstrumentQuery : Form
     {
 
-        //仪器出入库查询类，对应模式中的Context类
-        public class Query
-        {
-            private QueryState state;
-            public Query(QueryState state)
-            {
-                this.state = state;
-            }
+        //仪器出入库查询类，对应模式中的context类
+        //public class query
+        //{
+        //    private querystate state;
+        //    public query(querystate state)
+        //    {
+        //        this.state = state;
+        //    }
 
-            //选择出入库查询状态
-            public void ChooseQueryState()
-            {
-                state.ChooseQueryState(this);
-            }
-            public QueryState State
-            {
-                get { return state; }
-                set { state = value; }
-            }
-        }
+        //    选择出入库查询状态
+        //    public void choosequerystate()
+        //    {
+        //        state.choosequerystate(this);
+        //    }
+        //    public querystate state
+        //    {
+        //        get { return state; }
+        //        set { state = value; }
+        //    }
+        //}
         //抽象状态类
-        public abstract class QueryState
-        {
-            public abstract void ChooseQueryState(Query query );
-        }
+        //public abstract class querystate
+        //{
+        //    public abstract void choosequerystate(query query);
+        //}
         //具体状态类，出库查询
-        public class OutInstrument : QueryState
-        {
-            //在出库查询的状态下，切换到入库查询状态
-            public override void ChooseQueryState(Query query)
-            {
-                query.State = new InInstrument();
-                
-            }
-        }
+        //public class outinstrument : querystate
+        //{
+        //    在出库查询的状态下，切换到入库查询状态
+        //    public override void choosequerystate(query query)
+        //    {
+        //        query.state = new ininstrument();
+
+        //    }
+        //}
         //具体状态类，入库查询
-        public class InInstrument : QueryState
-        {
-            //在入库查询状态下，切换到出库查询状态
-            public override void ChooseQueryState(Query query)
-            {
-                query.State = new OutInstrument();
-            }
-        }
+        //public class ininstrument : querystate
+        //{
+        //    在入库查询状态下，切换到出库查询状态
+        //    public override void choosequerystate(query query)
+        //    {
+        //        query.state = new outinstrument();
+        //    }
+        //}
         //初始化状态，原始状态为出库查询
-        Query query = new Query(new OutInstrument());
-        private void tsmOutQuery_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tsmInQuery_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        //query query = new query(new outinstrument());
+        
 
 
         interfaces.InstrumentQuery dao = new InstrumentQueryImp();
-        style sty = new style();
-        String s = "请输入员工的姓名";
-        instrument warehouse = new instrument();
+        String namehint = "请输入员工的姓名";
+        String modelhint = "请输入仪器型号";
+        instrument instrument = new instrument();
 
         public InstrumentQuery()
         {
@@ -124,57 +83,77 @@ namespace cangku_01.MH
             //循环遍历
             foreach (instrument wh in allwarehouse)
             {
-                //DataGridViewRow row = new DataGridViewRow();
-                //int index = dataGridView1.Rows.Add(row);
-                //dataGridView1.Rows[index].Cells[0].Value = wh.Warehouse_id;
-                //dataGridView1.Rows[index].Cells[1].Value = wh.Warehouse_name;
-                //dataGridView1.Rows[index].Cells[2].Value = wh.Location;
-                //dataGridView1.Rows[index].Cells[3].Value = wh.Outbound_number;
-                //dataGridView1.Rows[index].Cells[4].Value = wh.OutboundDate;
-                //dataGridView1.Rows[index].Cells[5].Value = wh.Remaining_number;
-                //dataGridView1.Rows[index].Cells[6].Value = wh.Model;
-                //dataGridView1.Rows[index].Cells[7].Value = wh.Manufacturers;
-                //dataGridView1.Rows[index].Cells[8].Value = wh.ProductionDate;
-                //dataGridView1.Rows[index].Cells[9].Value = wh.Name;
-                //dataGridView1.Rows[index].Cells[10].Value = wh.Principal;
-                
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dgvInstrumentOutQuery.Rows.Add(row);
+                dgvInstrumentOutQuery.Rows[index].Cells[0].Value = wh.tagId;
+                dgvInstrumentOutQuery.Rows[index].Cells[1].Value = wh.name;
+                dgvInstrumentOutQuery.Rows[index].Cells[2].Value = wh.position;
+                //dgvInstrumentOutQuery.Rows[index].Cells[3].Value = wh.outWarehouseNumber;
+               // dgvInstrumentOutQuery.Rows[index].Cells[4].Value = wh.outWarehouseTime;
+                dgvInstrumentOutQuery.Rows[index].Cells[5].Value = wh.instrumentNumber;
+                dgvInstrumentOutQuery.Rows[index].Cells[6].Value = wh.model;
+                dgvInstrumentOutQuery.Rows[index].Cells[7].Value = wh.manufactor;
+                dgvInstrumentOutQuery.Rows[index].Cells[8].Value = wh.productionDate;
+                //dgvInstrumentOutQuery.Rows[index].Cells[9].Value = wh.name;
+                dgvInstrumentOutQuery.Rows[index].Cells[10].Value = wh.manager;
+
             }
         }
-        //调用方法固定页面
+       
         private void Takeout_Warehouse_Load(object sender, EventArgs e)
         {
-            this.tbname.Text = s;
-            this.tbname.MouseClick += textBox1_MouseClick;
-            this.tbname.Leave += textBox1_Leave;
+            //员工搜索提示
+            this.tbname.Text = namehint;
+            this.tbname.MouseClick += tbName_MouseClick;
+            this.tbname.Leave += tbName_Leave;
+            //型号搜索提示
+            this.tbmodel.Text = modelhint;
+            this.tbmodel.MouseClick += tbModel_MouseClick;
+            this.tbmodel.Leave += tbModel_Leave;
+            //调用方法固定页面
             Top = 0;
-            Left = 0;
-            //初始化状态，原始状态为出库查询
-        
+            Left = 0;        
         }
 
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
+        private void tbName_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.tbname.Text.Trim() == s)
+            if (this.tbname.Text.Trim() == namehint)
             {
                 this.tbname.Text = "";
             }
         }
 
-        private void textBox1_Leave(object sender, EventArgs e)
+        private void tbName_Leave(object sender, EventArgs e)
         {
             if (this.tbname.Text.Trim() == "")
             {
-                this.tbname.Text = s;
+                this.tbname.Text = namehint;
             }
         }
 
+        private void tbModel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (this.tbmodel.Text.Trim() == modelhint)
+            {
+                this.tbmodel.Text = "";
+            }
+        }
+
+        private void tbModel_Leave(object sender, EventArgs e)
+        {
+            if (this.tbmodel.Text.Trim() == "")
+            {
+                this.tbmodel.Text = modelhint;
+            }
+        }
         //搜索框
         private void bt_people_search_Click(object sender, EventArgs e)
         {
             //获取搜索框中的值
-            String tb_text = tbname.Text;
+            String tb_name = tbname.Text;
+            String tb_model = tbmodel.Text;
             //根据搜索框的内容查询对应的值
-            dao.FindUserByName(tb_text);
+            dao.FindUserByName(tb_name);
         }
 
         private void bt_time_search_Click(object sender, EventArgs e)
