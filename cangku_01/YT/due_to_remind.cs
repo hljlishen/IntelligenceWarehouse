@@ -35,7 +35,7 @@ namespace cangku_01.YT
                
                 //给同一行的每一列赋值
                  //id
-                 //dataGridView1.Rows[index].Cells[0].Value = re.tagId;  
+                 dataGridView1.Rows[index].Cells[0].Value = re.tagId;  
                  //name
                  dataGridView1.Rows[index].Cells[1].Value = re.name;
                  //生产厂商
