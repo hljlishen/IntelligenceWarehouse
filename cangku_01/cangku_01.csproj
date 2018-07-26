@@ -80,18 +80,18 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="LX\AddOrModifyInstrument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LX\AddOrModifyInstrument.designer.cs">
+      <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
+    </Compile>
     <Compile Include="LX\instrument.cs" />
     <Compile Include="LX\InterfaceImp_instrument.cs" />
     <Compile Include="LX\Interface_instrument.cs" />
     <Compile Include="LX\Object.cs" />
     <Compile Include="LX\Observer.cs" />
     <Compile Include="LX\Subject.cs" />
-    <Compile Include="LX\Updata_instrument.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LX\Updata_instrument.Designer.cs">
-      <DependentUpon>Updata_instrument.cs</DependentUpon>
-    </Compile>
     <Compile Include="MH\interfaceImp\InstrumentQueryImp.cs" />
     <Compile Include="MH\interfaces\InstrumentQuery.cs" />
     <Compile Include="MH\InstrumentQuery.cs">
@@ -99,12 +99,6 @@
     </Compile>
     <Compile Include="MH\InstrumentQuery.designer.cs">
       <DependentUpon>InstrumentQuery.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LX\add_instrument.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LX\add_instrument.designer.cs">
-      <DependentUpon>add_instrument.cs</DependentUpon>
     </Compile>
     <Compile Include="LX\index_instrument.cs">
       <SubType>Form</SubType>
@@ -167,14 +161,11 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LX\Updata_instrument.resx">
-      <DependentUpon>Updata_instrument.cs</DependentUpon>
+    <EmbeddedResource Include="LX\AddOrModifyInstrument.resx">
+      <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MH\InstrumentQuery.resx">
       <DependentUpon>InstrumentQuery.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LX\add_instrument.resx">
-      <DependentUpon>add_instrument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LX\index_instrument.resx">
       <DependentUpon>index_instrument.cs</DependentUpon>
