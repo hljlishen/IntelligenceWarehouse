@@ -6,12 +6,27 @@ using System.Threading.Tasks;
 
 namespace cangku_01.SQQ
 {
-    class Door:Subject
+    class Door:Observer
     {
-        public Door()
+        public InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
+        public Door(){}
+        public Door(Subject subject)
+            : base(subject)
         {
-            Console.WriteLine("门  通过标签！！！");
+
         }
 
+        protected override void Notified(object sender, EventArgs e)
+        {
+            // throw new NotImplementedException();
+            List<Instrument> list = new List<Instrument>();
+            Instrument ins = new Instrument();
+            ins.Ins_id = 1;
+            ins.Ins_name = "二锅头";
+            ins.Ins_state = true;
+            ins.Ins_dateTime = DateTime.Now;
+            list.Add(ins);
+            instrumentDao.Ins_Info(list);
+        }
     }
 }
