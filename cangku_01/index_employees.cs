@@ -19,11 +19,10 @@ namespace cangku_01
     public partial class index_employees : Form
     {
         UserInterface dao = new UserInterfaceImp();
-        style sty = new style();
         String s = "请输入员工的姓名";
         User user = new User();
         String currentIndex;
-        List<User> updateUser;
+        string sex;
         
        
 
@@ -55,9 +54,9 @@ namespace cangku_01
             this.tb_found.Text = s;
             this.tb_found.MouseClick += textBox1_MouseClick;
             this.tb_found.Leave += textBox1_Leave;
-
-            style style1 = new style();
-            style1.Location(this);
+            this.Top = 0;
+            this.Left = 0;
+          
 
         }
 
@@ -83,25 +82,39 @@ namespace cangku_01
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    
                     string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     this.dataGridView1.Rows.RemoveAt(e.RowIndex);
                     dao.delUser(id);
                 }
             }
+
             if (e.ColumnIndex == 9)//点击在修改按钮上
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    Tital.Text = "修改员工";
+                    Bt_change.Text = "确认修改";
                     //获取要修改的id
                     currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     //根据用户id查询
-                    updateUser= dao.findUserById(id);
+                    List<User> updateUser= dao.findUserById(id);
+                    foreach (User u in updateUser)
+                    {
+                        tb_id.Text = u.Id.ToString();
+                        tb_name.Text = u.Name;
+                        rb_man.Text = u.Sex;
+                        tb_tel.Text = u.Tel;
+                        rb_man.Checked = true;
+                        tb_job.Text = u.Job;
+                        tb_temp.Text = u.Temp;
+                        tb_salary.Text = u.Salary.ToString();
+                        tb_jobtime.Text = u.Time.ToString();
+                    }
 
-                    //跳转到修改页面
-                    updata_user updata_User = new updata_user();
-                    updata_User.Show();
+                   
 
                 }
             }
@@ -111,33 +124,19 @@ namespace cangku_01
         //添加用户
         private void button2_Click(object sender, EventArgs e)
         {
+            Tital.Text = "添加员工";
+            Bt_change.Text = "确认添加";
+            tb_id.Text = null;
+            tb_name.Text = null;
+            rb_man.Checked = true;
+            tb_tel.Text = null;
+            tb_job.Text = null;
+            tb_temp.Text = null;
+            tb_salary.Text = null;
+            tb_jobtime.Text = null;
+
 
             
-            //将获取到的数据添加到最后一栏中
-            DataGridViewRow row = new DataGridViewRow();
-            int index = dataGridView1.Rows.Add(row);
-            dataGridView1.Rows[index].Cells[0].Value = tb_id.Text;
-            dataGridView1.Rows[index].Cells[1].Value = tb_name.Text;
-            dataGridView1.Rows[index].Cells[2].Value = tb_sex.Text;
-            dataGridView1.Rows[index].Cells[3].Value = tb_tel.Text;
-            dataGridView1.Rows[index].Cells[4].Value = tb_temp.Text;
-            dataGridView1.Rows[index].Cells[5].Value = tb_job.Text;
-            dataGridView1.Rows[index].Cells[6].Value = tb_salary.Text;
-            dataGridView1.Rows[index].Cells[7].Value = tb_jobtime.Text;
-            //从用户获取的数值添加到数据库
-            //日期格式的转化
-            //DateTime dt = DateTime.ParseExact(tb_jobtime.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
-            DateTime dt = Convert.ToDateTime(tb_jobtime.Text);
-           // Console.WriteLine("dt=" + dt);
-            user.Id = int.Parse(tb_id.Text);
-            user.Name = tb_name.Text;
-            user.Sex = tb_sex.Text;
-            user.Time = dt;
-            user.Tel = tb_tel.Text;
-            user.Temp = tb_temp.Text;
-            user.Job = tb_job.Text;
-            user.Salary = double.Parse(tb_salary.Text);
-            dao.addUser(user);
 
         }
         //搜索框
@@ -163,6 +162,51 @@ namespace cangku_01
 
             //}
 
+        }
+
+        private void Bt_change_Click(object sender, EventArgs e)
+        {
+            if (Bt_change.Text == "确认添加")
+            {
+                if (rb_man.Checked == true)
+                {
+                    sex = rb_man.Text;
+                }
+                else
+                {
+                    sex = rb_wonman.Text;
+                }
+                //将获取到的数据添加到最后一栏中
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dataGridView1.Rows.Add(row);
+                dataGridView1.Rows[index].Cells[0].Value = tb_id.Text;
+                dataGridView1.Rows[index].Cells[1].Value = tb_name.Text;
+        
+                dataGridView1.Rows[index].Cells[2].Value = sex;
+                dataGridView1.Rows[index].Cells[3].Value = tb_tel.Text;
+                dataGridView1.Rows[index].Cells[4].Value = tb_temp.Text;
+                dataGridView1.Rows[index].Cells[5].Value = tb_job.Text;
+                dataGridView1.Rows[index].Cells[6].Value = tb_salary.Text;
+                dataGridView1.Rows[index].Cells[7].Value = tb_jobtime.Text;
+                //从用户获取的数值添加到数据库
+                //日期格式的转化
+                //DateTime dt = DateTime.ParseExact(tb_jobtime.Text, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime dt = Convert.ToDateTime(tb_jobtime.Text);
+                // Console.WriteLine("dt=" + dt);
+                user.Id = int.Parse(tb_id.Text);
+                user.Name = tb_name.Text;
+                user.Sex = sex;
+                user.Time = dt;
+                user.Tel = tb_tel.Text;
+                user.Temp = tb_temp.Text;
+                user.Job = tb_job.Text;
+                user.Salary = double.Parse(tb_salary.Text);
+                dao.addUser(user);
+            }
+            if (Bt_change.Text == "确认修改")
+            {
+                DialogResult dialogResult = MessageBox.Show("修改成功!!");
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ namespace cangku_01.LX
         //id 删除
         void Delete_instrument(int id);
         //修改
-        void Alter_instrument(List<instrument> instrument);
+        void Modify_instrument(List<instrument> instrument);
        
         //根据id查找，显示仪器信息
         List<instrument> findInstrumentById(int id);

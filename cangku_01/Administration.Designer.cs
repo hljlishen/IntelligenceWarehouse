@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Administration));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.员工管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.仓库管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,14 +120,14 @@
             // 仪器ToolStripMenuItem
             // 
             this.仪器ToolStripMenuItem.Name = "仪器ToolStripMenuItem";
-            this.仪器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.仪器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.仪器ToolStripMenuItem.Text = "仪器";
             this.仪器ToolStripMenuItem.Click += new System.EventHandler(this.仪器ToolStripMenuItem_Click);
             // 
             // 元器件ToolStripMenuItem
             // 
             this.元器件ToolStripMenuItem.Name = "元器件ToolStripMenuItem";
-            this.元器件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.元器件ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.元器件ToolStripMenuItem.Text = "元器件";
             // 
             // Administration
@@ -137,11 +138,12 @@
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Administration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Administration";
+            this.Text = "管理员页面";
             this.Load += new System.EventHandler(this.Administration_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -55,12 +55,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.tb_name = new System.Windows.Forms.TextBox();
-            this.tb_sex = new System.Windows.Forms.TextBox();
             this.tb_tel = new System.Windows.Forms.TextBox();
             this.tb_temp = new System.Windows.Forms.TextBox();
             this.tb_job = new System.Windows.Forms.TextBox();
             this.tb_salary = new System.Windows.Forms.TextBox();
             this.tb_jobtime = new System.Windows.Forms.DateTimePicker();
+            this.Tital = new System.Windows.Forms.Label();
+            this.Bt_change = new System.Windows.Forms.Button();
+            this.rb_man = new System.Windows.Forms.RadioButton();
+            this.rb_wonman = new System.Windows.Forms.RadioButton();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -236,11 +239,6 @@
             resources.ApplyResources(this.tb_name, "tb_name");
             this.tb_name.Name = "tb_name";
             // 
-            // tb_sex
-            // 
-            resources.ApplyResources(this.tb_sex, "tb_sex");
-            this.tb_sex.Name = "tb_sex";
-            // 
             // tb_tel
             // 
             resources.ApplyResources(this.tb_tel, "tb_tel");
@@ -266,6 +264,32 @@
             resources.ApplyResources(this.tb_jobtime, "tb_jobtime");
             this.tb_jobtime.Name = "tb_jobtime";
             // 
+            // Tital
+            // 
+            resources.ApplyResources(this.Tital, "Tital");
+            this.Tital.Name = "Tital";
+            // 
+            // Bt_change
+            // 
+            resources.ApplyResources(this.Bt_change, "Bt_change");
+            this.Bt_change.Name = "Bt_change";
+            this.Bt_change.UseVisualStyleBackColor = true;
+            this.Bt_change.Click += new System.EventHandler(this.Bt_change_Click);
+            // 
+            // rb_man
+            // 
+            resources.ApplyResources(this.rb_man, "rb_man");
+            this.rb_man.Name = "rb_man";
+            this.rb_man.TabStop = true;
+            this.rb_man.UseVisualStyleBackColor = true;
+            // 
+            // rb_wonman
+            // 
+            resources.ApplyResources(this.rb_wonman, "rb_wonman");
+            this.rb_wonman.Name = "rb_wonman";
+            this.rb_wonman.TabStop = true;
+            this.rb_wonman.UseVisualStyleBackColor = true;
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(cangku_01.entity.User);
@@ -282,12 +306,15 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rb_wonman);
+            this.Controls.Add(this.rb_man);
+            this.Controls.Add(this.Bt_change);
+            this.Controls.Add(this.Tital);
             this.Controls.Add(this.tb_jobtime);
             this.Controls.Add(this.tb_salary);
             this.Controls.Add(this.tb_job);
             this.Controls.Add(this.tb_temp);
             this.Controls.Add(this.tb_tel);
-            this.Controls.Add(this.tb_sex);
             this.Controls.Add(this.tb_name);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -335,7 +362,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox tb_name;
-        private System.Windows.Forms.TextBox tb_sex;
         private System.Windows.Forms.TextBox tb_tel;
         private System.Windows.Forms.TextBox tb_temp;
         private System.Windows.Forms.TextBox tb_job;
@@ -351,5 +377,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 入职时间;
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
+        private System.Windows.Forms.Label Tital;
+        private System.Windows.Forms.Button Bt_change;
+        private System.Windows.Forms.RadioButton rb_man;
+        private System.Windows.Forms.RadioButton rb_wonman;
     }
 }
