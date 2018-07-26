@@ -61,8 +61,8 @@ namespace cangku_01
 
         private void button1_Click(object sender, EventArgs e)  //添加仪器按钮
         {
-            add_instrument adi = new add_instrument();
-            adi.Show();
+            AddOrModifyInstrument add = new AddOrModifyInstrument(0);
+            add.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //表
@@ -88,12 +88,9 @@ namespace cangku_01
                     //获取要修改的id
                     currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
-                    //根据用户id查询 copy
-                    //  updateUser = dao.findUserById(id);
-
                     //跳转到修改页面
-                    Updata_instrument up = new Updata_instrument();
-                    up.Show();
+                   AddOrModifyInstrument  mod = new AddOrModifyInstrument(1);
+                    mod.Show();
                 }
             }
         }
