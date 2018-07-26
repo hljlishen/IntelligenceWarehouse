@@ -38,7 +38,7 @@
             this.modelquery = new System.Windows.Forms.Label();
             this.tbmodel = new System.Windows.Forms.TextBox();
             this.dgvInstrumentOutQuery = new System.Windows.Forms.DataGridView();
-            this.仪器ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.操作个数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -91,7 +91,7 @@
             this.btnquery.TabIndex = 6;
             this.btnquery.Text = "查询";
             this.btnquery.UseVisualStyleBackColor = true;
-            this.btnquery.Click += new System.EventHandler(this.bt_time_search_Click);
+            this.btnquery.Click += new System.EventHandler(this.btnquery_Click);
             // 
             // dtpstartdate
             // 
@@ -138,7 +138,7 @@
             // 
             this.dgvInstrumentOutQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInstrumentOutQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.仪器ID,
+            this.仪器标签ID,
             this.仪器名,
             this.存放位置,
             this.操作个数,
@@ -156,12 +156,12 @@
             this.dgvInstrumentOutQuery.Size = new System.Drawing.Size(1400, 764);
             this.dgvInstrumentOutQuery.TabIndex = 0;
             // 
-            // 仪器ID
+            // 仪器标签ID
             // 
-            this.仪器ID.HeaderText = "仪器ID";
-            this.仪器ID.Name = "仪器ID";
-            this.仪器ID.ReadOnly = true;
-            this.仪器ID.Width = 115;
+            this.仪器标签ID.HeaderText = "仪器标签ID";
+            this.仪器标签ID.Name = "仪器标签ID";
+            this.仪器标签ID.ReadOnly = true;
+            this.仪器标签ID.Width = 115;
             // 
             // 仪器名
             // 
@@ -301,7 +301,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InstrumentQuery";
             this.Text = "InstrumentQuery";
-            this.Load += new System.EventHandler(this.Takeout_Warehouse_Load);
+            this.Load += new System.EventHandler(this.InstrumentQuery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentOutQuery)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -319,7 +319,10 @@
         private System.Windows.Forms.Label modelquery;
         private System.Windows.Forms.TextBox tbmodel;
         private System.Windows.Forms.DataGridView dgvInstrumentOutQuery;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器ID;
+        private System.Windows.Forms.Button btnqueryout;
+        private System.Windows.Forms.Button btnqueryin;
+        private System.Windows.Forms.Button btnqueryoutandin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器标签ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 存放位置;
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作个数;
@@ -331,8 +334,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 经办人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作;
-        private System.Windows.Forms.Button btnqueryout;
-        private System.Windows.Forms.Button btnqueryin;
-        private System.Windows.Forms.Button btnqueryoutandin;
     }
 }
