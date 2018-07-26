@@ -34,10 +34,9 @@ namespace cangku_01
                 Tb_name.Text = en.Name;
                 Tb_temp.Text = en.Temp;
             }
-
-            Door door = new Door();
-            Instrument instrument = new Instrument(door);
-            door.Pass();
+            Instrument instrument = new Instrument();
+            Door door = new Door(instrument);
+            instrument.Pass();
             //物品信息的显示
             List<Instrument> ins_list = instrumentDao.find_ins();
             foreach (Instrument ins in ins_list)

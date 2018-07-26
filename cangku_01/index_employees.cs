@@ -22,6 +22,7 @@ namespace cangku_01
         String s = "请输入员工的姓名";
         User user = new User();
         String currentIndex;
+        string sex;
         
        
 
@@ -104,8 +105,9 @@ namespace cangku_01
                     {
                         tb_id.Text = u.Id.ToString();
                         tb_name.Text = u.Name;
-                        tb_sex.Text = u.Sex;
+                        rb_man.Text = u.Sex;
                         tb_tel.Text = u.Tel;
+                        rb_man.Checked = true;
                         tb_job.Text = u.Job;
                         tb_temp.Text = u.Temp;
                         tb_salary.Text = u.Salary.ToString();
@@ -126,7 +128,7 @@ namespace cangku_01
             Bt_change.Text = "确认添加";
             tb_id.Text = null;
             tb_name.Text = null;
-            tb_sex.Text = null;
+            rb_man.Checked = true;
             tb_tel.Text = null;
             tb_job.Text = null;
             tb_temp.Text = null;
@@ -166,12 +168,21 @@ namespace cangku_01
         {
             if (Bt_change.Text == "确认添加")
             {
+                if (rb_man.Checked == true)
+                {
+                    sex = rb_man.Text;
+                }
+                else
+                {
+                    sex = rb_wonman.Text;
+                }
                 //将获取到的数据添加到最后一栏中
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dataGridView1.Rows.Add(row);
                 dataGridView1.Rows[index].Cells[0].Value = tb_id.Text;
                 dataGridView1.Rows[index].Cells[1].Value = tb_name.Text;
-                dataGridView1.Rows[index].Cells[2].Value = tb_sex.Text;
+        
+                dataGridView1.Rows[index].Cells[2].Value = sex;
                 dataGridView1.Rows[index].Cells[3].Value = tb_tel.Text;
                 dataGridView1.Rows[index].Cells[4].Value = tb_temp.Text;
                 dataGridView1.Rows[index].Cells[5].Value = tb_job.Text;
@@ -184,7 +195,7 @@ namespace cangku_01
                 // Console.WriteLine("dt=" + dt);
                 user.Id = int.Parse(tb_id.Text);
                 user.Name = tb_name.Text;
-                user.Sex = tb_sex.Text;
+                user.Sex = sex;
                 user.Time = dt;
                 user.Tel = tb_tel.Text;
                 user.Temp = tb_temp.Text;
