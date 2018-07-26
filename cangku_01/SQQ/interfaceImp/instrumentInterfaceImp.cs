@@ -26,6 +26,7 @@ namespace cangku_01.SQQ
                 instrument.Ins_dateTime = ins.Ins_dateTime;
                 ins_List.Add(instrument);
             }
+
             
             //insert 数据库的sql语句
             return ins_List;
