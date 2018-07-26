@@ -12,6 +12,7 @@ namespace cangku_01.LK
     {
         public string HumidityNumber { get; set; }
 
-        public Humidity() { }
+        public Humidity() {
+        }
     }
 }
