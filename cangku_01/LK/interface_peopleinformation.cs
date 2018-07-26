@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using cangku_01.entity;
 
 namespace cangku_01.LK
 {
@@ -10,7 +11,7 @@ namespace cangku_01.LK
     interface interface_peopleinformation
     {
         //人员信息列表
-        List<entity_peopleinformation> All_information();
+        List<User> All_information();
         //人员肖像
         String person_picture();
     }
