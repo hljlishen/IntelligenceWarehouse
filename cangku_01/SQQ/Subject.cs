@@ -10,6 +10,8 @@ namespace cangku_01.SQQ
     public delegate void DoorEventHandler(object sender,EventArgs e);
     //委托   当温度发生变化时    将所有信息传给观察者
     public delegate void TemperatureEventHandler(object sender, EventArgs e);
+    //委托   当湿度发生变化时    将所有信息传给观察者
+    public delegate void HumidityEventHandler(object sender, EventArgs e);
 
 
     //被观察者对象
@@ -17,6 +19,21 @@ namespace cangku_01.SQQ
     {
         public event DoorEventHandler doorEventHandler;//标签通过门的事件
         public event TemperatureEventHandler temperatureEventHandler;   //温度变化事件
+        public event HumidityEventHandler humidityEventHandler;   //湿度度变化事件
+
+
+        //湿度发生变化
+        public void HumidityChange(EventArgs e)
+        {
+            this.humidityEventHandler(this, e);
+        }
+        //湿度未发生变化
+        public void HumidityChange()
+        {
+            this.humidityEventHandler(this, new EventArgs());
+        }
+
+
 
         //温度发生变化
         public void temperatureChange(EventArgs e)
