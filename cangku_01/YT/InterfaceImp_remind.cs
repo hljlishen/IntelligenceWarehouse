@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using cangku_01.LX;
 
 //到期提醒的实现接口
 
@@ -12,60 +13,60 @@ namespace cangku_01.YT
     class InterfaceImp_remind : Interface_remind
     {
         //定义接收实体类数据的数组
-        List<Entity_remind> Remind_list = new List<Entity_remind>();
+        List<instrument> Remind_list = new List<instrument>();
      
 
         //在数据库查询所用快要到期的仪器，并存放在数组中
-        List<Entity_remind> Interface_remind.All_remind()
+        List<instrument> Interface_remind.All_remind()
         {
             //text
-            Entity_remind remind = new Entity_remind();
-            Entity_remind remind2 = new Entity_remind();
-            Entity_remind remind3 = new Entity_remind();
-            Entity_remind remind4 = new Entity_remind();
-            Entity_remind remind5 = new Entity_remind();
-            Entity_remind remind6 = new Entity_remind();
+            instrument remind = new instrument();
+            instrument remind2 = new instrument();
+            instrument remind3 = new instrument();
+            instrument remind4 = new instrument();
+            instrument remind5 = new instrument();
+            instrument remind6 = new instrument();
 
-            remind.Id = 001;
-            remind.Name = "电子标签卡";
-            remind.Manufacturer = "红叶";
-            remind.Lastdate = DateTime.Parse("2018-2-12"); ;
-            remind.Cycle = 120;
+            remind.tagId = 001;
+            remind.name = "电子标签卡";
+            remind.manufactor = "红叶";
+            remind.lastCheckTimes = DateTime.Parse("2018-2-12"); ;
+            remind.checkCycle = 120;
             Remind_list.Add(remind);
 
-            remind2.Id = 002;
-            remind2.Name = "UFH读写器";
-            remind2.Manufacturer = "润之科技";
-            remind2.Lastdate = DateTime.Parse("2018-5-12"); ;
-            remind2.Cycle = 360;
+            remind2.tagId = 002;
+            remind2.name = "UFH读写器";
+            remind2.manufactor = "润之科技";
+            remind2.lastCheckTimes = DateTime.Parse("2018-5-12"); ;
+            remind2.checkCycle = 360;
             Remind_list.Add(remind2);
 
-            remind3.Id = 003;
-            remind3.Name = "电子门禁";
-            remind3.Manufacturer = "智能酷睿";
-            remind3.Lastdate = DateTime.Parse("2018-7-12"); ;
-            remind3.Cycle = 10;
+            remind3.tagId = 003;
+            remind3.name = "电子门禁";
+            remind3.manufactor = "智能酷睿";
+            remind3.lastCheckTimes = DateTime.Parse("2018-7-12"); ;
+            remind3.checkCycle = 10;
             Remind_list.Add(remind3);
 
-            remind4.Id = 004;
-            remind4.Name = "智能电视";
-            remind4.Manufacturer = "KT家具";
-            remind4.Lastdate = DateTime.Parse("2018-6-12"); ;
-            remind4.Cycle = 30;
+            remind4.tagId = 004;
+            remind4.name = "智能电视";
+            remind4.manufactor = "KT家具";
+            remind4.lastCheckTimes = DateTime.Parse("2018-6-12"); ;
+            remind4.checkCycle = 30;
             Remind_list.Add(remind4);
 
-            remind5.Id = 005;
-            remind5.Name = "宏基笔记本";
-            remind5.Manufacturer = "acer";
-            remind5.Lastdate = DateTime.Parse("2018-5-18"); ;
-            remind5.Cycle = 120;
+            remind5.tagId = 005;
+            remind5.name = "宏基笔记本";
+            remind5.manufactor = "acer";
+            remind5.lastCheckTimes = DateTime.Parse("2018-5-18"); ;
+            remind5.checkCycle = 120;
             Remind_list.Add(remind5);
 
-            remind6.Id = 006;
-            remind6.Name = "智能水杯";
-            remind6.Manufacturer = "流浪者科技";
-            remind6.Lastdate = DateTime.Parse("2018-7-1"); ;
-            remind6.Cycle = 40;
+            remind6.tagId = 006;
+            remind6.name = "智能水杯";
+            remind6.manufactor = "流浪者科技";
+            remind6.lastCheckTimes = DateTime.Parse("2018-7-1"); ;
+            remind6.checkCycle = 40;
             Remind_list.Add(remind6);
             return Remind_list;
         }

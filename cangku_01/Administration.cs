@@ -20,11 +20,9 @@ namespace cangku_01
         {
             InitializeComponent();
         }
-        style s = new style();
 
         private void 员工管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            s.Mdi_close(this);
             Form fr = new index_employees();
             fr.MdiParent = this;
             fr.Show();
@@ -35,28 +33,28 @@ namespace cangku_01
            
         }
 
+ 
+
         private void 到期提醒ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            s.Mdi_close(this);
             Form fr = new Due_to_remind();
-            fr.MdiParent = this;
-            fr.Show();
-        }
-
-        private void 仪器管理ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            s.Mdi_close(this);
-            Form fr = new index_instrument();
             fr.MdiParent = this;
             fr.Show();
         }
 
         private void 仪器ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            s.Mdi_close(this);
             Form fr = new InstrumentQuery();
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void 仪器管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form fr = new index_instrument();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
     }
 }

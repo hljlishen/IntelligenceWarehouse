@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
-            this.la_nowtxt = new System.Windows.Forms.Label();
-            this.La_nowtime = new System.Windows.Forms.Label();
-            this.la_time = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,6 +38,10 @@
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
+            this.la_nowtxt = new System.Windows.Forms.Label();
+            this.La_nowtime = new System.Windows.Forms.Label();
+            this.la_time = new System.Windows.Forms.Label();
             this.La_day0 = new System.Windows.Forms.Label();
             this.La_day30 = new System.Windows.Forms.Label();
             this.La_day3060 = new System.Windows.Forms.Label();
@@ -67,43 +67,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1294, 700);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Tr_nowtime
-            // 
-            this.Tr_nowtime.Enabled = true;
-            this.Tr_nowtime.Interval = 1000;
-            this.Tr_nowtime.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
-            // la_nowtxt
-            // 
-            this.la_nowtxt.AutoSize = true;
-            this.la_nowtxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_nowtxt.Location = new System.Drawing.Point(56, 45);
-            this.la_nowtxt.Name = "la_nowtxt";
-            this.la_nowtxt.Size = new System.Drawing.Size(90, 21);
-            this.la_nowtxt.TabIndex = 1;
-            this.la_nowtxt.Text = "当前时间：";
-            // 
-            // La_nowtime
-            // 
-            this.La_nowtime.AutoSize = true;
-            this.La_nowtime.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_nowtime.Location = new System.Drawing.Point(151, 45);
-            this.La_nowtime.Name = "La_nowtime";
-            this.La_nowtime.Size = new System.Drawing.Size(0, 21);
-            this.La_nowtime.TabIndex = 2;
-            this.La_nowtime.Click += new System.EventHandler(this.Label2_Click);
-            // 
-            // la_time
-            // 
-            this.la_time.AutoSize = true;
-            this.la_time.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_time.Location = new System.Drawing.Point(152, 45);
-            this.la_time.Name = "la_time";
-            this.la_time.Size = new System.Drawing.Size(80, 21);
-            this.la_time.TabIndex = 3;
-            this.la_time.Text = "Nowtime";
-            this.la_time.Click += new System.EventHandler(this.Label1_Click);
             // 
             // Column1
             // 
@@ -162,6 +125,41 @@
             this.Column8.Text = "修改检查时间";
             this.Column8.UseColumnTextForButtonValue = true;
             this.Column8.Width = 160;
+            // 
+            // Tr_nowtime
+            // 
+            this.Tr_nowtime.Enabled = true;
+            this.Tr_nowtime.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // la_nowtxt
+            // 
+            this.la_nowtxt.AutoSize = true;
+            this.la_nowtxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_nowtxt.Location = new System.Drawing.Point(56, 45);
+            this.la_nowtxt.Name = "la_nowtxt";
+            this.la_nowtxt.Size = new System.Drawing.Size(90, 21);
+            this.la_nowtxt.TabIndex = 1;
+            this.la_nowtxt.Text = "当前时间：";
+            // 
+            // La_nowtime
+            // 
+            this.La_nowtime.AutoSize = true;
+            this.La_nowtime.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_nowtime.Location = new System.Drawing.Point(151, 45);
+            this.La_nowtime.Name = "La_nowtime";
+            this.La_nowtime.Size = new System.Drawing.Size(0, 21);
+            this.La_nowtime.TabIndex = 2;
+            this.La_nowtime.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // la_time
+            // 
+            this.la_time.AutoSize = true;
+            this.la_time.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_time.Location = new System.Drawing.Point(152, 45);
+            this.la_time.Name = "la_time";
+            this.la_time.Size = new System.Drawing.Size(0, 21);
+            this.la_time.TabIndex = 3;
+            this.la_time.Click += new System.EventHandler(this.Label1_Click);
             // 
             // La_day0
             // 

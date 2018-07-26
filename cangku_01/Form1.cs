@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.SQQ;
 using cangku_01.LK;
+using cangku_01.entity;
 
 namespace cangku_01
 {
@@ -19,18 +20,19 @@ namespace cangku_01
         InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         public Form1()
         {
+            
             InitializeComponent();
             this.skinEngine1.SkinFile = "Longhorn.ssk";
 
             
 
 
-            List<entity_peopleinformation> list = dao.All_information();
-            foreach(entity_peopleinformation en in list)
+            List<User> list = dao.All_information();
+            foreach(User en in list)
             {
                 Tb_id.Text = en.Id.ToString();
                 Tb_name.Text = en.Name;
-                Tb_temp.Text = en.Department;
+                Tb_temp.Text = en.Temp;
             }
 
             Door door = new Door();
@@ -123,6 +125,16 @@ namespace cangku_01
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
