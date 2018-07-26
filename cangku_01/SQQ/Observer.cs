@@ -11,10 +11,15 @@ namespace cangku_01.SQQ
         public Observer() { }
         public Observer(Subject subject)
         {
+            //标签通过门事件
             subject.doorEventHandler += new DoorEventHandler(this.Notified);
+            //温度发生变化事件
+            subject.temperatureEventHandler += new TemperatureEventHandler(this.Notified);
         }
 
-        //当  感应门 通过标签时
+        //当  感应门 通过标签时  ||  当温度发生变化时执行
         abstract protected void Notified(object sender, EventArgs e);
+        
+        
     }
 }
