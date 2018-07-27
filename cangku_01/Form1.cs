@@ -17,9 +17,9 @@ namespace cangku_01
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
-        temperatureTestInterface temp = new temperatureTestInterfaceImp();      //实例化温度检测接口
+        temperatureTestInterface temp = new TemperatureTestInterfaceImp();      //实例化温度检测接口
         HumidityInterface humidityInterface = new HumidityInterfaceImp();        //实例化湿度接口
-        interface_peopleinformation dao = new interfaceImp_peopleinformation();
+        Interface_PeopleInformation dao = new InterfaceImp_PeopleInformation();
         InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         temperature Temperature = new temperature();    //实例化温度类
         Humidity humidity = new Humidity();     //实例化湿度类

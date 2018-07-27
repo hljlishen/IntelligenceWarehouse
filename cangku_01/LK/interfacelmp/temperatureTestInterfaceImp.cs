@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cangku_01.LK.interfacelmp
 {
-    class temperatureTestInterfaceImp : temperatureTestInterface
+    class TemperatureTestInterfaceImp : temperatureTestInterface
     {
         public static List<string> lists = new List<string>();
         public List<string> temperature(String list)

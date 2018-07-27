@@ -8,7 +8,7 @@ using cangku_01.entity;
 namespace cangku_01.LK
 {
     //人员信息显示接口实现
-    class interfaceImp_peopleinformation : interface_peopleinformation
+    class InterfaceImp_PeopleInformation : Interface_PeopleInformation
     {
         //定义接收实体类的数组
         List<User> peopleinformations_list = new List<User>();
@@ -18,7 +18,7 @@ namespace cangku_01.LK
         User information2 = new User();
 
         //在数据库查询人员的信息，并存放在数组中
-        List<User> interface_peopleinformation.All_information()
+        List<User> Interface_PeopleInformation.All_information()
         {
             information1.Id = 00011;
             information1.Name = "白宇";
@@ -36,7 +36,7 @@ namespace cangku_01.LK
             throw new NotImplementedException();
         }
 
-        string interface_peopleinformation.person_picture()
+        string Interface_PeopleInformation.person_picture()
         {
             throw new NotImplementedException();
         }
