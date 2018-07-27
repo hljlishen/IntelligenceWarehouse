@@ -10,19 +10,24 @@ using System.Windows.Forms;
 using cangku_01.SQQ;
 using cangku_01.LK;
 using cangku_01.entity;
+using cangku_01.LK.interfacelmp;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
+        temperatureTestInterface temp = new temperatureTestInterfaceImp();      //实例化温度检测接口
+        HumidityInterface humidityInterface = new HumidityInterfaceImp();        //实例化湿度接口
         interface_peopleinformation dao = new interfaceImp_peopleinformation();
         InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
+        temperature Temperature = new temperature();    //实例化温度类
+        Humidity humidity = new Humidity();     //实例化湿度类
         public Form1()
         {
             
             InitializeComponent();
-            this.skinEngine1.SkinFile = "Longhorn.ssk";
+            this.skinEngine1.SkinFile = "Longhorn.ssk";     //添加皮肤
 
             
 
@@ -37,6 +42,8 @@ namespace cangku_01
             Instrument instrument = new Instrument();
             Door door = new Door(instrument);
             instrument.Pass();
+
+
             //物品信息的显示
             List<Instrument> ins_list = instrumentDao.find_ins();
             foreach (Instrument ins in ins_list)
@@ -48,7 +55,25 @@ namespace cangku_01
 
             }
 
+            //温度
+            temperature temperature = new temperature();
+            temperatureTest temperatureTest = new temperatureTest(temperature);
+            temperature.temperatureChange();
+            List<string> lists= temp.showTemperature();
+            foreach(string s in lists)
+            {
+                Tem_num.Text = s;
+            }
 
+            //湿度
+            Humidity humidity = new Humidity();
+            HumidityTest humidityTest = new HumidityTest(humidity);
+            humidity.HumidityChange();
+            List<string> lists1 = humidityInterface.showHumidity();
+            foreach (string s1 in lists1)
+            {
+                Hum_num.Text = s1;
+            }
 
         }
 

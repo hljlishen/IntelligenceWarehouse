@@ -68,8 +68,8 @@ namespace cangku_01
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.Hum_num = new System.Windows.Forms.Label();
+            this.Tem_num = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -122,7 +122,7 @@ namespace cangku_01
             this.toolStripMenuItem4});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1424, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -155,7 +155,7 @@ namespace cangku_01
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(112, 26);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 26);
             this.toolStripMenuItem5.Text = "查询";
             // 
             // toolStripMenuItem4
@@ -413,8 +413,8 @@ namespace cangku_01
             // 
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.label15);
-            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.Hum_num);
+            this.groupBox4.Controls.Add(this.Tem_num);
             this.groupBox4.Controls.Add(this.label13);
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.pictureBox2);
@@ -447,25 +447,25 @@ namespace cangku_01
             this.label16.TabIndex = 6;
             this.label16.Text = "仓库温度";
             // 
-            // label15
+            // Hum_num
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(261, 55);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(36, 26);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "60";
+            this.Hum_num.AutoSize = true;
+            this.Hum_num.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Hum_num.Location = new System.Drawing.Point(261, 55);
+            this.Hum_num.Name = "Hum_num";
+            this.Hum_num.Size = new System.Drawing.Size(36, 26);
+            this.Hum_num.TabIndex = 5;
+            this.Hum_num.Text = "60";
             // 
-            // label14
+            // Tem_num
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(101, 55);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 26);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "15";
+            this.Tem_num.AutoSize = true;
+            this.Tem_num.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Tem_num.Location = new System.Drawing.Point(101, 55);
+            this.Tem_num.Name = "Tem_num";
+            this.Tem_num.Size = new System.Drawing.Size(36, 26);
+            this.Tem_num.TabIndex = 4;
+            this.Tem_num.Text = "15";
             // 
             // label13
             // 
@@ -527,7 +527,7 @@ namespace cangku_01
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1424, 862);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -600,8 +600,8 @@ namespace cangku_01
         private PictureBox pictureBox1;
         private Label label17;
         private Label label16;
-        private Label label15;
-        private Label label14;
+        private Label Hum_num;
+        private Label Tem_num;
         private Label label13;
         private Label label4;
         private NotifyIcon notifyIcon1;
