@@ -11,7 +11,7 @@ namespace cangku_01.LK
     //温度检测，观察者
     class temperatureTest : Observer
     {
-        temperatureTestInterface dao = new temperatureTestInterfaceImp();
+        temperatureTestInterface dao = new TemperatureTestInterfaceImp();
         // public TemperatureInterface temperatureDao = new temperatureInterfaceImp();
         public temperatureTest() { }
         public temperatureTest(Subject subject)
