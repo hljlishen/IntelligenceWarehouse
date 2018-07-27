@@ -14,45 +14,32 @@ namespace cangku_01.YT
     public partial class Due_to_remind : Form
     {
         Interface_remind dao = new InterfaceImp_remind();
-        instrument remind = new instrument();
 
         public Due_to_remind()
         {
             InitializeComponent();
-
             //获取所有的要提示的快过期信息
             List<instrument> All_re = dao.All_remind();
-
             //循环遍历在列表中
             foreach (instrument re in All_re)
             {
                 //获取当前时间并且赋值给dt
                 DateTime dt = DateTime.Now;
-               
                 //创建新的行
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dataGridView1.Rows.Add(row);
-               
                 //给同一行的每一列赋值
-                 //id
                  dataGridView1.Rows[index].Cells[0].Value = re.tagId;  
-                 //name
                  dataGridView1.Rows[index].Cells[1].Value = re.name;
-                 //生产厂商
                  dataGridView1.Rows[index].Cells[2].Value = re.manufactor;
-                 //上一次检查时间，时间格式转化，只显示年月日
                  string St_Lastdate = re.lastCheckTimes.Year.ToString() + "年" + re.lastCheckTimes.Month.ToString() + "月" + re.lastCheckTimes.Day.ToString() + "日";
                  dataGridView1.Rows[index].Cells[3].Value = St_Lastdate;
-                 //检查周期
                  string St_Cycle = re.checkCycle.ToString();
                  dataGridView1.Rows[index].Cells[4].Value = St_Cycle;
-                 //下一次最晚检查时间，时间格式转化，只显示年月日（下一次最晚检查时间=上次检查时间+检查周期）
                  string St_Nextdate = re.lastCheckTimes.AddDays(re.checkCycle).Year.ToString() + "年" + re.lastCheckTimes.AddDays(re.checkCycle).Month.ToString() + "月" + re.lastCheckTimes.AddDays(re.checkCycle).Day.ToString() + "日";
                  dataGridView1.Rows[index].Cells[5].Value = St_Nextdate;
-                 //剩余检查时间=下一次最晚检查时间-当前时间,只显示剩余天数
                  string St_Expiredate = (re.lastCheckTimes.AddDays(re.checkCycle) - DateTime.Now).Days.ToString();
                  dataGridView1.Rows[index].Cells[6].Value = St_Expiredate;
-
 
                 //判断剩余日期，并划分不同的背景色颜色
                 for (int x = 0; x < this.dataGridView1.Rows.Count - 1; x++)
@@ -68,10 +55,7 @@ namespace cangku_01.YT
                     else
                         this.dataGridView1.Rows[x].DefaultCellStyle.BackColor = Color.Lavender;
                 }
-
-
             }
-
         }
 
         private void Label2_Click(object sender, EventArgs e)
@@ -97,7 +81,6 @@ namespace cangku_01.YT
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
 
             if (e.ColumnIndex == 7)//点击在修改按钮上
             {
