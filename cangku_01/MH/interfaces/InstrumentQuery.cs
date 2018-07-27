@@ -10,6 +10,9 @@ namespace cangku_01.MH.interfaces
     //仪器出入库接口
     interface InstrumentQuery
     {
+        //人工添加数据
+        List<instrument> All_remind();
+
         //仪器进出库中的人员查询
         //根据人名进行查询
         List<instrument> FindUserByName(String Name);

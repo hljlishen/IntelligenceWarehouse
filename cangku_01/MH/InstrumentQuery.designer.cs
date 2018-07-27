@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.namequery = new System.Windows.Forms.Label();
+            this.La_namequery = new System.Windows.Forms.Label();
             this.tbname = new System.Windows.Forms.TextBox();
-            this.timequery = new System.Windows.Forms.Label();
+            this.La_timequery = new System.Windows.Forms.Label();
             this.btnquery = new System.Windows.Forms.Button();
             this.dtpstartdate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpenddate = new System.Windows.Forms.DateTimePicker();
-            this.modelquery = new System.Windows.Forms.Label();
+            this.La_modelquery = new System.Windows.Forms.Label();
             this.tbmodel = new System.Windows.Forms.TextBox();
-            this.dgvInstrumentOutQuery = new System.Windows.Forms.DataGridView();
+            this.dgvInstrumentQuery = new System.Windows.Forms.DataGridView();
             this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,18 +53,18 @@
             this.btnqueryout = new System.Windows.Forms.Button();
             this.btnqueryin = new System.Windows.Forms.Button();
             this.btnqueryoutandin = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentOutQuery)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentQuery)).BeginInit();
             this.SuspendLayout();
             // 
-            // namequery
+            // La_namequery
             // 
-            this.namequery.AutoSize = true;
-            this.namequery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.namequery.Location = new System.Drawing.Point(121, 44);
-            this.namequery.Name = "namequery";
-            this.namequery.Size = new System.Drawing.Size(77, 14);
-            this.namequery.TabIndex = 1;
-            this.namequery.Text = "人员查询：";
+            this.La_namequery.AutoSize = true;
+            this.La_namequery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_namequery.Location = new System.Drawing.Point(121, 44);
+            this.La_namequery.Name = "La_namequery";
+            this.La_namequery.Size = new System.Drawing.Size(77, 14);
+            this.La_namequery.TabIndex = 1;
+            this.La_namequery.Text = "人员查询：";
             // 
             // tbname
             // 
@@ -73,15 +73,15 @@
             this.tbname.Size = new System.Drawing.Size(124, 21);
             this.tbname.TabIndex = 2;
             // 
-            // timequery
+            // La_timequery
             // 
-            this.timequery.AutoSize = true;
-            this.timequery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.timequery.Location = new System.Drawing.Point(674, 48);
-            this.timequery.Name = "timequery";
-            this.timequery.Size = new System.Drawing.Size(77, 14);
-            this.timequery.TabIndex = 4;
-            this.timequery.Text = "时间查询：";
+            this.La_timequery.AutoSize = true;
+            this.La_timequery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_timequery.Location = new System.Drawing.Point(674, 48);
+            this.La_timequery.Name = "La_timequery";
+            this.La_timequery.Size = new System.Drawing.Size(77, 14);
+            this.La_timequery.TabIndex = 4;
+            this.La_timequery.Text = "时间查询：";
             // 
             // btnquery
             // 
@@ -117,15 +117,15 @@
             this.dtpenddate.Size = new System.Drawing.Size(103, 21);
             this.dtpenddate.TabIndex = 9;
             // 
-            // modelquery
+            // La_modelquery
             // 
-            this.modelquery.AutoSize = true;
-            this.modelquery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.modelquery.Location = new System.Drawing.Point(399, 44);
-            this.modelquery.Name = "modelquery";
-            this.modelquery.Size = new System.Drawing.Size(77, 14);
-            this.modelquery.TabIndex = 11;
-            this.modelquery.Text = "型号查询：";
+            this.La_modelquery.AutoSize = true;
+            this.La_modelquery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_modelquery.Location = new System.Drawing.Point(399, 44);
+            this.La_modelquery.Name = "La_modelquery";
+            this.La_modelquery.Size = new System.Drawing.Size(77, 14);
+            this.La_modelquery.TabIndex = 11;
+            this.La_modelquery.Text = "型号查询：";
             // 
             // tbmodel
             // 
@@ -134,10 +134,10 @@
             this.tbmodel.Size = new System.Drawing.Size(124, 21);
             this.tbmodel.TabIndex = 12;
             // 
-            // dgvInstrumentOutQuery
+            // dgvInstrumentQuery
             // 
-            this.dgvInstrumentOutQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInstrumentOutQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvInstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.仪器标签ID,
             this.仪器名,
             this.存放位置,
@@ -150,11 +150,11 @@
             this.经办人,
             this.负责人,
             this.操作});
-            this.dgvInstrumentOutQuery.Location = new System.Drawing.Point(12, 85);
-            this.dgvInstrumentOutQuery.Name = "dgvInstrumentOutQuery";
-            this.dgvInstrumentOutQuery.RowTemplate.Height = 23;
-            this.dgvInstrumentOutQuery.Size = new System.Drawing.Size(1400, 764);
-            this.dgvInstrumentOutQuery.TabIndex = 0;
+            this.dgvInstrumentQuery.Location = new System.Drawing.Point(12, 85);
+            this.dgvInstrumentQuery.Name = "dgvInstrumentQuery";
+            this.dgvInstrumentQuery.RowTemplate.Height = 23;
+            this.dgvInstrumentQuery.Size = new System.Drawing.Size(1400, 764);
+            this.dgvInstrumentQuery.TabIndex = 0;
             // 
             // 仪器标签ID
             // 
@@ -288,37 +288,37 @@
             this.Controls.Add(this.btnqueryoutandin);
             this.Controls.Add(this.btnqueryin);
             this.Controls.Add(this.btnqueryout);
-            this.Controls.Add(this.dgvInstrumentOutQuery);
+            this.Controls.Add(this.dgvInstrumentQuery);
             this.Controls.Add(this.tbmodel);
-            this.Controls.Add(this.modelquery);
+            this.Controls.Add(this.La_modelquery);
             this.Controls.Add(this.dtpenddate);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtpstartdate);
             this.Controls.Add(this.btnquery);
-            this.Controls.Add(this.timequery);
+            this.Controls.Add(this.La_timequery);
             this.Controls.Add(this.tbname);
-            this.Controls.Add(this.namequery);
+            this.Controls.Add(this.La_namequery);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InstrumentQuery";
             this.Text = "InstrumentQuery";
             this.Load += new System.EventHandler(this.InstrumentQuery_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentOutQuery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentQuery)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label namequery;
+        private System.Windows.Forms.Label La_namequery;
         private System.Windows.Forms.TextBox tbname;
-        private System.Windows.Forms.Label timequery;
+        private System.Windows.Forms.Label La_timequery;
         private System.Windows.Forms.Button btnquery;
         private System.Windows.Forms.DateTimePicker dtpstartdate;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpenddate;
-        private System.Windows.Forms.Label modelquery;
+        private System.Windows.Forms.Label La_modelquery;
         private System.Windows.Forms.TextBox tbmodel;
-        private System.Windows.Forms.DataGridView dgvInstrumentOutQuery;
+        private System.Windows.Forms.DataGridView dgvInstrumentQuery;
         private System.Windows.Forms.Button btnqueryout;
         private System.Windows.Forms.Button btnqueryin;
         private System.Windows.Forms.Button btnqueryoutandin;
