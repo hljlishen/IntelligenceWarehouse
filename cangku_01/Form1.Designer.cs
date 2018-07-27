@@ -62,7 +62,6 @@ namespace cangku_01
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -76,15 +75,21 @@ namespace cangku_01
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.DueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaysRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -378,16 +383,6 @@ namespace cangku_01
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = null;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(515, 879);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(311, 12);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "仓库管理系统    陕西物理化学研究所国防重点实验室   ";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -400,13 +395,14 @@ namespace cangku_01
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dataGridView1);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(884, 306);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(374, 425);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "到期物品一览表";
+            this.groupBox3.Text = "物品到期提醒";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox4
@@ -521,6 +517,42 @@ namespace cangku_01
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DueName,
+            this.DueTime,
+            this.DaysRemaining});
+            this.dataGridView1.GridColor = System.Drawing.Color.Black;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(353, 383);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // DueName
+            // 
+            this.DueName.HeaderText = "名称";
+            this.DueName.Name = "DueName";
+            this.DueName.ReadOnly = true;
+            this.DueName.Width = 90;
+            // 
+            // DueTime
+            // 
+            this.DueTime.HeaderText = "到期时间";
+            this.DueTime.Name = "DueTime";
+            this.DueTime.ReadOnly = true;
+            this.DueTime.Width = 110;
+            // 
+            // DaysRemaining
+            // 
+            this.DaysRemaining.HeaderText = "剩余天数";
+            this.DaysRemaining.Name = "DaysRemaining";
+            this.DaysRemaining.Width = 110;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -532,7 +564,6 @@ namespace cangku_01
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -551,11 +582,13 @@ namespace cangku_01
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,7 +604,6 @@ namespace cangku_01
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Tb_temp;
         private System.Windows.Forms.TextBox Tb_name;
         private System.Windows.Forms.TextBox Tb_id;
@@ -607,6 +639,10 @@ namespace cangku_01
         private NotifyIcon notifyIcon1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn DueName;
+        private DataGridViewTextBoxColumn DueTime;
+        private DataGridViewTextBoxColumn DaysRemaining;
     }
 }
 

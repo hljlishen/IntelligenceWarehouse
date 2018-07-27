@@ -11,15 +11,17 @@ using cangku_01.SQQ;
 using cangku_01.LK;
 using cangku_01.entity;
 using cangku_01.LK.interfacelmp;
+using cangku_01.LX;
+using cangku_01.YT;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
-        temperatureTestInterface temp = new temperatureTestInterfaceImp();      //实例化温度检测接口
+        temperatureTestInterface temp = new TemperatureTestInterfaceImp();      //实例化温度检测接口
         HumidityInterface humidityInterface = new HumidityInterfaceImp();        //实例化湿度接口
-        interface_peopleinformation dao = new interfaceImp_peopleinformation();
+        Interface_PeopleInformation dao = new InterfaceImp_PeopleInformation();
         InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         temperature Temperature = new temperature();    //实例化温度类
         Humidity humidity = new Humidity();     //实例化湿度类
@@ -73,6 +75,25 @@ namespace cangku_01
             foreach (string s1 in lists1)
             {
                 Hum_num.Text = s1;
+            }
+
+            //到期提醒
+            Interface_remind Remind_dao = new InterfaceImp_remind();
+            List<instrument> All_re = Remind_dao.All_remind();
+            //循环遍历在列表中
+            foreach (instrument re in All_re)
+            {
+                //获取当前时间并且赋值给dt
+                DateTime dt = DateTime.Now;
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dataGridView1.Rows.Add(row);
+                dataGridView1.Rows[index].Cells[0].Value = re.name;
+                //下一次最晚检查时间，时间格式转化，只显示年月日（下一次最晚检查时间=上次检查时间+检查周期）
+                string St_Nextdate = re.lastCheckTimes.AddDays(re.checkCycle).Year.ToString() + "年" + re.lastCheckTimes.AddDays(re.checkCycle).Month.ToString() + "月" + re.lastCheckTimes.AddDays(re.checkCycle).Day.ToString() + "日";
+                dataGridView1.Rows[index].Cells[1].Value = St_Nextdate;
+                //剩余检查时间=下一次最晚检查时间-当前时间,只显示剩余天数
+                string St_Expiredate = (re.lastCheckTimes.AddDays(re.checkCycle) - DateTime.Now).Days.ToString();
+                dataGridView1.Rows[index].Cells[2].Value = St_Expiredate;
             }
 
         }
@@ -164,6 +185,11 @@ namespace cangku_01
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

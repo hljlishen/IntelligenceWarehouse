@@ -98,14 +98,14 @@
     <Compile Include="interfaces\UserInterface.cs" />
     <Compile Include="LK\entity\Humidity.cs" />
     <Compile Include="LK\entity\HumidityTest.cs" />
-    <Compile Include="LK\entity\temperature.cs" />
-    <Compile Include="LK\entity\temperatureTest.cs" />
-    <Compile Include="LK\interfaceImp_peopleinformation.cs" />
+    <Compile Include="LK\entity\Temperature.cs" />
+    <Compile Include="LK\entity\TemperatureTest.cs" />
+    <Compile Include="LK\InterfaceImp_PeopleInformation.cs" />
     <Compile Include="LK\interfacelmp\HumidityInterfaceImp.cs" />
-    <Compile Include="LK\interfacelmp\temperatureTestInterfaceImp.cs" />
+    <Compile Include="LK\interfacelmp\TemperatureTestInterfaceImp.cs" />
     <Compile Include="LK\interface\HumidityInterface.cs" />
-    <Compile Include="LK\interface\temperatureTestInterface.cs" />
-    <Compile Include="LK\interface_peopleinformation.cs" />
+    <Compile Include="LK\interface\TemperatureTestInterface.cs" />
+    <Compile Include="LK\Interface_PeopleInformation.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
