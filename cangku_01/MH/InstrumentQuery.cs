@@ -86,7 +86,7 @@ namespace cangku_01.MH
             if (DateTime.Compare(dt1, dt2) > 0) //判断日期大小
             {
 
-                MessageBox.Show("dateTimePicker1的日期大于dateTimePicker2的日期");
+                MessageBox.Show("初始时间的日期大于结束时间的日期");
             }
             //根据搜索框的内容查询对应的值
             dao.FindUserByName(tb_name);
