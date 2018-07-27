@@ -9,6 +9,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
@@ -26,6 +27,22 @@ namespace cangku_01.MH
         public InstrumentQuery()
         {
             InitializeComponent();
+            List<instrument> All_re = dao.All_remind();
+            //循环遍历
+            foreach (instrument u in All_re)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dgvInstrumentQuery.Rows.Add(row);
+                dgvInstrumentQuery.Rows[index].Cells[0].Value = u.tagId;
+                dgvInstrumentQuery.Rows[index].Cells[1].Value = u.name;
+                dgvInstrumentQuery.Rows[index].Cells[2].Value = u.model;
+                dgvInstrumentQuery.Rows[index].Cells[3].Value = u.manufactor;
+                dgvInstrumentQuery.Rows[index].Cells[4].Value = u.productionDate;
+                dgvInstrumentQuery.Rows[index].Cells[5].Value = u.position;
+                dgvInstrumentQuery.Rows[index].Cells[6].Value = u.instrumentNumber;
+                dgvInstrumentQuery.Rows[index].Cells[7].Value = u.isInWareHouse;
+
+            }
         }
 
 
@@ -43,6 +60,8 @@ namespace cangku_01.MH
             Top = 0;
             Left = 0;
         }
+
+
         private void tbName_MouseClick(object sender, MouseEventArgs e)
         {
             if (this.tbname.Text.Trim() == namehint)
@@ -79,24 +98,41 @@ namespace cangku_01.MH
         {
             //获取搜索框中的值
             String tb_name = tbname.Text;
-            String tb_model = tbmodel.Text;
+            //员工姓名校验
+            //中文名字，不能是数字或英文
+            if (!Regex.IsMatch(tb_name.ToString(), @"[\u4e00-\u9fbb]"))
+            {
+                MessageBox.Show("姓名输入错误");
+            }
+             //根据搜索框的内容查询
+             dao.FindUserByName(tb_name);
+
+
+            string tb_model = tbmodel.Text;
+            //仪器型号校验
+            //可以是数字英文或中文
+            if (!Regex.IsMatch(tb_model.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
+            {
+                MessageBox.Show("型号输入错误");
+            }
+            //根据搜索框的内容查询
+            dao.FindModel(tb_model);
+
 
             DateTime dt1 = Convert.ToDateTime(dtpstartdate.Value.Date.ToString());  //获取的日期1
-            DateTime dt2 = Convert.ToDateTime(dtpenddate.Value.Date.ToString());   //获取的日期2,需增加部分代码使dt2大于dt1
-            if (DateTime.Compare(dt1, dt2) > 0) //判断日期大小
+            DateTime dt2 = Convert.ToDateTime(dtpenddate.Value.Date.ToString());   //获取的日期2
+            //日期校验
+            if (DateTime.Compare(dt1, dt2) > 0)
             {
-
                 MessageBox.Show("初始时间的日期大于结束时间的日期");
             }
-            //根据搜索框的内容查询对应的值
-            dao.FindUserByName(tb_name);
-            //根据搜索框的内容查询对应的值
+            //根据搜索框的内容查询
             dao.FindDate(dt1, dt2);
         }
 
 
 
-
+        //状态
         public class Query
         {
             public State state { get; set; }
