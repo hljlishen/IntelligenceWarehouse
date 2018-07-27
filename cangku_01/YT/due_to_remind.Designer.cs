@@ -29,117 +29,59 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Dgv_DueToRemind = new System.Windows.Forms.DataGridView();
             this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
-            this.la_nowtxt = new System.Windows.Forms.Label();
+            this.La_NowTimeTxt = new System.Windows.Forms.Label();
             this.La_nowtime = new System.Windows.Forms.Label();
             this.la_time = new System.Windows.Forms.Label();
             this.La_day0 = new System.Windows.Forms.Label();
             this.La_day30 = new System.Windows.Forms.Label();
             this.La_day3060 = new System.Windows.Forms.Label();
             this.La_day60 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.Co_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_lasttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_cycle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_nexttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_surplustimr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Co_operation = new System.Windows.Forms.DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToRemind)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // Dgv_DueToRemind
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8});
-            this.dataGridView1.Location = new System.Drawing.Point(59, 89);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(1294, 700);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Column1
-            // 
-            this.Column1.Frozen = true;
-            this.Column1.HeaderText = "编号";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.Frozen = true;
-            this.Column2.HeaderText = "名称";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.Frozen = true;
-            this.Column3.HeaderText = "生产厂商";
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 160;
-            // 
-            // Column4
-            // 
-            this.Column4.Frozen = true;
-            this.Column4.HeaderText = "上次检查日期";
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 180;
-            // 
-            // Column5
-            // 
-            this.Column5.Frozen = true;
-            this.Column5.HeaderText = "检查周期（日）";
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 160;
-            // 
-            // Column6
-            // 
-            this.Column6.Frozen = true;
-            this.Column6.HeaderText = "下一次检查日期";
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 180;
-            // 
-            // Column7
-            // 
-            this.Column7.Frozen = true;
-            this.Column7.HeaderText = "剩余检查时间（日）";
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 160;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "操作";
-            this.Column8.Name = "Column8";
-            this.Column8.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column8.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Column8.Text = "修改检查时间";
-            this.Column8.UseColumnTextForButtonValue = true;
-            this.Column8.Width = 160;
+            this.Dgv_DueToRemind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_DueToRemind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Co_id,
+            this.Co_name,
+            this.Co_manufacturer,
+            this.Co_lasttime,
+            this.Co_cycle,
+            this.Co_nexttime,
+            this.Co_surplustimr,
+            this.Co_operation});
+            this.Dgv_DueToRemind.Location = new System.Drawing.Point(59, 89);
+            this.Dgv_DueToRemind.Name = "Dgv_DueToRemind";
+            this.Dgv_DueToRemind.RowTemplate.Height = 23;
+            this.Dgv_DueToRemind.Size = new System.Drawing.Size(1294, 700);
+            this.Dgv_DueToRemind.TabIndex = 0;
+            this.Dgv_DueToRemind.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Tr_nowtime
             // 
             this.Tr_nowtime.Enabled = true;
             this.Tr_nowtime.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // la_nowtxt
+            // La_NowTimeTxt
             // 
-            this.la_nowtxt.AutoSize = true;
-            this.la_nowtxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_nowtxt.Location = new System.Drawing.Point(56, 45);
-            this.la_nowtxt.Name = "la_nowtxt";
-            this.la_nowtxt.Size = new System.Drawing.Size(90, 21);
-            this.la_nowtxt.TabIndex = 1;
-            this.la_nowtxt.Text = "当前时间：";
+            this.La_NowTimeTxt.AutoSize = true;
+            this.La_NowTimeTxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_NowTimeTxt.Location = new System.Drawing.Point(56, 45);
+            this.La_NowTimeTxt.Name = "La_NowTimeTxt";
+            this.La_NowTimeTxt.Size = new System.Drawing.Size(90, 21);
+            this.La_NowTimeTxt.TabIndex = 1;
+            this.La_NowTimeTxt.Text = "当前时间：";
             // 
             // La_nowtime
             // 
@@ -205,6 +147,71 @@
             this.La_day60.TabIndex = 7;
             this.La_day60.Text = "60天后到检";
             // 
+            // Co_id
+            // 
+            this.Co_id.Frozen = true;
+            this.Co_id.HeaderText = "编号";
+            this.Co_id.Name = "Co_id";
+            this.Co_id.ReadOnly = true;
+            // 
+            // Co_name
+            // 
+            this.Co_name.Frozen = true;
+            this.Co_name.HeaderText = "名称";
+            this.Co_name.Name = "Co_name";
+            this.Co_name.ReadOnly = true;
+            this.Co_name.Width = 150;
+            // 
+            // Co_manufacturer
+            // 
+            this.Co_manufacturer.Frozen = true;
+            this.Co_manufacturer.HeaderText = "生产厂商";
+            this.Co_manufacturer.Name = "Co_manufacturer";
+            this.Co_manufacturer.ReadOnly = true;
+            this.Co_manufacturer.Width = 160;
+            // 
+            // Co_lasttime
+            // 
+            this.Co_lasttime.Frozen = true;
+            this.Co_lasttime.HeaderText = "上次检查日期";
+            this.Co_lasttime.Name = "Co_lasttime";
+            this.Co_lasttime.ReadOnly = true;
+            this.Co_lasttime.Width = 180;
+            // 
+            // Co_cycle
+            // 
+            this.Co_cycle.Frozen = true;
+            this.Co_cycle.HeaderText = "检查周期（日）";
+            this.Co_cycle.Name = "Co_cycle";
+            this.Co_cycle.ReadOnly = true;
+            this.Co_cycle.Width = 160;
+            // 
+            // Co_nexttime
+            // 
+            this.Co_nexttime.Frozen = true;
+            this.Co_nexttime.HeaderText = "下一次检查日期";
+            this.Co_nexttime.Name = "Co_nexttime";
+            this.Co_nexttime.ReadOnly = true;
+            this.Co_nexttime.Width = 180;
+            // 
+            // Co_surplustimr
+            // 
+            this.Co_surplustimr.Frozen = true;
+            this.Co_surplustimr.HeaderText = "剩余检查时间（日）";
+            this.Co_surplustimr.Name = "Co_surplustimr";
+            this.Co_surplustimr.ReadOnly = true;
+            this.Co_surplustimr.Width = 160;
+            // 
+            // Co_operation
+            // 
+            this.Co_operation.HeaderText = "操作";
+            this.Co_operation.Name = "Co_operation";
+            this.Co_operation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Co_operation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Co_operation.Text = "修改检查时间";
+            this.Co_operation.UseColumnTextForButtonValue = true;
+            this.Co_operation.Width = 160;
+            // 
             // Due_to_remind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -216,13 +223,13 @@
             this.Controls.Add(this.La_day0);
             this.Controls.Add(this.la_time);
             this.Controls.Add(this.La_nowtime);
-            this.Controls.Add(this.la_nowtxt);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.La_NowTimeTxt);
+            this.Controls.Add(this.Dgv_DueToRemind);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Due_to_remind";
             this.Text = "due_to_remind";
             this.Load += new System.EventHandler(this.Due_to_remind_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToRemind)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,22 +237,22 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Dgv_DueToRemind;
         private System.Windows.Forms.Timer Tr_nowtime;
-        private System.Windows.Forms.Label la_nowtxt;
+        private System.Windows.Forms.Label La_NowTimeTxt;
         private System.Windows.Forms.Label La_nowtime;
         private System.Windows.Forms.Label la_time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewButtonColumn Column8;
         private System.Windows.Forms.Label La_day0;
         private System.Windows.Forms.Label La_day30;
         private System.Windows.Forms.Label La_day3060;
         private System.Windows.Forms.Label La_day60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_manufacturer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_lasttime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_cycle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_nexttime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Co_surplustimr;
+        private System.Windows.Forms.DataGridViewButtonColumn Co_operation;
     }
 }
