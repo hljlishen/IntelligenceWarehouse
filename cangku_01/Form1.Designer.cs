@@ -122,7 +122,7 @@ namespace cangku_01
             this.toolStripMenuItem4});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1370, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(1424, 29);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -155,7 +155,7 @@ namespace cangku_01
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 26);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(112, 26);
             this.toolStripMenuItem5.Text = "查询";
             // 
             // toolStripMenuItem4
@@ -299,6 +299,7 @@ namespace cangku_01
             this.pictureBox4.Size = new System.Drawing.Size(123, 140);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Tb_ShowTime
             // 
@@ -526,7 +527,7 @@ namespace cangku_01
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1424, 862);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
