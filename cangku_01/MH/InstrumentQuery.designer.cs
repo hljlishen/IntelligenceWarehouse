@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.La_namequery = new System.Windows.Forms.Label();
-            this.tbname = new System.Windows.Forms.TextBox();
+            this.Tb_name = new System.Windows.Forms.TextBox();
             this.La_timequery = new System.Windows.Forms.Label();
-            this.btnquery = new System.Windows.Forms.Button();
-            this.dtpstartdate = new System.Windows.Forms.DateTimePicker();
+            this.Btn_query = new System.Windows.Forms.Button();
+            this.Dtpstartdate = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtpenddate = new System.Windows.Forms.DateTimePicker();
+            this.Dtpenddate = new System.Windows.Forms.DateTimePicker();
             this.La_modelquery = new System.Windows.Forms.Label();
-            this.tbmodel = new System.Windows.Forms.TextBox();
-            this.dgvInstrumentQuery = new System.Windows.Forms.DataGridView();
+            this.Tb_model = new System.Windows.Forms.TextBox();
+            this.Dgv_InstrumentQuery = new System.Windows.Forms.DataGridView();
             this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +51,11 @@
             this.经办人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.操作 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnqueryout = new System.Windows.Forms.Button();
-            this.btnqueryin = new System.Windows.Forms.Button();
-            this.btnqueryoutandin = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentQuery)).BeginInit();
+            this.Btn_queryout = new System.Windows.Forms.Button();
+            this.Btn_queryin = new System.Windows.Forms.Button();
+            this.Btn_queryoutandin = new System.Windows.Forms.Button();
+            this.Tt_check = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_InstrumentQuery)).BeginInit();
             this.SuspendLayout();
             // 
             // La_namequery
@@ -66,12 +68,12 @@
             this.La_namequery.TabIndex = 1;
             this.La_namequery.Text = "人员查询：";
             // 
-            // tbname
+            // Tb_name
             // 
-            this.tbname.Location = new System.Drawing.Point(204, 41);
-            this.tbname.Name = "tbname";
-            this.tbname.Size = new System.Drawing.Size(124, 21);
-            this.tbname.TabIndex = 2;
+            this.Tb_name.Location = new System.Drawing.Point(204, 41);
+            this.Tb_name.Name = "Tb_name";
+            this.Tb_name.Size = new System.Drawing.Size(124, 21);
+            this.Tb_name.TabIndex = 2;
             // 
             // La_timequery
             // 
@@ -83,22 +85,22 @@
             this.La_timequery.TabIndex = 4;
             this.La_timequery.Text = "时间查询：";
             // 
-            // btnquery
+            // Btn_query
             // 
-            this.btnquery.Location = new System.Drawing.Point(1071, 43);
-            this.btnquery.Name = "btnquery";
-            this.btnquery.Size = new System.Drawing.Size(75, 23);
-            this.btnquery.TabIndex = 6;
-            this.btnquery.Text = "查询";
-            this.btnquery.UseVisualStyleBackColor = true;
-            this.btnquery.Click += new System.EventHandler(this.btnquery_Click);
+            this.Btn_query.Location = new System.Drawing.Point(1071, 43);
+            this.Btn_query.Name = "Btn_query";
+            this.Btn_query.Size = new System.Drawing.Size(75, 23);
+            this.Btn_query.TabIndex = 6;
+            this.Btn_query.Text = "查询";
+            this.Btn_query.UseVisualStyleBackColor = true;
+            this.Btn_query.Click += new System.EventHandler(this.btnquery_Click);
             // 
-            // dtpstartdate
+            // Dtpstartdate
             // 
-            this.dtpstartdate.Location = new System.Drawing.Point(757, 44);
-            this.dtpstartdate.Name = "dtpstartdate";
-            this.dtpstartdate.Size = new System.Drawing.Size(103, 21);
-            this.dtpstartdate.TabIndex = 7;
+            this.Dtpstartdate.Location = new System.Drawing.Point(757, 44);
+            this.Dtpstartdate.Name = "Dtpstartdate";
+            this.Dtpstartdate.Size = new System.Drawing.Size(103, 21);
+            this.Dtpstartdate.TabIndex = 7;
             // 
             // label3
             // 
@@ -110,12 +112,12 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "至";
             // 
-            // dtpenddate
+            // Dtpenddate
             // 
-            this.dtpenddate.Location = new System.Drawing.Point(893, 44);
-            this.dtpenddate.Name = "dtpenddate";
-            this.dtpenddate.Size = new System.Drawing.Size(103, 21);
-            this.dtpenddate.TabIndex = 9;
+            this.Dtpenddate.Location = new System.Drawing.Point(893, 44);
+            this.Dtpenddate.Name = "Dtpenddate";
+            this.Dtpenddate.Size = new System.Drawing.Size(103, 21);
+            this.Dtpenddate.TabIndex = 9;
             // 
             // La_modelquery
             // 
@@ -127,17 +129,17 @@
             this.La_modelquery.TabIndex = 11;
             this.La_modelquery.Text = "型号查询：";
             // 
-            // tbmodel
+            // Tb_model
             // 
-            this.tbmodel.Location = new System.Drawing.Point(482, 43);
-            this.tbmodel.Name = "tbmodel";
-            this.tbmodel.Size = new System.Drawing.Size(124, 21);
-            this.tbmodel.TabIndex = 12;
+            this.Tb_model.Location = new System.Drawing.Point(482, 43);
+            this.Tb_model.Name = "Tb_model";
+            this.Tb_model.Size = new System.Drawing.Size(124, 21);
+            this.Tb_model.TabIndex = 12;
             // 
-            // dgvInstrumentQuery
+            // Dgv_InstrumentQuery
             // 
-            this.dgvInstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Dgv_InstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_InstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.仪器标签ID,
             this.仪器名,
             this.存放位置,
@@ -150,11 +152,11 @@
             this.经办人,
             this.负责人,
             this.操作});
-            this.dgvInstrumentQuery.Location = new System.Drawing.Point(12, 85);
-            this.dgvInstrumentQuery.Name = "dgvInstrumentQuery";
-            this.dgvInstrumentQuery.RowTemplate.Height = 23;
-            this.dgvInstrumentQuery.Size = new System.Drawing.Size(1400, 764);
-            this.dgvInstrumentQuery.TabIndex = 0;
+            this.Dgv_InstrumentQuery.Location = new System.Drawing.Point(12, 85);
+            this.Dgv_InstrumentQuery.Name = "Dgv_InstrumentQuery";
+            this.Dgv_InstrumentQuery.RowTemplate.Height = 23;
+            this.Dgv_InstrumentQuery.Size = new System.Drawing.Size(1400, 764);
+            this.Dgv_InstrumentQuery.TabIndex = 0;
             // 
             // 仪器标签ID
             // 
@@ -238,71 +240,82 @@
             this.操作.Name = "操作";
             this.操作.ReadOnly = true;
             // 
-            // btnqueryout
+            // Btn_queryout
             // 
-            this.btnqueryout.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnqueryout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnqueryout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnqueryout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnqueryout.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnqueryout.Location = new System.Drawing.Point(12, 0);
-            this.btnqueryout.Name = "btnqueryout";
-            this.btnqueryout.Size = new System.Drawing.Size(75, 23);
-            this.btnqueryout.TabIndex = 13;
-            this.btnqueryout.Text = "出库";
-            this.btnqueryout.UseVisualStyleBackColor = false;
+            this.Btn_queryout.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_queryout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_queryout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_queryout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_queryout.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_queryout.Location = new System.Drawing.Point(12, 0);
+            this.Btn_queryout.Name = "Btn_queryout";
+            this.Btn_queryout.Size = new System.Drawing.Size(75, 23);
+            this.Btn_queryout.TabIndex = 13;
+            this.Btn_queryout.Text = "出库";
+            this.Btn_queryout.UseVisualStyleBackColor = false;
             // 
-            // btnqueryin
+            // Btn_queryin
             // 
-            this.btnqueryin.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnqueryin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnqueryin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnqueryin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnqueryin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnqueryin.Location = new System.Drawing.Point(125, 0);
-            this.btnqueryin.Name = "btnqueryin";
-            this.btnqueryin.Size = new System.Drawing.Size(75, 23);
-            this.btnqueryin.TabIndex = 14;
-            this.btnqueryin.Text = "入库";
-            this.btnqueryin.UseVisualStyleBackColor = false;
+            this.Btn_queryin.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_queryin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_queryin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_queryin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_queryin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_queryin.Location = new System.Drawing.Point(125, 0);
+            this.Btn_queryin.Name = "Btn_queryin";
+            this.Btn_queryin.Size = new System.Drawing.Size(75, 23);
+            this.Btn_queryin.TabIndex = 14;
+            this.Btn_queryin.Text = "入库";
+            this.Btn_queryin.UseVisualStyleBackColor = false;
             // 
-            // btnqueryoutandin
+            // Btn_queryoutandin
             // 
-            this.btnqueryoutandin.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnqueryoutandin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnqueryoutandin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnqueryoutandin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnqueryoutandin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnqueryoutandin.Location = new System.Drawing.Point(238, 0);
-            this.btnqueryoutandin.Name = "btnqueryoutandin";
-            this.btnqueryoutandin.Size = new System.Drawing.Size(75, 23);
-            this.btnqueryoutandin.TabIndex = 15;
-            this.btnqueryoutandin.Text = "出入库";
-            this.btnqueryoutandin.UseVisualStyleBackColor = false;
+            this.Btn_queryoutandin.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Btn_queryoutandin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Btn_queryoutandin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_queryoutandin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_queryoutandin.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Btn_queryoutandin.Location = new System.Drawing.Point(238, 0);
+            this.Btn_queryoutandin.Name = "Btn_queryoutandin";
+            this.Btn_queryoutandin.Size = new System.Drawing.Size(75, 23);
+            this.Btn_queryoutandin.TabIndex = 15;
+            this.Btn_queryoutandin.Text = "出入库";
+            this.Btn_queryoutandin.UseVisualStyleBackColor = false;
+            // 
+            // Tt_check
+            // 
+            this.Tt_check.AutoPopDelay = 5000;
+            this.Tt_check.BackColor = System.Drawing.Color.Red;
+            this.Tt_check.ForeColor = System.Drawing.Color.Red;
+            this.Tt_check.InitialDelay = 500;
+            this.Tt_check.ReshowDelay = 100;
+            this.Tt_check.ShowAlways = true;
+            this.Tt_check.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_check.ToolTipTitle = "错误提示";
             // 
             // InstrumentQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 861);
-            this.Controls.Add(this.btnqueryoutandin);
-            this.Controls.Add(this.btnqueryin);
-            this.Controls.Add(this.btnqueryout);
-            this.Controls.Add(this.dgvInstrumentQuery);
-            this.Controls.Add(this.tbmodel);
+            this.Controls.Add(this.Btn_queryoutandin);
+            this.Controls.Add(this.Btn_queryin);
+            this.Controls.Add(this.Btn_queryout);
+            this.Controls.Add(this.Dgv_InstrumentQuery);
+            this.Controls.Add(this.Tb_model);
             this.Controls.Add(this.La_modelquery);
-            this.Controls.Add(this.dtpenddate);
+            this.Controls.Add(this.Dtpenddate);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtpstartdate);
-            this.Controls.Add(this.btnquery);
+            this.Controls.Add(this.Dtpstartdate);
+            this.Controls.Add(this.Btn_query);
             this.Controls.Add(this.La_timequery);
-            this.Controls.Add(this.tbname);
+            this.Controls.Add(this.Tb_name);
             this.Controls.Add(this.La_namequery);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InstrumentQuery";
             this.Text = "InstrumentQuery";
             this.Load += new System.EventHandler(this.InstrumentQuery_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInstrumentQuery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_InstrumentQuery)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,18 +323,18 @@
 
         #endregion
         private System.Windows.Forms.Label La_namequery;
-        private System.Windows.Forms.TextBox tbname;
+        private System.Windows.Forms.TextBox Tb_name;
         private System.Windows.Forms.Label La_timequery;
-        private System.Windows.Forms.Button btnquery;
-        private System.Windows.Forms.DateTimePicker dtpstartdate;
+        private System.Windows.Forms.Button Btn_query;
+        private System.Windows.Forms.DateTimePicker Dtpstartdate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dtpenddate;
+        private System.Windows.Forms.DateTimePicker Dtpenddate;
         private System.Windows.Forms.Label La_modelquery;
-        private System.Windows.Forms.TextBox tbmodel;
-        private System.Windows.Forms.DataGridView dgvInstrumentQuery;
-        private System.Windows.Forms.Button btnqueryout;
-        private System.Windows.Forms.Button btnqueryin;
-        private System.Windows.Forms.Button btnqueryoutandin;
+        private System.Windows.Forms.TextBox Tb_model;
+        private System.Windows.Forms.DataGridView Dgv_InstrumentQuery;
+        private System.Windows.Forms.Button Btn_queryout;
+        private System.Windows.Forms.Button Btn_queryin;
+        private System.Windows.Forms.Button Btn_queryoutandin;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器标签ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 存放位置;
@@ -334,5 +347,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 经办人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作;
+        private System.Windows.Forms.ToolTip Tt_check;
     }
 }

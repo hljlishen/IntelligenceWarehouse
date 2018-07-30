@@ -48,13 +48,13 @@ namespace cangku_01.MH.interfaceImp
             //写sql语句返回
             return instrument_list;
         }
-
+        //型号查询
         public List<instrument> FindModel(string Model)
         {
             // 写sql语句返回
             return instrument_list;
         }
-
+        //姓名查询
         public List<instrument> FindUserByName(string Name)
         {
             // 写sql语句返回
