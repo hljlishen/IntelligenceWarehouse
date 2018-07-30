@@ -65,7 +65,7 @@ namespace cangku_01.LX
         }
 
         //修改仪器
-        public int Modify_instrument(List<instrument> instrument)     
+        public int Modify_instrument(instrument instrument)     
         {
             int i = 1;
             return i;

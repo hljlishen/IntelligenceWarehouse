@@ -51,7 +51,6 @@ namespace cangku_01.LX
         //确定按钮
         private void bt_yes_Click(object sender, EventArgs e)    
         {
-            List<instrument> list = new List<instrument>();
             instrument a = new instrument();
             a.tagId = int.Parse(tb_tagid.Text.ToString());
             a.name = tb_name.Text.ToString();
@@ -65,10 +64,14 @@ namespace cangku_01.LX
             a.lastCheckTimes = Convert.ToDateTime(time_lastCheckTimes.Text.ToString());
             a.instrumentNumber = int.Parse(tb_instrumentNumber.Text.ToString());
             a.manager = tb_manager.Text.ToString();
-            list.Add(a);
-            int i = dao.Modify_instrument(list);
+            int i = dao.Modify_instrument(a);
             this.Close();
-        }      
+        }
+
+        private void AddOrModifyInstrument_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

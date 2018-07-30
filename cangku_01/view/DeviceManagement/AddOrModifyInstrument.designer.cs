@@ -315,6 +315,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddOrModifyInstrument";
             this.Text = "AddOrModifyInstrument";
+            this.Load += new System.EventHandler(this.AddOrModifyInstrument_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

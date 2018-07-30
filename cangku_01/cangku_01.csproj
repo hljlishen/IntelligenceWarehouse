@@ -76,122 +76,119 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration.cs">
+    <Compile Include="view\AdminPage\Administration.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration.Designer.cs">
+    <Compile Include="view\AdminPage\Administration.Designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\User.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="view\TheWarehouseHomePage\TheWarehouseHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="view\TheWarehouseHomePage\TheWarehouseHomePage.Designer.cs">
+      <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="index_employees.cs">
+    <Compile Include="view\EmployeesManagement\index_employees.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="index_employees.Designer.cs">
+    <Compile Include="view\EmployeesManagement\index_employees.Designer.cs">
       <DependentUpon>index_employees.cs</DependentUpon>
     </Compile>
     <Compile Include="interfaceImp\UserInterfaceImp.cs" />
     <Compile Include="interfaces\UserInterface.cs" />
-    <Compile Include="LK\entity\Humidity.cs" />
-    <Compile Include="LK\entity\HumidityTest.cs" />
-    <Compile Include="LK\entity\Temperature.cs" />
-    <Compile Include="LK\entity\TemperatureTest.cs" />
-    <Compile Include="LK\InterfaceImp_PeopleInformation.cs" />
-    <Compile Include="LK\interfacelmp\HumidityInterfaceImp.cs" />
-    <Compile Include="LK\interfacelmp\TemperatureTestInterfaceImp.cs" />
-    <Compile Include="LK\interface\HumidityInterface.cs" />
-    <Compile Include="LK\interface\TemperatureTestInterface.cs" />
-    <Compile Include="LK\Interface_PeopleInformation.cs" />
-    <Compile Include="login.cs">
+    <Compile Include="entity\Humidity.cs" />
+    <Compile Include="entity\HumidityTest.cs" />
+    <Compile Include="entity\Temperature.cs" />
+    <Compile Include="entity\TemperatureTest.cs" />
+    <Compile Include="interfaceImp\InterfaceImp_PeopleInformation.cs" />
+    <Compile Include="interfaceImp\HumidityInterfaceImp.cs" />
+    <Compile Include="interfaceImp\TemperatureTestInterfaceImp.cs" />
+    <Compile Include="interfaces\HumidityInterface.cs" />
+    <Compile Include="interfaces\TemperatureTestInterface.cs" />
+    <Compile Include="interfaces\Interface_PeopleInformation.cs" />
+    <Compile Include="view\AdminPage\login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="login.Designer.cs">
+    <Compile Include="view\AdminPage\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="LX\AddOrModifyInstrument.cs">
+    <Compile Include="view\DeviceManagement\AddOrModifyInstrument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LX\AddOrModifyInstrument.designer.cs">
+    <Compile Include="view\DeviceManagement\AddOrModifyInstrument.designer.cs">
       <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
     </Compile>
-    <Compile Include="LX\instrument.cs" />
-    <Compile Include="LX\InterfaceImp_instrument.cs" />
-    <Compile Include="LX\Interface_instrument.cs" />
-    <Compile Include="LX\Object.cs" />
-    <Compile Include="LX\Observer.cs" />
-    <Compile Include="LX\Subject.cs" />
-    <Compile Include="MH\interfaceImp\InstrumentQueryImp.cs" />
-    <Compile Include="MH\interfaces\InstrumentQuery.cs" />
-    <Compile Include="MH\InstrumentQuery.cs">
+    <Compile Include="entity\instrument.cs" />
+    <Compile Include="interfaceImp\InterfaceImp_instrument.cs" />
+    <Compile Include="interfaces\Interface_instrument.cs" />
+    <Compile Include="interfaceImp\InstrumentQueryImp.cs" />
+    <Compile Include="interfaces\InstrumentQuery.cs" />
+    <Compile Include="view\DeviceAccessRecord\InstrumentQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MH\InstrumentQuery.designer.cs">
+    <Compile Include="view\DeviceAccessRecord\InstrumentQuery.designer.cs">
       <DependentUpon>InstrumentQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="LX\index_instrument.cs">
+    <Compile Include="view\DeviceManagement\index_instrument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LX\index_instrument.designer.cs">
+    <Compile Include="view\DeviceManagement\index_instrument.designer.cs">
       <DependentUpon>index_instrument.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQQ\entity\ComponentFind.cs" />
-    <Compile Include="SQQ\entity\Door.cs" />
-    <Compile Include="SQQ\entity\Instrument.cs" />
-    <Compile Include="SQQ\entity\InstrumentFind.cs" />
-    <Compile Include="SQQ\Find_Items.cs">
+    <Compile Include="entity\ComponentFind.cs" />
+    <Compile Include="entity\Door.cs" />
+    <Compile Include="entity\Instrument_sqq.cs" />
+    <Compile Include="entity\InstrumentFind.cs" />
+    <Compile Include="view\TheWarehouseHomePage\Find_Items.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SQQ\Find_Items.Designer.cs">
+    <Compile Include="view\TheWarehouseHomePage\Find_Items.Designer.cs">
       <DependentUpon>Find_Items.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQQ\interfaceImp\ComponentFindInterfaceImp.cs" />
-    <Compile Include="SQQ\interfaceImp\InstrumentFindInterfaceImp.cs" />
-    <Compile Include="SQQ\interfaceImp\instrumentInterfaceImp.cs" />
-    <Compile Include="SQQ\interfaces\ComponentFindInterfaces.cs" />
-    <Compile Include="SQQ\interfaces\InstrumentFindInterface.cs" />
-    <Compile Include="SQQ\interfaces\InstrumentInterfaces.cs" />
-    <Compile Include="SQQ\Observer.cs" />
-    <Compile Include="SQQ\Subject.cs" />
-    <Compile Include="YT\Alter_remind.cs">
+    <Compile Include="interfaceImp\ComponentFindInterfaceImp.cs" />
+    <Compile Include="interfaceImp\InstrumentFindInterfaceImp.cs" />
+    <Compile Include="interfaceImp\instrumentInterfaceImp.cs" />
+    <Compile Include="interfaces\ComponentFindInterfaces.cs" />
+    <Compile Include="interfaces\InstrumentFindInterface.cs" />
+    <Compile Include="interfaces\InstrumentInterfaces.cs" />
+    <Compile Include="ObserverMode\Observer.cs" />
+    <Compile Include="ObserverMode\Subject.cs" />
+    <Compile Include="view\DueToRemind\Alter_remind.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="YT\Alter_remind.Designer.cs">
+    <Compile Include="view\DueToRemind\Alter_remind.Designer.cs">
       <DependentUpon>Alter_remind.cs</DependentUpon>
     </Compile>
-    <Compile Include="YT\Due_to_remind.cs">
+    <Compile Include="view\DueToRemind\Due_to_remind.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="YT\Due_to_remind.Designer.cs">
+    <Compile Include="view\DueToRemind\Due_to_remind.Designer.cs">
       <DependentUpon>Due_to_remind.cs</DependentUpon>
     </Compile>
-    <Compile Include="YT\InterfaceImp_remind.cs" />
-    <Compile Include="YT\Interface_remind.cs" />
-    <EmbeddedResource Include="Administration.resx">
+    <Compile Include="interfaceImp\InterfaceImp_remind.cs" />
+    <Compile Include="interfaces\Interface_remind.cs" />
+    <EmbeddedResource Include="view\AdminPage\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="view\TheWarehouseHomePage\TheWarehouseHomePage.resx">
+      <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="index_employees.resx">
+    <EmbeddedResource Include="view\EmployeesManagement\index_employees.resx">
       <DependentUpon>index_employees.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
+    <EmbeddedResource Include="view\AdminPage\login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LX\AddOrModifyInstrument.resx">
+    <EmbeddedResource Include="view\DeviceManagement\AddOrModifyInstrument.resx">
       <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MH\InstrumentQuery.resx">
+    <EmbeddedResource Include="view\DeviceAccessRecord\InstrumentQuery.resx">
       <DependentUpon>InstrumentQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LX\index_instrument.resx">
+    <EmbeddedResource Include="view\DeviceManagement\index_instrument.resx">
       <DependentUpon>index_instrument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -203,13 +200,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="YT\Alter_remind.resx">
+    <EmbeddedResource Include="view\DueToRemind\Alter_remind.resx">
       <DependentUpon>Alter_remind.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SQQ\Find_Items.resx">
+    <EmbeddedResource Include="view\TheWarehouseHomePage\Find_Items.resx">
       <DependentUpon>Find_Items.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="YT\Due_to_remind.resx">
+    <EmbeddedResource Include="view\DueToRemind\Due_to_remind.resx">
       <DependentUpon>Due_to_remind.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Administration.datasource" />
@@ -239,9 +236,7 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="interfaces\LS\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>

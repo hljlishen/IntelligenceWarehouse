@@ -30,9 +30,10 @@ namespace cangku_01
             
             InitializeComponent();
             this.skinEngine1.SkinFile = "Longhorn.ssk";     //添加皮肤
-
-            
-
+            //防止屏幕闪烁
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.DoubleBuffer, true);
 
             List<User> list = dao.All_information();
             foreach(User en in list)
