@@ -32,15 +32,15 @@ namespace cangku_01.MH
             foreach (instrument u in All_re)
             {
                 DataGridViewRow row = new DataGridViewRow();
-                int index = dgvInstrumentQuery.Rows.Add(row);
-                dgvInstrumentQuery.Rows[index].Cells[0].Value = u.tagId;
-                dgvInstrumentQuery.Rows[index].Cells[1].Value = u.name;
-                dgvInstrumentQuery.Rows[index].Cells[2].Value = u.model;
-                dgvInstrumentQuery.Rows[index].Cells[3].Value = u.manufactor;
-                dgvInstrumentQuery.Rows[index].Cells[4].Value = u.productionDate;
-                dgvInstrumentQuery.Rows[index].Cells[5].Value = u.position;
-                dgvInstrumentQuery.Rows[index].Cells[6].Value = u.instrumentNumber;
-                dgvInstrumentQuery.Rows[index].Cells[7].Value = u.isInWareHouse;
+                int index = Dgv_InstrumentQuery.Rows.Add(row);
+                Dgv_InstrumentQuery.Rows[index].Cells[0].Value = u.tagId;
+                Dgv_InstrumentQuery.Rows[index].Cells[1].Value = u.name;
+                Dgv_InstrumentQuery.Rows[index].Cells[2].Value = u.model;
+                Dgv_InstrumentQuery.Rows[index].Cells[3].Value = u.manufactor;
+                Dgv_InstrumentQuery.Rows[index].Cells[4].Value = u.productionDate;
+                Dgv_InstrumentQuery.Rows[index].Cells[5].Value = u.position;
+                Dgv_InstrumentQuery.Rows[index].Cells[6].Value = u.instrumentNumber;
+                Dgv_InstrumentQuery.Rows[index].Cells[7].Value = u.isInWareHouse;
 
             }
         }
@@ -49,13 +49,13 @@ namespace cangku_01.MH
         private void InstrumentQuery_Load(object sender, EventArgs e)
         {
             //员工搜索提示
-            this.tbname.Text = namehint;
-            this.tbname.MouseClick += tbName_MouseClick;
-            this.tbname.Leave += tbName_Leave;
+            this.Tb_name.Text = namehint;
+            this.Tb_name.MouseClick += tbName_MouseClick;
+            this.Tb_name.Leave += tbName_Leave;
             //型号搜索提示
-            this.tbmodel.Text = modelhint;
-            this.tbmodel.MouseClick += tbModel_MouseClick;
-            this.tbmodel.Leave += tbModel_Leave;
+            this.Tb_model.Text = modelhint;
+            this.Tb_model.MouseClick += tbModel_MouseClick;
+            this.Tb_model.Leave += tbModel_Leave;
             //调用方法固定页面
             Top = 0;
             Left = 0;
@@ -64,40 +64,40 @@ namespace cangku_01.MH
 
         private void tbName_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.tbname.Text.Trim() == namehint)
+            if (this.Tb_name.Text.Trim() == namehint)
             {
-                this.tbname.Text = "";
+                this.Tb_name.Text = "";
             }
         }
 
         private void tbName_Leave(object sender, EventArgs e)
         {
-            if (this.tbname.Text.Trim() == "")
+            if (this.Tb_name.Text.Trim() == "")
             {
-                this.tbname.Text = namehint;
+                this.Tb_name.Text = namehint;
             }
         }
 
         private void tbModel_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.tbmodel.Text.Trim() == modelhint)
+            if (this.Tb_model.Text.Trim() == modelhint)
             {
-                this.tbmodel.Text = "";
+                this.Tb_model.Text = "";
             }
         }
 
         private void tbModel_Leave(object sender, EventArgs e)
         {
-            if (this.tbmodel.Text.Trim() == "")
+            if (this.Tb_model.Text.Trim() == "")
             {
-                this.tbmodel.Text = modelhint;
+                this.Tb_model.Text = modelhint;
             }
         }
 
         private void btnquery_Click(object sender, EventArgs e)
         {
             //获取搜索框中的值
-            String tb_name = tbname.Text;
+            String tb_name = Tb_name.Text;
             //员工姓名校验
             //中文名字，不能是数字或英文
             if (!Regex.IsMatch(tb_name.ToString(), @"[\u4e00-\u9fbb]"))
@@ -108,7 +108,7 @@ namespace cangku_01.MH
              dao.FindUserByName(tb_name);
 
 
-            string tb_model = tbmodel.Text;
+            string tb_model = Tb_model.Text;
             //仪器型号校验
             //可以是数字英文或中文
             if (!Regex.IsMatch(tb_model.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
@@ -119,8 +119,8 @@ namespace cangku_01.MH
             dao.FindModel(tb_model);
 
 
-            DateTime dt1 = Convert.ToDateTime(dtpstartdate.Value.Date.ToString());  //获取的日期1
-            DateTime dt2 = Convert.ToDateTime(dtpenddate.Value.Date.ToString());   //获取的日期2
+            DateTime dt1 = Convert.ToDateTime(Dtpstartdate.Value.Date.ToString());  //获取的日期1
+            DateTime dt2 = Convert.ToDateTime(Dtpenddate.Value.Date.ToString());   //获取的日期2
             //日期校验
             if (DateTime.Compare(dt1, dt2) > 0)
             {
