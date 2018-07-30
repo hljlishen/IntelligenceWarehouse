@@ -102,18 +102,18 @@ namespace cangku_01.MH
             //中文名字，不能是数字或英文
             if (!Regex.IsMatch(tb_name.ToString(), @"[\u4e00-\u9fbb]"))
             {
-                MessageBox.Show("姓名输入错误");
+                this.Tt_check.Show("姓名输入错误", this.Tb_name);
             }
              //根据搜索框的内容查询
              dao.FindUserByName(tb_name);
-
+            
 
             string tb_model = Tb_model.Text;
             //仪器型号校验
             //可以是数字英文或中文
             if (!Regex.IsMatch(tb_model.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
             {
-                MessageBox.Show("型号输入错误");
+                this.Tt_check.Show("仪器型号输入错误", this.Tb_model);
             }
             //根据搜索框的内容查询
             dao.FindModel(tb_model);
@@ -124,7 +124,7 @@ namespace cangku_01.MH
             //日期校验
             if (DateTime.Compare(dt1, dt2) > 0)
             {
-                MessageBox.Show("初始时间的日期大于结束时间的日期");
+               MessageBox.Show("初始时间的日期大于结束时间的日期");
             }
             //根据搜索框的内容查询
             dao.FindDate(dt1, dt2);

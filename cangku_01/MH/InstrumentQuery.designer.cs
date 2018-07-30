@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.La_namequery = new System.Windows.Forms.Label();
             this.Tb_name = new System.Windows.Forms.TextBox();
             this.La_timequery = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.Btn_queryout = new System.Windows.Forms.Button();
             this.Btn_queryin = new System.Windows.Forms.Button();
             this.Btn_queryoutandin = new System.Windows.Forms.Button();
+            this.Tt_check = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_InstrumentQuery)).BeginInit();
             this.SuspendLayout();
             // 
@@ -280,6 +282,17 @@
             this.Btn_queryoutandin.Text = "出入库";
             this.Btn_queryoutandin.UseVisualStyleBackColor = false;
             // 
+            // Tt_check
+            // 
+            this.Tt_check.AutoPopDelay = 5000;
+            this.Tt_check.BackColor = System.Drawing.Color.Red;
+            this.Tt_check.ForeColor = System.Drawing.Color.Red;
+            this.Tt_check.InitialDelay = 500;
+            this.Tt_check.ReshowDelay = 100;
+            this.Tt_check.ShowAlways = true;
+            this.Tt_check.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_check.ToolTipTitle = "错误提示";
+            // 
             // InstrumentQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -334,5 +347,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 经办人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作;
+        private System.Windows.Forms.ToolTip Tt_check;
     }
 }
