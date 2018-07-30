@@ -9,26 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//仪器管理页面
-
 namespace cangku_01
 {
     public partial class index_instrument : Form
     {
-        string currentIndex;//放id
-
-        String s = "请输入仪器名称";
         Interface_instrument dao = new InterfaceImp_instrument();
         instrument instrument = new instrument();
 
         public index_instrument()
         {
             InitializeComponent();
-
             //将全部仪器加载
             List<instrument> All_ins = dao.All_instrument();
 
-            //循环遍历
             foreach (instrument ins in All_ins)
             {
                
@@ -39,37 +32,39 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[2].Value = ins.model;
                 dataGridView1.Rows[index].Cells[3].Value = ins.manufactor;
                 dataGridView1.Rows[index].Cells[4].Value = ins.serialNumber;
-                dataGridView1.Rows[index].Cells[5].Value = ins.productionDate;
+                string productionDate = ins.productionDate.Year.ToString() + "年" + ins.productionDate.Month.ToString() + "月" + ins.productionDate.Day.ToString() + "日";
+                dataGridView1.Rows[index].Cells[5].Value = productionDate;
                 dataGridView1.Rows[index].Cells[6].Value = ins.position;
                 dataGridView1.Rows[index].Cells[7].Value = ins.isInWareHouse;
                 dataGridView1.Rows[index].Cells[8].Value = ins.checkCycle;
-                dataGridView1.Rows[index].Cells[9].Value = ins.lastCheckTimes;
+                string lastCheckTimes = ins.lastCheckTimes.Year.ToString() + "年" + ins.lastCheckTimes.Month.ToString() + "月" + ins.lastCheckTimes.Day.ToString() + "日";
+                dataGridView1.Rows[index].Cells[9].Value = lastCheckTimes;
                 dataGridView1.Rows[index].Cells[10].Value = ins.instrumentNumber;
                 dataGridView1.Rows[index].Cells[11].Value = ins.manager;
             }
            
         }
 
-        private void index_instrument_Load(object sender, EventArgs e) //整个页面
+        private void index_instrument_Load(object sender, EventArgs e)
         {
-            this.txt_found.Text = s;
+            this.txt_found.Text = "请输入仪器名称";
             this.txt_found.MouseClick += textBox1_MouseClick;
             this.txt_found.Leave += textBox1_Leave;
             this.Left = 0;
             this.Top = 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)  //添加仪器按钮
+        //仪器添加
+        private void button1_Click(object sender, EventArgs e)  
         {
-            AddOrModifyInstrument add = new AddOrModifyInstrument(0);
+            AddOrModifyInstrument add = new AddOrModifyInstrument();
             add.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) //表
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
         {
-            //方法CellDoubleClick双击事件
-
-            if (e.ColumnIndex == 12)//点击在删除按钮上
+            //删除
+            if (e.ColumnIndex == 12)
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -80,16 +75,19 @@ namespace cangku_01
                     dao.Delete_instrument(id);
                 }
             }
-
-            if (e.ColumnIndex == 13)//点击在修改按钮上
+            //修改
+            if (e.ColumnIndex == 13)
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //获取要修改的id
-                    currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    int id = int.Parse(currentIndex);
+                    //获取要修改属性
+                    string[] alter_instrument = new string[13];
+                    for(int i = 0; i <= 12; i++)
+                    {
+                        alter_instrument[i] = dataGridView1.CurrentRow.Cells[i].Value.ToString();
+                    }
                     //跳转到修改页面
-                   AddOrModifyInstrument  mod = new AddOrModifyInstrument(1);
+                    AddOrModifyInstrument  mod = new AddOrModifyInstrument(alter_instrument);
                     mod.Show();
                 }
             }
@@ -107,7 +105,7 @@ namespace cangku_01
         //搜索框
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.txt_found.Text.Trim() == s)
+            if (this.txt_found.Text.Trim() == "请输入仪器名称")
             {
                 this.txt_found.Text = "";
             }
@@ -117,7 +115,7 @@ namespace cangku_01
         {
             if (this.txt_found.Text.Trim() == "")
             {
-                this.txt_found.Text = s;
+                this.txt_found.Text = "请输入仪器名称";
             }
         }
         private void txt_found_TextChanged(object sender, EventArgs e)

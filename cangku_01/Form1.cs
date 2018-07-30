@@ -86,14 +86,14 @@ namespace cangku_01
                 //获取当前时间并且赋值给dt
                 DateTime dt = DateTime.Now;
                 DataGridViewRow row = new DataGridViewRow();
-                int index = dataGridView1.Rows.Add(row);
-                dataGridView1.Rows[index].Cells[0].Value = re.name;
+                int index = Dgv_DueToSee.Rows.Add(row);
+                Dgv_DueToSee.Rows[index].Cells[0].Value = re.name;
                 //下一次最晚检查时间，时间格式转化，只显示年月日（下一次最晚检查时间=上次检查时间+检查周期）
                 string St_Nextdate = re.lastCheckTimes.AddDays(re.checkCycle).Year.ToString() + "年" + re.lastCheckTimes.AddDays(re.checkCycle).Month.ToString() + "月" + re.lastCheckTimes.AddDays(re.checkCycle).Day.ToString() + "日";
-                dataGridView1.Rows[index].Cells[1].Value = St_Nextdate;
+                Dgv_DueToSee.Rows[index].Cells[1].Value = St_Nextdate;
                 //剩余检查时间=下一次最晚检查时间-当前时间,只显示剩余天数
                 string St_Expiredate = (re.lastCheckTimes.AddDays(re.checkCycle) - DateTime.Now).Days.ToString();
-                dataGridView1.Rows[index].Cells[2].Value = St_Expiredate;
+                Dgv_DueToSee.Rows[index].Cells[2].Value = St_Expiredate;
             }
 
         }
@@ -190,6 +190,16 @@ namespace cangku_01
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Tem_num_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hum_num_Click(object sender, EventArgs e)
         {
 
         }

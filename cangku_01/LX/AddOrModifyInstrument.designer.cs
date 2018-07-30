@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrModifyInstrument));
             this.time_lastCheckTimes = new System.Windows.Forms.DateTimePicker();
             this.tb_instrumentNumber = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -311,6 +312,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddOrModifyInstrument";
             this.Text = "AddOrModifyInstrument";
             this.ResumeLayout(false);

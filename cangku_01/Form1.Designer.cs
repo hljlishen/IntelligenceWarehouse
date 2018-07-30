@@ -64,6 +64,10 @@ namespace cangku_01
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.Dgv_DueToSee = new System.Windows.Forms.DataGridView();
+            this.DueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaysRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -75,21 +79,17 @@ namespace cangku_01
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.DueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaysRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToSee)).BeginInit();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -395,7 +395,7 @@ namespace cangku_01
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.dataGridView1);
+            this.groupBox3.Controls.Add(this.Dgv_DueToSee);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(884, 306);
             this.groupBox3.Name = "groupBox3";
@@ -404,6 +404,42 @@ namespace cangku_01
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "物品到期提醒";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // Dgv_DueToSee
+            // 
+            this.Dgv_DueToSee.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.Dgv_DueToSee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dgv_DueToSee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DueName,
+            this.DueTime,
+            this.DaysRemaining});
+            this.Dgv_DueToSee.GridColor = System.Drawing.Color.Black;
+            this.Dgv_DueToSee.Location = new System.Drawing.Point(12, 28);
+            this.Dgv_DueToSee.Name = "Dgv_DueToSee";
+            this.Dgv_DueToSee.RowTemplate.Height = 23;
+            this.Dgv_DueToSee.Size = new System.Drawing.Size(353, 383);
+            this.Dgv_DueToSee.TabIndex = 0;
+            this.Dgv_DueToSee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // DueName
+            // 
+            this.DueName.HeaderText = "名称";
+            this.DueName.Name = "DueName";
+            this.DueName.ReadOnly = true;
+            this.DueName.Width = 90;
+            // 
+            // DueTime
+            // 
+            this.DueTime.HeaderText = "到期时间";
+            this.DueTime.Name = "DueTime";
+            this.DueTime.ReadOnly = true;
+            this.DueTime.Width = 110;
+            // 
+            // DaysRemaining
+            // 
+            this.DaysRemaining.HeaderText = "剩余天数";
+            this.DaysRemaining.Name = "DaysRemaining";
+            this.DaysRemaining.Width = 110;
             // 
             // groupBox4
             // 
@@ -452,6 +488,7 @@ namespace cangku_01
             this.Hum_num.Size = new System.Drawing.Size(36, 26);
             this.Hum_num.TabIndex = 5;
             this.Hum_num.Text = "60";
+            this.Hum_num.Click += new System.EventHandler(this.Hum_num_Click);
             // 
             // Tem_num
             // 
@@ -462,6 +499,7 @@ namespace cangku_01
             this.Tem_num.Size = new System.Drawing.Size(36, 26);
             this.Tem_num.TabIndex = 4;
             this.Tem_num.Text = "15";
+            this.Tem_num.Click += new System.EventHandler(this.Tem_num_Click);
             // 
             // label13
             // 
@@ -517,42 +555,6 @@ namespace cangku_01
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DueName,
-            this.DueTime,
-            this.DaysRemaining});
-            this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(353, 383);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // DueName
-            // 
-            this.DueName.HeaderText = "名称";
-            this.DueName.Name = "DueName";
-            this.DueName.ReadOnly = true;
-            this.DueName.Width = 90;
-            // 
-            // DueTime
-            // 
-            this.DueTime.HeaderText = "到期时间";
-            this.DueTime.Name = "DueTime";
-            this.DueTime.ReadOnly = true;
-            this.DueTime.Width = 110;
-            // 
-            // DaysRemaining
-            // 
-            this.DaysRemaining.HeaderText = "剩余天数";
-            this.DaysRemaining.Name = "DaysRemaining";
-            this.DaysRemaining.Width = 110;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -583,12 +585,12 @@ namespace cangku_01
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToSee)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,7 +641,7 @@ namespace cangku_01
         private NotifyIcon notifyIcon1;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
-        private DataGridView dataGridView1;
+        private DataGridView Dgv_DueToSee;
         private DataGridViewTextBoxColumn DueName;
         private DataGridViewTextBoxColumn DueTime;
         private DataGridViewTextBoxColumn DaysRemaining;

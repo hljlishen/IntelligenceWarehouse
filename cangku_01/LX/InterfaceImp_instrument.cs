@@ -10,26 +10,26 @@ namespace cangku_01.LX
 {
     class InterfaceImp_instrument : Interface_instrument
     {
-        //存放实体数据
         List<instrument> list = new List<instrument>();
-        //实体
-        instrument a1 = new instrument();
-        instrument a2 = new instrument();
 
-        List<instrument> Interface_instrument.All_instrument()//显示所有
+        List<instrument> Interface_instrument.All_instrument()
         {
-            a1.tagId = 0001;   //ID
-            a1.name = "离心机";     //仪器名称
-            a1.model = "540 x 650 x 390";       //型号规格
-            a1.manufactor = " WIGGENS";       //生产厂商
-            a1.serialNumber = "qwev123";       //出厂编号
-            a1.productionDate = DateTime.Parse("2017-3-7");     //生产日期
-            a1.position = "2-1-14";      //货架位置
-            a1.isInWareHouse = true;        //在库状态
-            a1.checkCycle = 7;        //检定周期
-            a1.lastCheckTimes = DateTime.Parse("2017 -7-7");     //历次检验时间
-            a1.instrumentNumber = 111;          //当前数量
-            a1.manager = "张三";       //负责人
+            //text
+            instrument a1 = new instrument();
+            instrument a2 = new instrument();
+
+            a1.tagId = 0001;   
+            a1.name = "离心机";     
+            a1.model = "540 x 650 x 390";      
+            a1.manufactor = " WIGGENS";      
+            a1.serialNumber = "qwev123";      
+            a1.productionDate = DateTime.Parse("2017-3-7");   
+            a1.position = "2-1-14";      
+            a1.isInWareHouse = true;       
+            a1.checkCycle = 7;       
+            a1.lastCheckTimes = DateTime.Parse("2017 -7-7");     
+            a1.instrumentNumber = 111;         
+            a1.manager = "张三";      
             list.Add(a1);
 
 
@@ -50,22 +50,25 @@ namespace cangku_01.LX
             return list;
             }
 
-        public void Add_instrument(List<instrument> instrument)    //增
+        //添加仪器
+        public int Add_instrument(List<instrument> instrument)   
         {
-            //sql语句
-            Console.WriteLine("添加成功");
+            int i = 1;
+            return i;
         }
 
-        public void Delete_instrument(int id)     //删
+        //删除仪器
+        public int Delete_instrument(int id)     
         {
-            //sql语句
-            Console.WriteLine("删除成功");
+            int i = 1;
+            return i;
         }
 
-        public void Modify_instrument(List<instrument> instrument)     //改
+        //修改仪器
+        public int Modify_instrument(List<instrument> instrument)     
         {
-            //sql语句
-            Console.WriteLine("更改成功");
+            int i = 1;
+            return i;
         }
 
        
