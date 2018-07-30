@@ -10,17 +10,15 @@ namespace cangku_01.MH.interfaces
     //仪器出入库接口
     interface InstrumentQuery
     {
-        //人工添加数据
-        List<instrument> All_remind();
-
-        //仪器进出库中的人员查询
-        //根据人名进行查询
-        List<instrument> FindUserByName(String Name);
-        //仪器进出库中的时间查询
+        //根据借用人姓名进行查询
+        List<instrument> FindInstrumentByBorrow(String Borrow);
+        //根据责任人姓名进行查询
+        List<instrument> FindInstrumentByDuty(String Duty);
+        //根据仪器型号进行查询
+        List<instrument> FindInstrumentByModel(String Model);
+        //根据仪器的生产厂商查询
+        List<instrument> FindInstrumentByManufacturer(String Manufacturer);
         //根据时间段进行查询
-        List<instrument> FindModel(String Model);
-        //仪器进出库中的时间查询
-        //根据时间段进行查询
-        List<instrument> FindDate(DateTime Date1,DateTime Date2);
+        List<instrument> FindInstrumentBetween(DateTime begin,DateTime end);
     }
 }

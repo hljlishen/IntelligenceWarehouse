@@ -20,64 +20,70 @@ namespace cangku_01.MH
     public partial class InstrumentQuery : Form
     {
         interfaces.InstrumentQuery dao = new InstrumentQueryImp();
-        String namehint = "请输入员工的姓名";
-        String modelhint = "请输入仪器型号";
+        String borrowhint = "请输入借用人的姓名";
+        String dutyhint = "请输入责任人的姓名";
+        String modelhint = "请输入仪器的型号";
+        String manufacturerhint = "请输入生产厂商";
         instrument instrument = new instrument();
 
         public InstrumentQuery()
         {
             InitializeComponent();
-            List<instrument> All_re = dao.All_remind();
-            //循环遍历
-            foreach (instrument u in All_re)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                int index = Dgv_InstrumentQuery.Rows.Add(row);
-                Dgv_InstrumentQuery.Rows[index].Cells[0].Value = u.tagId;
-                Dgv_InstrumentQuery.Rows[index].Cells[1].Value = u.name;
-                Dgv_InstrumentQuery.Rows[index].Cells[2].Value = u.model;
-                Dgv_InstrumentQuery.Rows[index].Cells[3].Value = u.manufactor;
-                Dgv_InstrumentQuery.Rows[index].Cells[4].Value = u.productionDate;
-                Dgv_InstrumentQuery.Rows[index].Cells[5].Value = u.position;
-                Dgv_InstrumentQuery.Rows[index].Cells[6].Value = u.instrumentNumber;
-                Dgv_InstrumentQuery.Rows[index].Cells[7].Value = u.isInWareHouse;
-
-            }
         }
-
 
         private void InstrumentQuery_Load(object sender, EventArgs e)
         {
-            //员工搜索提示
-            this.Tb_name.Text = namehint;
-            this.Tb_name.MouseClick += tbName_MouseClick;
-            this.Tb_name.Leave += tbName_Leave;
-            //型号搜索提示
+            //借用人搜索提示
+            this.Tb_borrow.Text = borrowhint;
+            this.Tb_borrow.MouseClick += tbBorrow_MouseClick;
+            this.Tb_borrow.Leave += tbBorrow_Leave;
+            //责任人搜索提示
+            this.Tb_duty.Text = dutyhint;
+            this.Tb_duty.MouseClick += tbDuty_MouseClick;
+            this.Tb_duty.Leave += tbDuty_Leave;
+            //仪器型号搜索提示
             this.Tb_model.Text = modelhint;
             this.Tb_model.MouseClick += tbModel_MouseClick;
             this.Tb_model.Leave += tbModel_Leave;
+            //生产厂商搜索提示
+            this.Tb_manufacturer.Text = manufacturerhint;
+            this.Tb_manufacturer.MouseClick += tbManufacturer_MouseClick;
+            this.Tb_manufacturer.Leave += tbManufacturer_Leave;
             //调用方法固定页面
             Top = 0;
             Left = 0;
         }
-
-
-        private void tbName_MouseClick(object sender, MouseEventArgs e)
+        //
+        private void tbBorrow_MouseClick(object sender, MouseEventArgs e)
         {
-            if (this.Tb_name.Text.Trim() == namehint)
+            if (this.Tb_borrow.Text.Trim() == borrowhint)
             {
-                this.Tb_name.Text = "";
+                this.Tb_borrow.Text = "";
             }
         }
-
-        private void tbName_Leave(object sender, EventArgs e)
+        private void tbBorrow_Leave(object sender, EventArgs e)
         {
-            if (this.Tb_name.Text.Trim() == "")
+            if (this.Tb_borrow.Text.Trim() == "")
             {
-                this.Tb_name.Text = namehint;
+                this.Tb_borrow.Text = borrowhint;
             }
         }
-
+        //
+        private void tbDuty_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (this.Tb_duty.Text.Trim() == dutyhint)
+            {
+                this.Tb_duty.Text = "";
+            }
+        }
+        private void tbDuty_Leave(object sender, EventArgs e)
+        {
+            if (this.Tb_duty.Text.Trim() == "")
+            {
+                this.Tb_duty.Text = dutyhint;
+            }
+        }
+        //
         private void tbModel_MouseClick(object sender, MouseEventArgs e)
         {
             if (this.Tb_model.Text.Trim() == modelhint)
@@ -85,7 +91,6 @@ namespace cangku_01.MH
                 this.Tb_model.Text = "";
             }
         }
-
         private void tbModel_Leave(object sender, EventArgs e)
         {
             if (this.Tb_model.Text.Trim() == "")
@@ -93,131 +98,78 @@ namespace cangku_01.MH
                 this.Tb_model.Text = modelhint;
             }
         }
+        //
+        private void tbManufacturer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (this.Tb_manufacturer.Text.Trim() == manufacturerhint)
+            {
+                this.Tb_manufacturer.Text = "";
+            }
+        }
+        private void tbManufacturer_Leave(object sender, EventArgs e)
+        {
+            if (this.Tb_manufacturer.Text.Trim() == "")
+            {
+                this.Tb_manufacturer.Text = manufacturerhint;
+            }
+        }
 
-        private void btnquery_Click(object sender, EventArgs e)
+        private void Btnquery_Click(object sender, EventArgs e)
         {
             //获取搜索框中的值
-            String tb_name = Tb_name.Text;
-            //员工姓名校验
+            String tb_borrow = Tb_borrow.Text;
+            //借用人姓名校验
             //中文名字，不能是数字或英文
-            if (!Regex.IsMatch(tb_name.ToString(), @"[\u4e00-\u9fbb]"))
+            if (!Regex.IsMatch(tb_borrow.ToString(), @"[\u4e00-\u9fbb]"))
             {
-                this.Tt_check.Show("姓名输入错误", this.Tb_name);
+                Tt_check.Show("借用人姓名输入错误 ",this.Tb_borrow);
             }
              //根据搜索框的内容查询
-             dao.FindUserByName(tb_name);
-            
+             dao.FindInstrumentByBorrow(tb_borrow);
 
+            //获取搜索框中的值
+            String tb_duty = Tb_duty.Text;
+            //责任人姓名校验
+            //中文名字，不能是数字或英文
+            if (!Regex.IsMatch(tb_duty.ToString(), @"[\u4e00-\u9fbb]"))
+            {
+                Tt_check.Show("责任人姓名输入错误 ",this.Tb_duty);
+            }
+            //根据搜索框的内容查询
+            dao.FindInstrumentByDuty(tb_duty);
+
+            //获取搜索框中的值
             string tb_model = Tb_model.Text;
             //仪器型号校验
             //可以是数字英文或中文
             if (!Regex.IsMatch(tb_model.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
             {
-                this.Tt_check.Show("仪器型号输入错误", this.Tb_model);
+                Tt_check.Show("仪器型号输入错误 ",this.Tb_model);
             }
             //根据搜索框的内容查询
-            dao.FindModel(tb_model);
+            dao.FindInstrumentByModel(tb_model);
 
+            //获取搜索框中的值
+            String tb_manufacturer = Tb_manufacturer.Text;
+            //生产厂商校验
+            //英文或中文
+            if (!Regex.IsMatch(tb_manufacturer.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
+            {
+                Tt_check.Show("生产厂商输入错误 ",this.Tb_manufacturer);
+            }
+            //根据搜索框的内容查询
+            dao.FindInstrumentByManufacturer(tb_manufacturer);
 
-            DateTime dt1 = Convert.ToDateTime(Dtpstartdate.Value.Date.ToString());  //获取的日期1
-            DateTime dt2 = Convert.ToDateTime(Dtpenddate.Value.Date.ToString());   //获取的日期2
+            //获取时间
+            DateTime begin = Convert.ToDateTime(Dtp_begin.Value.Date.ToString());  //获取开始日期
+            DateTime end = Convert.ToDateTime(Dtp_end.Value.Date.ToString());   //获取结束日期
             //日期校验
-            if (DateTime.Compare(dt1, dt2) > 0)
+            if (DateTime.Compare(begin, end) > 0)
             {
-               MessageBox.Show("初始时间的日期大于结束时间的日期");
+                Tt_check.SetToolTip(this.Btn_query, "开始时间大于结束时间 ");
             }
             //根据搜索框的内容查询
-            dao.FindDate(dt1, dt2);
-        }
-
-
-
-        //状态
-        public class Query
-        {
-            public State state { get; set; }
-
-            //出库
-            public void Queryout()
-            {
-
-            }
-            //入库
-            public void Queryin()
-            {
-
-            }
-            //出入库
-            public void Queryoutandin()
-            {
-
-            }
-            //抽象状态类
-            public abstract class State
-            {
-                public abstract void Queryout();//出库
-                public abstract void Queryin(); //入库
-                public abstract void Queryoutandin(); //出入库
-            }
-            //在出库状态下切换到入库和出入库
-            public class QueryoutState : State
-            {
-                //入库
-                public override void Queryin()
-                {
-                    Console.WriteLine("切换到入库");
-                }
-                //不变
-                public override void Queryout()
-                {
-                    Console.WriteLine("不变");
-                }
-                //出入库
-                public override void Queryoutandin()
-                {
-                    Console.WriteLine("切换到出入库");
-                }
-            }
-
-            //在入库状态下切换到出库和出入库
-            public class QueryinState : State
-            {
-                //不变
-                public override void Queryin()
-                {
-                    Console.WriteLine("不变");
-                }
-                //出库
-                public override void Queryout()
-                {
-                    Console.WriteLine("切换到出库");
-                }
-                //出入库
-                public override void Queryoutandin()
-                {
-                    Console.WriteLine("切换到出入库");
-                }
-            }
-            //在出入库状态下切换到出库和入库
-            public class QueryoutandinState : State
-            {
-                //入库
-                public override void Queryin()
-                {
-                    Console.WriteLine("切换到入库");
-                }
-                //出库
-                public override void Queryout()
-                {
-                    Console.WriteLine("切换到出入库");
-                }
-                //不变
-                public override void Queryoutandin()
-                {
-                    Console.WriteLine("不变");
-                }
-            }
-
+            dao.FindInstrumentBetween(begin, end);
         }
     }
 }
