@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.MH
 {
-    partial class InstrumentQuery
+    partial class Ins_query
     {
         /// <summary>
         /// Required designer variable.
@@ -39,12 +39,6 @@
             this.La_ModelQuery = new System.Windows.Forms.Label();
             this.Tb_model = new System.Windows.Forms.TextBox();
             this.Dgv_InstrumentQuery = new System.Windows.Forms.DataGridView();
-            this.Tt_check = new System.Windows.Forms.ToolTip(this.components);
-            this.La_DutyQuery = new System.Windows.Forms.Label();
-            this.Tb_duty = new System.Windows.Forms.TextBox();
-            this.La_ManufacturerQuery = new System.Windows.Forms.Label();
-            this.Tb_manufacturer = new System.Windows.Forms.TextBox();
-            this.Cb_query = new System.Windows.Forms.ComboBox();
             this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +49,16 @@
             this.操作 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tt_checkborrow = new System.Windows.Forms.ToolTip(this.components);
+            this.La_DutyQuery = new System.Windows.Forms.Label();
+            this.Tb_duty = new System.Windows.Forms.TextBox();
+            this.La_ManufacturerQuery = new System.Windows.Forms.Label();
+            this.Tb_manufacturer = new System.Windows.Forms.TextBox();
+            this.Cb_query = new System.Windows.Forms.ComboBox();
+            this.Tt_checkduty = new System.Windows.Forms.ToolTip(this.components);
+            this.Tt_checkmodel = new System.Windows.Forms.ToolTip(this.components);
+            this.Tt_checkmanufacturer = new System.Windows.Forms.ToolTip(this.components);
+            this.Tt_checktime = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_InstrumentQuery)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,6 +142,7 @@
             // 
             // Dgv_InstrumentQuery
             // 
+            this.Dgv_InstrumentQuery.AllowUserToAddRows = false;
             this.Dgv_InstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_InstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.仪器标签ID,
@@ -155,65 +160,6 @@
             this.Dgv_InstrumentQuery.RowTemplate.Height = 23;
             this.Dgv_InstrumentQuery.Size = new System.Drawing.Size(1400, 712);
             this.Dgv_InstrumentQuery.TabIndex = 0;
-            // 
-            // Tt_check
-            // 
-            this.Tt_check.AutoPopDelay = 5000;
-            this.Tt_check.BackColor = System.Drawing.Color.Red;
-            this.Tt_check.ForeColor = System.Drawing.Color.Red;
-            this.Tt_check.InitialDelay = 500;
-            this.Tt_check.ReshowDelay = 100;
-            this.Tt_check.ShowAlways = true;
-            this.Tt_check.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.Tt_check.ToolTipTitle = "错误提示";
-            // 
-            // La_DutyQuery
-            // 
-            this.La_DutyQuery.AutoSize = true;
-            this.La_DutyQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_DutyQuery.Location = new System.Drawing.Point(144, 96);
-            this.La_DutyQuery.Name = "La_DutyQuery";
-            this.La_DutyQuery.Size = new System.Drawing.Size(91, 14);
-            this.La_DutyQuery.TabIndex = 13;
-            this.La_DutyQuery.Text = "责任人查询：";
-            // 
-            // Tb_duty
-            // 
-            this.Tb_duty.Location = new System.Drawing.Point(241, 92);
-            this.Tb_duty.Name = "Tb_duty";
-            this.Tb_duty.Size = new System.Drawing.Size(124, 21);
-            this.Tb_duty.TabIndex = 14;
-            // 
-            // La_ManufacturerQuery
-            // 
-            this.La_ManufacturerQuery.AutoSize = true;
-            this.La_ManufacturerQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_ManufacturerQuery.Location = new System.Drawing.Point(467, 96);
-            this.La_ManufacturerQuery.Name = "La_ManufacturerQuery";
-            this.La_ManufacturerQuery.Size = new System.Drawing.Size(77, 14);
-            this.La_ManufacturerQuery.TabIndex = 15;
-            this.La_ManufacturerQuery.Text = "厂商查询：";
-            // 
-            // Tb_manufacturer
-            // 
-            this.Tb_manufacturer.Location = new System.Drawing.Point(550, 92);
-            this.Tb_manufacturer.Name = "Tb_manufacturer";
-            this.Tb_manufacturer.Size = new System.Drawing.Size(124, 21);
-            this.Tb_manufacturer.TabIndex = 16;
-            // 
-            // Cb_query
-            // 
-            this.Cb_query.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Cb_query.FormattingEnabled = true;
-            this.Cb_query.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Cb_query.Items.AddRange(new object[] {
-            "出入库",
-            "出库",
-            "入库"});
-            this.Cb_query.Location = new System.Drawing.Point(12, 12);
-            this.Cb_query.Name = "Cb_query";
-            this.Cb_query.Size = new System.Drawing.Size(121, 20);
-            this.Cb_query.TabIndex = 17;
             // 
             // 仪器标签ID
             // 
@@ -284,6 +230,109 @@
             this.生产日期.ReadOnly = true;
             this.生产日期.Width = 138;
             // 
+            // Tt_checkborrow
+            // 
+            this.Tt_checkborrow.AutoPopDelay = 5000;
+            this.Tt_checkborrow.BackColor = System.Drawing.Color.Red;
+            this.Tt_checkborrow.ForeColor = System.Drawing.Color.Red;
+            this.Tt_checkborrow.InitialDelay = 1000;
+            this.Tt_checkborrow.ReshowDelay = 500;
+            this.Tt_checkborrow.ShowAlways = true;
+            this.Tt_checkborrow.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_checkborrow.ToolTipTitle = "错误提示";
+            // 
+            // La_DutyQuery
+            // 
+            this.La_DutyQuery.AutoSize = true;
+            this.La_DutyQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_DutyQuery.Location = new System.Drawing.Point(144, 96);
+            this.La_DutyQuery.Name = "La_DutyQuery";
+            this.La_DutyQuery.Size = new System.Drawing.Size(91, 14);
+            this.La_DutyQuery.TabIndex = 13;
+            this.La_DutyQuery.Text = "责任人查询：";
+            // 
+            // Tb_duty
+            // 
+            this.Tb_duty.Location = new System.Drawing.Point(241, 92);
+            this.Tb_duty.Name = "Tb_duty";
+            this.Tb_duty.Size = new System.Drawing.Size(124, 21);
+            this.Tb_duty.TabIndex = 14;
+            // 
+            // La_ManufacturerQuery
+            // 
+            this.La_ManufacturerQuery.AutoSize = true;
+            this.La_ManufacturerQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.La_ManufacturerQuery.Location = new System.Drawing.Point(467, 96);
+            this.La_ManufacturerQuery.Name = "La_ManufacturerQuery";
+            this.La_ManufacturerQuery.Size = new System.Drawing.Size(77, 14);
+            this.La_ManufacturerQuery.TabIndex = 15;
+            this.La_ManufacturerQuery.Text = "厂商查询：";
+            // 
+            // Tb_manufacturer
+            // 
+            this.Tb_manufacturer.Location = new System.Drawing.Point(550, 92);
+            this.Tb_manufacturer.Name = "Tb_manufacturer";
+            this.Tb_manufacturer.Size = new System.Drawing.Size(124, 21);
+            this.Tb_manufacturer.TabIndex = 16;
+            // 
+            // Cb_query
+            // 
+            this.Cb_query.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Cb_query.FormattingEnabled = true;
+            this.Cb_query.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.Cb_query.Items.AddRange(new object[] {
+            "出入库",
+            "出库",
+            "入库"});
+            this.Cb_query.Location = new System.Drawing.Point(12, 12);
+            this.Cb_query.Name = "Cb_query";
+            this.Cb_query.Size = new System.Drawing.Size(121, 20);
+            this.Cb_query.TabIndex = 17;
+            // 
+            // Tt_checkduty
+            // 
+            this.Tt_checkduty.AutoPopDelay = 5000;
+            this.Tt_checkduty.BackColor = System.Drawing.Color.Red;
+            this.Tt_checkduty.ForeColor = System.Drawing.Color.Red;
+            this.Tt_checkduty.InitialDelay = 500;
+            this.Tt_checkduty.ReshowDelay = 100;
+            this.Tt_checkduty.ShowAlways = true;
+            this.Tt_checkduty.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_checkduty.ToolTipTitle = "错误提示";
+            // 
+            // Tt_checkmodel
+            // 
+            this.Tt_checkmodel.AutoPopDelay = 5000;
+            this.Tt_checkmodel.BackColor = System.Drawing.Color.Red;
+            this.Tt_checkmodel.ForeColor = System.Drawing.Color.Red;
+            this.Tt_checkmodel.InitialDelay = 500;
+            this.Tt_checkmodel.ReshowDelay = 100;
+            this.Tt_checkmodel.ShowAlways = true;
+            this.Tt_checkmodel.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_checkmodel.ToolTipTitle = "错误提示";
+            // 
+            // Tt_checkmanufacturer
+            // 
+            this.Tt_checkmanufacturer.AutoPopDelay = 5000;
+            this.Tt_checkmanufacturer.BackColor = System.Drawing.Color.Red;
+            this.Tt_checkmanufacturer.ForeColor = System.Drawing.Color.Red;
+            this.Tt_checkmanufacturer.InitialDelay = 500;
+            this.Tt_checkmanufacturer.ReshowDelay = 100;
+            this.Tt_checkmanufacturer.ShowAlways = true;
+            this.Tt_checkmanufacturer.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_checkmanufacturer.ToolTipTitle = "错误提示";
+            // 
+            // Tt_checktime
+            // 
+            this.Tt_checktime.AutoPopDelay = 5000;
+            this.Tt_checktime.BackColor = System.Drawing.Color.Red;
+            this.Tt_checktime.ForeColor = System.Drawing.Color.Red;
+            this.Tt_checktime.InitialDelay = 500;
+            this.Tt_checktime.ReshowDelay = 100;
+            this.Tt_checktime.ShowAlways = true;
+            this.Tt_checktime.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.Tt_checktime.ToolTipTitle = "错误提示";
+            // 
             // InstrumentQuery
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -325,7 +374,7 @@
         private System.Windows.Forms.Label La_ModelQuery;
         private System.Windows.Forms.TextBox Tb_model;
         private System.Windows.Forms.DataGridView Dgv_InstrumentQuery;
-        private System.Windows.Forms.ToolTip Tt_check;
+        private System.Windows.Forms.ToolTip Tt_checkborrow;
         private System.Windows.Forms.Label La_DutyQuery;
         private System.Windows.Forms.TextBox Tb_duty;
         private System.Windows.Forms.Label La_ManufacturerQuery;
@@ -341,5 +390,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产厂商;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产日期;
+        private System.Windows.Forms.ToolTip Tt_checkduty;
+        private System.Windows.Forms.ToolTip Tt_checkmodel;
+        private System.Windows.Forms.ToolTip Tt_checkmanufacturer;
+        private System.Windows.Forms.ToolTip Tt_checktime;
     }
 }
