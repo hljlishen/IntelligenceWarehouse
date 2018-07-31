@@ -10,29 +10,25 @@ using System.Windows.Forms;
 using cangku_01.SQQ;
 using cangku_01.LK;
 using cangku_01.entity;
-using cangku_01.LK.interfacelmp;
-using cangku_01.LX;
-using cangku_01.YT;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
-        temperatureTestInterface temp = new TemperatureTestInterfaceImp();      //实例化温度检测接口
-        HumidityInterface humidityInterface = new HumidityInterfaceImp();        //实例化湿度接口
         Interface_PeopleInformation dao = new InterfaceImp_PeopleInformation();
         InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
-        temperature Temperature = new temperature();    //实例化温度类
-        Humidity humidity = new Humidity();     //实例化湿度类
         public Form1()
         {
             
             InitializeComponent();
-            this.skinEngine1.SkinFile = "Longhorn.ssk";     //添加皮肤
+            //添加皮肤
+            this.skinEngine1.SkinFile = "Longhorn.ssk";    
             //防止屏幕闪烁
             SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); // 禁止擦除背景.
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
             SetStyle(ControlStyles.DoubleBuffer, true);
 
             List<User> list = dao.All_information();
@@ -54,39 +50,17 @@ namespace cangku_01
 
             }
 
-            //温度
-            temperature temperature = new temperature();
-            List<string> lists= temp.showTemperature();
-            foreach(string s in lists)
-            {
-                Tem_num.Text = s;
-            }
-
-            //湿度
-            Humidity humidity = new Humidity();
-            List<string> lists1 = humidityInterface.showHumidity();
-            foreach (string s1 in lists1)
-            {
-                Hum_num.Text = s1;
-            }
-
-            //到期提醒
+            //到期提醒-首页
             Interface_remind Remind_dao = new InterfaceImp_remind();
             List<Instrument> All_re = Remind_dao.All_remind();
-            //循环遍历在列表中
             foreach (Instrument re in All_re)
             {
-                //获取当前时间并且赋值给dt
                 DateTime dt = DateTime.Now;
                 DataGridViewRow row = new DataGridViewRow();
                 int index = Dgv_DueToSee.Rows.Add(row);
                 Dgv_DueToSee.Rows[index].Cells[0].Value = re.Name;
-                //下一次最晚检查时间，时间格式转化，只显示年月日（下一次最晚检查时间=上次检查时间+检查周期）
-                string St_Nextdate = re.LastCheckTimes.AddDays(re.CheckCycle).Year.ToString() + "年" + re.LastCheckTimes.AddDays(re.CheckCycle).Month.ToString() + "月" + re.LastCheckTimes.AddDays(re.CheckCycle).Day.ToString() + "日";
-                Dgv_DueToSee.Rows[index].Cells[1].Value = St_Nextdate;
-                //剩余检查时间=下一次最晚检查时间-当前时间,只显示剩余天数
-                string St_Expiredate = (re.LastCheckTimes.AddDays(re.CheckCycle) - DateTime.Now).Days.ToString();
-                Dgv_DueToSee.Rows[index].Cells[2].Value = St_Expiredate;
+                Dgv_DueToSee.Rows[index].Cells[1].Value = re.NextCheckTimes(re.LastCheckTimes,re.CheckCycle);
+                Dgv_DueToSee.Rows[index].Cells[2].Value = re.TimeRemaining(re.LastCheckTimes,re.CheckCycle);
             }
 
         }
@@ -100,16 +74,12 @@ namespace cangku_01
         {
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            this.timer1.Start();
-            
-            //设置icon
-            //this.Icon=
-           
+            this.timer1.Start(); 
         }
 
+        //跳转到登录界面
         private void 管理员ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //跳转到登录界面
             Form login = new login();
             login.Show();
 
@@ -120,7 +90,6 @@ namespace cangku_01
             DialogResult result = MessageBox.Show("是否退出？", "操作提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                //this.Dispose();
                 Application.Exit();
             }
         }

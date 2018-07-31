@@ -10,12 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//仪器管理
+
 namespace cangku_01
 {
     public partial class index_instrument : Form
     {
         Interface_instrument dao = new InterfaceImp_instrument();
-        Instrument instrument = new Instrument();
 
         public index_instrument()
         {
@@ -25,7 +26,6 @@ namespace cangku_01
 
             foreach (Instrument ins in All_ins)
             {
-               
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dataGridView1.Rows.Add(row);
                 dataGridView1.Rows[index].Cells[0].Value = ins.TagId;
@@ -33,13 +33,11 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[2].Value = ins.Model;
                 dataGridView1.Rows[index].Cells[3].Value = ins.Manufactor;
                 dataGridView1.Rows[index].Cells[4].Value = ins.SerialNumber;
-                string productionDate = ins.ProductionDate.Year.ToString() + "年" + ins.ProductionDate.Month.ToString() + "月" + ins.ProductionDate.Day.ToString() + "日";
-                dataGridView1.Rows[index].Cells[5].Value = productionDate;
+                dataGridView1.Rows[index].Cells[5].Value = ins.DateFormatConversion(ins.ProductionDate);
                 dataGridView1.Rows[index].Cells[6].Value = ins.Position;
                 dataGridView1.Rows[index].Cells[7].Value = ins.IsInWareHouse;
                 dataGridView1.Rows[index].Cells[8].Value = ins.CheckCycle;
-                string lastCheckTimes = ins.LastCheckTimes.Year.ToString() + "年" + ins.LastCheckTimes.Month.ToString() + "月" + ins.LastCheckTimes.Day.ToString() + "日";
-                dataGridView1.Rows[index].Cells[9].Value = lastCheckTimes;
+                dataGridView1.Rows[index].Cells[9].Value = ins.DateFormatConversion(ins.LastCheckTimes);
                 dataGridView1.Rows[index].Cells[10].Value = ins.Duty;
             }
            
@@ -57,10 +55,11 @@ namespace cangku_01
         //仪器添加
         private void button1_Click(object sender, EventArgs e)  
         {
-            AddOrModifyInstrument add = new AddOrModifyInstrument();
+            AddInstrument add = new AddInstrument();
             add.Show();
         }
 
+        //仪器的修改删除
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
         {
             //删除
@@ -70,7 +69,6 @@ namespace cangku_01
                 {
                     string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
-                    this.dataGridView1.Rows.RemoveAt(e.RowIndex);
                     int i = dao.Delete_instrument(id);
                     if (i == 1)
                     {

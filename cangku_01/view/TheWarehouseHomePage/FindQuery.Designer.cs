@@ -97,7 +97,6 @@
             this.Bt_find_ins.TabIndex = 5;
             this.Bt_find_ins.Text = "查询";
             this.Bt_find_ins.UseVisualStyleBackColor = true;
-            this.Bt_find_ins.Click += new System.EventHandler(this.Bt_find_ins_Click);
             // 
             // Bt_find_com
             // 
@@ -107,7 +106,6 @@
             this.Bt_find_com.TabIndex = 6;
             this.Bt_find_com.Text = "查询";
             this.Bt_find_com.UseVisualStyleBackColor = true;
-            this.Bt_find_com.Click += new System.EventHandler(this.Bt_find_com_Click);
             // 
             // Info_title
             // 

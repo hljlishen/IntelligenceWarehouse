@@ -8,7 +8,7 @@ using cangku_01.entity;
 
 //到期提醒的接口
 
-namespace cangku_01.YT
+namespace cangku_01.interfaces
 {
     interface Interface_remind
     {

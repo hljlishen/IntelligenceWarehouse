@@ -35,34 +35,15 @@
             this.bt_found = new System.Windows.Forms.Button();
             this.bt_addUser = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tb_id = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.tb_name = new System.Windows.Forms.TextBox();
-            this.tb_tel = new System.Windows.Forms.TextBox();
-            this.tb_temp = new System.Windows.Forms.TextBox();
-            this.tb_job = new System.Windows.Forms.TextBox();
-            this.tb_salary = new System.Windows.Forms.TextBox();
-            this.tb_jobtime = new System.Windows.Forms.DateTimePicker();
-            this.Tital = new System.Windows.Forms.Label();
-            this.Bt_change = new System.Windows.Forms.Button();
-            this.rb_man = new System.Windows.Forms.RadioButton();
-            this.rb_wonman = new System.Windows.Forms.RadioButton();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).BeginInit();
@@ -114,119 +95,6 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // tb_id
-            // 
-            resources.ApplyResources(this.tb_id, "tb_id");
-            this.tb_id.Name = "tb_id";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
-            // tb_name
-            // 
-            resources.ApplyResources(this.tb_name, "tb_name");
-            this.tb_name.Name = "tb_name";
-            // 
-            // tb_tel
-            // 
-            resources.ApplyResources(this.tb_tel, "tb_tel");
-            this.tb_tel.Name = "tb_tel";
-            // 
-            // tb_temp
-            // 
-            resources.ApplyResources(this.tb_temp, "tb_temp");
-            this.tb_temp.Name = "tb_temp";
-            // 
-            // tb_job
-            // 
-            resources.ApplyResources(this.tb_job, "tb_job");
-            this.tb_job.Name = "tb_job";
-            // 
-            // tb_salary
-            // 
-            resources.ApplyResources(this.tb_salary, "tb_salary");
-            this.tb_salary.Name = "tb_salary";
-            // 
-            // tb_jobtime
-            // 
-            resources.ApplyResources(this.tb_jobtime, "tb_jobtime");
-            this.tb_jobtime.Name = "tb_jobtime";
-            // 
-            // Tital
-            // 
-            resources.ApplyResources(this.Tital, "Tital");
-            this.Tital.Name = "Tital";
-            // 
-            // Bt_change
-            // 
-            resources.ApplyResources(this.Bt_change, "Bt_change");
-            this.Bt_change.Name = "Bt_change";
-            this.Bt_change.UseVisualStyleBackColor = true;
-            this.Bt_change.Click += new System.EventHandler(this.Bt_change_Click);
-            // 
-            // rb_man
-            // 
-            resources.ApplyResources(this.rb_man, "rb_man");
-            this.rb_man.Name = "rb_man";
-            this.rb_man.TabStop = true;
-            this.rb_man.UseVisualStyleBackColor = true;
-            // 
-            // rb_wonman
-            // 
-            resources.ApplyResources(this.rb_wonman, "rb_wonman");
-            this.rb_wonman.Name = "rb_wonman";
-            this.rb_wonman.TabStop = true;
-            this.rb_wonman.UseVisualStyleBackColor = true;
-            // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(cangku_01.entity.User);
-            // 
-            // userInterfaceImpBindingSource
-            // 
-            this.userInterfaceImpBindingSource.DataSource = typeof(cangku_01.interfaceImp.UserInterfaceImp);
-            // 
-            // userInterfaceBindingSource
-            // 
-            this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
-            // 
             // ID
             // 
             this.ID.DataPropertyName = "01";
@@ -272,29 +140,22 @@
             this.update_.Text = "修改";
             this.update_.UseColumnTextForButtonValue = true;
             // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(cangku_01.entity.User);
+            // 
+            // userInterfaceImpBindingSource
+            // 
+            this.userInterfaceImpBindingSource.DataSource = typeof(cangku_01.interfaceImp.UserInterfaceImp);
+            // 
+            // userInterfaceBindingSource
+            // 
+            this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
+            // 
             // index_employees
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.rb_wonman);
-            this.Controls.Add(this.rb_man);
-            this.Controls.Add(this.Bt_change);
-            this.Controls.Add(this.Tital);
-            this.Controls.Add(this.tb_jobtime);
-            this.Controls.Add(this.tb_salary);
-            this.Controls.Add(this.tb_job);
-            this.Controls.Add(this.tb_temp);
-            this.Controls.Add(this.tb_tel);
-            this.Controls.Add(this.tb_name);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.tb_id);
             this.Controls.Add(this.bt_addUser);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bt_found);
@@ -322,25 +183,6 @@
         private System.Windows.Forms.BindingSource userInterfaceImpBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource userBindingSource;
-        private System.Windows.Forms.TextBox tb_id;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tb_name;
-        private System.Windows.Forms.TextBox tb_tel;
-        private System.Windows.Forms.TextBox tb_temp;
-        private System.Windows.Forms.TextBox tb_job;
-        private System.Windows.Forms.TextBox tb_salary;
-        private System.Windows.Forms.DateTimePicker tb_jobtime;
-        private System.Windows.Forms.Label Tital;
-        private System.Windows.Forms.Button Bt_change;
-        private System.Windows.Forms.RadioButton rb_man;
-        private System.Windows.Forms.RadioButton rb_wonman;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 性别;

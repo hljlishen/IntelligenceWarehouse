@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.entity;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
 
 namespace cangku_01.YT
 {
@@ -88,7 +90,7 @@ namespace cangku_01.YT
                     string Remind_name = Dgv_DueToRemind.CurrentRow.Cells[1].Value.ToString();
                     string Remind_manufacturer = Dgv_DueToRemind.CurrentRow.Cells[2].Value.ToString();
                     string Remind_lasttime = Dgv_DueToRemind.CurrentRow.Cells[3].Value.ToString();
-
+                    
                     //跳转到日期修改页面、并将相关数据传入Alter_remind界面
                     Alter_remind Al_remind = new Alter_remind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime);
                     Al_remind.Show();

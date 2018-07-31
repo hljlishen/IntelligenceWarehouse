@@ -8,7 +8,7 @@ namespace cangku_01.entity
 {
     public class Instrument
     {
-
+        public int Id { get; set; }                  //仪器id
         public int TagId { get; set; }               //仪器标签ID
         public string Name { get; set; }             //仪器名称
         public string Model { get; set; }            //型号规格
@@ -28,7 +28,7 @@ namespace cangku_01.entity
             return NextCheckTimes;
         }
 
-        //计算离检查日期剩余的时间
+        //计算剩余的检查日期
         public string TimeRemaining(DateTime LastCheckTimes, int CheckCycle)
         {
             string TimeRemaining = (LastCheckTimes.AddDays(CheckCycle) - DateTime.Now).Days.ToString();
@@ -40,6 +40,20 @@ namespace cangku_01.entity
         {
             string StringData = data.Year.ToString() + "年" + data.Month.ToString() + "月" + data.Day.ToString() + "日";
             return StringData;
+        }
+
+        //查询所有的快要到期的仪器的sql语句
+        public string AllRemindSql()
+        {
+            string AllRemindSql = "";
+            return AllRemindSql;
+        }
+
+        //修改检查日期的sql语句
+        public string AlterRemindSql(int TagId,DateTime NewLastCheckTimes)
+        {
+            string AlterRemindSql = "";
+            return AlterRemindSql;
         }
 
     }

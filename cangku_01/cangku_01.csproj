@@ -98,14 +98,7 @@
     </Compile>
     <Compile Include="interfaceImp\UserInterfaceImp.cs" />
     <Compile Include="interfaces\UserInterface.cs" />
-    <Compile Include="entity\Humidity.cs" />
-    <Compile Include="entity\HumidityTest.cs" />
-    <Compile Include="entity\Temperature.cs" />
-    <Compile Include="entity\TemperatureTest.cs" />
     <Compile Include="interfaceImp\InterfaceImp_PeopleInformation.cs" />
-    <Compile Include="interfaceImp\HumidityInterfaceImp.cs" />
-    <Compile Include="interfaceImp\TemperatureTestInterfaceImp.cs" />
-    <Compile Include="interfaces\HumidityInterface.cs" />
     <Compile Include="interfaces\TemperatureTestInterface.cs" />
     <Compile Include="interfaces\Interface_PeopleInformation.cs" />
     <Compile Include="view\AdminPage\AdminLogin.cs">
@@ -139,20 +132,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="entity\ComponentFind.cs" />
-    <Compile Include="entity\Door.cs" />
-    <Compile Include="entity\InstrumentFind.cs" />
     <Compile Include="view\TheWarehouseHomePage\FindQuery.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\TheWarehouseHomePage\FindQuery.Designer.cs">
       <DependentUpon>FindQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaceImp\ComponentFindInterfaceImp.cs" />
-    <Compile Include="interfaceImp\InstrumentFindInterfaceImp.cs" />
     <Compile Include="interfaceImp\instrumentInterfaceImp.cs" />
-    <Compile Include="interfaces\ComponentFindInterfaces.cs" />
-    <Compile Include="interfaces\InstrumentFindInterface.cs" />
     <Compile Include="interfaces\InstrumentInterfaces.cs" />
     <Compile Include="ObserverMode\Observer.cs" />
     <Compile Include="ObserverMode\Subject.cs" />

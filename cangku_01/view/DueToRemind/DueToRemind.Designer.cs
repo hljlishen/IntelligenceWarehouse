@@ -65,7 +65,7 @@
             this.Dgv_DueToRemind.Location = new System.Drawing.Point(59, 89);
             this.Dgv_DueToRemind.Name = "Dgv_DueToRemind";
             this.Dgv_DueToRemind.RowTemplate.Height = 23;
-            this.Dgv_DueToRemind.Size = new System.Drawing.Size(1294, 700);
+            this.Dgv_DueToRemind.Size = new System.Drawing.Size(1290, 700);
             this.Dgv_DueToRemind.TabIndex = 0;
             this.Dgv_DueToRemind.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 

@@ -43,7 +43,7 @@
             this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.上次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -105,7 +105,7 @@
             this.在库状态,
             this.检定周期,
             this.上次检验时间,
-            this.负责人,
+            this.责任人,
             this.Column1,
             this.Column2});
             this.dataGridView1.Location = new System.Drawing.Point(35, 73);
@@ -175,11 +175,11 @@
             this.上次检验时间.Name = "上次检验时间";
             this.上次检验时间.Width = 110;
             // 
-            // 负责人
+            // 责任人
             // 
-            this.负责人.HeaderText = "负责人";
-            this.负责人.Name = "负责人";
-            this.负责人.Width = 90;
+            this.责任人.HeaderText = "责任人";
+            this.责任人.Name = "责任人";
+            this.责任人.Width = 90;
             // 
             // Column1
             // 
@@ -235,7 +235,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 在库状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 检定周期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 上次检验时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 责任人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
     }

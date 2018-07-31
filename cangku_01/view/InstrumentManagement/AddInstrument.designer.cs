@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.LX
 {
-    partial class AddOrModifyInstrument
+    partial class AddInstrument
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrModifyInstrument));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddInstrument));
             this.time_lastCheckTimes = new System.Windows.Forms.DateTimePicker();
-            this.tb_instrumentNumber = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.time_productionDate = new System.Windows.Forms.DateTimePicker();
             this.title = new System.Windows.Forms.Label();
             this.bt_no = new System.Windows.Forms.Button();
@@ -64,22 +62,6 @@
             this.time_lastCheckTimes.Name = "time_lastCheckTimes";
             this.time_lastCheckTimes.Size = new System.Drawing.Size(128, 21);
             this.time_lastCheckTimes.TabIndex = 57;
-            // 
-            // tb_instrumentNumber
-            // 
-            this.tb_instrumentNumber.Location = new System.Drawing.Point(529, 283);
-            this.tb_instrumentNumber.Name = "tb_instrumentNumber";
-            this.tb_instrumentNumber.Size = new System.Drawing.Size(125, 21);
-            this.tb_instrumentNumber.TabIndex = 56;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(433, 292);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(65, 12);
-            this.label10.TabIndex = 55;
-            this.label10.Text = "当前数量：";
             // 
             // time_productionDate
             // 
@@ -120,7 +102,7 @@
             // 
             // tb_manager
             // 
-            this.tb_manager.Location = new System.Drawing.Point(529, 343);
+            this.tb_manager.Location = new System.Drawing.Point(529, 293);
             this.tb_manager.Name = "tb_manager";
             this.tb_manager.Size = new System.Drawing.Size(125, 21);
             this.tb_manager.TabIndex = 50;
@@ -184,11 +166,11 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(431, 349);
+            this.label12.Location = new System.Drawing.Point(431, 293);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 12);
+            this.label12.Size = new System.Drawing.Size(53, 12);
             this.label12.TabIndex = 41;
-            this.label12.Text = "负责人;";
+            this.label12.Text = "责任人：";
             // 
             // label11
             // 
@@ -280,14 +262,12 @@
             this.label1.TabIndex = 31;
             this.label1.Text = "标签I D:";
             // 
-            // AddOrModifyInstrument
+            // AddInstrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.time_lastCheckTimes);
-            this.Controls.Add(this.tb_instrumentNumber);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.time_productionDate);
             this.Controls.Add(this.title);
             this.Controls.Add(this.bt_no);
@@ -313,8 +293,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddOrModifyInstrument";
-            this.Text = "AddOrModifyInstrument";
+            this.Name = "AddInstrument";
+            this.Text = "仪器添加";
             this.Load += new System.EventHandler(this.AddOrModifyInstrument_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -324,8 +304,6 @@
         #endregion
 
         private System.Windows.Forms.DateTimePicker time_lastCheckTimes;
-        private System.Windows.Forms.TextBox tb_instrumentNumber;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker time_productionDate;
         private System.Windows.Forms.Label title;
         private System.Windows.Forms.Button bt_no;
