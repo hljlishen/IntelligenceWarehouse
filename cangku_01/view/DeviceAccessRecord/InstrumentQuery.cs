@@ -24,6 +24,7 @@ namespace cangku_01.MH
         String dutyhint = "请输入责任人的姓名";
         String modelhint = "请输入仪器的型号";
         String manufacturerhint = "请输入生产厂商";
+        String cbquery = "出入库";
         instrument instrument = new instrument();
 
         public InstrumentQuery()
@@ -49,6 +50,8 @@ namespace cangku_01.MH
             this.Tb_manufacturer.Text = manufacturerhint;
             this.Tb_manufacturer.MouseClick += tbManufacturer_MouseClick;
             this.Tb_manufacturer.Leave += tbManufacturer_Leave;
+            //出入库下拉框
+            this.Cb_query.Text = cbquery;
             //调用方法固定页面
             Top = 0;
             Left = 0;
@@ -122,8 +125,14 @@ namespace cangku_01.MH
             //中文名字，不能是数字或英文
             if (!Regex.IsMatch(tb_borrow.ToString(), @"[\u4e00-\u9fbb]"))
             {
-                Tt_check.Show("借用人姓名输入错误 ",this.Tb_borrow);
+                Tt_checkborrow.Show("借用人姓名输入错误 ", this.Tb_borrow);
+
             }
+            else
+            {
+                this.Tt_checkborrow.Hide(this.Tb_borrow);
+            }
+ 
              //根据搜索框的内容查询
              dao.FindInstrumentByBorrow(tb_borrow);
 
@@ -133,7 +142,11 @@ namespace cangku_01.MH
             //中文名字，不能是数字或英文
             if (!Regex.IsMatch(tb_duty.ToString(), @"[\u4e00-\u9fbb]"))
             {
-                Tt_check.Show("责任人姓名输入错误 ",this.Tb_duty);
+                Tt_checkduty.Show("责任人姓名输入错误 ",this.Tb_duty);
+            }
+            else
+            {
+                this.Tt_checkduty.Hide(this.Tb_duty);
             }
             //根据搜索框的内容查询
             dao.FindInstrumentByDuty(tb_duty);
@@ -144,7 +157,11 @@ namespace cangku_01.MH
             //可以是数字英文或中文
             if (!Regex.IsMatch(tb_model.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
             {
-                Tt_check.Show("仪器型号输入错误 ",this.Tb_model);
+                Tt_checkmodel.Show("仪器型号输入错误 ",this.Tb_model);
+            }
+            else
+            {
+                this.Tt_checkmodel.Hide(this.Tb_model);
             }
             //根据搜索框的内容查询
             dao.FindInstrumentByModel(tb_model);
@@ -155,7 +172,11 @@ namespace cangku_01.MH
             //英文或中文
             if (!Regex.IsMatch(tb_manufacturer.ToString(), @"^[\u4e00-\u9fa5_a-za-z0-9]+$"))
             {
-                Tt_check.Show("生产厂商输入错误 ",this.Tb_manufacturer);
+                Tt_checkmanufacturer.Show("生产厂商输入错误 ",this.Tb_manufacturer);
+            }
+            else
+            {
+                this.Tt_checkmanufacturer.Hide(this.Tb_manufacturer);
             }
             //根据搜索框的内容查询
             dao.FindInstrumentByManufacturer(tb_manufacturer);
@@ -166,7 +187,11 @@ namespace cangku_01.MH
             //日期校验
             if (DateTime.Compare(begin, end) > 0)
             {
-                Tt_check.SetToolTip(this.Btn_query, "开始时间大于结束时间 ");
+                Tt_checktime.Show("开始时间大于结束时间 ", this.Dtp_end);
+            }
+            else
+            {
+                this.Tt_checktime.Hide(this.Dtp_end);
             }
             //根据搜索框的内容查询
             dao.FindInstrumentBetween(begin, end);
