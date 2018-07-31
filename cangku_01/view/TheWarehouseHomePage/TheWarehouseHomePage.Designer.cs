@@ -398,6 +398,8 @@ namespace cangku_01
             // 
             // Dgv_DueToSee
             // 
+            this.Dgv_DueToSee.AllowUserToAddRows = false;
+            this.Dgv_DueToSee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Dgv_DueToSee.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.Dgv_DueToSee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_DueToSee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -407,6 +409,7 @@ namespace cangku_01
             this.Dgv_DueToSee.GridColor = System.Drawing.Color.Black;
             this.Dgv_DueToSee.Location = new System.Drawing.Point(12, 28);
             this.Dgv_DueToSee.Name = "Dgv_DueToSee";
+            this.Dgv_DueToSee.RowHeadersVisible = false;
             this.Dgv_DueToSee.RowTemplate.Height = 23;
             this.Dgv_DueToSee.Size = new System.Drawing.Size(353, 383);
             this.Dgv_DueToSee.TabIndex = 0;
@@ -417,20 +420,17 @@ namespace cangku_01
             this.DueName.HeaderText = "名称";
             this.DueName.Name = "DueName";
             this.DueName.ReadOnly = true;
-            this.DueName.Width = 90;
             // 
             // DueTime
             // 
             this.DueTime.HeaderText = "到期时间";
             this.DueTime.Name = "DueTime";
             this.DueTime.ReadOnly = true;
-            this.DueTime.Width = 110;
             // 
             // DaysRemaining
             // 
             this.DaysRemaining.HeaderText = "剩余天数";
             this.DaysRemaining.Name = "DaysRemaining";
-            this.DaysRemaining.Width = 110;
             // 
             // groupBox4
             // 

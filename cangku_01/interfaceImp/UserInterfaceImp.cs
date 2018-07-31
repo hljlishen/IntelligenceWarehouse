@@ -29,12 +29,10 @@ namespace cangku_01.interfaceImp
             user.Id = 1;
             user.Name = "张三";
             user.Sex = "男";
-            user.Time = DateTime.Now;
            
             user1.Id = 2;
             user1.Name = "李四";
             user1.Sex = "男";
-            user1.Time = DateTime.Now;
             list.Add(user);
             list.Add(user1);
     
@@ -58,11 +56,7 @@ namespace cangku_01.interfaceImp
             user.Id = 1;
             user.Name = "张三";
             user.Sex = "男";
-            user.Temp = "研发部";
-            user.Tel = "15091229044";
-            user.Salary = 5000.0;
-            user.Job = "程序员";
-            user.Time = DateTime.Now;
+            user.Department = "研发部";
             arr.Add(user);
             return arr;
         }

@@ -11,12 +11,6 @@ namespace cangku_01.LK
     class HumidityTest:Observer
     {
         HumidityInterface dao = new HumidityInterfaceImp();
-        public HumidityTest() { }
-        public HumidityTest(Subject subject)
-            : base(subject)
-        {
-
-        }
         protected override void Notified(object sender, EventArgs e)
         {
             dao.Humidity("30");

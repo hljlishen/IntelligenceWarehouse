@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using cangku_01.SQQ;
+using cangku_01.entity;
+
 
 namespace cangku_01.SQQ
 {

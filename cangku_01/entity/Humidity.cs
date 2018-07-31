@@ -8,7 +8,7 @@ using cangku_01.SQQ;
 namespace cangku_01.LK
 {
     //湿度，被观察者
-    class Humidity:Subject
+    class Humidity
     {
         public string HumidityNumber { get; set; }
 

@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using cangku_01.entity;
 //添加仪器，修改仪器界面      观察者模式
 namespace cangku_01.LX
 {
     public partial class AddOrModifyInstrument : Form 
     {
         Interface_instrument dao = new InterfaceImp_instrument();
-        instrument ins = new instrument();
+        Instrument ins = new Instrument();
 
         public AddOrModifyInstrument()
         {

@@ -8,13 +8,10 @@ namespace cangku_01.entity
 {
     class User
     {
-        public int Id {get;set;}
-        public String Name { get; set; }
-        public String Sex { get; set; }
-        public String Tel { get; set; }
-        public String Temp { get; set; }
-        public String Job { get; set; }
-        public double Salary { get; set; }
-        public DateTime Time { get; set; }
+        public int Id {get;set;}                        //sql主键ID
+        public string UserNumber { get; set; }          //员工编号
+        public string Name { get; set; }                //名字
+        public string Sex { get; set; }                 //性别
+        public string Department { get; set; }          //部门
     }
 }

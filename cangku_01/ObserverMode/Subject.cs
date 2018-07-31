@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cangku_01.SQQ
+namespace cangku_01.ObserverMode
 {
     //委托   当感应门通过标签卡时    将所有信息传给观察者
     public delegate void DoorEventHandler(object sender,EventArgs e);

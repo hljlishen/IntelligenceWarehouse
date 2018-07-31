@@ -42,11 +42,7 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[0].Value = u.Id;
                 dataGridView1.Rows[index].Cells[1].Value = u.Name;
                 dataGridView1.Rows[index].Cells[2].Value = u.Sex;
-                dataGridView1.Rows[index].Cells[3].Value = u.Tel;
-                dataGridView1.Rows[index].Cells[4].Value = u.Temp;
-                dataGridView1.Rows[index].Cells[5].Value = u.Job;
-                dataGridView1.Rows[index].Cells[6].Value = u.Salary;
-                dataGridView1.Rows[index].Cells[7].Value = u.Time;
+                dataGridView1.Rows[index].Cells[4].Value = u.Department;
 
             }
         }
@@ -109,12 +105,8 @@ namespace cangku_01
                         tb_id.Text = u.Id.ToString();
                         tb_name.Text = u.Name;
                         rb_man.Text = u.Sex;
-                        tb_tel.Text = u.Tel;
                         rb_man.Checked = true;
-                        tb_job.Text = u.Job;
-                        tb_temp.Text = u.Temp;
-                        tb_salary.Text = u.Salary.ToString();
-                        tb_jobtime.Text = u.Time.ToString();
+                        tb_temp.Text = u.Department;
                     }
                 }
             }
@@ -150,11 +142,7 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[0].Value = u.Id;
                 dataGridView1.Rows[index].Cells[1].Value = u.Name;
                 dataGridView1.Rows[index].Cells[2].Value = u.Sex;
-                dataGridView1.Rows[index].Cells[3].Value = u.Tel;
-                dataGridView1.Rows[index].Cells[4].Value = u.Temp;
-                dataGridView1.Rows[index].Cells[5].Value = u.Job;
-                dataGridView1.Rows[index].Cells[6].Value = u.Salary;
-                dataGridView1.Rows[index].Cells[7].Value = u.Time;
+                dataGridView1.Rows[index].Cells[4].Value = u.Department;
 
             }
 
@@ -192,11 +180,7 @@ namespace cangku_01
                 user.Id = int.Parse(tb_id.Text);
                 user.Name = tb_name.Text;
                 user.Sex = sex;
-                user.Time = dt;
-                user.Tel = tb_tel.Text;
-                user.Temp = tb_temp.Text;
-                user.Job = tb_job.Text;
-                user.Salary = double.Parse(tb_salary.Text);
+                user.Department = tb_temp.Text;
                 dao.addUser(user);
             }
             if (Bt_change.Text == "确认修改")

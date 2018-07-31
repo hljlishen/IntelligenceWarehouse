@@ -22,7 +22,7 @@ namespace cangku_01.LK
         {
             information1.Id = 00011;
             information1.Name = "白宇";
-            information1.Temp = "工程技术部";
+            information1.Department = "工程技术部";
             peopleinformations_list.Add(information1);
 
             return peopleinformations_list;    

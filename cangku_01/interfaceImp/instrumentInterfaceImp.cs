@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using cangku_01.entity;
 
 namespace cangku_01.SQQ
 {
@@ -20,10 +21,9 @@ namespace cangku_01.SQQ
             Instrument instrument = new Instrument();
             foreach (Instrument ins in list)
             {
-                instrument.Ins_id = ins.Ins_id;
-                instrument.Ins_name = ins.Ins_name;
-                instrument.Ins_state = true;
-                instrument.Ins_dateTime = ins.Ins_dateTime;
+                instrument.TagId = ins.TagId;
+                instrument.Name = ins.Name;
+                instrument.IsInWareHouse = ins.IsInWareHouse;
                 ins_List.Add(instrument);
             }
 

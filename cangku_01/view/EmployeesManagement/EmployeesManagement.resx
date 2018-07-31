@@ -246,35 +246,11 @@
   <data name="性别.HeaderText" xml:space="preserve">
     <value>性别</value>
   </data>
-  <metadata name="联系电话.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="联系电话.HeaderText" xml:space="preserve">
-    <value>联系电话</value>
-  </data>
   <metadata name="所属部门.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="所属部门.HeaderText" xml:space="preserve">
     <value>所属部门</value>
-  </data>
-  <metadata name="职位.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="职位.HeaderText" xml:space="preserve">
-    <value>职位</value>
-  </data>
-  <metadata name="薪资.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="薪资.HeaderText" xml:space="preserve">
-    <value>薪资</value>
-  </data>
-  <metadata name="入职时间.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="入职时间.HeaderText" xml:space="preserve">
-    <value>入职时间</value>
   </data>
   <metadata name="del.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -840,6 +816,24 @@
   <data name="$this.Text" xml:space="preserve">
     <value>index_employees</value>
   </data>
+  <data name="&gt;&gt;userBindingSource.Name" xml:space="preserve">
+    <value>userBindingSource</value>
+  </data>
+  <data name="&gt;&gt;userBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceImpBindingSource.Name" xml:space="preserve">
+    <value>userInterfaceImpBindingSource</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceImpBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceBindingSource.Name" xml:space="preserve">
+    <value>userInterfaceBindingSource</value>
+  </data>
+  <data name="&gt;&gt;userInterfaceBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;ID.Name" xml:space="preserve">
     <value>ID</value>
   </data>
@@ -858,34 +852,10 @@
   <data name="&gt;&gt;性别.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;联系电话.Name" xml:space="preserve">
-    <value>联系电话</value>
-  </data>
-  <data name="&gt;&gt;联系电话.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;所属部门.Name" xml:space="preserve">
     <value>所属部门</value>
   </data>
   <data name="&gt;&gt;所属部门.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;职位.Name" xml:space="preserve">
-    <value>职位</value>
-  </data>
-  <data name="&gt;&gt;职位.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;薪资.Name" xml:space="preserve">
-    <value>薪资</value>
-  </data>
-  <data name="&gt;&gt;薪资.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;入职时间.Name" xml:space="preserve">
-    <value>入职时间</value>
-  </data>
-  <data name="&gt;&gt;入职时间.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;del.Name" xml:space="preserve">
@@ -899,24 +869,6 @@
   </data>
   <data name="&gt;&gt;update_.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userBindingSource.Name" xml:space="preserve">
-    <value>userBindingSource</value>
-  </data>
-  <data name="&gt;&gt;userBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceImpBindingSource.Name" xml:space="preserve">
-    <value>userInterfaceImpBindingSource</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceImpBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceBindingSource.Name" xml:space="preserve">
-    <value>userInterfaceBindingSource</value>
-  </data>
-  <data name="&gt;&gt;userInterfaceBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>index_employees</value>

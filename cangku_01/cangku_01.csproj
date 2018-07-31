@@ -89,11 +89,11 @@
     <Compile Include="view\TheWarehouseHomePage\TheWarehouseHomePage.Designer.cs">
       <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EmployeesManagement\index_employees.cs">
+    <Compile Include="view\EmployeesManagement\EmployeesManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EmployeesManagement\index_employees.Designer.cs">
-      <DependentUpon>index_employees.cs</DependentUpon>
+    <Compile Include="view\EmployeesManagement\EmployeesManagement.Designer.cs">
+      <DependentUpon>EmployeesManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="interfaceImp\UserInterfaceImp.cs" />
     <Compile Include="interfaces\UserInterface.cs" />
@@ -107,19 +107,19 @@
     <Compile Include="interfaces\HumidityInterface.cs" />
     <Compile Include="interfaces\TemperatureTestInterface.cs" />
     <Compile Include="interfaces\Interface_PeopleInformation.cs" />
-    <Compile Include="view\AdminPage\login.cs">
+    <Compile Include="view\AdminPage\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\AdminPage\login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
+    <Compile Include="view\AdminPage\AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\DeviceManagement\AddOrModifyInstrument.cs">
+    <Compile Include="view\InstrumentManagement\AddInstrument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DeviceManagement\AddOrModifyInstrument.designer.cs">
-      <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
+    <Compile Include="view\InstrumentManagement\AddInstrument.designer.cs">
+      <DependentUpon>AddInstrument.cs</DependentUpon>
     </Compile>
-    <Compile Include="entity\instrument.cs" />
+    <Compile Include="entity\Instrument.cs" />
     <Compile Include="interfaceImp\InterfaceImp_instrument.cs" />
     <Compile Include="interfaces\Interface_instrument.cs" />
     <Compile Include="interfaceImp\InstrumentQueryImp.cs" />
@@ -130,23 +130,22 @@
     <Compile Include="view\DeviceAccessRecord\InstrumentQuery.designer.cs">
       <DependentUpon>InstrumentQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\DeviceManagement\index_instrument.cs">
+    <Compile Include="view\InstrumentManagement\InstrumentManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DeviceManagement\index_instrument.designer.cs">
-      <DependentUpon>index_instrument.cs</DependentUpon>
+    <Compile Include="view\InstrumentManagement\InstrumentManagement.designer.cs">
+      <DependentUpon>InstrumentManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="entity\ComponentFind.cs" />
     <Compile Include="entity\Door.cs" />
-    <Compile Include="entity\Instrument_sqq.cs" />
     <Compile Include="entity\InstrumentFind.cs" />
-    <Compile Include="view\TheWarehouseHomePage\Find_Items.cs">
+    <Compile Include="view\TheWarehouseHomePage\FindQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\TheWarehouseHomePage\Find_Items.Designer.cs">
-      <DependentUpon>Find_Items.cs</DependentUpon>
+    <Compile Include="view\TheWarehouseHomePage\FindQuery.Designer.cs">
+      <DependentUpon>FindQuery.cs</DependentUpon>
     </Compile>
     <Compile Include="interfaceImp\ComponentFindInterfaceImp.cs" />
     <Compile Include="interfaceImp\InstrumentFindInterfaceImp.cs" />
@@ -156,17 +155,17 @@
     <Compile Include="interfaces\InstrumentInterfaces.cs" />
     <Compile Include="ObserverMode\Observer.cs" />
     <Compile Include="ObserverMode\Subject.cs" />
-    <Compile Include="view\DueToRemind\Alter_remind.cs">
+    <Compile Include="view\DueToRemind\AlterRemind.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DueToRemind\Alter_remind.Designer.cs">
-      <DependentUpon>Alter_remind.cs</DependentUpon>
+    <Compile Include="view\DueToRemind\AlterRemind.Designer.cs">
+      <DependentUpon>AlterRemind.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\DueToRemind\Due_to_remind.cs">
+    <Compile Include="view\DueToRemind\DueToRemind.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DueToRemind\Due_to_remind.Designer.cs">
-      <DependentUpon>Due_to_remind.cs</DependentUpon>
+    <Compile Include="view\DueToRemind\DueToRemind.Designer.cs">
+      <DependentUpon>DueToRemind.cs</DependentUpon>
     </Compile>
     <Compile Include="interfaceImp\InterfaceImp_remind.cs" />
     <Compile Include="interfaces\Interface_remind.cs" />
@@ -176,20 +175,20 @@
     <EmbeddedResource Include="view\TheWarehouseHomePage\TheWarehouseHomePage.resx">
       <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EmployeesManagement\index_employees.resx">
-      <DependentUpon>index_employees.cs</DependentUpon>
+    <EmbeddedResource Include="view\EmployeesManagement\EmployeesManagement.resx">
+      <DependentUpon>EmployeesManagement.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\AdminPage\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
+    <EmbeddedResource Include="view\AdminPage\AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\DeviceManagement\AddOrModifyInstrument.resx">
-      <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
+    <EmbeddedResource Include="view\InstrumentManagement\AddInstrument.resx">
+      <DependentUpon>AddInstrument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\DeviceAccessRecord\InstrumentQuery.resx">
       <DependentUpon>InstrumentQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\DeviceManagement\index_instrument.resx">
-      <DependentUpon>index_instrument.cs</DependentUpon>
+    <EmbeddedResource Include="view\InstrumentManagement\InstrumentManagement.resx">
+      <DependentUpon>InstrumentManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -200,14 +199,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\DueToRemind\Alter_remind.resx">
-      <DependentUpon>Alter_remind.cs</DependentUpon>
+    <EmbeddedResource Include="view\DueToRemind\AlterRemind.resx">
+      <DependentUpon>AlterRemind.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\TheWarehouseHomePage\Find_Items.resx">
-      <DependentUpon>Find_Items.cs</DependentUpon>
+    <EmbeddedResource Include="view\TheWarehouseHomePage\FindQuery.resx">
+      <DependentUpon>FindQuery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\DueToRemind\Due_to_remind.resx">
-      <DependentUpon>Due_to_remind.cs</DependentUpon>
+    <EmbeddedResource Include="view\DueToRemind\DueToRemind.resx">
+      <DependentUpon>DueToRemind.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\Administration.datasource" />
     <None Include="Properties\DataSources\cangku_01.entity.User.datasource" />

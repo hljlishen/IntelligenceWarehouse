@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using cangku_01.LX;
+using cangku_01.entity;
 
 namespace cangku_01.YT
 {
@@ -19,9 +19,9 @@ namespace cangku_01.YT
         {
             InitializeComponent();
             //获取所有的要提示的快过期信息
-            List<instrument> All_re = dao.All_remind();
+            List<Instrument> All_re = dao.All_remind();
             //循环遍历在列表中
-            foreach (instrument re in All_re)
+            foreach (Instrument re in All_re)
             {
                 //获取当前时间并且赋值给dt
                 DateTime dt = DateTime.Now;
@@ -29,20 +29,17 @@ namespace cangku_01.YT
                 DataGridViewRow row = new DataGridViewRow();
                 int index = Dgv_DueToRemind.Rows.Add(row);
                 //给同一行的每一列赋值
-                 Dgv_DueToRemind.Rows[index].Cells[0].Value = re.tagId;  
-                 Dgv_DueToRemind.Rows[index].Cells[1].Value = re.name;
-                 Dgv_DueToRemind.Rows[index].Cells[2].Value = re.manufactor;
-                 string St_Lastdate = re.lastCheckTimes.Year.ToString() + "年" + re.lastCheckTimes.Month.ToString() + "月" + re.lastCheckTimes.Day.ToString() + "日";
-                 Dgv_DueToRemind.Rows[index].Cells[3].Value = St_Lastdate;
-                 string St_Cycle = re.checkCycle.ToString();
-                 Dgv_DueToRemind.Rows[index].Cells[4].Value = St_Cycle;
-                 string St_Nextdate = re.lastCheckTimes.AddDays(re.checkCycle).Year.ToString() + "年" + re.lastCheckTimes.AddDays(re.checkCycle).Month.ToString() + "月" + re.lastCheckTimes.AddDays(re.checkCycle).Day.ToString() + "日";
-                 Dgv_DueToRemind.Rows[index].Cells[5].Value = St_Nextdate;
-                 string St_Expiredate = (re.lastCheckTimes.AddDays(re.checkCycle) - DateTime.Now).Days.ToString();
-                 Dgv_DueToRemind.Rows[index].Cells[6].Value = St_Expiredate;
+                 Dgv_DueToRemind.Rows[index].Cells[0].Value = re.TagId;  
+                 Dgv_DueToRemind.Rows[index].Cells[1].Value = re.Name;
+                 Dgv_DueToRemind.Rows[index].Cells[2].Value = re.Manufactor;
+                 Dgv_DueToRemind.Rows[index].Cells[3].Value = re.DateFormatConversion(re.LastCheckTimes);
+                 string St_Cycle = re.CheckCycle.ToString();
+                 Dgv_DueToRemind.Rows[index].Cells[4].Value = St_Cycle;              
+                 Dgv_DueToRemind.Rows[index].Cells[5].Value = re.NextCheckTimes(re.LastCheckTimes,re.CheckCycle);
+                 Dgv_DueToRemind.Rows[index].Cells[6].Value = re.TimeRemaining(re.LastCheckTimes,re.CheckCycle);
 
                 //判断剩余日期，并划分不同的背景色颜色
-                for (int x = 0; x < this.Dgv_DueToRemind.Rows.Count - 1; x++)
+                for (int x = 0; x < this.Dgv_DueToRemind.Rows.Count; x++)
                 {
                     String s = Dgv_DueToRemind.Rows[x].Cells[6].Value.ToString();
                     int Day = int.Parse(s);

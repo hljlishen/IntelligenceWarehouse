@@ -12,13 +12,6 @@ namespace cangku_01.LK
     class temperatureTest : Observer
     {
         temperatureTestInterface dao = new TemperatureTestInterfaceImp();
-        // public TemperatureInterface temperatureDao = new temperatureInterfaceImp();
-        public temperatureTest() { }
-        public temperatureTest(Subject subject)
-            : base(subject)
-        {
-
-        }
         protected override void Notified(object sender, EventArgs e)
         {
             dao.temperature("38"); 

@@ -40,28 +40,22 @@ namespace cangku_01
             {
                 Tb_id.Text = en.Id.ToString();
                 Tb_name.Text = en.Name;
-                Tb_temp.Text = en.Temp;
+                Tb_temp.Text = en.Department;
             }
-            Instrument instrument = new Instrument();
-            Door door = new Door(instrument);
-            instrument.Pass();
-
-
+            
             //物品信息的显示
             List<Instrument> ins_list = instrumentDao.find_ins();
             foreach (Instrument ins in ins_list)
             {
-                Tb_ShowId.Text = ins.Ins_id.ToString();
-                Tb_ShowName.Text = ins.Ins_name;
-                Tb_ShowState.Text = ins.Ins_state.ToString();
-                Tb_ShowTime.Text = ins.Ins_dateTime.ToString();
+                Tb_ShowId.Text = ins.TagId.ToString();
+                Tb_ShowName.Text = ins.Name;
+                Tb_ShowState.Text = ins.IsInWareHouse.ToString();
+                Tb_ShowTime.Text = DateTime.Now.ToString();
 
             }
 
             //温度
             temperature temperature = new temperature();
-            temperatureTest temperatureTest = new temperatureTest(temperature);
-            temperature.temperatureChange();
             List<string> lists= temp.showTemperature();
             foreach(string s in lists)
             {
@@ -70,8 +64,6 @@ namespace cangku_01
 
             //湿度
             Humidity humidity = new Humidity();
-            HumidityTest humidityTest = new HumidityTest(humidity);
-            humidity.HumidityChange();
             List<string> lists1 = humidityInterface.showHumidity();
             foreach (string s1 in lists1)
             {
@@ -80,20 +72,20 @@ namespace cangku_01
 
             //到期提醒
             Interface_remind Remind_dao = new InterfaceImp_remind();
-            List<instrument> All_re = Remind_dao.All_remind();
+            List<Instrument> All_re = Remind_dao.All_remind();
             //循环遍历在列表中
-            foreach (instrument re in All_re)
+            foreach (Instrument re in All_re)
             {
                 //获取当前时间并且赋值给dt
                 DateTime dt = DateTime.Now;
                 DataGridViewRow row = new DataGridViewRow();
                 int index = Dgv_DueToSee.Rows.Add(row);
-                Dgv_DueToSee.Rows[index].Cells[0].Value = re.name;
+                Dgv_DueToSee.Rows[index].Cells[0].Value = re.Name;
                 //下一次最晚检查时间，时间格式转化，只显示年月日（下一次最晚检查时间=上次检查时间+检查周期）
-                string St_Nextdate = re.lastCheckTimes.AddDays(re.checkCycle).Year.ToString() + "年" + re.lastCheckTimes.AddDays(re.checkCycle).Month.ToString() + "月" + re.lastCheckTimes.AddDays(re.checkCycle).Day.ToString() + "日";
+                string St_Nextdate = re.LastCheckTimes.AddDays(re.CheckCycle).Year.ToString() + "年" + re.LastCheckTimes.AddDays(re.CheckCycle).Month.ToString() + "月" + re.LastCheckTimes.AddDays(re.CheckCycle).Day.ToString() + "日";
                 Dgv_DueToSee.Rows[index].Cells[1].Value = St_Nextdate;
                 //剩余检查时间=下一次最晚检查时间-当前时间,只显示剩余天数
-                string St_Expiredate = (re.lastCheckTimes.AddDays(re.checkCycle) - DateTime.Now).Days.ToString();
+                string St_Expiredate = (re.LastCheckTimes.AddDays(re.CheckCycle) - DateTime.Now).Days.ToString();
                 Dgv_DueToSee.Rows[index].Cells[2].Value = St_Expiredate;
             }
 

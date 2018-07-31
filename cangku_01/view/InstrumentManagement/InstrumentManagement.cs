@@ -1,4 +1,5 @@
-﻿using cangku_01.LX;
+﻿using cangku_01.entity;
+using cangku_01.LX;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,32 +15,32 @@ namespace cangku_01
     public partial class index_instrument : Form
     {
         Interface_instrument dao = new InterfaceImp_instrument();
-        instrument instrument = new instrument();
+        Instrument instrument = new Instrument();
 
         public index_instrument()
         {
             InitializeComponent();
             //将全部仪器加载
-            List<instrument> All_ins = dao.All_instrument();
+            List<Instrument> All_ins = dao.All_instrument();
 
-            foreach (instrument ins in All_ins)
+            foreach (Instrument ins in All_ins)
             {
                
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dataGridView1.Rows.Add(row);
-                dataGridView1.Rows[index].Cells[0].Value = ins.tagId;
-                dataGridView1.Rows[index].Cells[1].Value = ins.name;
-                dataGridView1.Rows[index].Cells[2].Value = ins.model;
-                dataGridView1.Rows[index].Cells[3].Value = ins.manufactor;
-                dataGridView1.Rows[index].Cells[4].Value = ins.serialNumber;
-                string productionDate = ins.productionDate.Year.ToString() + "年" + ins.productionDate.Month.ToString() + "月" + ins.productionDate.Day.ToString() + "日";
+                dataGridView1.Rows[index].Cells[0].Value = ins.TagId;
+                dataGridView1.Rows[index].Cells[1].Value = ins.Name;
+                dataGridView1.Rows[index].Cells[2].Value = ins.Model;
+                dataGridView1.Rows[index].Cells[3].Value = ins.Manufactor;
+                dataGridView1.Rows[index].Cells[4].Value = ins.SerialNumber;
+                string productionDate = ins.ProductionDate.Year.ToString() + "年" + ins.ProductionDate.Month.ToString() + "月" + ins.ProductionDate.Day.ToString() + "日";
                 dataGridView1.Rows[index].Cells[5].Value = productionDate;
-                dataGridView1.Rows[index].Cells[6].Value = ins.position;
-                dataGridView1.Rows[index].Cells[7].Value = ins.isInWareHouse;
-                dataGridView1.Rows[index].Cells[8].Value = ins.checkCycle;
-                string lastCheckTimes = ins.lastCheckTimes.Year.ToString() + "年" + ins.lastCheckTimes.Month.ToString() + "月" + ins.lastCheckTimes.Day.ToString() + "日";
+                dataGridView1.Rows[index].Cells[6].Value = ins.Position;
+                dataGridView1.Rows[index].Cells[7].Value = ins.IsInWareHouse;
+                dataGridView1.Rows[index].Cells[8].Value = ins.CheckCycle;
+                string lastCheckTimes = ins.LastCheckTimes.Year.ToString() + "年" + ins.LastCheckTimes.Month.ToString() + "月" + ins.LastCheckTimes.Day.ToString() + "日";
                 dataGridView1.Rows[index].Cells[9].Value = lastCheckTimes;
-                dataGridView1.Rows[index].Cells[10].Value = ins.manager;
+                dataGridView1.Rows[index].Cells[10].Value = ins.Duty;
             }
            
         }
@@ -87,18 +88,18 @@ namespace cangku_01
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //获取要修改属性
-                    instrument a = new instrument();
-                    a.tagId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                    a.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-                    a.model = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-                    a.manufactor = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-                    a.serialNumber = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-                    a.productionDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value.ToString());
-                    a.position = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-                    a.isInWareHouse = Boolean.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
-                    a.checkCycle = int.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
-                    a.lastCheckTimes = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[9].Value.ToString());
-                    a.manager = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                    Instrument a = new Instrument();
+                    a.TagId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    a.Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    a.Model = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    a.Manufactor = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    a.SerialNumber = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    a.ProductionDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                    a.Position = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    a.IsInWareHouse = Boolean.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                    a.CheckCycle = int.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+                    a.LastCheckTimes = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[9].Value.ToString());
+                    a.Duty = dataGridView1.CurrentRow.Cells[10].Value.ToString();
                     int i = dao.Alter_instrument(a);
                     if (i == 1)
                     {

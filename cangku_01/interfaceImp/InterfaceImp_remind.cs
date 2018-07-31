@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using cangku_01.LX;
+using cangku_01.entity;
 
 //到期提醒的实现接口
 
@@ -13,60 +13,60 @@ namespace cangku_01.YT
     class InterfaceImp_remind : Interface_remind
     {
         //定义接收实体类数据的数组
-        List<instrument> Remind_list = new List<instrument>();
+        List<Instrument> Remind_list = new List<Instrument>();
      
 
         //在数据库查询所用快要到期的仪器，并存放在数组中
-        List<instrument> Interface_remind.All_remind()
+        List<Instrument> Interface_remind.All_remind()
         {
             //text
-            instrument remind = new instrument();
-            instrument remind2 = new instrument();
-            instrument remind3 = new instrument();
-            instrument remind4 = new instrument();
-            instrument remind5 = new instrument();
-            instrument remind6 = new instrument();
+            Instrument remind = new Instrument();
+            Instrument remind2 = new Instrument();
+            Instrument remind3 = new Instrument();
+            Instrument remind4 = new Instrument();
+            Instrument remind5 = new Instrument();
+            Instrument remind6 = new Instrument();
 
-            remind.tagId = 001;
-            remind.name = "电子标签卡";
-            remind.manufactor = "红叶";
-            remind.lastCheckTimes = DateTime.Parse("2018-2-12"); ;
-            remind.checkCycle = 120;
+            remind.TagId = 001;
+            remind.Name = "电子标签卡";
+            remind.Manufactor = "红叶";
+            remind.LastCheckTimes = DateTime.Parse("2018-2-12"); ;
+            remind.CheckCycle = 120;
             Remind_list.Add(remind);
 
-            remind2.tagId = 002;
-            remind2.name = "UFH读写器";
-            remind2.manufactor = "润之科技";
-            remind2.lastCheckTimes = DateTime.Parse("2018-5-12"); ;
-            remind2.checkCycle = 360;
+            remind2.TagId = 002;
+            remind2.Name = "UFH读写器";
+            remind2.Manufactor = "润之科技";
+            remind2.LastCheckTimes = DateTime.Parse("2018-5-12"); ;
+            remind2.CheckCycle = 360;
             Remind_list.Add(remind2);
 
-            remind3.tagId = 003;
-            remind3.name = "电子门禁";
-            remind3.manufactor = "智能酷睿";
-            remind3.lastCheckTimes = DateTime.Parse("2018-7-12"); ;
-            remind3.checkCycle = 10;
+            remind3.TagId = 003;
+            remind3.Name = "电子门禁";
+            remind3.Manufactor = "智能酷睿";
+            remind3.LastCheckTimes = DateTime.Parse("2018-7-12"); ;
+            remind3.CheckCycle = 10;
             Remind_list.Add(remind3);
 
-            remind4.tagId = 004;
-            remind4.name = "智能电视";
-            remind4.manufactor = "KT家具";
-            remind4.lastCheckTimes = DateTime.Parse("2018-6-12"); ;
-            remind4.checkCycle = 30;
+            remind4.TagId = 004;
+            remind4.Name = "智能电视";
+            remind4.Manufactor = "KT家具";
+            remind4.LastCheckTimes = DateTime.Parse("2018-6-12"); ;
+            remind4.CheckCycle = 30;
             Remind_list.Add(remind4);
 
-            remind5.tagId = 005;
-            remind5.name = "宏基笔记本";
-            remind5.manufactor = "acer";
-            remind5.lastCheckTimes = DateTime.Parse("2018-5-18"); ;
-            remind5.checkCycle = 120;
+            remind5.TagId = 005;
+            remind5.Name = "宏基笔记本";
+            remind5.Manufactor = "acer";
+            remind5.LastCheckTimes = DateTime.Parse("2018-5-18"); ;
+            remind5.CheckCycle = 120;
             Remind_list.Add(remind5);
 
-            remind6.tagId = 006;
-            remind6.name = "智能水杯";
-            remind6.manufactor = "流浪者科技";
-            remind6.lastCheckTimes = DateTime.Parse("2018-7-1"); ;
-            remind6.checkCycle = 40;
+            remind6.TagId = 006;
+            remind6.Name = "智能水杯";
+            remind6.Manufactor = "流浪者科技";
+            remind6.LastCheckTimes = DateTime.Parse("2018-7-1"); ;
+            remind6.CheckCycle = 40;
             Remind_list.Add(remind6);
             return Remind_list;
         }
