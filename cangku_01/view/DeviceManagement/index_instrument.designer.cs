@@ -43,7 +43,6 @@
             this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.上次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.当前数量 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -93,6 +92,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -105,7 +105,6 @@
             this.在库状态,
             this.检定周期,
             this.上次检验时间,
-            this.当前数量,
             this.负责人,
             this.Column1,
             this.Column2});
@@ -120,63 +119,67 @@
             // 
             this.ID.HeaderText = "标签ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // name
             // 
             this.name.HeaderText = "仪器名称";
             this.name.Name = "name";
+            this.name.Width = 110;
             // 
             // 型号规格
             // 
             this.型号规格.HeaderText = "型号规格";
             this.型号规格.Name = "型号规格";
+            this.型号规格.Width = 110;
             // 
             // 生产厂商
             // 
             this.生产厂商.HeaderText = "生产厂商";
             this.生产厂商.Name = "生产厂商";
+            this.生产厂商.Width = 110;
             // 
             // 出厂编号
             // 
             this.出厂编号.HeaderText = "出厂编号";
             this.出厂编号.Name = "出厂编号";
+            this.出厂编号.Width = 110;
             // 
             // 生产日期
             // 
             this.生产日期.HeaderText = "生产日期";
             this.生产日期.Name = "生产日期";
+            this.生产日期.Width = 110;
             // 
             // 货架位置
             // 
             this.货架位置.HeaderText = "货架位置";
             this.货架位置.Name = "货架位置";
+            this.货架位置.Width = 110;
             // 
             // 在库状态
             // 
             this.在库状态.HeaderText = "在库状态";
             this.在库状态.Name = "在库状态";
+            this.在库状态.Width = 110;
             // 
             // 检定周期
             // 
             this.检定周期.HeaderText = "检定周期";
             this.检定周期.Name = "检定周期";
+            this.检定周期.Width = 90;
             // 
             // 上次检验时间
             // 
             this.上次检验时间.HeaderText = "上次检验时间";
             this.上次检验时间.Name = "上次检验时间";
-            // 
-            // 当前数量
-            // 
-            this.当前数量.HeaderText = "当前数量";
-            this.当前数量.Name = "当前数量";
-            this.当前数量.Width = 80;
+            this.上次检验时间.Width = 110;
             // 
             // 负责人
             // 
             this.负责人.HeaderText = "负责人";
             this.负责人.Name = "负责人";
-            this.负责人.Width = 80;
+            this.负责人.Width = 90;
             // 
             // Column1
             // 
@@ -232,7 +235,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 在库状态;
         private System.Windows.Forms.DataGridViewTextBoxColumn 检定周期;
         private System.Windows.Forms.DataGridViewTextBoxColumn 上次检验时间;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 当前数量;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
