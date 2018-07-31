@@ -27,8 +27,7 @@ namespace cangku_01.LX
             a1.position = "2-1-14";      
             a1.isInWareHouse = true;       
             a1.checkCycle = 7;       
-            a1.lastCheckTimes = DateTime.Parse("2017 -7-7");     
-            a1.instrumentNumber = 111;         
+            a1.lastCheckTimes = DateTime.Parse("2017 -7-7");            
             a1.manager = "张三";      
             list.Add(a1);
 
@@ -43,7 +42,6 @@ namespace cangku_01.LX
             a2.isInWareHouse = false;        
             a2.checkCycle = 2;             
             a2.lastCheckTimes = DateTime.Parse("2013-5-20");
-            a2.instrumentNumber = 222;
             a2.manager = "李四";     
             list.Add(a2);
 
@@ -65,7 +63,7 @@ namespace cangku_01.LX
         }
 
         //修改仪器
-        public int Modify_instrument(instrument instrument)     
+        public int Alter_instrument(instrument instrument)     
         {
             int i = 1;
             return i;

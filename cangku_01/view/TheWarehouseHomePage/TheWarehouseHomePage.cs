@@ -164,12 +164,6 @@ namespace cangku_01
 
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-            Form login = new login();
-            login.Show();
-        }
-
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -203,6 +197,12 @@ namespace cangku_01
         private void Hum_num_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Form login = new login();
+            login.Show();
         }
     }
 }

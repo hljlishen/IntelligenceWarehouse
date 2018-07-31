@@ -31,12 +31,14 @@ namespace cangku_01
             InitializeComponent();
             //将全部员工加载
             List<User> allUser = dao.findAllUser();
-           
+            DataGridViewRow row = new DataGridViewRow();
+            dataGridView1.Rows.Insert(0, row);
+
             //循环遍历
             foreach (User u in allUser)
             {
-                DataGridViewRow row = new DataGridViewRow();
-                int index = dataGridView1.Rows.Add(row);
+                DataGridViewRow row2 = new DataGridViewRow();
+                int index = dataGridView1.Rows.Add(row2);
                 dataGridView1.Rows[index].Cells[0].Value = u.Id;
                 dataGridView1.Rows[index].Cells[1].Value = u.Name;
                 dataGridView1.Rows[index].Cells[2].Value = u.Sex;
@@ -78,6 +80,7 @@ namespace cangku_01
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
             if (e.ColumnIndex == 8)//点击在删除按钮上
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -113,9 +116,6 @@ namespace cangku_01
                         tb_salary.Text = u.Salary.ToString();
                         tb_jobtime.Text = u.Time.ToString();
                     }
-
-                   
-
                 }
             }
 
@@ -134,10 +134,6 @@ namespace cangku_01
             tb_temp.Text = null;
             tb_salary.Text = null;
             tb_jobtime.Text = null;
-
-
-            
-
         }
         //搜索框
         private void bt_found_Click(object sender, EventArgs e)
@@ -147,20 +143,20 @@ namespace cangku_01
             //根据搜索框的内容查询对应的值
             List<User> findUserById =dao.findUserByName(tb_text);
             //将查询到的结果    循环遍历到datagridview里
-            //foreach (User u in findUserById)
-            //{
-              //  DataGridViewRow row = new DataGridViewRow();
-                //int index = dataGridView1.Rows.Add(row);
-                //dataGridView1.Rows[index].Cells[0].Value = u.Id;
-                //dataGridView1.Rows[index].Cells[1].Value = u.Name;
-                //dataGridView1.Rows[index].Cells[2].Value = u.Sex;
-                //dataGridView1.Rows[index].Cells[3].Value = u.Tel;
-                //dataGridView1.Rows[index].Cells[4].Value = u.Temp;
-                //dataGridView1.Rows[index].Cells[5].Value = u.Job;
-                //dataGridView1.Rows[index].Cells[6].Value = u.Salary;
-                //dataGridView1.Rows[index].Cells[7].Value = u.Time;
+            foreach (User u in findUserById)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dataGridView1.Rows.Add(row);
+                dataGridView1.Rows[index].Cells[0].Value = u.Id;
+                dataGridView1.Rows[index].Cells[1].Value = u.Name;
+                dataGridView1.Rows[index].Cells[2].Value = u.Sex;
+                dataGridView1.Rows[index].Cells[3].Value = u.Tel;
+                dataGridView1.Rows[index].Cells[4].Value = u.Temp;
+                dataGridView1.Rows[index].Cells[5].Value = u.Job;
+                dataGridView1.Rows[index].Cells[6].Value = u.Salary;
+                dataGridView1.Rows[index].Cells[7].Value = u.Time;
 
-            //}
+            }
 
         }
 

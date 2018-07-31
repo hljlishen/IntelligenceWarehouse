@@ -39,8 +39,7 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[8].Value = ins.checkCycle;
                 string lastCheckTimes = ins.lastCheckTimes.Year.ToString() + "年" + ins.lastCheckTimes.Month.ToString() + "月" + ins.lastCheckTimes.Day.ToString() + "日";
                 dataGridView1.Rows[index].Cells[9].Value = lastCheckTimes;
-                dataGridView1.Rows[index].Cells[10].Value = ins.instrumentNumber;
-                dataGridView1.Rows[index].Cells[11].Value = ins.manager;
+                dataGridView1.Rows[index].Cells[10].Value = ins.manager;
             }
            
         }
@@ -64,31 +63,52 @@ namespace cangku_01
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
         {
             //删除
-            if (e.ColumnIndex == 12)
+            if (e.ColumnIndex == 11)
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
                     int id = int.Parse(currentIndex);
                     this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-
-                    dao.Delete_instrument(id);
+                    int i = dao.Delete_instrument(id);
+                    if (i == 1)
+                    {
+                        MessageBox.Show("删除成功!", "仪器管理");
+                    }
+                    else
+                    {
+                        MessageBox.Show("删除失败!", "仪器管理");
+                    }
                 }
             }
             //修改
-            if (e.ColumnIndex == 13)
+            if (e.ColumnIndex == 12)
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //获取要修改属性
-                    string[] alter_instrument = new string[13];
-                    for(int i = 0; i <= 12; i++)
+                    instrument a = new instrument();
+                    a.tagId = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    a.name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    a.model = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    a.manufactor = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    a.serialNumber = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    a.productionDate = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[5].Value.ToString());
+                    a.position = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+                    a.isInWareHouse = Boolean.Parse(dataGridView1.CurrentRow.Cells[7].Value.ToString());
+                    a.checkCycle = int.Parse(dataGridView1.CurrentRow.Cells[8].Value.ToString());
+                    a.lastCheckTimes = Convert.ToDateTime(dataGridView1.CurrentRow.Cells[9].Value.ToString());
+                    a.manager = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+                    int i = dao.Alter_instrument(a);
+                    if (i == 1)
                     {
-                        alter_instrument[i] = dataGridView1.CurrentRow.Cells[i].Value.ToString();
+                        MessageBox.Show("修改成功!", "仪器管理");
                     }
-                    //跳转到修改页面
-                    AddOrModifyInstrument  mod = new AddOrModifyInstrument(alter_instrument);
-                    mod.Show();
+                    else 
+                    {
+                        MessageBox.Show("修改失败!", "仪器管理");
+                    }
+
                 }
             }
         }
