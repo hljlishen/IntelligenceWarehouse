@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="entity\InstrumentQuery.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,13 +123,13 @@
     <Compile Include="entity\instrument.cs" />
     <Compile Include="interfaceImp\InterfaceImp_instrument.cs" />
     <Compile Include="interfaces\Interface_instrument.cs" />
-    <Compile Include="interfaceImp\InstrumentQueryImp.cs" />
-    <Compile Include="interfaces\InstrumentQuery.cs" />
-    <Compile Include="view\DeviceAccessRecord\InstrumentQuery.cs">
+    <Compile Include="interfaceImp\InstrumentImp_query.cs" />
+    <Compile Include="interfaces\Instrumen_query.cs" />
+    <Compile Include="view\DeviceAccessRecord\Ins_query.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DeviceAccessRecord\InstrumentQuery.designer.cs">
-      <DependentUpon>InstrumentQuery.cs</DependentUpon>
+    <Compile Include="view\DeviceAccessRecord\Ins_query.designer.cs">
+      <DependentUpon>Ins_query.cs</DependentUpon>
     </Compile>
     <Compile Include="view\DeviceManagement\index_instrument.cs">
       <SubType>Form</SubType>
@@ -185,8 +186,8 @@
     <EmbeddedResource Include="view\DeviceManagement\AddOrModifyInstrument.resx">
       <DependentUpon>AddOrModifyInstrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\DeviceAccessRecord\InstrumentQuery.resx">
-      <DependentUpon>InstrumentQuery.cs</DependentUpon>
+    <EmbeddedResource Include="view\DeviceAccessRecord\Ins_query.resx">
+      <DependentUpon>Ins_query.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\DeviceManagement\index_instrument.resx">
       <DependentUpon>index_instrument.cs</DependentUpon>

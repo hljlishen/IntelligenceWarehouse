@@ -44,7 +44,7 @@ namespace cangku_01
 
         private void 仪器ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form fr = new InstrumentQuery();
+            Form fr = new Ins_query();
             fr.MdiParent = this;
             fr.Show();
         }

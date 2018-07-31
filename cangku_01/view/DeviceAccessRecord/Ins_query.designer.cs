@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.MH
 {
-    partial class InstrumentQuery
+    partial class Ins_query
     {
         /// <summary>
         /// Required designer variable.
@@ -142,6 +142,7 @@
             // 
             // Dgv_InstrumentQuery
             // 
+            this.Dgv_InstrumentQuery.AllowUserToAddRows = false;
             this.Dgv_InstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dgv_InstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.仪器标签ID,

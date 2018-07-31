@@ -17,17 +17,16 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 namespace cangku_01.MH
 {
     //仪器出入库查询页面
-    public partial class InstrumentQuery : Form
+    public partial class Ins_query : Form
     {
-        interfaces.InstrumentQuery dao = new InstrumentQueryImp();
+        Instrumen_query dao = new InstrumentImp_query();
         String borrowhint = "请输入借用人的姓名";
         String dutyhint = "请输入责任人的姓名";
         String modelhint = "请输入仪器的型号";
         String manufacturerhint = "请输入生产厂商";
         String cbquery = "出入库";
-        instrument instrument = new instrument();
 
-        public InstrumentQuery()
+        public Ins_query()
         {
             InitializeComponent();
         }
@@ -50,7 +49,7 @@ namespace cangku_01.MH
             this.Tb_manufacturer.Text = manufacturerhint;
             this.Tb_manufacturer.MouseClick += tbManufacturer_MouseClick;
             this.Tb_manufacturer.Leave += tbManufacturer_Leave;
-            //出入库下拉框
+            //出入库下拉框中固定的值
             this.Cb_query.Text = cbquery;
             //调用方法固定页面
             Top = 0;
