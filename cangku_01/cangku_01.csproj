@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entity\InstrumentQuery.cs" />
+    <Compile Include="MysqlConnection\MySqlConnection.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +85,24 @@
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\User.cs" />
+    <Compile Include="view\EmployeesManagement\AddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\AddDepartment.Designer.cs">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.Designer.cs">
+      <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\DepartmentShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\DepartmentShow.Designer.cs">
+      <DependentUpon>DepartmentShow.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\TheWarehouseHomePage\TheWarehouseHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +177,15 @@
     <Compile Include="interfaces\Interface_remind.cs" />
     <EmbeddedResource Include="view\AdminPage\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EmployeesManagement\AddDepartment.resx">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EmployeesManagement\AddOrAlterEmployees.resx">
+      <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EmployeesManagement\DepartmentShow.resx">
+      <DependentUpon>DepartmentShow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TheWarehouseHomePage\TheWarehouseHomePage.resx">
       <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>

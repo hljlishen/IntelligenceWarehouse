@@ -44,10 +44,16 @@
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.Cms_department = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加子节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceBindingSource)).BeginInit();
+            this.Cms_department.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -79,7 +85,6 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -92,6 +97,7 @@
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -152,10 +158,43 @@
             // 
             this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
             // 
+            // treeView1
+            // 
+            resources.ApplyResources(this.treeView1, "treeView1");
+            this.treeView1.Name = "treeView1";
+            // 
+            // Cms_department
+            // 
+            this.Cms_department.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加ToolStripMenuItem,
+            this.添加子节点ToolStripMenuItem,
+            this.删除节点ToolStripMenuItem});
+            this.Cms_department.Name = "Cms_department";
+            resources.ApplyResources(this.Cms_department, "Cms_department");
+            // 
+            // 添加ToolStripMenuItem
+            // 
+            this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
+            resources.ApplyResources(this.添加ToolStripMenuItem, "添加ToolStripMenuItem");
+            this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
+            // 
+            // 添加子节点ToolStripMenuItem
+            // 
+            this.添加子节点ToolStripMenuItem.Name = "添加子节点ToolStripMenuItem";
+            resources.ApplyResources(this.添加子节点ToolStripMenuItem, "添加子节点ToolStripMenuItem");
+            this.添加子节点ToolStripMenuItem.Click += new System.EventHandler(this.添加子节点ToolStripMenuItem_Click);
+            // 
+            // 删除节点ToolStripMenuItem
+            // 
+            this.删除节点ToolStripMenuItem.Name = "删除节点ToolStripMenuItem";
+            resources.ApplyResources(this.删除节点ToolStripMenuItem, "删除节点ToolStripMenuItem");
+            this.删除节点ToolStripMenuItem.Click += new System.EventHandler(this.删除节点ToolStripMenuItem_Click);
+            // 
             // index_employees
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.bt_addUser);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bt_found);
@@ -168,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceBindingSource)).EndInit();
+            this.Cms_department.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +229,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 所属部门;
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ContextMenuStrip Cms_department;
+        private System.Windows.Forms.ToolStripMenuItem 添加ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 添加子节点ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 删除节点ToolStripMenuItem;
     }
 }

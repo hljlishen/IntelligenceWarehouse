@@ -12,27 +12,26 @@ namespace cangku_01.interfaceImp
     class UserInterfaceImp : UserInterface
     {
         List<User> arr = new List<User>();
-        User user = new User();
-        User user1 = new User();
-
-
+  
         public void delUser(int id)
         {
-            //删除的sql语句
             Console.WriteLine("删除成功");
-            
         }
 
         public List<User> findAllUser()
         {
             List<User> list = new List<User>();
+            User user = new User();
+            User user1 = new User();
             user.Id = 1;
             user.Name = "张三";
             user.Sex = "男";
+            user.Department = "人事";
            
             user1.Id = 2;
             user1.Name = "李四";
             user1.Sex = "男";
+            user1.Department = "研发部";
             list.Add(user);
             list.Add(user1);
     
@@ -52,12 +51,7 @@ namespace cangku_01.interfaceImp
 
         public List<User> findUserById(int id)
         {
-            //修改的sql语句
-            user.Id = 1;
-            user.Name = "张三";
-            user.Sex = "男";
-            user.Department = "研发部";
-            arr.Add(user);
+   
             return arr;
         }
 

@@ -40,6 +40,7 @@ namespace cangku_01
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.归还ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Tb_temp = new System.Windows.Forms.TextBox();
@@ -77,7 +78,6 @@ namespace cangku_01
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.归还ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -159,8 +159,14 @@ namespace cangku_01
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 24);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(106, 24);
             this.toolStripMenuItem6.Text = "借用";
+            // 
+            // 归还ToolStripMenuItem
+            // 
+            this.归还ToolStripMenuItem.Name = "归还ToolStripMenuItem";
+            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.归还ToolStripMenuItem.Text = "归还";
             // 
             // button1
             // 
@@ -402,6 +408,7 @@ namespace cangku_01
             this.Dgv_DueToSee.GridColor = System.Drawing.Color.Black;
             this.Dgv_DueToSee.Location = new System.Drawing.Point(12, 28);
             this.Dgv_DueToSee.Name = "Dgv_DueToSee";
+            this.Dgv_DueToSee.ReadOnly = true;
             this.Dgv_DueToSee.RowHeadersVisible = false;
             this.Dgv_DueToSee.RowTemplate.Height = 23;
             this.Dgv_DueToSee.Size = new System.Drawing.Size(353, 383);
@@ -424,6 +431,7 @@ namespace cangku_01
             // 
             this.DaysRemaining.HeaderText = "剩余天数";
             this.DaysRemaining.Name = "DaysRemaining";
+            this.DaysRemaining.ReadOnly = true;
             // 
             // groupBox4
             // 
@@ -538,12 +546,6 @@ namespace cangku_01
             this.pictureBox3.Size = new System.Drawing.Size(15, 15);
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
-            // 
-            // 归还ToolStripMenuItem
-            // 
-            this.归还ToolStripMenuItem.Name = "归还ToolStripMenuItem";
-            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.归还ToolStripMenuItem.Text = "归还";
             // 
             // Form1
             // 

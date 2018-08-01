@@ -12,6 +12,7 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using System.Collections;
 using cangku_01.entity;
+using cangku_01.view.EmployeesManagement;
 
 namespace cangku_01
 {
@@ -20,10 +21,7 @@ namespace cangku_01
         UserInterface dao = new UserInterfaceImp();
         String s = "请输入员工的姓名";
         User user = new User();
-        String currentIndex;
-        string sex;
-        
-       
+        String currentIndex;      
 
         public index_employees()
         {
@@ -38,7 +36,7 @@ namespace cangku_01
                 dataGridView1.Rows[index].Cells[0].Value = u.Id;
                 dataGridView1.Rows[index].Cells[1].Value = u.Name;
                 dataGridView1.Rows[index].Cells[2].Value = u.Sex;
-                dataGridView1.Rows[index].Cells[4].Value = u.Department;
+                dataGridView1.Rows[index].Cells[3].Value = u.Department;
 
             }
         }
@@ -50,8 +48,6 @@ namespace cangku_01
             this.tb_found.Leave += textBox1_Leave;
             this.Top = 0;
             this.Left = 0;
-          
-
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -73,7 +69,7 @@ namespace cangku_01
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
-            if (e.ColumnIndex == 8)//点击在删除按钮上
+            if (e.ColumnIndex == 4)//点击在删除按钮上
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -85,7 +81,7 @@ namespace cangku_01
                 }
             }
 
-            if (e.ColumnIndex == 9)//点击在修改按钮上
+            if (e.ColumnIndex == 5)//点击在修改按钮上
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -106,7 +102,8 @@ namespace cangku_01
         //添加用户
         private void button2_Click(object sender, EventArgs e)
         {
-
+            AddOrAlterEmployees add = new AddOrAlterEmployees();
+            add.Show();
         }
         //搜索框
         private void bt_found_Click(object sender, EventArgs e)
@@ -133,6 +130,21 @@ namespace cangku_01
         {
             
 
+        }
+
+        private void 添加ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void 添加子节点ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void 删除节点ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
