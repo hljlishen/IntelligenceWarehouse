@@ -41,19 +41,14 @@
             this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.Cms_department = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加子节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除节点ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceBindingSource)).BeginInit();
-            this.Cms_department.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -146,6 +141,11 @@
             this.update_.Text = "修改";
             this.update_.UseColumnTextForButtonValue = true;
             // 
+            // treeView1
+            // 
+            resources.ApplyResources(this.treeView1, "treeView1");
+            this.treeView1.Name = "treeView1";
+            // 
             // userBindingSource
             // 
             this.userBindingSource.DataSource = typeof(cangku_01.entity.User);
@@ -157,38 +157,6 @@
             // userInterfaceBindingSource
             // 
             this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
-            // 
-            // treeView1
-            // 
-            resources.ApplyResources(this.treeView1, "treeView1");
-            this.treeView1.Name = "treeView1";
-            // 
-            // Cms_department
-            // 
-            this.Cms_department.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.添加ToolStripMenuItem,
-            this.添加子节点ToolStripMenuItem,
-            this.删除节点ToolStripMenuItem});
-            this.Cms_department.Name = "Cms_department";
-            resources.ApplyResources(this.Cms_department, "Cms_department");
-            // 
-            // 添加ToolStripMenuItem
-            // 
-            this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
-            resources.ApplyResources(this.添加ToolStripMenuItem, "添加ToolStripMenuItem");
-            this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
-            // 
-            // 添加子节点ToolStripMenuItem
-            // 
-            this.添加子节点ToolStripMenuItem.Name = "添加子节点ToolStripMenuItem";
-            resources.ApplyResources(this.添加子节点ToolStripMenuItem, "添加子节点ToolStripMenuItem");
-            this.添加子节点ToolStripMenuItem.Click += new System.EventHandler(this.添加子节点ToolStripMenuItem_Click);
-            // 
-            // 删除节点ToolStripMenuItem
-            // 
-            this.删除节点ToolStripMenuItem.Name = "删除节点ToolStripMenuItem";
-            resources.ApplyResources(this.删除节点ToolStripMenuItem, "删除节点ToolStripMenuItem");
-            this.删除节点ToolStripMenuItem.Click += new System.EventHandler(this.删除节点ToolStripMenuItem_Click);
             // 
             // index_employees
             // 
@@ -207,7 +175,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInterfaceBindingSource)).EndInit();
-            this.Cms_department.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,9 +197,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.ContextMenuStrip Cms_department;
-        private System.Windows.Forms.ToolStripMenuItem 添加ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 添加子节点ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 删除节点ToolStripMenuItem;
     }
 }

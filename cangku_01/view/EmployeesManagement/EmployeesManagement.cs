@@ -132,19 +132,9 @@ namespace cangku_01
 
         }
 
-        private void 添加ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Cms_department_Opening(object sender, CancelEventArgs e)
         {
-          
-        }
 
-        private void 添加子节点ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void 删除节点ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           
         }
     }
 }
