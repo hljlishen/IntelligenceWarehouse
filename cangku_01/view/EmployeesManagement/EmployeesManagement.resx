@@ -315,25 +315,28 @@
   <data name="update_.HeaderText" xml:space="preserve">
     <value>修改</value>
   </data>
-  <data name="treeView1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tv_department.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 18pt</value>
+  </data>
+  <data name="tv_department.Location" type="System.Drawing.Point, System.Drawing">
     <value>59, 153</value>
   </data>
-  <data name="treeView1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tv_department.Size" type="System.Drawing.Size, System.Drawing">
     <value>346, 636</value>
   </data>
-  <data name="treeView1.TabIndex" type="System.Int32, mscorlib">
+  <data name="tv_department.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;treeView1.Name" xml:space="preserve">
-    <value>treeView1</value>
+  <data name="&gt;&gt;tv_department.Name" xml:space="preserve">
+    <value>tv_department</value>
   </data>
-  <data name="&gt;&gt;treeView1.Type" xml:space="preserve">
+  <data name="&gt;&gt;tv_department.Type" xml:space="preserve">
     <value>System.Windows.Forms.TreeView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;treeView1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tv_department.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;treeView1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;tv_department.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="Btn_addrootnode.Font" type="System.Drawing.Font, System.Drawing">
@@ -482,9 +485,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1420, 840</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>

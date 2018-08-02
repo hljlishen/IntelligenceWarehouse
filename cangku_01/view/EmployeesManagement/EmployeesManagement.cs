@@ -13,8 +13,8 @@ using cangku_01.interfaces;
 using System.Collections;
 using cangku_01.entity;
 using cangku_01.view.EmployeesManagement;
-using cangku_01.MysqlConnection;
-using MySql.Data.MySqlClient;
+using cangku_01.view.AdminPage;
+
 
 namespace cangku_01
 {
@@ -50,6 +50,13 @@ namespace cangku_01
             this.tb_found.Leave += textBox1_Leave;
             this.Top = 0;
             this.Left = 0;
+
+
+            //加载部门树状图
+            List<TreeNode> ls = Department.loadDepartmentStructure();
+            tv_department.Nodes.Clear();
+            tv_department.Nodes.AddRange(ls.ToArray());
+            tv_department.ExpandAll();
         }
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
@@ -151,16 +158,45 @@ namespace cangku_01
                 MessageBox.Show("请填写要添加的节点名称！");
                 return;
             }
-            string sql = "insert into TreeTest(nodeName,parentId) values" + "(" + " " + "'" + Tb_nodename.Text.Trim() + "'" + "," + "'" + 0 + "'" + ")";
-            DataMysql dbo = new DataMysql();
-            dbo.WriteDB(sql);
-            string sql2 = "Select id from TreeTest where nodeName="+ Tb_nodename.Text+ "";
-            int id = dbo.FirstValue(sql2);
-            TreeNode node1 = new TreeNode();
-            node1.Tag = id;
-            node1.Text = Tb_nodename.Text.Trim();
-            treeView1.Nodes.Add(node1);
+            Department d = new Department(Tb_nodename.Text,0,0);
             Tb_nodename.Text = "";
+            //从新加载数据
+            this.index_employees_Load(sender, e);
+        }
+
+        private void Btn_addchildnode_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Tb_nodename.Text.Trim()))
+            {
+                MessageBox.Show("请填写要添加的节点名称！");
+                return;
+            }
+            if (tv_department.SelectedNode == null)
+            {
+                MessageBox.Show("请选择父节点");
+                return;
+            }
+            Department d = tv_department.SelectedNode.Tag as Department;
+            Department d2 = new Department(Tb_nodename.Text, d.tier + 1, d.id);
+            Tb_nodename.Text = "";
+            this.index_employees_Load(sender, e);
+        }
+
+        private void Btn_removenodes_Click(object sender, EventArgs e)
+        {
+            if (tv_department.SelectedNode == null)
+            {
+                MessageBox.Show("请选择一个节点");
+                return;
+            }
+            Confirm cf = new Confirm("确定删除该节点？");
+            cf.ShowDialog();
+            if (cf.DialogResult == DialogResult.OK)
+            {
+                Department c = (Department)tv_department.SelectedNode.Tag;
+                c.deleteSelf();
+                this.index_employees_Load(sender, e);
+            }
         }
     }
 }

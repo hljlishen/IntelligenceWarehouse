@@ -11,27 +11,25 @@ namespace cangku_01.entity
 {
     public class Department 
     {
+        public int id;
         public string name;
-        //public string infoString;
         public int tier;
         public int belongid;
         public int status;
-        public int id;
         public TreeNode tn;
         public List<Department> LowerRank;
 
         public Department(string n, int r, int b)
         {
+            DataMysql dbo = new DataMysql();
             id = -1;
             name = n;
             tier = r;
             belongid = b;
             status = 1;
             LowerRank = new List<Department>();
-
-            //writeCMD = "insert into t_department (name,lastModifiedTime,tier,belongId,status) values ('"
-            //    + name + "','" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-            //    tier.ToString() + "," + belongid.ToString() + "," + status.ToString() + ")";
+            string sql = "insert into t_department (name,tier,belongId,status) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + "," + status.ToString() + ")";
+            dbo.WriteDB(sql);
         }
 
         public Department(DataRow r)
@@ -45,10 +43,6 @@ namespace cangku_01.entity
 
             loadLowerRankDepartment();
             getNodeStructure();
-
-            //writeCMD = "insert into t_department (name,lastModifiedTime,tier,belongId,status) values ('"
-            //    + name + "','" + System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "'," +
-            //    tier.ToString() + "," + belongid.ToString() + "," + status.ToString() + ")";
         }
 
         private void loadLowerRankDepartment()
@@ -126,19 +120,14 @@ namespace cangku_01.entity
                 MessageBox.Show("未找到部门ID" + id.ToString());
                 return null;
             }
-
-            //return new Warehouse(ds.Tables[0].Rows[0][1].ToString(), 
-            //    ds.Tables[0].Rows[0][2].ToString());
             return new Department(ds.Tables[0].Rows[0]);
         }
 
         public void deleteSelf()
         {
-            //string sql = "delete from t_category where cid =" + cid.ToString();
             DataMysql dbo = new DataMysql();
             string sql = "select * from t_department where belongId = " + id.ToString() + " and status = 1";
             DataSet ds = dbo.ReadDB(sql);
-
             if (ds.Tables[0].Rows.Count != 0)
             {
                 MessageBox.Show("该部门之下还有子部门，不能删除");

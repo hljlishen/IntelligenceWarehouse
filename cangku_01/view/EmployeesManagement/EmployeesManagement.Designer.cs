@@ -40,7 +40,7 @@
             this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.tv_department = new System.Windows.Forms.TreeView();
             this.Btn_addrootnode = new System.Windows.Forms.Button();
             this.Btn_addchildnode = new System.Windows.Forms.Button();
             this.Btn_removenodes = new System.Windows.Forms.Button();
@@ -139,10 +139,10 @@
             this.update_.Text = "修改";
             this.update_.UseColumnTextForButtonValue = true;
             // 
-            // treeView1
+            // tv_department
             // 
-            resources.ApplyResources(this.treeView1, "treeView1");
-            this.treeView1.Name = "treeView1";
+            resources.ApplyResources(this.tv_department, "tv_department");
+            this.tv_department.Name = "tv_department";
             // 
             // Btn_addrootnode
             // 
@@ -156,12 +156,14 @@
             resources.ApplyResources(this.Btn_addchildnode, "Btn_addchildnode");
             this.Btn_addchildnode.Name = "Btn_addchildnode";
             this.Btn_addchildnode.UseVisualStyleBackColor = true;
+            this.Btn_addchildnode.Click += new System.EventHandler(this.Btn_addchildnode_Click);
             // 
             // Btn_removenodes
             // 
             resources.ApplyResources(this.Btn_removenodes, "Btn_removenodes");
             this.Btn_removenodes.Name = "Btn_removenodes";
             this.Btn_removenodes.UseVisualStyleBackColor = true;
+            this.Btn_removenodes.Click += new System.EventHandler(this.Btn_removenodes_Click);
             // 
             // Tb_nodename
             // 
@@ -182,7 +184,7 @@
             this.Controls.Add(this.Btn_removenodes);
             this.Controls.Add(this.Btn_addchildnode);
             this.Controls.Add(this.Btn_addrootnode);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.tv_department);
             this.Controls.Add(this.bt_addUser);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bt_found);
@@ -210,7 +212,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 所属部门;
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView tv_department;
         private System.Windows.Forms.Button Btn_addrootnode;
         private System.Windows.Forms.Button Btn_addchildnode;
         private System.Windows.Forms.Button Btn_removenodes;

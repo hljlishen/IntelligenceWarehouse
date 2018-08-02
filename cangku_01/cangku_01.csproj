@@ -96,6 +96,12 @@
     <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.Designer.cs">
       <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\AdminPage\Confirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\AdminPage\Confirm.Designer.cs">
+      <DependentUpon>Confirm.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\EmployeesManagement\DepartmentShow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\EmployeesManagement\AddOrAlterEmployees.resx">
       <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\AdminPage\Confirm.resx">
+      <DependentUpon>Confirm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\EmployeesManagement\DepartmentShow.resx">
       <DependentUpon>DepartmentShow.cs</DependentUpon>
