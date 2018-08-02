@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="entity\Department.cs" />
     <Compile Include="entity\InstrumentQuery.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
@@ -89,12 +90,6 @@
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\User.cs" />
-    <Compile Include="view\EmployeesManagement\AddDepartment.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\EmployeesManagement\AddDepartment.Designer.cs">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,9 +176,6 @@
     <Compile Include="interfaces\Interface_remind.cs" />
     <EmbeddedResource Include="view\AdminPage\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="view\EmployeesManagement\AddDepartment.resx">
-      <DependentUpon>AddDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\EmployeesManagement\AddOrAlterEmployees.resx">
       <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>

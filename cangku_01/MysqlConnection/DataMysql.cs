@@ -15,12 +15,12 @@ namespace cangku_01.MysqlConnection
     {
         private static string connstr = "Server=localhost;user id=root;password=mysql;database=cangku_01;SslMode=none;charset=utf8";
 
+        //对数据库进行写入操作
         public int WriteDB(string sql)
         {
             int ret;
             MySqlConnection connection = new MySqlConnection(connstr);
             MySqlCommand cmd = connection.CreateCommand();
-            cmd.CommandText = sql;
             try
             {
                 connection.Open();
@@ -33,6 +33,47 @@ namespace cangku_01.MysqlConnection
                 throw new Exception(e.Message);
             }
             return ret;  
+        }
+
+        //对数据库进行读取操作
+        public DataSet ReadDB(string sql)
+        {
+            DataSet ds = new DataSet();
+            MySqlConnection connection = new MySqlConnection(connstr);
+            MySqlCommand cmd = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                cmd.CommandText = sql;
+                MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+                ad.Fill(ds);
+                
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                connection.Close();
+                throw new Exception(e.Message);
+            }
+            return ds;
+        }
+
+        public int FirstValue(string sql)
+        {
+            int Id;
+            MySqlConnection connection = new MySqlConnection(connstr);
+            MySqlCommand cmd = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                cmd.CommandText = sql;
+                Id = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                connection.Close();
+                throw new Exception(e.Message);
+            }
+            return Id;
         }
     }
 }

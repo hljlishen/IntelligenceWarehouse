@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(index_employees));
-            this.label1 = new System.Windows.Forms.Label();
+            this.La_founduser = new System.Windows.Forms.Label();
             this.tb_found = new System.Windows.Forms.TextBox();
             this.bt_found = new System.Windows.Forms.Button();
             this.bt_addUser = new System.Windows.Forms.Button();
@@ -42,19 +41,18 @@
             this.del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.treeView1 = new System.Windows.Forms.TreeView();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userInterfaceImpBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.userInterfaceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Btn_addrootnode = new System.Windows.Forms.Button();
+            this.Btn_addchildnode = new System.Windows.Forms.Button();
+            this.Btn_removenodes = new System.Windows.Forms.Button();
+            this.Tb_nodename = new System.Windows.Forms.TextBox();
+            this.La_nodename = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userInterfaceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // La_founduser
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.La_founduser, "La_founduser");
+            this.La_founduser.Name = "La_founduser";
             // 
             // tb_found
             // 
@@ -146,35 +144,54 @@
             resources.ApplyResources(this.treeView1, "treeView1");
             this.treeView1.Name = "treeView1";
             // 
-            // userBindingSource
+            // Btn_addrootnode
             // 
-            this.userBindingSource.DataSource = typeof(cangku_01.entity.User);
+            resources.ApplyResources(this.Btn_addrootnode, "Btn_addrootnode");
+            this.Btn_addrootnode.Name = "Btn_addrootnode";
+            this.Btn_addrootnode.UseVisualStyleBackColor = true;
+            this.Btn_addrootnode.Click += new System.EventHandler(this.Btn_addrootnode_Click);
             // 
-            // userInterfaceImpBindingSource
+            // Btn_addchildnode
             // 
-            this.userInterfaceImpBindingSource.DataSource = typeof(cangku_01.interfaceImp.UserInterfaceImp);
+            resources.ApplyResources(this.Btn_addchildnode, "Btn_addchildnode");
+            this.Btn_addchildnode.Name = "Btn_addchildnode";
+            this.Btn_addchildnode.UseVisualStyleBackColor = true;
             // 
-            // userInterfaceBindingSource
+            // Btn_removenodes
             // 
-            this.userInterfaceBindingSource.DataSource = typeof(cangku_01.interfaces.UserInterface);
+            resources.ApplyResources(this.Btn_removenodes, "Btn_removenodes");
+            this.Btn_removenodes.Name = "Btn_removenodes";
+            this.Btn_removenodes.UseVisualStyleBackColor = true;
+            // 
+            // Tb_nodename
+            // 
+            resources.ApplyResources(this.Tb_nodename, "Tb_nodename");
+            this.Tb_nodename.Name = "Tb_nodename";
+            // 
+            // La_nodename
+            // 
+            resources.ApplyResources(this.La_nodename, "La_nodename");
+            this.La_nodename.Name = "La_nodename";
             // 
             // index_employees
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.La_nodename);
+            this.Controls.Add(this.Tb_nodename);
+            this.Controls.Add(this.Btn_removenodes);
+            this.Controls.Add(this.Btn_addchildnode);
+            this.Controls.Add(this.Btn_addrootnode);
             this.Controls.Add(this.treeView1);
             this.Controls.Add(this.bt_addUser);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bt_found);
             this.Controls.Add(this.tb_found);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.La_founduser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "index_employees";
             this.Load += new System.EventHandler(this.index_employees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userInterfaceImpBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userInterfaceBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,14 +199,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label La_founduser;
         private System.Windows.Forms.TextBox tb_found;
         private System.Windows.Forms.Button bt_found;
         private System.Windows.Forms.Button bt_addUser;
-        private System.Windows.Forms.BindingSource userInterfaceBindingSource;
-        private System.Windows.Forms.BindingSource userInterfaceImpBindingSource;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.BindingSource userBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
@@ -197,5 +211,10 @@
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.Button Btn_addrootnode;
+        private System.Windows.Forms.Button Btn_addchildnode;
+        private System.Windows.Forms.Button Btn_removenodes;
+        private System.Windows.Forms.TextBox Tb_nodename;
+        private System.Windows.Forms.Label La_nodename;
     }
 }

@@ -13,6 +13,8 @@ using cangku_01.interfaces;
 using System.Collections;
 using cangku_01.entity;
 using cangku_01.view.EmployeesManagement;
+using cangku_01.MysqlConnection;
+using MySql.Data.MySqlClient;
 
 namespace cangku_01
 {
@@ -135,6 +137,30 @@ namespace cangku_01
         private void Cms_department_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void userInterfaceBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Btn_addrootnode_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(Tb_nodename.Text.Trim()))
+            {
+                MessageBox.Show("请填写要添加的节点名称！");
+                return;
+            }
+            string sql = "insert into TreeTest(nodeName,parentId) values" + "(" + " " + "'" + Tb_nodename.Text.Trim() + "'" + "," + "'" + 0 + "'" + ")";
+            DataMysql dbo = new DataMysql();
+            dbo.WriteDB(sql);
+            string sql2 = "Select id from TreeTest where nodeName="+ Tb_nodename.Text+ "";
+            int id = dbo.FirstValue(sql2);
+            TreeNode node1 = new TreeNode();
+            node1.Tag = id;
+            node1.Text = Tb_nodename.Text.Trim();
+            treeView1.Nodes.Add(node1);
+            Tb_nodename.Text = "";
         }
     }
 }
