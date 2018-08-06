@@ -81,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entity\Department.cs" />
-    <Compile Include="entity\InstrumentQuery.cs" />
+    <Compile Include="entity\QueryInstrument.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
       <SubType>Form</SubType>
@@ -89,7 +89,7 @@
     <Compile Include="view\AdminPage\Administration.Designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
-    <Compile Include="entity\User.cs" />
+    <Compile Include="entity\Employees.cs" />
     <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,11 +120,8 @@
     <Compile Include="view\EmployeesManagement\EmployeesManagement.Designer.cs">
       <DependentUpon>EmployeesManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaceImp\UserInterfaceImp.cs" />
-    <Compile Include="interfaces\UserInterface.cs" />
-    <Compile Include="interfaceImp\InterfaceImp_PeopleInformation.cs" />
-    <Compile Include="interfaces\TemperatureTestInterface.cs" />
-    <Compile Include="interfaces\Interface_PeopleInformation.cs" />
+    <Compile Include="interfaceImp\EmployeesInterfaceImp.cs" />
+    <Compile Include="interfaces\EmployeesInterface.cs" />
     <Compile Include="view\AdminPage\AdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,10 +135,10 @@
       <DependentUpon>AddInstrument.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\Instrument.cs" />
-    <Compile Include="interfaceImp\InterfaceImp_instrument.cs" />
-    <Compile Include="interfaces\Interface_instrument.cs" />
-    <Compile Include="interfaceImp\InstrumentImp_query.cs" />
-    <Compile Include="interfaces\Instrumen_query.cs" />
+    <Compile Include="interfaceImp\InstrumentInterfaceImp.cs" />
+    <Compile Include="interfaces\InstrumentInterface.cs" />
+    <Compile Include="interfaceImp\QueryInstrumentImp.cs" />
+    <Compile Include="interfaces\QueryInstrumen.cs" />
     <Compile Include="view\DeviceAccessRecord\Ins_query.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,10 +159,6 @@
     <Compile Include="view\TheWarehouseHomePage\FindQuery.Designer.cs">
       <DependentUpon>FindQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaceImp\instrumentInterfaceImp.cs" />
-    <Compile Include="interfaces\InstrumentInterfaces.cs" />
-    <Compile Include="ObserverMode\Observer.cs" />
-    <Compile Include="ObserverMode\Subject.cs" />
     <Compile Include="view\DueToRemind\AlterRemind.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,8 +171,8 @@
     <Compile Include="view\DueToRemind\DueToRemind.Designer.cs">
       <DependentUpon>DueToRemind.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaceImp\InterfaceImp_remind.cs" />
-    <Compile Include="interfaces\Interface_remind.cs" />
+    <Compile Include="interfaceImp\RemindInterfaceImp.cs" />
+    <Compile Include="interfaces\RemindInterface.cs" />
     <EmbeddedResource Include="view\AdminPage\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>

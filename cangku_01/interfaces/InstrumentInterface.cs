@@ -7,9 +7,9 @@ using cangku_01.entity;
 
 //仪器接口
 
-namespace cangku_01.LX
+namespace cangku_01.interfaces
 {
-    interface Interface_instrument
+    interface InstrumentInterface
     {
         //查询所有数据
         List<Instrument> All_instrument();

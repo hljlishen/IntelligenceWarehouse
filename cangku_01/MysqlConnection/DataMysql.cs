@@ -40,12 +40,10 @@ namespace cangku_01.MysqlConnection
         {
             DataSet ds = new DataSet();
             MySqlConnection connection = new MySqlConnection(connstr);
-            MySqlCommand cmd = connection.CreateCommand();
             try
             {
                 connection.Open();
-                cmd.CommandText = sql;
-                MySqlDataAdapter ad = new MySqlDataAdapter(cmd);
+                MySqlDataAdapter ad = new MySqlDataAdapter(sql,connection);
                 ad.Fill(ds);
                 
             }
@@ -57,9 +55,10 @@ namespace cangku_01.MysqlConnection
             return ds;
         }
 
+        //返回表的第一行第一列的id
         public int FirstValue(string sql)
         {
-            int Id;
+            int Id = 0;
             MySqlConnection connection = new MySqlConnection(connstr);
             MySqlCommand cmd = connection.CreateCommand();
             try

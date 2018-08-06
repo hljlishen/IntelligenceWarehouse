@@ -15,7 +15,7 @@ namespace cangku_01.YT
 {
     public partial class Due_to_remind : Form
     {
-        Interface_remind dao = new InterfaceImp_remind();
+        RemindInterface dao = new RemindInterfaceImp();
 
         public Due_to_remind()
         {

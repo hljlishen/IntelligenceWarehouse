@@ -1,6 +1,6 @@
 ﻿using cangku_01.entity;
-using cangku_01.LX;
-using cangku_01.MH.interfaces;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,38 +8,38 @@ using System.Text;
 using System.Threading.Tasks;
 
 //仪器出入库接口实现
-namespace cangku_01.MH.interfaceImp
+namespace cangku_01.interfaceImp
 {
-    class InstrumentImp_query : Instrumen_query
+    class QueryInstrumentImp : QueryInstrumen
     {
         //定义接收实体类数据的数组
-        List<InstrumentQuery> instrument_list = new List<InstrumentQuery>();
+        List<QueryInstrument> instrument_list = new List<QueryInstrument>();
         //时间查询
-        public List<InstrumentQuery> FindInstrumentBetween(DateTime begin, DateTime end)
+        public List<QueryInstrument> FindInstrumentBetween(DateTime begin, DateTime end)
         {
             //写sql语句返回
             return instrument_list;
         }
         //型号查询
-        public List<InstrumentQuery> FindInstrumentByModel(string Model)
+        public List<QueryInstrument> FindInstrumentByModel(string Model)
         {
             // 写sql语句返回
             return instrument_list;
         }
         //借用人姓名查询
-        public List<InstrumentQuery> FindInstrumentByBorrow(string Name)
+        public List<QueryInstrument> FindInstrumentByBorrow(string Name)
         {
             // 写sql语句返回
             return instrument_list;
         }
         //责任人姓名查询
-        public List<InstrumentQuery> FindInstrumentByDuty(string Name)
+        public List<QueryInstrument> FindInstrumentByDuty(string Name)
         {
             // 写sql语句返回
             return instrument_list;
         }
         //生产厂商查询
-        public List<InstrumentQuery> FindInstrumentByManufacturer(string Manufacturer)
+        public List<QueryInstrument> FindInstrumentByManufacturer(string Manufacturer)
         {
             // 写sql语句返回
             return instrument_list;

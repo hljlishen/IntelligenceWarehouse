@@ -1,6 +1,5 @@
-﻿using cangku_01.LX;
-using cangku_01.MH.interfaceImp;
-using cangku_01.MH.interfaces;
+﻿using cangku_01.interfaceImp;
+using cangku_01.interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +18,7 @@ namespace cangku_01.MH
     //仪器出入库查询页面
     public partial class Ins_query : Form
     {
-        Instrumen_query dao = new InstrumentImp_query();
+        QueryInstrumen dao = new QueryInstrumentImp();
         String borrowhint = "请输入借用人的姓名";
         String dutyhint = "请输入责任人的姓名";
         String modelhint = "请输入仪器的型号";

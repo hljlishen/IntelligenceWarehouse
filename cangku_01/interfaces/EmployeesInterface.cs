@@ -6,22 +6,28 @@ using System.Threading.Tasks;
 using System.Collections;
 using cangku_01.entity;
 
+//员工信息接口
+
 namespace cangku_01.interfaces
 {
-    interface UserInterface
+    interface EmployeesInterface
     {
         //添加用户
-       void addUser(User user);
+       int AddEmployees(Employees user);
         //查询用户
-       List<User> findAllUser();
+       List<Employees> findAllUser();
         //根据用户名查找
-       List<User> findUserByName(String Name);
+       List<Employees> findUserByName(String Name);
         //删除员工信息
        void delUser(int id);
         //根据id查找用户信息
-        List<User> findUserById(int id);
+        List<Employees> findUserById(int id);
         //根据id已经查到的数值
-        List<User> UpdateUserList();
-       
+        List<Employees> UpdateUserList();
+
+        //员工添加查重
+        int EmployeesRechecking(int employeesid);
+
+
     }
 }

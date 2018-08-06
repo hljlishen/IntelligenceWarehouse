@@ -8,7 +8,7 @@ namespace cangku_01.entity
 {
     public class Instrument
     {
-        public int Id { get; set; }                  //仪器id
+        public int Id { get; set; }                  //sql仪器主键id
         public int TagId { get; set; }               //仪器标签ID
         public string Name { get; set; }             //仪器名称
         public string Model { get; set; }            //型号规格

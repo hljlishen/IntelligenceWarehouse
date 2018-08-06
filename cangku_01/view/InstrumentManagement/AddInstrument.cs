@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.entity;
+using cangku_01.interfaces;
+
 //添加仪器  观察者模式
-namespace cangku_01.LX
+
+namespace cangku_01.interfaceImp
 {
     public partial class AddInstrument : Form 
     {
-        Interface_instrument dao = new InterfaceImp_instrument();
+        InstrumentInterface dao = new InstrumentInterfaceImp();
         Instrument ins = new Instrument();
 
         public AddInstrument()

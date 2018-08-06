@@ -35,11 +35,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Rb_sexman = new System.Windows.Forms.RadioButton();
             this.Rb_sexwoman = new System.Windows.Forms.RadioButton();
-            this.Tb_department = new System.Windows.Forms.TextBox();
-            this.Bt_department = new System.Windows.Forms.Button();
-            this.La_department = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Tb_userid = new System.Windows.Forms.TextBox();
+            this.Tb_name = new System.Windows.Forms.TextBox();
+            this.Tb_employeesid = new System.Windows.Forms.TextBox();
             this.Bt_addoralter = new System.Windows.Forms.Button();
             this.Gb_sex = new System.Windows.Forms.GroupBox();
             this.Gb_sex.SuspendLayout();
@@ -88,6 +85,7 @@
             // Rb_sexman
             // 
             this.Rb_sexman.AutoSize = true;
+            this.Rb_sexman.Checked = true;
             this.Rb_sexman.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Rb_sexman.Location = new System.Drawing.Point(7, 17);
             this.Rb_sexman.Name = "Rb_sexman";
@@ -105,64 +103,35 @@
             this.Rb_sexwoman.Name = "Rb_sexwoman";
             this.Rb_sexwoman.Size = new System.Drawing.Size(41, 24);
             this.Rb_sexwoman.TabIndex = 6;
-            this.Rb_sexwoman.TabStop = true;
             this.Rb_sexwoman.Text = "女";
             this.Rb_sexwoman.UseVisualStyleBackColor = true;
             // 
-            // Tb_department
+            // Tb_name
             // 
-            this.Tb_department.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tb_department.Location = new System.Drawing.Point(173, 285);
-            this.Tb_department.Name = "Tb_department";
-            this.Tb_department.Size = new System.Drawing.Size(114, 26);
-            this.Tb_department.TabIndex = 7;
+            this.Tb_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Tb_name.Location = new System.Drawing.Point(173, 176);
+            this.Tb_name.Name = "Tb_name";
+            this.Tb_name.Size = new System.Drawing.Size(119, 26);
+            this.Tb_name.TabIndex = 10;
             // 
-            // Bt_department
+            // Tb_employeesid
             // 
-            this.Bt_department.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Bt_department.Location = new System.Drawing.Point(293, 287);
-            this.Bt_department.Name = "Bt_department";
-            this.Bt_department.Size = new System.Drawing.Size(28, 23);
-            this.Bt_department.TabIndex = 8;
-            this.Bt_department.Text = "...";
-            this.Bt_department.UseVisualStyleBackColor = true;
-            this.Bt_department.Click += new System.EventHandler(this.Bt_department_Click);
-            // 
-            // La_department
-            // 
-            this.La_department.AutoSize = true;
-            this.La_department.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_department.Location = new System.Drawing.Point(104, 288);
-            this.La_department.Name = "La_department";
-            this.La_department.Size = new System.Drawing.Size(51, 20);
-            this.La_department.TabIndex = 9;
-            this.La_department.Text = "部门：";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(173, 176);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 26);
-            this.textBox2.TabIndex = 10;
-            // 
-            // Tb_userid
-            // 
-            this.Tb_userid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tb_userid.Location = new System.Drawing.Point(173, 116);
-            this.Tb_userid.Name = "Tb_userid";
-            this.Tb_userid.Size = new System.Drawing.Size(119, 26);
-            this.Tb_userid.TabIndex = 11;
+            this.Tb_employeesid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Tb_employeesid.Location = new System.Drawing.Point(173, 116);
+            this.Tb_employeesid.Name = "Tb_employeesid";
+            this.Tb_employeesid.Size = new System.Drawing.Size(119, 26);
+            this.Tb_employeesid.TabIndex = 11;
             // 
             // Bt_addoralter
             // 
             this.Bt_addoralter.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Bt_addoralter.Location = new System.Drawing.Point(173, 373);
+            this.Bt_addoralter.Location = new System.Drawing.Point(162, 318);
             this.Bt_addoralter.Name = "Bt_addoralter";
             this.Bt_addoralter.Size = new System.Drawing.Size(81, 29);
             this.Bt_addoralter.TabIndex = 12;
             this.Bt_addoralter.Text = "添加";
             this.Bt_addoralter.UseVisualStyleBackColor = true;
+            this.Bt_addoralter.Click += new System.EventHandler(this.Bt_addoralter_Click);
             // 
             // Gb_sex
             // 
@@ -178,14 +147,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 442);
+            this.ClientSize = new System.Drawing.Size(414, 393);
             this.Controls.Add(this.Gb_sex);
             this.Controls.Add(this.Bt_addoralter);
-            this.Controls.Add(this.Tb_userid);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.La_department);
-            this.Controls.Add(this.Bt_department);
-            this.Controls.Add(this.Tb_department);
+            this.Controls.Add(this.Tb_employeesid);
+            this.Controls.Add(this.Tb_name);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.La_userid);
@@ -193,6 +159,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddOrAlterEmployees";
             this.Text = "编辑员工信息";
+            this.Load += new System.EventHandler(this.AddOrAlterEmployees_Load);
             this.Gb_sex.ResumeLayout(false);
             this.Gb_sex.PerformLayout();
             this.ResumeLayout(false);
@@ -208,11 +175,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton Rb_sexman;
         private System.Windows.Forms.RadioButton Rb_sexwoman;
-        private System.Windows.Forms.TextBox Tb_department;
-        private System.Windows.Forms.Button Bt_department;
-        private System.Windows.Forms.Label La_department;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox Tb_userid;
+        private System.Windows.Forms.TextBox Tb_name;
+        private System.Windows.Forms.TextBox Tb_employeesid;
         private System.Windows.Forms.Button Bt_addoralter;
         private System.Windows.Forms.GroupBox Gb_sex;
     }

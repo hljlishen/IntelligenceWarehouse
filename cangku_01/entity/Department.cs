@@ -19,26 +19,34 @@ namespace cangku_01.entity
         public TreeNode tn;
         public List<Department> LowerRank;
 
+        //添加节点
         public Department(string n, int r, int b)
-        {
-            DataMysql dbo = new DataMysql();
+        {    
             id = -1;
             name = n;
             tier = r;
             belongid = b;
             status = 1;
             LowerRank = new List<Department>();
-            string sql = "insert into t_department (name,tier,belongId,status) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + "," + status.ToString() + ")";
+            string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
+            DataMysql dbo = new DataMysql();
+            DataSet ds = dbo.ReadDB(sql);
+            if (ds.Tables[0].Rows.Count != 0)
+            {
+                MessageBox.Show("已存在该节点，无法重复添加！");
+                return;
+            }
+            sql = "insert into t_department (de_name,de_tier,de_belongId,de_status) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + "," + status.ToString() + ")";
             dbo.WriteDB(sql);
         }
 
         public Department(DataRow r)
         {
-            id = int.Parse(r["id"].ToString());
-            name = r["name"].ToString();
-            tier = int.Parse(r["tier"].ToString());
-            belongid = int.Parse(r["belongId"].ToString());
-            status = int.Parse(r["status"].ToString());
+            id = int.Parse(r["de_id"].ToString());
+            name = r["de_name"].ToString();
+            tier = int.Parse(r["de_tier"].ToString());
+            belongid = int.Parse(r["de_belongId"].ToString());
+            status = int.Parse(r["de_status"].ToString());
             LowerRank = new List<Department>();
 
             loadLowerRankDepartment();
@@ -49,8 +57,8 @@ namespace cangku_01.entity
         {
             List<Department> ret = new List<Department>();
             DataMysql dbo = new DataMysql();
-            string sql = "select * from t_department where belongId="
-                + id.ToString() + " and status = 1";
+            string sql = "select * from t_department where de_belongId="
+                + id.ToString() + " and de_status = 1";
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count == 0)
                 return;
@@ -62,12 +70,15 @@ namespace cangku_01.entity
             return;
         }
 
-        private void getNodeStructure()  //生成节点的结构
+
+        //生成节点的结构
+        private void getNodeStructure()  
         {
             List<TreeNode> ls = new List<TreeNode>();
             if (LowerRank.Count == 0)
             {
-                this.tn = new TreeNode(name + "(" + id.ToString() + ")");
+                this.tn = new TreeNode(name);
+
                 tn.Tag = this;
             }
             else
@@ -77,7 +88,7 @@ namespace cangku_01.entity
                     c.getNodeStructure();
                     ls.Add(c.tn);
                 }
-                this.tn = new TreeNode(name + "(" + id.ToString() + ")", ls.ToArray());
+                this.tn = new TreeNode(name,ls.ToArray());
                 tn.Tag = this;
             }
         }
@@ -85,7 +96,7 @@ namespace cangku_01.entity
         public static List<TreeNode> loadDepartmentStructure()
         {
             DataMysql dbo = new DataMysql();
-            string sql = "select * from t_department where tier = 0 and status = 1";
+            string sql = "select * from t_department where de_tier = 0 and de_status = 1";
             DataSet ds = dbo.ReadDB(sql);
             List<TreeNode> ret = new List<TreeNode>();
             foreach (DataRow r in ds.Tables[0].Rows)
@@ -96,79 +107,54 @@ namespace cangku_01.entity
             return ret;
         }
 
-        public static int getWarehouseID(string n) //用名字查找仓库ID
+        //删除选中的节点
+        public void deleteSelf(string company,string department,string group)
         {
             DataMysql dbo = new DataMysql();
-            string sql = "select * from t_department where name='" + n + "'";
+            string sql = "select * from t_department where de_belongId = " + id.ToString() + " and de_status = 1";
             DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                MessageBox.Show("未找到部门" + n);
-                return -1;
-            }
-
-            return int.Parse(ds.Tables[0].Rows[0][0].ToString());
-        }
-
-        public static Department getDepartment(int id)   //用ID获取warehouse对象
-        {
-            DataMysql dbo = new DataMysql();
-            string sql = "select * from t_department where id=" + id.ToString();
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                MessageBox.Show("未找到部门ID" + id.ToString());
-                return null;
-            }
-            return new Department(ds.Tables[0].Rows[0]);
-        }
-
-        public void deleteSelf()
-        {
-            DataMysql dbo = new DataMysql();
-            string sql = "select * from t_department where belongId = " + id.ToString() + " and status = 1";
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count != 0)
+            if (ds.Tables[0].Rows.Count != 0)//存在子节点
             {
                 MessageBox.Show("该部门之下还有子部门，不能删除");
                 return;
             }
-            else
+            sql = "select de_id from t_department where de_name = '" + company + "' order by de_id ASC";
+            int companyid = dbo.FirstValue(sql);
+            if (company !=""&& department != ""&& group == "")//选中部门
             {
-                sql = "select * from t_user where departmentId = " + id.ToString() + " and status = 1";
-                ds = dbo.ReadDB(sql);
-                if (ds.Tables[0].Rows.Count != 0)
+                sql = "delete from t_department where de_belongId = "+companyid+" and de_name = '" + department + "'";
+                int i = dbo.WriteDB(sql);
+                if(i==1)
+                MessageBox.Show("已删除该节点！");
+                else
+                    MessageBox.Show("删除失败！");
+                return;
+            }
+            if (company != "" && department != "" && group != "")//选中小组
+            {
+                sql = "select * from t_employees where em_company = '" + company + "' and  em_department = '" + department + "' and em_group = '" + group + "'";
+                DataSet ds2 = dbo.ReadDB(sql);
+                if (ds2.Tables[0].Rows.Count != 0)//节点下存在联系人
                 {
-                    MessageBox.Show("该部门之下还有联系人，不能删除");
+                    MessageBox.Show("该部门之下还有员工，不能删除");
                     return;
                 }
+                sql = "select de_id from t_department where de_name = '" + department + "' and de_belongId = " + companyid + "";
+                int departmentid = dbo.FirstValue(sql);
+                sql = "delete from t_department where de_belongId = " + departmentid + " and de_name = '" + group + "'";
+                int i = dbo.WriteDB(sql);
+                if (i == 1)
+                    MessageBox.Show("已删除该节点！");
+                else
+                    MessageBox.Show("删除失败！");
+                return;
             }
-            sql = "update t_department set status = 0 and lastModifiedTime = '" +
-                System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where id = " +
-                id.ToString();
-
-            if (LowerRank.Count == 0)
-            {
-                dbo.WriteDB(sql);
-            }
+            sql = "delete from t_department where de_id = " + companyid + "";
+            int ii = dbo.WriteDB(sql);
+            if (ii == 1)
+                MessageBox.Show("已删除该节点！");
             else
-            {
-                foreach (Department c in LowerRank)
-                {
-                    c.deleteSelf();
-                }
-                dbo.WriteDB(sql);
-            }
-        }
-
-        public DataSet GetUsersInfo()
-        {
-            string sql = "select * from t_user where departmentId =" + id.ToString() + " and status = 1 ";
-            DataMysql dbo = new DataMysql();
-            DataSet ds = dbo.ReadDB(sql);
-            int count = ds.Tables[0].Rows.Count;
-
-            return ds;
+                MessageBox.Show("删除失败！");
         }
     }
 }

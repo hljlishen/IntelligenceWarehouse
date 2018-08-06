@@ -1,4 +1,4 @@
-﻿namespace cangku_01.LX
+﻿namespace cangku_01.interfaceImp
 {
     partial class AddInstrument
     {

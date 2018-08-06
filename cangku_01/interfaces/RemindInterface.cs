@@ -10,7 +10,7 @@ using cangku_01.entity;
 
 namespace cangku_01.interfaces
 {
-    interface Interface_remind
+    interface RemindInterface
     {
         //查询所有快要到期的仪器
         List<Instrument> All_remind();

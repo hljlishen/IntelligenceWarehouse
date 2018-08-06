@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.SQQ;
-using cangku_01.LK;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
@@ -18,8 +17,6 @@ namespace cangku_01
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
-        Interface_PeopleInformation dao = new InterfaceImp_PeopleInformation();
-        InstrumentInterfaces instrumentDao = new instrumentInterfaceImp();
         public Form1()
         {
             
@@ -31,27 +28,8 @@ namespace cangku_01
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
             SetStyle(ControlStyles.DoubleBuffer, true);
 
-            List<User> list = dao.All_information();
-            foreach(User en in list)
-            {
-                Tb_id.Text = en.Id.ToString();
-                Tb_name.Text = en.Name;
-                Tb_temp.Text = en.Department;
-            }
-            
-            //物品信息的显示
-            List<Instrument> ins_list = instrumentDao.find_ins();
-            foreach (Instrument ins in ins_list)
-            {
-                Tb_ShowId.Text = ins.TagId.ToString();
-                Tb_ShowName.Text = ins.Name;
-                Tb_ShowState.Text = ins.IsInWareHouse.ToString();
-                Tb_ShowTime.Text = DateTime.Now.ToString();
-
-            }
-
             //到期提醒-首页
-            Interface_remind Remind_dao = new InterfaceImp_remind();
+            RemindInterface Remind_dao = new RemindInterfaceImp();
             List<Instrument> All_re = Remind_dao.All_remind();
             foreach (Instrument re in All_re)
             {

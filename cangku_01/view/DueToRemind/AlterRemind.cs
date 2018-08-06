@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 
+//检查日期修改界面
+
 namespace cangku_01.YT
 {
     public partial class Alter_remind : Form
     {
-        Interface_remind dao = new InterfaceImp_remind();
+        RemindInterface dao = new RemindInterfaceImp();
         DateTime Lasttime;
         //给Alter_remind构造函数添加自定义参数，接受Due_to_remind界面传来的数据
         public Alter_remind(string Remind_id,string Remind_name,string Remind_manufacturer,string Remind_lasttime)

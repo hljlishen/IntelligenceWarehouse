@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 using cangku_01.entity;
 using cangku_01.interfaces;
 
-//到期提醒的实现接口
+//到期提醒接口实现
 
 namespace cangku_01.interfaceImp
 {
-    class InterfaceImp_remind : Interface_remind
+    class RemindInterfaceImp : RemindInterface
     {
         //定义接收实体类数据的数组
         List<Instrument> Remind_list = new List<Instrument>();
         Instrument Sql = new Instrument();
 
         //在数据库查询所用快要到期的仪器，并存放在数组中
-        List<Instrument> Interface_remind.All_remind()
+        List<Instrument> RemindInterface.All_remind()
         {
             string AllRemindSql = Sql.AllRemindSql();
 
@@ -81,7 +81,7 @@ namespace cangku_01.interfaceImp
         }
 
         //将修改的信息传入，对数据库进行修改
-        int Interface_remind.Alter_remind(int Remind_id, DateTime Remind_lastdate)
+        int RemindInterface.Alter_remind(int Remind_id, DateTime Remind_lastdate)
         {
             int i = 1;
             string AlterRemindSql = Sql.AlterRemindSql(Remind_id,Remind_lastdate);

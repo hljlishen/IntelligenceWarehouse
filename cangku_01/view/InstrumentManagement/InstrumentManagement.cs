@@ -1,5 +1,6 @@
 ﻿using cangku_01.entity;
-using cangku_01.LX;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace cangku_01
 {
     public partial class index_instrument : Form
     {
-        Interface_instrument dao = new InterfaceImp_instrument();
+        InstrumentInterface dao = new InstrumentInterfaceImp();
 
         public index_instrument()
         {
