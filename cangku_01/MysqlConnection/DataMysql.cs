@@ -74,5 +74,25 @@ namespace cangku_01.MysqlConnection
             }
             return Id;
         }
+
+        //返回DataTable
+        public DataTable ReadDBDataTable(string sql)
+        {
+            DataTable dt = new DataTable();
+            MySqlConnection connection = new MySqlConnection(connstr);
+            MySqlCommand cmd = connection.CreateCommand();
+            try
+            {
+                connection.Open();
+                MySqlDataAdapter ad = new MySqlDataAdapter(sql, connection);
+                ad.Fill(dt);
+            }
+            catch (System.Data.SqlClient.SqlException e)
+            {
+                connection.Close();
+                throw new Exception(e.Message);
+            }
+            return dt;
+        }
     }
 }

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
@@ -14,59 +16,14 @@ namespace cangku_01.interfaceImp
 {
     class EmployeesInterfaceImp : EmployeesInterface
     {
-        List<Employees> arr = new List<Employees>();
-  
-        public void delUser(int id)
-        {
-            Console.WriteLine("删除成功");
-        }
-
-        public List<Employees> findAllUser()
-        {
-            List<Employees> list = new List<Employees>();
-            Employees user = new Employees();
-            Employees user1 = new Employees();
-            user.Id = 1;
-            user.Name = "张三";
-            user.Sex = "男";
-            user.Department = "人事";
-           
-            user1.Id = 2;
-            user1.Name = "李四";
-            user1.Sex = "男";
-            user1.Department = "研发部";
-            list.Add(user);
-            list.Add(user1);
-    
-            return list;
-        }
-
-        public List<Employees> findUserByName(String name)
-        {
-            //写sql语句返回
-            return arr;
-        }
-
-        //添加员工
-        int EmployeesInterface.AddEmployees(Employees u)
+        //查询全部的员工
+        public DataTable FindAllEmployees()
         {
             DataMysql dbo = new DataMysql();
             Employees e = new Employees();
-            string sql = e.AddEmployeesSql(u);
-            int i = dbo.WriteDB(sql);
-            return i;
-        }
-
-        public List<Employees> findUserById(int id)
-        {
-   
-            return arr;
-        }
-
-        //更新员工
-        public List<Employees> UpdateUserList()
-        {
-            throw new NotImplementedException();
+            string sql = e.FindAllEmployeesSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);       
+            return dt;
         }
 
         //员工查重
@@ -78,5 +35,68 @@ namespace cangku_01.interfaceImp
             int i = dbo.FirstValue(sql);
             return i;
         }
+
+        //添加员工
+        public int AddEmployees(Employees u)
+        {
+            DataMysql dbo = new DataMysql();
+            Employees e = new Employees();
+            string sql = e.AddEmployeesSql(u);
+            int i = dbo.WriteDB(sql);
+            return i;
+        }
+
+        //删除员工
+        public int DeleteEmployees(int usernumber)
+        {
+            DataMysql dbo = new DataMysql();
+            Employees e = new Employees();
+            string sql = e.DeleteEmployeesSql(usernumber);
+            int i = dbo.WriteDB(sql);
+            return i;
+        }
+
+        //更新员工
+        public int UpdateEmployees(Employees u)
+        {
+            DataMysql dbo = new DataMysql();
+            Employees e = new Employees();
+            string sql = e.UpdateEmployeesSql(u);
+            int i = dbo.WriteDB(sql);
+            return i;
+        }
+
+        //树状图查询员工
+        public DataTable TreeFindEmployees(int level, int nodeid)
+        {
+            DataMysql dbo = new DataMysql();
+            Employees e = new Employees();
+            string sql = e.TreeFindEmployeesSql(level, nodeid);
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
+        //编号查询员工
+        public DataTable FindEmployeesNumber(int employeesnumber)
+        {
+            DataMysql dbo = new DataMysql();
+            Employees e = new Employees();
+            string sql = e.EmployeesRechecking(employeesnumber);
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
+
+
+        public List<Employees> findUserById(int id)
+        {
+
+            List<Employees> list = new List<Employees>();
+            return list;
+        }
+
+
+
+       
     }
 }

@@ -37,7 +37,9 @@
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.公司 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.小组 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tv_department = new System.Windows.Forms.TreeView();
@@ -58,8 +60,6 @@
             // 
             resources.ApplyResources(this.tb_found, "tb_found");
             this.tb_found.Name = "tb_found";
-            this.tb_found.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
-            this.tb_found.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // bt_found
             // 
@@ -84,7 +84,9 @@
             this.ID,
             this.姓名,
             this.性别,
-            this.所属部门,
+            this.公司,
+            this.部门,
+            this.小组,
             this.del,
             this.update_});
             resources.ApplyResources(this.dataGridView1, "dataGridView1");
@@ -113,11 +115,23 @@
             this.性别.Name = "性别";
             this.性别.ReadOnly = true;
             // 
-            // 所属部门
+            // 公司
             // 
-            resources.ApplyResources(this.所属部门, "所属部门");
-            this.所属部门.Name = "所属部门";
-            this.所属部门.ReadOnly = true;
+            resources.ApplyResources(this.公司, "公司");
+            this.公司.Name = "公司";
+            this.公司.ReadOnly = true;
+            // 
+            // 部门
+            // 
+            resources.ApplyResources(this.部门, "部门");
+            this.部门.Name = "部门";
+            this.部门.ReadOnly = true;
+            // 
+            // 小组
+            // 
+            resources.ApplyResources(this.小组, "小组");
+            this.小组.Name = "小组";
+            this.小组.ReadOnly = true;
             // 
             // del
             // 
@@ -143,6 +157,7 @@
             // 
             resources.ApplyResources(this.tv_department, "tv_department");
             this.tv_department.Name = "tv_department";
+            this.tv_department.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_department_AfterSelect);
             // 
             // Btn_addrootnode
             // 
@@ -206,17 +221,19 @@
         private System.Windows.Forms.Button bt_found;
         private System.Windows.Forms.Button bt_addUser;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 所属部门;
-        private System.Windows.Forms.DataGridViewButtonColumn del;
-        private System.Windows.Forms.DataGridViewButtonColumn update_;
         private System.Windows.Forms.TreeView tv_department;
         private System.Windows.Forms.Button Btn_addrootnode;
         private System.Windows.Forms.Button Btn_addchildnode;
         private System.Windows.Forms.Button Btn_removenodes;
         private System.Windows.Forms.TextBox Tb_nodename;
         private System.Windows.Forms.Label La_nodename;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 公司;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 部门;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 小组;
+        private System.Windows.Forms.DataGridViewButtonColumn del;
+        private System.Windows.Forms.DataGridViewButtonColumn update_;
     }
 }

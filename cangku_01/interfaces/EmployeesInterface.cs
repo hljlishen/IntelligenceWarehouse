@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 using cangku_01.entity;
+using System.Data;
 
 //员工信息接口
 
@@ -12,22 +13,28 @@ namespace cangku_01.interfaces
 {
     interface EmployeesInterface
     {
-        //添加用户
-       int AddEmployees(Employees user);
-        //查询用户
-       List<Employees> findAllUser();
-        //根据用户名查找
-       List<Employees> findUserByName(String Name);
-        //删除员工信息
-       void delUser(int id);
-        //根据id查找用户信息
-        List<Employees> findUserById(int id);
-        //根据id已经查到的数值
-        List<Employees> UpdateUserList();
+        //查询全部用户
+        DataTable FindAllEmployees();
 
         //员工添加查重
         int EmployeesRechecking(int employeesid);
 
+        //添加用户
+        int AddEmployees(Employees user);
 
+        //删除员工信息
+        int DeleteEmployees(int id);
+
+        //添加用户
+        int UpdateEmployees(Employees user);
+
+        //树状图查询员工
+        DataTable TreeFindEmployees(int level, int nodeid);
+
+        //编号查询员工
+        DataTable FindEmployeesNumber(int employeesnumber);
+     
+        //根据id查找用户信息
+        List<Employees> findUserById(int id);
     }
 }

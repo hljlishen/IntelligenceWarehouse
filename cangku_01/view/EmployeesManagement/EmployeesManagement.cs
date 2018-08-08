@@ -14,16 +14,13 @@ using cangku_01.entity;
 using cangku_01.view.EmployeesManagement;
 using cangku_01.view.AdminPage;
 using cangku_01.interfaces;
+using cangku_01.MysqlConnection;
 
 namespace cangku_01
 {
     public partial class index_employees : Form
     {
-        EmployeesInterface dao = new EmployeesInterfaceImp();
-        String s = "请输入员工的姓名";
-        Employees user = new Employees();
-        String currentIndex;      
-
+        EmployeesInterface dao = new EmployeesInterfaceImp();  
         public index_employees()
         {
             InitializeComponent();
@@ -31,77 +28,50 @@ namespace cangku_01
        
         private void index_employees_Load(object sender, EventArgs e)
         {
-            this.tb_found.Text = s;
-            this.tb_found.MouseClick += textBox1_MouseClick;
-            this.tb_found.Leave += textBox1_Leave;
             this.Top = 0;
             this.Left = 0;
-
             //加载部门树状图
-            List<TreeNode> ls = Department.loadDepartmentStructure();
-            tv_department.Nodes.Clear();
-            tv_department.Nodes.AddRange(ls.ToArray());
-            tv_department.ExpandAll();
-
+            this.ShowTreeView();
             //将全部员工加载
-            List<Employees> allUser = dao.findAllUser();
-            //循环遍历
-            foreach (Employees u in allUser)
-            {
-                DataGridViewRow row2 = new DataGridViewRow();
-                int index = dataGridView1.Rows.Add(row2);
-                dataGridView1.Rows[index].Cells[0].Value = u.Id;
-                dataGridView1.Rows[index].Cells[1].Value = u.Name;
-                dataGridView1.Rows[index].Cells[2].Value = u.Sex;
-                dataGridView1.Rows[index].Cells[3].Value = u.Department;
+            DataTable dt = dao.FindAllEmployees();
+            this.ShowDataGridView(dt);
 
-            }
-        }
-
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (this.tb_found.Text.Trim() == s)
-            {
-                this.tb_found.Text = "";
-            }
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            if (this.tb_found.Text.Trim()== "")
-            {
-                this.tb_found.Text = s;
-            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           
-            if (e.ColumnIndex == 4)//点击在删除按钮上
+            if (e.ColumnIndex == 6)//点击在删除按钮上
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     
                     string currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    int id = int.Parse(currentIndex);
-                    this.dataGridView1.Rows.RemoveAt(e.RowIndex);
-                    dao.delUser(id);
+                    int usernumber = int.Parse(currentIndex);
+                    int i = dao.DeleteEmployees(usernumber);
+                    if(i==1)
+                    { 
+                        MessageBox.Show("删除成功！");
+                        this.dataGridView1.Rows.RemoveAt(e.RowIndex);//从DGV移除
+                    }
+                    else
+                        MessageBox.Show("删除失败！");
                 }
+                
             }
 
-            if (e.ColumnIndex == 5)//点击在修改按钮上
+            if (e.ColumnIndex == 7)//点击在修改按钮上
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    //获取要修改的id
-                    currentIndex = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                    int id = int.Parse(currentIndex);
-                    //根据用户id查询
-                    List<Employees> updateUser= dao.findUserById(id);
-                    foreach (Employees u in updateUser)
-                    {
-
-                    }
+                    Employees em = new Employees();
+                    em.UserNumber = int.Parse(dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                    em.Name = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                    em.Sex = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                    string company = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                    string department = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+                    string group = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+                    AddOrAlterEmployees add = new AddOrAlterEmployees(em, company, department, group);
+                    add.Show();
                 }
             }
 
@@ -111,47 +81,14 @@ namespace cangku_01
         //添加用户
         private void button2_Click(object sender, EventArgs e)
         {
-            TreeNode tn = tv_department.SelectedNode;
-            TreeNode group;
-            TreeNode department;
-            TreeNode company;
-            if (tn == null) //没有选中节点
-            {
-                MessageBox.Show("请先选择要添加联系人的部门");
-                return;
-            }
-            if (tn.Nodes.Count != 0 || tn.Parent.Parent.Parent != null) //确定选中到部门
-            {
-                MessageBox.Show("未精确到小组");
-                return;
-            }
-            group = tv_department.SelectedNode;
-            department = group.Parent;
-            company = department.Parent;
-            string group1 = group.Text.ToString();
-            string department1 = department.Text.ToString();
-            string company1 = company.Text.ToString();
-            AddOrAlterEmployees add = new AddOrAlterEmployees(group1, department1, company1);
+            AddOrAlterEmployees add = new AddOrAlterEmployees();
             add.Show();
         }
         //搜索框
         private void bt_found_Click(object sender, EventArgs e)
         {
             //获取搜索框中的值
-            String tb_text = tb_found.Text;
-            //根据搜索框的内容查询对应的值
-            List<Employees> findUserById =dao.findUserByName(tb_text);
-            //将查询到的结果    循环遍历到datagridview里
-            foreach (Employees u in findUserById)
-            {
-                DataGridViewRow row = new DataGridViewRow();
-                int index = dataGridView1.Rows.Add(row);
-                dataGridView1.Rows[index].Cells[0].Value = u.Id;
-                dataGridView1.Rows[index].Cells[1].Value = u.Name;
-                dataGridView1.Rows[index].Cells[2].Value = u.Sex;
-                dataGridView1.Rows[index].Cells[4].Value = u.Department;
-
-            }
+            string tb_text = tb_found.Text;
 
         }
 
@@ -179,14 +116,13 @@ namespace cangku_01
                 return;
             }
             Department d = new Department(Tb_nodename.Text,0,0);
+            //tv_department.Nodes.Add(Tb_nodename.Text.Trim());
+            this.ShowTreeView();
             Tb_nodename.Text = "";
-            //从新加载数据
-            this.index_employees_Load(sender, e);
         }
 
         private void Btn_addchildnode_Click(object sender, EventArgs e)
         {
-
             if (string.IsNullOrEmpty(Tb_nodename.Text.Trim()))
             {
                 MessageBox.Show("请填写要添加的节点名称！");
@@ -204,15 +140,15 @@ namespace cangku_01
                 MessageBox.Show("不能与父节点有相同的名字！");
                 return;
             }
-            Department d = tv_department.SelectedNode.Tag as Department;
+            Department d = tv_department.SelectedNode.Tag as Department;//获取节点id
             if (d.tier+1 >= 3)
             {
                 MessageBox.Show("无法添加小于组的节点！");
                 return;
             }
             Department d2 = new Department(Tb_nodename.Text, d.tier + 1, d.id);
-            Tb_nodename.Text = "";
-            this.index_employees_Load(sender, e);
+            this.ShowTreeView();
+            Tb_nodename.Text = "";      
         }
 
         private void Btn_removenodes_Click(object sender, EventArgs e)
@@ -227,28 +163,52 @@ namespace cangku_01
             if (cf.DialogResult == DialogResult.OK)
             {
                 Department c = (Department)tv_department.SelectedNode.Tag;
-                TreeNode node = tv_department.SelectedNode;
-                string nodename1 = node.Text.ToString();
-                string nodename2 = "";
-                string nodename3 = "";
-                if (node.Parent == null)
+                int i = c.deleteSelf(c.id);
+                if (i == 1)
                 {
-                    c.deleteSelf(nodename1, nodename2, nodename3);
-                    this.index_employees_Load(sender, e);
-                    return;
+                    MessageBox.Show("删除成功！");
+                    tv_department.SelectedNode.Remove();//从TV移除
                 }
-                if (node.Parent != null && node.Parent.Parent == null)
-                {
-                    nodename3 = node.Parent.Text.ToString();
-                    c.deleteSelf(nodename3, nodename1, nodename2);
-                    this.index_employees_Load(sender, e);
-                    return;
-                }
-                nodename2 = node.Parent.Text.ToString();
-                nodename3 = node.Parent.Parent.Text.ToString();
-                c.deleteSelf(nodename3, nodename2, nodename1);
-                this.index_employees_Load(sender, e);
+                else
+                    MessageBox.Show("删除失败！"); 
             }
+        }
+
+        private void tv_department_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            EmployeesInterface dao = new EmployeesInterfaceImp();
+            DataTable dt = new DataTable();
+            Department d = tv_department.SelectedNode.Tag as Department;//获取节点id
+            int nodeid = d.id;
+            int level = tv_department.SelectedNode.Level;
+            dt = dao.TreeFindEmployees(level,nodeid);
+            this.ShowDataGridView(dt);
+        }
+
+        //dataGridView显示数据
+        public void ShowDataGridView(DataTable dt)
+        {
+            dataGridView1.Rows.Clear();
+            foreach (DataRow dr in dt.Rows)
+            {
+                DataGridViewRow row2 = new DataGridViewRow();
+                int index = dataGridView1.Rows.Add(row2);
+                dataGridView1.Rows[index].Cells[0].Value = dr["em_usernumber"];
+                dataGridView1.Rows[index].Cells[1].Value = dr["em_name"];
+                dataGridView1.Rows[index].Cells[2].Value = dr["em_sex"];
+                dataGridView1.Rows[index].Cells[3].Value = dr["em_company"];
+                dataGridView1.Rows[index].Cells[4].Value = dr["em_department"];
+                dataGridView1.Rows[index].Cells[5].Value = dr["em_group"];
+            }
+        }
+
+        //TreeView显示数据
+        public void ShowTreeView()
+        {
+            List<TreeNode> ls = Department.loadDepartmentStructure();
+            tv_department.Nodes.Clear();
+            tv_department.Nodes.AddRange(ls.ToArray());
+            tv_department.ExpandAll();
         }
     }
 }
