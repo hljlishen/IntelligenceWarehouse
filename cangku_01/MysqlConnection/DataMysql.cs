@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using MySql.Data.MySqlClient;
 
+//数据库连接（懒汉模式）
 
 namespace cangku_01.MysqlConnection
 {
@@ -15,6 +16,26 @@ namespace cangku_01.MysqlConnection
     {
         private static string connstr = "Server=localhost;user id=root;password=mysql;database=cangku_01;SslMode=none;charset=utf8";
 
+        private DataMysql() { }
+
+        private static DataMysql dbo = null;
+
+        private static readonly object obj = new object();
+
+        public static DataMysql GetDataMysql()
+        {
+            if (dbo == null)
+            {
+                lock (obj)
+                {
+                    if (dbo == null)
+                    {
+                        dbo = new DataMysql();
+                    }
+                 }
+            }
+            return dbo;
+        }
         //对数据库进行写入操作
         public int WriteDB(string sql)
         {
@@ -29,8 +50,11 @@ namespace cangku_01.MysqlConnection
             }
             catch (System.Data.SqlClient.SqlException e)
             {
-                connection.Close();
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
             return ret;  
         }
@@ -49,8 +73,11 @@ namespace cangku_01.MysqlConnection
             }
             catch (System.Data.SqlClient.SqlException e)
             {
-                connection.Close();
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
             return ds;
         }
@@ -69,8 +96,11 @@ namespace cangku_01.MysqlConnection
             }
             catch (System.Data.SqlClient.SqlException e)
             {
-                connection.Close();
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
             return Id;
         }
@@ -89,8 +119,11 @@ namespace cangku_01.MysqlConnection
             }
             catch (System.Data.SqlClient.SqlException e)
             {
-                connection.Close();
                 throw new Exception(e.Message);
+            }
+            finally
+            {
+                connection.Close();
             }
             return dt;
         }

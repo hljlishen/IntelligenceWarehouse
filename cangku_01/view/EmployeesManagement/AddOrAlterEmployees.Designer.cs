@@ -229,7 +229,7 @@
             this.tv_departmentshow.Name = "tv_departmentshow";
             this.tv_departmentshow.Size = new System.Drawing.Size(271, 396);
             this.tv_departmentshow.TabIndex = 22;
-            this.tv_departmentshow.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.tv_departmentshow.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_departmentshow_AfterSelect);
             // 
             // AddOrAlterEmployees
             // 

@@ -14,27 +14,30 @@ namespace cangku_01.interfaces
     interface EmployeesInterface
     {
         //查询全部用户
-        DataTable FindAllEmployees();
+        DataTable QueryAllEmployee();
 
         //员工添加查重
         int EmployeesRechecking(int employeesid);
 
         //添加用户
-        int AddEmployees(Employees user);
+        int AddEmployee(Employee em);
 
         //删除员工信息
-        int DeleteEmployees(int id);
+        int DeleteEmployee(int employeesid);
 
         //添加用户
-        int UpdateEmployees(Employees user);
+        int UpdateEmployee(Employee em);
 
         //树状图查询员工
-        DataTable TreeFindEmployees(int level, int nodeid);
+        DataTable TreeQueryEmployee(int level, int nodeid);
 
         //编号查询员工
-        DataTable FindEmployeesNumber(int employeesnumber);
-     
-        //根据id查找用户信息
-        List<Employees> findUserById(int id);
+        DataTable EmployeeNumberQueryEmployee(int employeesnumber);
+
+        //在组中搜素员工
+        DataTable QueryInTheGroupEmployee(Employee em, int level, int nodeid);
+
+        //在全部人员中搜索
+        DataTable QueryInTheAllEmployee(Employee em);
     }
 }

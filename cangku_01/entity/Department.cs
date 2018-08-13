@@ -17,6 +17,7 @@ namespace cangku_01.entity
         public int belongid;
         public TreeNode tn;
         public List<Department> LowerRank;
+        DataMysql dbo = DataMysql.GetDataMysql();
 
         //添加节点
         public Department(string n, int r, int b)
@@ -27,7 +28,6 @@ namespace cangku_01.entity
             belongid = b;
             LowerRank = new List<Department>();
             string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
-            DataMysql dbo = new DataMysql();
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count != 0)
             {
@@ -52,7 +52,6 @@ namespace cangku_01.entity
         private void loadLowerRankDepartment()
         {
             List<Department> ret = new List<Department>();
-            DataMysql dbo = new DataMysql();
             string sql = "select * from t_department where de_belongId="
                 + id.ToString() + "";
             DataSet ds = dbo.ReadDB(sql);
@@ -65,7 +64,6 @@ namespace cangku_01.entity
             }
             return;
         }
-
 
         //生成节点的结构
         private void getNodeStructure()  
@@ -91,8 +89,8 @@ namespace cangku_01.entity
 
         public static List<TreeNode> loadDepartmentStructure()
         {
-            DataMysql dbo = new DataMysql();
             string sql = "select * from t_department where de_tier = 0";
+            DataMysql dbo = DataMysql.GetDataMysql();
             DataSet ds = dbo.ReadDB(sql);
             List<TreeNode> ret = new List<TreeNode>();
             foreach (DataRow r in ds.Tables[0].Rows)
@@ -106,7 +104,6 @@ namespace cangku_01.entity
         //删除选中的节点
         public int deleteSelf(int nodeid)
         {
-            DataMysql dbo = new DataMysql();
             string sql = "select * from t_department where de_belongId = " + id.ToString() + "";
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count != 0)//存在子节点

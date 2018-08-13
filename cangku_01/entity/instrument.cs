@@ -22,14 +22,14 @@ namespace cangku_01.entity
         public string Duty { get; set; }             //责任人
 
         //计算下一次检查日期
-        public string NextCheckTimes(DateTime LastCheckTimes,int CheckCycle)
+        public string NextCheckTimes()
         {
             string NextCheckTimes = LastCheckTimes.AddDays(CheckCycle).Year.ToString() + "年" + LastCheckTimes.AddDays(CheckCycle).Month.ToString() + "月" + LastCheckTimes.AddDays(CheckCycle).Day.ToString() + "日";
             return NextCheckTimes;
         }
 
         //计算剩余的检查日期
-        public string TimeRemaining(DateTime LastCheckTimes, int CheckCycle)
+        public string TimeRemaining()
         {
             string TimeRemaining = (LastCheckTimes.AddDays(CheckCycle) - DateTime.Now).Days.ToString();
             return TimeRemaining;

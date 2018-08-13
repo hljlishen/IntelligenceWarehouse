@@ -11,35 +11,38 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+//员工信息的添加、修改
+
 namespace cangku_01.view.EmployeesManagement
 {
     public partial class AddOrAlterEmployees : Form
     {
-        Employees em = new Employees();
-        public AddOrAlterEmployees()
+        EmployeesInterface dao = new EmployeesInterfaceImp();
+        Employee em = new Employee();
+        private cangku_01.EmployeesManagement fr;
+        private string companytext;
+        private string departmenttext;
+        private string grouptext;
+        private int index;
+
+        //无参构造方法为添加状态
+        public AddOrAlterEmployees(cangku_01.EmployeesManagement fr)
         {
             InitializeComponent();
             bt_alter.Visible = false;
-
+            this.fr = fr;
         }
 
-        private void AddOrAlterEmployees_Load(object sender, EventArgs e)
-        {
-            //加载部门树状图
-            List<TreeNode> ls = Department.loadDepartmentStructure();
-            tv_departmentshow.Nodes.Clear();
-            tv_departmentshow.Nodes.AddRange(ls.ToArray());
-            tv_departmentshow.ExpandAll();
-
-        }
-
-        public AddOrAlterEmployees(Employees em, string company, string department, string group)
+        //重写有参构造方法为修改状态
+        public AddOrAlterEmployees(cangku_01.EmployeesManagement fr , Employee em, string company, string department, string group ,int index)
         {
             InitializeComponent();
             Bt_add.Visible = false;
+            this.fr = fr;
+            this.index = index;
             this.Tb_employeesid.ReadOnly = true;
             this.La_addoralter.Text = "修改员工";
-            this.Tb_employeesid.Text = em.UserNumber.ToString();
+            this.Tb_employeesid.Text = em.EmployeeNumber.ToString();
             this.Tb_name.Text = em.Name;
             if (em.Sex.Equals("男"))
             {
@@ -54,10 +57,18 @@ namespace cangku_01.view.EmployeesManagement
             this.la_group.Text = group;
         }
 
+        //加载部门树状图
+        private void AddOrAlterEmployees_Load(object sender, EventArgs e)
+        {
+            List<TreeNode> ls = Department.loadDepartmentStructure();
+            tv_departmentshow.Nodes.Clear();
+            tv_departmentshow.Nodes.AddRange(ls.ToArray());
+            tv_departmentshow.ExpandAll();
+        }
+
         //添加员工
         private void Bt_add_Click(object sender, EventArgs e)
         {
-            EmployeesInterface dao = new EmployeesInterfaceImp();
             if (Tb_employeesid.Text == "" || Tb_name.Text == "" )
             {
                 MessageBox.Show("请填写完整信息！");
@@ -68,22 +79,20 @@ namespace cangku_01.view.EmployeesManagement
                 MessageBox.Show("已存在该员工编号！");
                 return;
             }
-            if (la_group.Text.Equals("员工小组")) //没有选中节点
-            {
-                MessageBox.Show("请先选择要添加联系人的部门");
-                return;
-            }
-            em.UserNumber = int.Parse(Tb_employeesid.Text.ToString());
+            em.EmployeeNumber = int.Parse(Tb_employeesid.Text.ToString());
             em.Name = Tb_name.Text.ToString();
             if (Rb_sexman.Checked) em.Sex = "男";
             else em.Sex = "女";
-            int i= dao.AddEmployees(em);
+            companytext = la_company.Text;
+            departmenttext = la_department.Text;
+            grouptext = la_group.Text;
+            int i= dao.AddEmployee(em);
             if (i == 1)
             {
                 MessageBox.Show("添加员工完成！");
-                DialogResult = DialogResult.OK;
+                index = fr.dgv_employeeinformation.Rows.Add();
+                this.AddOneEmployeeToTheDataGridView();
                 Close();
-
             }
             else
             {
@@ -91,34 +100,48 @@ namespace cangku_01.view.EmployeesManagement
             }    
         }
 
+        //给DataGridView添加一行数据
+        public void AddOneEmployeeToTheDataGridView()
+        {
+            fr.dgv_employeeinformation.Rows[index].Cells[0].Value = em.EmployeeNumber;
+            fr.dgv_employeeinformation.Rows[index].Cells[1].Value = em.Name;
+            fr.dgv_employeeinformation.Rows[index].Cells[2].Value = em.Sex;
+            fr.dgv_employeeinformation.Rows[index].Cells[3].Value = companytext;
+            fr.dgv_employeeinformation.Rows[index].Cells[4].Value = departmenttext;
+            fr.dgv_employeeinformation.Rows[index].Cells[5].Value = grouptext;
+        }
+
         //修改员工
         private void bt_alter_Click(object sender, EventArgs e)
         {
-            EmployeesInterface dao = new EmployeesInterfaceImp();
             if (Tb_employeesid.Text == "" || Tb_name.Text == "")
             {
                 MessageBox.Show("请填写完整信息！");
                 return;
             }
-            em.UserNumber = int.Parse(Tb_employeesid.Text.ToString());
+            em.EmployeeNumber = int.Parse(Tb_employeesid.Text.ToString());
             em.Name = Tb_name.Text.ToString();
             if (Rb_sexman.Checked) em.Sex = "男";
             else em.Sex = "女";
             if (em.Group == 0)
             {
-                DataTable dt = dao.FindEmployeesNumber(em.UserNumber);
+                DataTable dt = dao.EmployeeNumberQueryEmployee(em.EmployeeNumber);
                 DataRow myDr = dt.Rows[0];
                 em.Company = int.Parse(myDr["em_company"].ToString());
                 em.Department = int.Parse(myDr["em_department"].ToString());
                 em.Group = int.Parse(myDr["em_group"].ToString());
             }
-            int i = dao.UpdateEmployees(em);
+            companytext = la_company.Text;
+            departmenttext = la_department.Text;
+            grouptext = la_group.Text;
+            int i = dao.UpdateEmployee(em);
             if (i == 1)
             {
                 MessageBox.Show("修改员工完成！");
-                DialogResult = DialogResult.OK;
+                fr.dgv_employeeinformation.Rows.RemoveAt(index);
+                index = fr.dgv_employeeinformation.Rows.Add();
+                this.AddOneEmployeeToTheDataGridView();
                 Close();
-
             }
             else
             {
@@ -127,11 +150,12 @@ namespace cangku_01.view.EmployeesManagement
 
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        //选择员工的公司、部门、小组信息
+        private void tv_departmentshow_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (tv_departmentshow.SelectedNode.Level != 2) //确定选中到部门
             {
-                MessageBox.Show("未精确到小组");
+                //MessageBox.Show("未精确到小组");
                 return;
             }
             Department d1 = tv_departmentshow.SelectedNode.Tag as Department;//获取节点id

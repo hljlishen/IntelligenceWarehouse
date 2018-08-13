@@ -37,8 +37,8 @@ namespace cangku_01
                 DataGridViewRow row = new DataGridViewRow();
                 int index = Dgv_DueToSee.Rows.Add(row);
                 Dgv_DueToSee.Rows[index].Cells[0].Value = re.Name;
-                Dgv_DueToSee.Rows[index].Cells[1].Value = re.NextCheckTimes(re.LastCheckTimes,re.CheckCycle);
-                Dgv_DueToSee.Rows[index].Cells[2].Value = re.TimeRemaining(re.LastCheckTimes,re.CheckCycle);
+                Dgv_DueToSee.Rows[index].Cells[1].Value = re.NextCheckTimes();
+                Dgv_DueToSee.Rows[index].Cells[2].Value = re.TimeRemaining();
             }
 
         }

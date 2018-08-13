@@ -89,7 +89,7 @@
     <Compile Include="view\AdminPage\Administration.Designer.cs">
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
-    <Compile Include="entity\Employees.cs" />
+    <Compile Include="entity\Employee.cs" />
     <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.cs">
       <SubType>Form</SubType>
     </Compile>
