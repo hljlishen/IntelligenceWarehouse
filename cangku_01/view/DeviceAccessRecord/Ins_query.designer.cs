@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.La_BorrowQuery = new System.Windows.Forms.Label();
-            this.Tb_borrow = new System.Windows.Forms.TextBox();
+            this.la_BorrowQuery = new System.Windows.Forms.Label();
+            this.tb_borrow = new System.Windows.Forms.TextBox();
             this.La_TimeQuery = new System.Windows.Forms.Label();
-            this.Btn_query = new System.Windows.Forms.Button();
-            this.Dtp_begin = new System.Windows.Forms.DateTimePicker();
-            this.La_to = new System.Windows.Forms.Label();
-            this.Dtp_end = new System.Windows.Forms.DateTimePicker();
-            this.La_ModelQuery = new System.Windows.Forms.Label();
-            this.Tb_model = new System.Windows.Forms.TextBox();
-            this.Dgv_InstrumentQuery = new System.Windows.Forms.DataGridView();
+            this.btn_query = new System.Windows.Forms.Button();
+            this.dtp_begin = new System.Windows.Forms.DateTimePicker();
+            this.la_to = new System.Windows.Forms.Label();
+            this.dtp_end = new System.Windows.Forms.DateTimePicker();
+            this.la_ModelQuery = new System.Windows.Forms.Label();
+            this.tb_model = new System.Windows.Forms.TextBox();
+            this.dgv_InstrumentQuery = new System.Windows.Forms.DataGridView();
             this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,35 +49,39 @@
             this.操作 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tt_checkborrow = new System.Windows.Forms.ToolTip(this.components);
-            this.La_DutyQuery = new System.Windows.Forms.Label();
-            this.Tb_duty = new System.Windows.Forms.TextBox();
-            this.La_ManufacturerQuery = new System.Windows.Forms.Label();
-            this.Tb_manufacturer = new System.Windows.Forms.TextBox();
-            this.Cb_query = new System.Windows.Forms.ComboBox();
-            this.Tt_checkduty = new System.Windows.Forms.ToolTip(this.components);
-            this.Tt_checkmodel = new System.Windows.Forms.ToolTip(this.components);
-            this.Tt_checkmanufacturer = new System.Windows.Forms.ToolTip(this.components);
-            this.Tt_checktime = new System.Windows.Forms.ToolTip(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_InstrumentQuery)).BeginInit();
+            this.tt_checkborrow = new System.Windows.Forms.ToolTip(this.components);
+            this.la_DutyQuery = new System.Windows.Forms.Label();
+            this.tb_duty = new System.Windows.Forms.TextBox();
+            this.la_ManufacturerQuery = new System.Windows.Forms.Label();
+            this.tb_manufacturer = new System.Windows.Forms.TextBox();
+            this.cb_query = new System.Windows.Forms.ComboBox();
+            this.tt_checkduty = new System.Windows.Forms.ToolTip(this.components);
+            this.tt_checkmodel = new System.Windows.Forms.ToolTip(this.components);
+            this.tt_checkmanufacturer = new System.Windows.Forms.ToolTip(this.components);
+            this.tt_checktime = new System.Windows.Forms.ToolTip(this.components);
+            this.la_TagQuery = new System.Windows.Forms.Label();
+            this.tb_tag = new System.Windows.Forms.TextBox();
+            this.cb_choicetime = new System.Windows.Forms.CheckBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentQuery)).BeginInit();
             this.SuspendLayout();
             // 
-            // La_BorrowQuery
+            // la_BorrowQuery
             // 
-            this.La_BorrowQuery.AutoSize = true;
-            this.La_BorrowQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_BorrowQuery.Location = new System.Drawing.Point(144, 51);
-            this.La_BorrowQuery.Name = "La_BorrowQuery";
-            this.La_BorrowQuery.Size = new System.Drawing.Size(91, 14);
-            this.La_BorrowQuery.TabIndex = 1;
-            this.La_BorrowQuery.Text = "借用人查询：";
+            this.la_BorrowQuery.AutoSize = true;
+            this.la_BorrowQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_BorrowQuery.Location = new System.Drawing.Point(144, 51);
+            this.la_BorrowQuery.Name = "la_BorrowQuery";
+            this.la_BorrowQuery.Size = new System.Drawing.Size(91, 14);
+            this.la_BorrowQuery.TabIndex = 1;
+            this.la_BorrowQuery.Text = "借用人查询：";
             // 
-            // Tb_borrow
+            // tb_borrow
             // 
-            this.Tb_borrow.Location = new System.Drawing.Point(241, 47);
-            this.Tb_borrow.Name = "Tb_borrow";
-            this.Tb_borrow.Size = new System.Drawing.Size(124, 21);
-            this.Tb_borrow.TabIndex = 2;
+            this.tb_borrow.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.tb_borrow.Location = new System.Drawing.Point(241, 47);
+            this.tb_borrow.Name = "tb_borrow";
+            this.tb_borrow.Size = new System.Drawing.Size(124, 21);
+            this.tb_borrow.TabIndex = 2;
             // 
             // La_TimeQuery
             // 
@@ -89,62 +93,65 @@
             this.La_TimeQuery.TabIndex = 4;
             this.La_TimeQuery.Text = "时间查询：";
             // 
-            // Btn_query
+            // btn_query
             // 
-            this.Btn_query.Location = new System.Drawing.Point(1078, 92);
-            this.Btn_query.Name = "Btn_query";
-            this.Btn_query.Size = new System.Drawing.Size(75, 23);
-            this.Btn_query.TabIndex = 6;
-            this.Btn_query.Text = "查询";
-            this.Btn_query.UseVisualStyleBackColor = true;
-            this.Btn_query.Click += new System.EventHandler(this.Btnquery_Click);
+            this.btn_query.Location = new System.Drawing.Point(1078, 92);
+            this.btn_query.Name = "btn_query";
+            this.btn_query.Size = new System.Drawing.Size(75, 23);
+            this.btn_query.TabIndex = 6;
+            this.btn_query.Text = "查询";
+            this.btn_query.UseVisualStyleBackColor = true;
+            this.btn_query.Click += new System.EventHandler(this.Btnquery_Click);
             // 
-            // Dtp_begin
+            // dtp_begin
             // 
-            this.Dtp_begin.Location = new System.Drawing.Point(833, 48);
-            this.Dtp_begin.Name = "Dtp_begin";
-            this.Dtp_begin.Size = new System.Drawing.Size(103, 21);
-            this.Dtp_begin.TabIndex = 7;
+            this.dtp_begin.Enabled = false;
+            this.dtp_begin.Location = new System.Drawing.Point(833, 48);
+            this.dtp_begin.Name = "dtp_begin";
+            this.dtp_begin.Size = new System.Drawing.Size(103, 21);
+            this.dtp_begin.TabIndex = 7;
             // 
-            // La_to
+            // la_to
             // 
-            this.La_to.AutoSize = true;
-            this.La_to.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_to.Location = new System.Drawing.Point(942, 52);
-            this.La_to.Name = "La_to";
-            this.La_to.Size = new System.Drawing.Size(21, 14);
-            this.La_to.TabIndex = 8;
-            this.La_to.Text = "至";
+            this.la_to.AutoSize = true;
+            this.la_to.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_to.Location = new System.Drawing.Point(942, 52);
+            this.la_to.Name = "la_to";
+            this.la_to.Size = new System.Drawing.Size(21, 14);
+            this.la_to.TabIndex = 8;
+            this.la_to.Text = "至";
             // 
-            // Dtp_end
+            // dtp_end
             // 
-            this.Dtp_end.Location = new System.Drawing.Point(969, 48);
-            this.Dtp_end.Name = "Dtp_end";
-            this.Dtp_end.Size = new System.Drawing.Size(103, 21);
-            this.Dtp_end.TabIndex = 9;
+            this.dtp_end.Enabled = false;
+            this.dtp_end.Location = new System.Drawing.Point(969, 48);
+            this.dtp_end.Name = "dtp_end";
+            this.dtp_end.Size = new System.Drawing.Size(103, 21);
+            this.dtp_end.TabIndex = 9;
             // 
-            // La_ModelQuery
+            // la_ModelQuery
             // 
-            this.La_ModelQuery.AutoSize = true;
-            this.La_ModelQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_ModelQuery.Location = new System.Drawing.Point(467, 48);
-            this.La_ModelQuery.Name = "La_ModelQuery";
-            this.La_ModelQuery.Size = new System.Drawing.Size(77, 14);
-            this.La_ModelQuery.TabIndex = 11;
-            this.La_ModelQuery.Text = "型号查询：";
+            this.la_ModelQuery.AutoSize = true;
+            this.la_ModelQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_ModelQuery.Location = new System.Drawing.Point(467, 48);
+            this.la_ModelQuery.Name = "la_ModelQuery";
+            this.la_ModelQuery.Size = new System.Drawing.Size(77, 14);
+            this.la_ModelQuery.TabIndex = 11;
+            this.la_ModelQuery.Text = "型号查询：";
             // 
-            // Tb_model
+            // tb_model
             // 
-            this.Tb_model.Location = new System.Drawing.Point(550, 44);
-            this.Tb_model.Name = "Tb_model";
-            this.Tb_model.Size = new System.Drawing.Size(124, 21);
-            this.Tb_model.TabIndex = 12;
+            this.tb_model.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.tb_model.Location = new System.Drawing.Point(550, 44);
+            this.tb_model.Name = "tb_model";
+            this.tb_model.Size = new System.Drawing.Size(124, 21);
+            this.tb_model.TabIndex = 12;
             // 
-            // Dgv_InstrumentQuery
+            // dgv_InstrumentQuery
             // 
-            this.Dgv_InstrumentQuery.AllowUserToAddRows = false;
-            this.Dgv_InstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_InstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_InstrumentQuery.AllowUserToAddRows = false;
+            this.dgv_InstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_InstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.仪器标签ID,
             this.仪器名,
             this.存放位置,
@@ -155,11 +162,11 @@
             this.操作,
             this.生产厂商,
             this.生产日期});
-            this.Dgv_InstrumentQuery.Location = new System.Drawing.Point(12, 137);
-            this.Dgv_InstrumentQuery.Name = "Dgv_InstrumentQuery";
-            this.Dgv_InstrumentQuery.RowTemplate.Height = 23;
-            this.Dgv_InstrumentQuery.Size = new System.Drawing.Size(1400, 712);
-            this.Dgv_InstrumentQuery.TabIndex = 0;
+            this.dgv_InstrumentQuery.Location = new System.Drawing.Point(12, 137);
+            this.dgv_InstrumentQuery.Name = "dgv_InstrumentQuery";
+            this.dgv_InstrumentQuery.RowTemplate.Height = 23;
+            this.dgv_InstrumentQuery.Size = new System.Drawing.Size(1400, 712);
+            this.dgv_InstrumentQuery.TabIndex = 0;
             // 
             // 仪器标签ID
             // 
@@ -230,156 +237,188 @@
             this.生产日期.ReadOnly = true;
             this.生产日期.Width = 138;
             // 
-            // Tt_checkborrow
+            // tt_checkborrow
             // 
-            this.Tt_checkborrow.AutoPopDelay = 5000;
-            this.Tt_checkborrow.BackColor = System.Drawing.Color.Red;
-            this.Tt_checkborrow.ForeColor = System.Drawing.Color.Red;
-            this.Tt_checkborrow.InitialDelay = 1000;
-            this.Tt_checkborrow.ReshowDelay = 500;
-            this.Tt_checkborrow.ShowAlways = true;
-            this.Tt_checkborrow.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.Tt_checkborrow.ToolTipTitle = "错误提示";
+            this.tt_checkborrow.AutoPopDelay = 5000;
+            this.tt_checkborrow.BackColor = System.Drawing.Color.Red;
+            this.tt_checkborrow.ForeColor = System.Drawing.Color.Red;
+            this.tt_checkborrow.InitialDelay = 1000;
+            this.tt_checkborrow.ReshowDelay = 500;
+            this.tt_checkborrow.ShowAlways = true;
+            this.tt_checkborrow.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tt_checkborrow.ToolTipTitle = "错误提示";
             // 
-            // La_DutyQuery
+            // la_DutyQuery
             // 
-            this.La_DutyQuery.AutoSize = true;
-            this.La_DutyQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_DutyQuery.Location = new System.Drawing.Point(144, 96);
-            this.La_DutyQuery.Name = "La_DutyQuery";
-            this.La_DutyQuery.Size = new System.Drawing.Size(91, 14);
-            this.La_DutyQuery.TabIndex = 13;
-            this.La_DutyQuery.Text = "责任人查询：";
+            this.la_DutyQuery.AutoSize = true;
+            this.la_DutyQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_DutyQuery.Location = new System.Drawing.Point(144, 96);
+            this.la_DutyQuery.Name = "la_DutyQuery";
+            this.la_DutyQuery.Size = new System.Drawing.Size(91, 14);
+            this.la_DutyQuery.TabIndex = 13;
+            this.la_DutyQuery.Text = "责任人查询：";
             // 
-            // Tb_duty
+            // tb_duty
             // 
-            this.Tb_duty.Location = new System.Drawing.Point(241, 92);
-            this.Tb_duty.Name = "Tb_duty";
-            this.Tb_duty.Size = new System.Drawing.Size(124, 21);
-            this.Tb_duty.TabIndex = 14;
+            this.tb_duty.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.tb_duty.Location = new System.Drawing.Point(241, 92);
+            this.tb_duty.Name = "tb_duty";
+            this.tb_duty.Size = new System.Drawing.Size(124, 21);
+            this.tb_duty.TabIndex = 14;
             // 
-            // La_ManufacturerQuery
+            // la_ManufacturerQuery
             // 
-            this.La_ManufacturerQuery.AutoSize = true;
-            this.La_ManufacturerQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_ManufacturerQuery.Location = new System.Drawing.Point(467, 96);
-            this.La_ManufacturerQuery.Name = "La_ManufacturerQuery";
-            this.La_ManufacturerQuery.Size = new System.Drawing.Size(77, 14);
-            this.La_ManufacturerQuery.TabIndex = 15;
-            this.La_ManufacturerQuery.Text = "厂商查询：";
+            this.la_ManufacturerQuery.AutoSize = true;
+            this.la_ManufacturerQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_ManufacturerQuery.Location = new System.Drawing.Point(467, 96);
+            this.la_ManufacturerQuery.Name = "la_ManufacturerQuery";
+            this.la_ManufacturerQuery.Size = new System.Drawing.Size(77, 14);
+            this.la_ManufacturerQuery.TabIndex = 15;
+            this.la_ManufacturerQuery.Text = "厂商查询：";
             // 
-            // Tb_manufacturer
+            // tb_manufacturer
             // 
-            this.Tb_manufacturer.Location = new System.Drawing.Point(550, 92);
-            this.Tb_manufacturer.Name = "Tb_manufacturer";
-            this.Tb_manufacturer.Size = new System.Drawing.Size(124, 21);
-            this.Tb_manufacturer.TabIndex = 16;
+            this.tb_manufacturer.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.tb_manufacturer.Location = new System.Drawing.Point(550, 92);
+            this.tb_manufacturer.Name = "tb_manufacturer";
+            this.tb_manufacturer.Size = new System.Drawing.Size(124, 21);
+            this.tb_manufacturer.TabIndex = 16;
             // 
-            // Cb_query
+            // cb_query
             // 
-            this.Cb_query.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Cb_query.FormattingEnabled = true;
-            this.Cb_query.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.Cb_query.Items.AddRange(new object[] {
+            this.cb_query.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_query.FormattingEnabled = true;
+            this.cb_query.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_query.Items.AddRange(new object[] {
             "出入库",
             "出库",
             "入库"});
-            this.Cb_query.Location = new System.Drawing.Point(12, 12);
-            this.Cb_query.Name = "Cb_query";
-            this.Cb_query.Size = new System.Drawing.Size(121, 20);
-            this.Cb_query.TabIndex = 17;
+            this.cb_query.Location = new System.Drawing.Point(12, 12);
+            this.cb_query.Name = "cb_query";
+            this.cb_query.Size = new System.Drawing.Size(121, 20);
+            this.cb_query.TabIndex = 17;
             // 
-            // Tt_checkduty
+            // tt_checkduty
             // 
-            this.Tt_checkduty.AutoPopDelay = 5000;
-            this.Tt_checkduty.BackColor = System.Drawing.Color.Red;
-            this.Tt_checkduty.ForeColor = System.Drawing.Color.Red;
-            this.Tt_checkduty.InitialDelay = 500;
-            this.Tt_checkduty.ReshowDelay = 100;
-            this.Tt_checkduty.ShowAlways = true;
-            this.Tt_checkduty.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.Tt_checkduty.ToolTipTitle = "错误提示";
+            this.tt_checkduty.AutoPopDelay = 5000;
+            this.tt_checkduty.BackColor = System.Drawing.Color.Red;
+            this.tt_checkduty.ForeColor = System.Drawing.Color.Red;
+            this.tt_checkduty.InitialDelay = 500;
+            this.tt_checkduty.ReshowDelay = 100;
+            this.tt_checkduty.ShowAlways = true;
+            this.tt_checkduty.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tt_checkduty.ToolTipTitle = "错误提示";
             // 
-            // Tt_checkmodel
+            // tt_checkmodel
             // 
-            this.Tt_checkmodel.AutoPopDelay = 5000;
-            this.Tt_checkmodel.BackColor = System.Drawing.Color.Red;
-            this.Tt_checkmodel.ForeColor = System.Drawing.Color.Red;
-            this.Tt_checkmodel.InitialDelay = 500;
-            this.Tt_checkmodel.ReshowDelay = 100;
-            this.Tt_checkmodel.ShowAlways = true;
-            this.Tt_checkmodel.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.Tt_checkmodel.ToolTipTitle = "错误提示";
+            this.tt_checkmodel.AutoPopDelay = 5000;
+            this.tt_checkmodel.BackColor = System.Drawing.Color.Red;
+            this.tt_checkmodel.ForeColor = System.Drawing.Color.Red;
+            this.tt_checkmodel.InitialDelay = 500;
+            this.tt_checkmodel.ReshowDelay = 100;
+            this.tt_checkmodel.ShowAlways = true;
+            this.tt_checkmodel.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tt_checkmodel.ToolTipTitle = "错误提示";
             // 
-            // Tt_checkmanufacturer
+            // tt_checkmanufacturer
             // 
-            this.Tt_checkmanufacturer.AutoPopDelay = 5000;
-            this.Tt_checkmanufacturer.BackColor = System.Drawing.Color.Red;
-            this.Tt_checkmanufacturer.ForeColor = System.Drawing.Color.Red;
-            this.Tt_checkmanufacturer.InitialDelay = 500;
-            this.Tt_checkmanufacturer.ReshowDelay = 100;
-            this.Tt_checkmanufacturer.ShowAlways = true;
-            this.Tt_checkmanufacturer.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.Tt_checkmanufacturer.ToolTipTitle = "错误提示";
+            this.tt_checkmanufacturer.AutoPopDelay = 5000;
+            this.tt_checkmanufacturer.BackColor = System.Drawing.Color.Red;
+            this.tt_checkmanufacturer.ForeColor = System.Drawing.Color.Red;
+            this.tt_checkmanufacturer.InitialDelay = 500;
+            this.tt_checkmanufacturer.ReshowDelay = 100;
+            this.tt_checkmanufacturer.ShowAlways = true;
+            this.tt_checkmanufacturer.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tt_checkmanufacturer.ToolTipTitle = "错误提示";
             // 
-            // Tt_checktime
+            // tt_checktime
             // 
-            this.Tt_checktime.AutoPopDelay = 5000;
-            this.Tt_checktime.BackColor = System.Drawing.Color.Red;
-            this.Tt_checktime.ForeColor = System.Drawing.Color.Red;
-            this.Tt_checktime.InitialDelay = 500;
-            this.Tt_checktime.ReshowDelay = 100;
-            this.Tt_checktime.ShowAlways = true;
-            this.Tt_checktime.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.Tt_checktime.ToolTipTitle = "错误提示";
+            this.tt_checktime.AutoPopDelay = 5000;
+            this.tt_checktime.BackColor = System.Drawing.Color.Red;
+            this.tt_checktime.ForeColor = System.Drawing.Color.Red;
+            this.tt_checktime.InitialDelay = 500;
+            this.tt_checktime.ReshowDelay = 100;
+            this.tt_checktime.ShowAlways = true;
+            this.tt_checktime.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.tt_checktime.ToolTipTitle = "错误提示";
             // 
-            // InstrumentQuery
+            // la_TagQuery
+            // 
+            this.la_TagQuery.AutoSize = true;
+            this.la_TagQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_TagQuery.Location = new System.Drawing.Point(750, 95);
+            this.la_TagQuery.Name = "la_TagQuery";
+            this.la_TagQuery.Size = new System.Drawing.Size(77, 14);
+            this.la_TagQuery.TabIndex = 18;
+            this.la_TagQuery.Text = "标签查询：";
+            // 
+            // tb_tag
+            // 
+            this.tb_tag.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.tb_tag.Location = new System.Drawing.Point(833, 92);
+            this.tb_tag.Name = "tb_tag";
+            this.tb_tag.Size = new System.Drawing.Size(124, 21);
+            this.tb_tag.TabIndex = 19;
+            // 
+            // cb_choicetime
+            // 
+            this.cb_choicetime.AutoSize = true;
+            this.cb_choicetime.Location = new System.Drawing.Point(729, 51);
+            this.cb_choicetime.Name = "cb_choicetime";
+            this.cb_choicetime.Size = new System.Drawing.Size(15, 14);
+            this.cb_choicetime.TabIndex = 21;
+            this.cb_choicetime.UseVisualStyleBackColor = true;
+            // 
+            // Ins_query
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 861);
-            this.Controls.Add(this.Cb_query);
-            this.Controls.Add(this.Tb_manufacturer);
-            this.Controls.Add(this.La_ManufacturerQuery);
-            this.Controls.Add(this.Tb_duty);
-            this.Controls.Add(this.La_DutyQuery);
-            this.Controls.Add(this.Dgv_InstrumentQuery);
-            this.Controls.Add(this.Tb_model);
-            this.Controls.Add(this.La_ModelQuery);
-            this.Controls.Add(this.Dtp_end);
-            this.Controls.Add(this.La_to);
-            this.Controls.Add(this.Dtp_begin);
-            this.Controls.Add(this.Btn_query);
+            this.Controls.Add(this.cb_choicetime);
+            this.Controls.Add(this.tb_tag);
+            this.Controls.Add(this.la_TagQuery);
+            this.Controls.Add(this.cb_query);
+            this.Controls.Add(this.tb_manufacturer);
+            this.Controls.Add(this.la_ManufacturerQuery);
+            this.Controls.Add(this.tb_duty);
+            this.Controls.Add(this.la_DutyQuery);
+            this.Controls.Add(this.dgv_InstrumentQuery);
+            this.Controls.Add(this.tb_model);
+            this.Controls.Add(this.la_ModelQuery);
+            this.Controls.Add(this.dtp_end);
+            this.Controls.Add(this.la_to);
+            this.Controls.Add(this.dtp_begin);
+            this.Controls.Add(this.btn_query);
             this.Controls.Add(this.La_TimeQuery);
-            this.Controls.Add(this.Tb_borrow);
-            this.Controls.Add(this.La_BorrowQuery);
+            this.Controls.Add(this.tb_borrow);
+            this.Controls.Add(this.la_BorrowQuery);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "InstrumentQuery";
+            this.Name = "Ins_query";
             this.Text = "InstrumentQuery";
             this.Load += new System.EventHandler(this.InstrumentQuery_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_InstrumentQuery)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentQuery)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label La_BorrowQuery;
-        private System.Windows.Forms.TextBox Tb_borrow;
+        private System.Windows.Forms.Label la_BorrowQuery;
+        private System.Windows.Forms.TextBox tb_borrow;
         private System.Windows.Forms.Label La_TimeQuery;
-        private System.Windows.Forms.Button Btn_query;
-        private System.Windows.Forms.DateTimePicker Dtp_begin;
-        private System.Windows.Forms.Label La_to;
-        private System.Windows.Forms.DateTimePicker Dtp_end;
-        private System.Windows.Forms.Label La_ModelQuery;
-        private System.Windows.Forms.TextBox Tb_model;
-        private System.Windows.Forms.DataGridView Dgv_InstrumentQuery;
-        private System.Windows.Forms.ToolTip Tt_checkborrow;
-        private System.Windows.Forms.Label La_DutyQuery;
-        private System.Windows.Forms.TextBox Tb_duty;
-        private System.Windows.Forms.Label La_ManufacturerQuery;
-        private System.Windows.Forms.TextBox Tb_manufacturer;
-        private System.Windows.Forms.ComboBox Cb_query;
+        private System.Windows.Forms.Button btn_query;
+        private System.Windows.Forms.DateTimePicker dtp_begin;
+        private System.Windows.Forms.Label la_to;
+        private System.Windows.Forms.DateTimePicker dtp_end;
+        private System.Windows.Forms.Label la_ModelQuery;
+        private System.Windows.Forms.TextBox tb_model;
+        private System.Windows.Forms.DataGridView dgv_InstrumentQuery;
+        private System.Windows.Forms.ToolTip tt_checkborrow;
+        private System.Windows.Forms.Label la_DutyQuery;
+        private System.Windows.Forms.TextBox tb_duty;
+        private System.Windows.Forms.Label la_ManufacturerQuery;
+        private System.Windows.Forms.TextBox tb_manufacturer;
+        private System.Windows.Forms.ComboBox cb_query;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器标签ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 存放位置;
@@ -390,9 +429,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产厂商;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产日期;
-        private System.Windows.Forms.ToolTip Tt_checkduty;
-        private System.Windows.Forms.ToolTip Tt_checkmodel;
-        private System.Windows.Forms.ToolTip Tt_checkmanufacturer;
-        private System.Windows.Forms.ToolTip Tt_checktime;
+        private System.Windows.Forms.ToolTip tt_checkduty;
+        private System.Windows.Forms.ToolTip tt_checkmodel;
+        private System.Windows.Forms.ToolTip tt_checkmanufacturer;
+        private System.Windows.Forms.ToolTip tt_checktime;
+        private System.Windows.Forms.Label la_TagQuery;
+        private System.Windows.Forms.TextBox tb_tag;
+        private System.Windows.Forms.CheckBox cb_choicetime;
     }
 }
