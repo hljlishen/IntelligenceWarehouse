@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //添加仪器  观察者模式
 
@@ -21,6 +23,7 @@ namespace cangku_01.view.InstrumentManagement
             InitializeComponent();
             this.fr = fr;
             title.Text = "添加仪器基本信息";
+            tb_tagid.ReadOnly = false;
             this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
             bt_alterinstrument.Visible = false;
         }
@@ -32,8 +35,9 @@ namespace cangku_01.view.InstrumentManagement
             this.fr = fr;
             this.index = index;
             title.Text = "修改仪器基本信息";
-            this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
+            this.ins = ins;
             bt_addinstrument.Visible = false;
+            this.ShowInstrumentPhoto();
             tb_tagid.Text = ins.TagId;
             tb_name.Text = ins.Name;
             tb_model.Text = ins.Model;
@@ -52,6 +56,20 @@ namespace cangku_01.view.InstrumentManagement
             this.cb_isInWareHouse.Text = "在库";
         }
 
+        //获取仪器照片地址
+        public void ShowInstrumentPhoto()
+        {
+            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
+            if (f.Exists)
+            {
+                this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
+            }
+            else
+            {
+                this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+            }
+        }
+
         //取消按钮
         private void bt_close_Click_1(object sender, EventArgs e)     
         {
@@ -63,6 +81,7 @@ namespace cangku_01.view.InstrumentManagement
         {
             InstrumentInterface dao = new InstrumentInterfaceImp();
             dao.AddInstrument(GetInstrumentInformation());
+            AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             index = fr.dgv_instrumentinformation.Rows.Add();
             this.AddOneEmployeeToTheDataGridView();
         }
@@ -105,10 +124,11 @@ namespace cangku_01.view.InstrumentManagement
         {
             InstrumentInterface dao = new InstrumentInterfaceImp();
             dao.UpdateInstrument(GetInstrumentInformation());
+            AutoClosingMessageBox.Show("仪器信息修改成功", "仪器信息修改", 1000);
             fr.dgv_instrumentinformation.Rows.RemoveAt(index);
             index = fr.dgv_instrumentinformation.Rows.Add();
             this.AddOneEmployeeToTheDataGridView();
-
+            Close();
         }
     }
 

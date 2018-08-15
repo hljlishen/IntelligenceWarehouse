@@ -122,7 +122,7 @@ namespace cangku_01.view.EmployeesManagement
             }
             em.Name = tb_foundname.Text;
             em.Sex = cb_foundsex.Text;
-            if (em.EmployeeNumber == 0 && em.Name.Equals("") && em.Sex.Equals("不详"))
+            if (em.EmployeeNumber == 0 && em.Name.Equals("") && em.Sex.Equals("男/女"))
             {
                 this.ShowDataGridView(dao.TreeQueryEmployee(level, nodeid));
                 return;

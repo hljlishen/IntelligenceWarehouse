@@ -70,10 +70,9 @@ namespace cangku_01.interfaceImp
         }
 
         //编号查询员工
-        public DataTable EmployeeNumberQueryEmployee(int employeesnumber)
+        public DataTable EmployeeNumberQueryEmployee(Employee em)
         {
-            Employee e = new Employee();
-            string sql = e.EmployeeNumberFindEmployeeSql();
+            string sql = em.EmployeeNumberFindEmployeeSql();
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
         }

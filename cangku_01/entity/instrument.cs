@@ -64,7 +64,7 @@ namespace cangku_01.entity
             string sql = "update t_instrument set in_name='" + Name + "',in_model='"
                 + Model + "',in_manufactor='" + Manufactor + "',in_serialnumber='" + SerialNumber + "',in_productiondate='" 
                 + ProductionDate + "',in_position='" + Position + "',in_isinwarehouse='" + IsInWareHouse + "',in_checkcycle='"
-                + CheckCycle + "',in_lastchecktimes='" + LastCheckTimes + "',in_duty='" + Duty + "'";
+                + CheckCycle + "',in_lastchecktimes='" + LastCheckTimes + "',in_duty='" + Duty + "' where in_tagid = '" + TagId + "'";
             return sql;
         }
 

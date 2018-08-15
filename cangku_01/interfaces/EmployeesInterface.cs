@@ -32,7 +32,7 @@ namespace cangku_01.interfaces
         DataTable TreeQueryEmployee(int level, int nodeid);
 
         //编号查询员工
-        DataTable EmployeeNumberQueryEmployee(int employeesnumber);
+        DataTable EmployeeNumberQueryEmployee(Employee em);
 
         //在组中搜素员工
         DataTable QueryInTheGroupEmployee(Employee em, int level, int nodeid);
