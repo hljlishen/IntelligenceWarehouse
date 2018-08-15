@@ -126,11 +126,11 @@
     <Compile Include="view\AdminPage\AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\InstrumentManagement\AddInstrument.cs">
+    <Compile Include="view\InstrumentManagement\AddOrAlterInstrument.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\InstrumentManagement\AddInstrument.designer.cs">
-      <DependentUpon>AddInstrument.cs</DependentUpon>
+    <Compile Include="view\InstrumentManagement\AddOrAlterInstrument.designer.cs">
+      <DependentUpon>AddOrAlterInstrument.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\Instrument.cs" />
     <Compile Include="interfaceImp\InstrumentInterfaceImp.cs" />
@@ -189,8 +189,8 @@
     <EmbeddedResource Include="view\AdminPage\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\InstrumentManagement\AddInstrument.resx">
-      <DependentUpon>AddInstrument.cs</DependentUpon>
+    <EmbeddedResource Include="view\InstrumentManagement\AddOrAlterInstrument.resx">
+      <DependentUpon>AddOrAlterInstrument.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\DeviceAccessRecord\Ins_query.resx">
       <DependentUpon>Ins_query.cs</DependentUpon>

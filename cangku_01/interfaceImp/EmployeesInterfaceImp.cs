@@ -16,13 +16,13 @@ namespace cangku_01.interfaceImp
 {
     class EmployeesInterfaceImp : EmployeesInterface
     {
-        DataMysql dbo = DataMysql.GetDataMysql();
+        DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //查询全部的员工
         public DataTable QueryAllEmployee()
         {
             Employee e = new Employee();
-            string sql = e.FindAllEmployeeSql();
+            string sql = e.QueryAllEmployeeSql();
             DataTable dt = dbo.ReadDBDataTable(sql);       
             return dt;
         }
@@ -31,34 +31,33 @@ namespace cangku_01.interfaceImp
         public int EmployeesRechecking(int employeenumber)
         {
             Employee e = new Employee();
-            string sql = e.EmployeeNumberFindEmployeeSql(employeenumber);
-            int i = dbo.FirstValue(sql);
+            e.EmployeeNumber = employeenumber;
+            string sql = e.EmployeeNumberFindEmployeeSql();
+            int i = dbo.GetFirstDataId(sql);
             return i;
         }
 
         //添加员工
-        public int AddEmployee(Employee em)
+        public void AddEmployee(Employee em)
         {
             string sql = em.AddEmployeeSql();
-            int i = dbo.WriteDB(sql);
-            return i;
+            dbo.WriteDB(sql);
         }
 
         //删除员工
-        public int DeleteEmployee(int employeenumber)
+        public void DeleteEmployee(int employeenumber)
         {
             Employee e = new Employee();
-            string sql = e.EmployeeNumberDeleteEmployeeSql(employeenumber);
-            int i = dbo.WriteDB(sql);
-            return i;
+            e.EmployeeNumber = employeenumber;
+            string sql = e.EmployeeNumberDeleteEmployeeSql();
+            dbo.WriteDB(sql);
         }
 
         //更新员工
-        public int UpdateEmployee(Employee em)
+        public void UpdateEmployee(Employee em)
         {
             string sql = em.UpdateEmployeeSql();
-            int i = dbo.WriteDB(sql);
-            return i;
+            dbo.WriteDB(sql);
         }
 
         //树状图查询员工
@@ -74,7 +73,7 @@ namespace cangku_01.interfaceImp
         public DataTable EmployeeNumberQueryEmployee(int employeesnumber)
         {
             Employee e = new Employee();
-            string sql = e.EmployeeNumberFindEmployeeSql(employeesnumber);
+            string sql = e.EmployeeNumberFindEmployeeSql();
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
         }

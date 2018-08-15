@@ -37,7 +37,7 @@
             this.Rb_sexwoman = new System.Windows.Forms.RadioButton();
             this.Tb_name = new System.Windows.Forms.TextBox();
             this.Tb_employeesid = new System.Windows.Forms.TextBox();
-            this.Bt_add = new System.Windows.Forms.Button();
+            this.Bt_addemployee = new System.Windows.Forms.Button();
             this.Gb_sex = new System.Windows.Forms.GroupBox();
             this.la_companyname = new System.Windows.Forms.Label();
             this.la_departmentname = new System.Windows.Forms.Label();
@@ -45,7 +45,7 @@
             this.la_company = new System.Windows.Forms.Label();
             this.la_department = new System.Windows.Forms.Label();
             this.la_group = new System.Windows.Forms.Label();
-            this.bt_alter = new System.Windows.Forms.Button();
+            this.bt_alteremployee = new System.Windows.Forms.Button();
             this.tv_departmentshow = new System.Windows.Forms.TreeView();
             this.Gb_sex.SuspendLayout();
             this.SuspendLayout();
@@ -130,16 +130,16 @@
             this.Tb_employeesid.Size = new System.Drawing.Size(134, 26);
             this.Tb_employeesid.TabIndex = 11;
             // 
-            // Bt_add
+            // Bt_addemployee
             // 
-            this.Bt_add.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Bt_add.Location = new System.Drawing.Point(271, 510);
-            this.Bt_add.Name = "Bt_add";
-            this.Bt_add.Size = new System.Drawing.Size(81, 29);
-            this.Bt_add.TabIndex = 12;
-            this.Bt_add.Text = "添加";
-            this.Bt_add.UseVisualStyleBackColor = true;
-            this.Bt_add.Click += new System.EventHandler(this.Bt_add_Click);
+            this.Bt_addemployee.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.Bt_addemployee.Location = new System.Drawing.Point(271, 510);
+            this.Bt_addemployee.Name = "Bt_addemployee";
+            this.Bt_addemployee.Size = new System.Drawing.Size(80, 30);
+            this.Bt_addemployee.TabIndex = 12;
+            this.Bt_addemployee.Text = "添加";
+            this.Bt_addemployee.UseVisualStyleBackColor = true;
+            this.Bt_addemployee.Click += new System.EventHandler(this.Bt_addemployee_Click);
             // 
             // Gb_sex
             // 
@@ -211,16 +211,16 @@
             this.la_group.TabIndex = 19;
             this.la_group.Text = "员工小组";
             // 
-            // bt_alter
+            // bt_alteremployee
             // 
-            this.bt_alter.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_alter.Location = new System.Drawing.Point(271, 510);
-            this.bt_alter.Name = "bt_alter";
-            this.bt_alter.Size = new System.Drawing.Size(81, 29);
-            this.bt_alter.TabIndex = 21;
-            this.bt_alter.Text = "修改";
-            this.bt_alter.UseVisualStyleBackColor = true;
-            this.bt_alter.Click += new System.EventHandler(this.bt_alter_Click);
+            this.bt_alteremployee.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_alteremployee.Location = new System.Drawing.Point(271, 510);
+            this.bt_alteremployee.Name = "bt_alteremployee";
+            this.bt_alteremployee.Size = new System.Drawing.Size(80, 30);
+            this.bt_alteremployee.TabIndex = 21;
+            this.bt_alteremployee.Text = "修改";
+            this.bt_alteremployee.UseVisualStyleBackColor = true;
+            this.bt_alteremployee.Click += new System.EventHandler(this.bt_alteremployee_Click);
             // 
             // tv_departmentshow
             // 
@@ -237,7 +237,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 569);
             this.Controls.Add(this.tv_departmentshow);
-            this.Controls.Add(this.bt_alter);
+            this.Controls.Add(this.bt_alteremployee);
             this.Controls.Add(this.la_group);
             this.Controls.Add(this.la_department);
             this.Controls.Add(this.la_company);
@@ -245,7 +245,7 @@
             this.Controls.Add(this.la_departmentname);
             this.Controls.Add(this.la_companyname);
             this.Controls.Add(this.Gb_sex);
-            this.Controls.Add(this.Bt_add);
+            this.Controls.Add(this.Bt_addemployee);
             this.Controls.Add(this.Tb_employeesid);
             this.Controls.Add(this.Tb_name);
             this.Controls.Add(this.la_employeessex);
@@ -273,7 +273,7 @@
         private System.Windows.Forms.RadioButton Rb_sexwoman;
         private System.Windows.Forms.TextBox Tb_name;
         private System.Windows.Forms.TextBox Tb_employeesid;
-        private System.Windows.Forms.Button Bt_add;
+        private System.Windows.Forms.Button Bt_addemployee;
         private System.Windows.Forms.GroupBox Gb_sex;
         private System.Windows.Forms.Label la_companyname;
         private System.Windows.Forms.Label la_departmentname;
@@ -281,7 +281,7 @@
         private System.Windows.Forms.Label la_company;
         private System.Windows.Forms.Label la_department;
         private System.Windows.Forms.Label la_group;
-        private System.Windows.Forms.Button bt_alter;
+        private System.Windows.Forms.Button bt_alteremployee;
         private System.Windows.Forms.TreeView tv_departmentshow;
     }
 }

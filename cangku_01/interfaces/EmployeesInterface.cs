@@ -20,13 +20,13 @@ namespace cangku_01.interfaces
         int EmployeesRechecking(int employeesid);
 
         //添加用户
-        int AddEmployee(Employee em);
+        void AddEmployee(Employee em);
 
         //删除员工信息
-        int DeleteEmployee(int employeesid);
+        void DeleteEmployee(int employeesid);
 
-        //添加用户
-        int UpdateEmployee(Employee em);
+        //修改用户
+        void UpdateEmployee(Employee em);
 
         //树状图查询员工
         DataTable TreeQueryEmployee(int level, int nodeid);

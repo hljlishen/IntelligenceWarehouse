@@ -20,7 +20,7 @@ namespace cangku_01.entity
         public int Group { get; set; }               //组名 
 
         //查询全部员工sql
-        public string FindAllEmployeeSql()
+        public string QueryAllEmployeeSql()
         {
             string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
                         "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id";
@@ -28,9 +28,9 @@ namespace cangku_01.entity
         }
 
         //员工编号查询员工sql
-        public string EmployeeNumberFindEmployeeSql(int employeenumber)
+        public string EmployeeNumberFindEmployeeSql()
         {
-            string sql = "select * from t_employee where em_employeenumber = " + employeenumber + "";
+            string sql = "select * from t_employee where em_employeenumber = " + EmployeeNumber + "";
             return sql;
         }
 
@@ -43,9 +43,9 @@ namespace cangku_01.entity
         }
  
         //删除员工sql
-        public string EmployeeNumberDeleteEmployeeSql(int employeenumber)
+        public string EmployeeNumberDeleteEmployeeSql()
         {
-            string sql = "delete from t_employee where em_employeenumber = " + employeenumber + "";
+            string sql = "delete from t_employee where em_employeenumber = " + EmployeeNumber + "";
             return sql;
         }
 
@@ -60,26 +60,22 @@ namespace cangku_01.entity
 
         //树状图查询员工sql
         public string TreeFindEmployeeSql(int level, int nodeid)
-        {  
+        {
+            string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
+                       "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id ";
             if (level == 0) //选中到公司
             {
-                string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
-                       "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
-                       "where em_company = " + nodeid + "";
+                sql += $" where em_company ={nodeid}";
                 return sql;
             }
             if (level == 1) //选中到部门
             {
-                string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
-                       "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
-                       "where em_department = " + nodeid + "";
+                sql += $" where em_department ={nodeid}";
                 return sql;
             }
             else  //选中到小组
             {
-                string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
-                      "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
-                      "where em_group = " + nodeid + "";
+                sql += $" where em_group ={nodeid}";
                 return sql;
             }
         }
@@ -101,21 +97,29 @@ namespace cangku_01.entity
             {
                 sql += $" and em_name='{Name}'";
             }
-            if (!Sex.Equals("不详") && EmployeeNumber != 0 )
+            if (!Sex.Equals("男/女") && EmployeeNumber != 0 )
             {
                 sql += $" and em_sex='{Sex}'";
             }
-            if (!Sex.Equals("不详") && !Name.Equals(""))
+            if (!Sex.Equals("男/女") && !Name.Equals(""))
             {
                 sql += $" and em_sex='{Sex}'";
             }
-            if (!Sex.Equals("不详") && EmployeeNumber == 0 && Name.Equals(""))
+            if (!Sex.Equals("男/女") && EmployeeNumber == 0 && Name.Equals(""))
             {
                 sql += $" em_sex='{Sex}'";
             }
-            if (nondeid != 0)
+            if (nondeid != 0 && level == 0)
             {
                 sql += $" and B.de_id={nondeid}";
+            }
+            if (nondeid != 0 && level == 1)
+            {
+                sql += $" and C.de_id={nondeid}";
+            }
+            if (nondeid != 0 && level == 2)
+            {
+                sql += $" and D.de_id={nondeid}";
             }
             return sql;
         }

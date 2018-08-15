@@ -19,25 +19,25 @@ namespace cangku_01.view.EmployeesManagement
     {
         EmployeesInterface dao = new EmployeesInterfaceImp();
         Employee em = new Employee();
-        private cangku_01.EmployeesManagement fr;
+        private EmployeesManagement fr;
         private string companytext;
         private string departmenttext;
         private string grouptext;
         private int index;
 
         //无参构造方法为添加状态
-        public AddOrAlterEmployees(cangku_01.EmployeesManagement fr)
+        public AddOrAlterEmployees(EmployeesManagement fr)
         {
             InitializeComponent();
-            bt_alter.Visible = false;
+            bt_alteremployee.Visible = false;
             this.fr = fr;
         }
 
         //重写有参构造方法为修改状态
-        public AddOrAlterEmployees(cangku_01.EmployeesManagement fr , Employee em, string company, string department, string group ,int index)
+        public AddOrAlterEmployees(EmployeesManagement fr , Employee em, string company, string department, string group ,int index)
         {
             InitializeComponent();
-            Bt_add.Visible = false;
+            Bt_addemployee.Visible = false;
             this.fr = fr;
             this.index = index;
             this.Tb_employeesid.ReadOnly = true;
@@ -66,8 +66,8 @@ namespace cangku_01.view.EmployeesManagement
             tv_departmentshow.ExpandAll();
         }
 
-        //添加员工
-        private void Bt_add_Click(object sender, EventArgs e)
+        //员工信息添加
+        private void Bt_addemployee_Click(object sender, EventArgs e)
         {
             if (Tb_employeesid.Text == "" || Tb_name.Text == "" )
             {
@@ -86,18 +86,12 @@ namespace cangku_01.view.EmployeesManagement
             companytext = la_company.Text;
             departmenttext = la_department.Text;
             grouptext = la_group.Text;
-            int i= dao.AddEmployee(em);
-            if (i == 1)
-            {
-                MessageBox.Show("添加员工完成！");
-                index = fr.dgv_employeeinformation.Rows.Add();
-                this.AddOneEmployeeToTheDataGridView();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("添加员工失败！");
-            }    
+            dao.AddEmployee(em);
+            MessageBox.Show("添加员工完成！");
+            index = fr.dgv_employeeinformation.Rows.Add();
+            this.AddOneEmployeeToTheDataGridView();
+            Close();
+ 
         }
 
         //给DataGridView添加一行数据
@@ -111,8 +105,8 @@ namespace cangku_01.view.EmployeesManagement
             fr.dgv_employeeinformation.Rows[index].Cells[5].Value = grouptext;
         }
 
-        //修改员工
-        private void bt_alter_Click(object sender, EventArgs e)
+        //员工信息修改
+        private void bt_alteremployee_Click(object sender, EventArgs e)
         {
             if (Tb_employeesid.Text == "" || Tb_name.Text == "")
             {
@@ -134,20 +128,12 @@ namespace cangku_01.view.EmployeesManagement
             companytext = la_company.Text;
             departmenttext = la_department.Text;
             grouptext = la_group.Text;
-            int i = dao.UpdateEmployee(em);
-            if (i == 1)
-            {
-                MessageBox.Show("修改员工完成！");
-                fr.dgv_employeeinformation.Rows.RemoveAt(index);
-                index = fr.dgv_employeeinformation.Rows.Add();
-                this.AddOneEmployeeToTheDataGridView();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("修改员工失败！");
-            }
-
+            dao.UpdateEmployee(em);
+            MessageBox.Show("修改员工完成！");
+            fr.dgv_employeeinformation.Rows.RemoveAt(index);
+            index = fr.dgv_employeeinformation.Rows.Add();
+            this.AddOneEmployeeToTheDataGridView();
+            Close(); 
         }
 
         //选择员工的公司、部门、小组信息

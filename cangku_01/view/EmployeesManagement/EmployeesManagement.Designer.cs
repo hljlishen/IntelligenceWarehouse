@@ -1,4 +1,4 @@
-﻿namespace cangku_01
+﻿namespace cangku_01.view.EmployeesManagement
 {
     partial class EmployeesManagement
     {

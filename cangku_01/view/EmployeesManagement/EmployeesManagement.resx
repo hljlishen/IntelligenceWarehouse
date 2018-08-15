@@ -463,7 +463,7 @@
     <value>NoControl</value>
   </data>
   <data name="cb_foundsex.Items" xml:space="preserve">
-    <value>不详</value>
+    <value>男/女</value>
   </data>
   <data name="cb_foundsex.Items1" xml:space="preserve">
     <value>男</value>

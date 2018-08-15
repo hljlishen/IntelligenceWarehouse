@@ -31,7 +31,7 @@ namespace cangku_01.interfaceImp
             Instrument remind6 = new Instrument();
 
             remind.Id = 1;
-            remind.TagId = 001;
+            remind.TagId = "001";
             remind.Name = "电子标签卡";
             remind.Manufactor = "红叶";
             remind.LastCheckTimes = DateTime.Parse("2018-2-12"); ;
@@ -39,7 +39,7 @@ namespace cangku_01.interfaceImp
             Remind_list.Add(remind);
 
             remind.Id = 2;
-            remind2.TagId = 002;
+            remind2.TagId = "002";
             remind2.Name = "UFH读写器";
             remind2.Manufactor = "润之科技";
             remind2.LastCheckTimes = DateTime.Parse("2018-5-12"); ;
@@ -47,7 +47,7 @@ namespace cangku_01.interfaceImp
             Remind_list.Add(remind2);
 
             remind.Id = 3;
-            remind3.TagId = 003;
+            remind3.TagId = "003";
             remind3.Name = "电子门禁";
             remind3.Manufactor = "智能酷睿";
             remind3.LastCheckTimes = DateTime.Parse("2018-7-12"); ;
@@ -55,7 +55,7 @@ namespace cangku_01.interfaceImp
             Remind_list.Add(remind3);
 
             remind.Id = 4;
-            remind4.TagId = 004;
+            remind4.TagId = "004";
             remind4.Name = "智能电视";
             remind4.Manufactor = "KT家具";
             remind4.LastCheckTimes = DateTime.Parse("2018-6-12"); ;
@@ -63,7 +63,7 @@ namespace cangku_01.interfaceImp
             Remind_list.Add(remind4);
 
             remind.Id = 5;
-            remind5.TagId = 005;
+            remind5.TagId = "005";
             remind5.Name = "宏基笔记本";
             remind5.Manufactor = "acer";
             remind5.LastCheckTimes = DateTime.Parse("2018-5-18"); ;
@@ -71,7 +71,7 @@ namespace cangku_01.interfaceImp
             Remind_list.Add(remind5);
 
             remind.Id = 6;
-            remind6.TagId = 006;
+            remind6.TagId = "006";
             remind6.Name = "智能水杯";
             remind6.Manufactor = "流浪者科技";
             remind6.LastCheckTimes = DateTime.Parse("2018-7-1"); ;

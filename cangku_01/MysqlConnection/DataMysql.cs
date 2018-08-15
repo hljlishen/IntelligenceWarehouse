@@ -12,17 +12,23 @@ using MySql.Data.MySqlClient;
 
 namespace cangku_01.MysqlConnection
 {
-    public class DataMysql
+    public class DataMysql:IDisposable
     {
-        private static string connstr = "Server=localhost;user id=root;password=mysql;database=cangku_01;SslMode=none;charset=utf8";
+        public static string mysqldefaultconnection = "Server=localhost;user id=root;password=mysql;database=cangku_01;SslMode=none;charset=utf8";
+        MySqlConnection connection;
 
-        private DataMysql() { }
+        private DataMysql(string databasedefaultconnection)
+        {
+            connection = new MySqlConnection(databasedefaultconnection);
+            connection.Open();
+        }
 
         private static DataMysql dbo = null;
 
         private static readonly object obj = new object();
 
-        public static DataMysql GetDataMysql()
+        //判断是否实例
+        public static DataMysql GetDataMysqlGreateInstance(string databasedefaultconnection)
         {
             if (dbo == null)
             {
@@ -30,43 +36,32 @@ namespace cangku_01.MysqlConnection
                 {
                     if (dbo == null)
                     {
-                        dbo = new DataMysql();
+                        dbo = new DataMysql(databasedefaultconnection);
                     }
                  }
             }
             return dbo;
         }
+
         //对数据库进行写入操作
-        public int WriteDB(string sql)
+        public void WriteDB(string sql)
         {
             int ret;
-            MySqlConnection connection = new MySqlConnection(connstr);
-            MySqlCommand cmd = connection.CreateCommand();
-            try
+            MySqlCommand cmd = dbo.connection.CreateCommand();
+            cmd.CommandText = sql;
+            ret = cmd.ExecuteNonQuery();
+            if(ret == 0)
             {
-                connection.Open();
-                cmd.CommandText = sql;
-                ret = cmd.ExecuteNonQuery();
+                throw new Exception($"插入失败，执行的语句是{sql}");
             }
-            catch (System.Data.SqlClient.SqlException e)
-            {
-                throw new Exception(e.Message);
-            }
-            finally
-            {
-                connection.Close();
-            }
-            return ret;  
         }
 
         //对数据库进行读取操作
         public DataSet ReadDB(string sql)
         {
             DataSet ds = new DataSet();
-            MySqlConnection connection = new MySqlConnection(connstr);
             try
             {
-                connection.Open();
                 MySqlDataAdapter ad = new MySqlDataAdapter(sql,connection);
                 ad.Fill(ds);
                 
@@ -75,32 +70,22 @@ namespace cangku_01.MysqlConnection
             {
                 throw new Exception(e.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
             return ds;
         }
 
         //返回表的第一行第一列的id
-        public int FirstValue(string sql)
+        public int GetFirstDataId(string sql)
         {
-            int Id = 0;
-            MySqlConnection connection = new MySqlConnection(connstr);
-            MySqlCommand cmd = connection.CreateCommand();
+            int Id = 0;   
             try
             {
-                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = sql;
                 Id = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (System.Data.SqlClient.SqlException e)
             {
                 throw new Exception(e.Message);
-            }
-            finally
-            {
-                connection.Close();
             }
             return Id;
         }
@@ -109,11 +94,9 @@ namespace cangku_01.MysqlConnection
         public DataTable ReadDBDataTable(string sql)
         {
             DataTable dt = new DataTable();
-            MySqlConnection connection = new MySqlConnection(connstr);
-            MySqlCommand cmd = connection.CreateCommand();
             try
             {
-                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
                 MySqlDataAdapter ad = new MySqlDataAdapter(sql, connection);
                 ad.Fill(dt);
             }
@@ -121,11 +104,14 @@ namespace cangku_01.MysqlConnection
             {
                 throw new Exception(e.Message);
             }
-            finally
-            {
-                connection.Close();
-            }
             return dt;
+        }
+
+        //释放数据库连接
+        public void Dispose()
+        {
+            connection.Close();
+            connection.Dispose();
         }
     }
 }

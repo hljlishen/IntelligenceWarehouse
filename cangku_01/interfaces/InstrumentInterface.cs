@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,17 +12,13 @@ namespace cangku_01.interfaces
 {
     interface InstrumentInterface
     {
-        //查询所有数据
-        List<Instrument> All_instrument();
-        //添加
-        int Add_instrument(List<Instrument> instrument);
-        //删除
-        int Delete_instrument(int id);
+        //获取全部仪器信息
+        DataTable QueryAllInstrument();
+        //仪器信息添加
+        void AddInstrument(Instrument ins);
+        //仪器信息删除
+        void DeleteInstrument(Instrument ins);
         //修改
-        int Alter_instrument(Instrument instrument);
-        //根据id查找，显示仪器信息
-        List<Instrument> findInstrumentById(int id);
-        //根据name查找，显示仪器信息
-        List<Instrument> findInstrumentByName(string name);
+        void UpdateInstrument(Instrument ins);
     }
 }

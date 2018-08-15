@@ -18,7 +18,7 @@ using cangku_01.MysqlConnection;
 
 //员工信息管理页面
 
-namespace cangku_01
+namespace cangku_01.view.EmployeesManagement
 {
     public partial class EmployeesManagement : Form
     {
@@ -39,7 +39,7 @@ namespace cangku_01
             this.ShowTreeView();  //加载部门树状图
             DataTable dt = dao.QueryAllEmployee();//将全部员工加载
             this.ShowDataGridView(dt);
-            this.cb_foundsex.Text = "不详";
+            this.cb_foundsex.Text = "男/女";
         }
 
         //TreeView显示数据
@@ -77,14 +77,10 @@ namespace cangku_01
                 {  
                     string currentIndex = dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString();
                     int usernumber = int.Parse(currentIndex);
-                    int i = dao.DeleteEmployee(usernumber);
-                    if(i==1)
-                    { 
-                        MessageBox.Show("删除成功！");
-                        this.dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
-                    }
-                    else
-                        MessageBox.Show("删除失败！");
+                    dao.DeleteEmployee(usernumber);
+                    MessageBox.Show("删除成功！");
+                    this.dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
+
                 }
             }
 
@@ -148,7 +144,7 @@ namespace cangku_01
             }  
             em.Name = tb_foundname.Text;
             em.Sex = cb_foundsex.Text;
-            if (em.EmployeeNumber == 0 && em.Name.Equals("") && em.Sex.Equals("不详"))
+            if (em.EmployeeNumber == 0 && em.Name.Equals("") && em.Sex.Equals("男/女"))
             {
                 this.ShowDataGridView(dao.QueryAllEmployee());
                 return;
@@ -213,14 +209,9 @@ namespace cangku_01
             if (cf.DialogResult == DialogResult.OK)
             {
                 Department c = (Department)tv_department.SelectedNode.Tag;
-                int i = c.deleteSelf(c.id);
-                if (i == 1)
-                {
-                    MessageBox.Show("删除成功！");
-                    tv_department.SelectedNode.Remove();//从TV移除
-                }
-                else
-                    MessageBox.Show("删除失败！"); 
+                c.deleteSelf();
+                MessageBox.Show("删除成功！");
+                tv_department.SelectedNode.Remove();//从TV移除
             }
         }
 

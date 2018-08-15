@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.MH;
-using cangku_01;
 using cangku_01.YT;
+using cangku_01.view.EmployeesManagement;
+using cangku_01.view.InstrumentManagement;
 
+//管理员主页面
 
 namespace cangku_01
 {
@@ -19,7 +14,7 @@ namespace cangku_01
         Form index_employees = new EmployeesManagement();
         Form Due_to_remind = new Due_to_remind();
         Form Ins_query = new Ins_query();
-        Form index_instrument = new index_instrument();
+        Form index_instrument = new InstrumentManagement();
         public Administration()
         {
             InitializeComponent();
