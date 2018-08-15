@@ -78,6 +78,7 @@ namespace cangku_01
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -105,7 +106,6 @@ namespace cangku_01
             this.label1.Size = new System.Drawing.Size(67, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -129,7 +129,6 @@ namespace cangku_01
             this.menuStrip1.Size = new System.Drawing.Size(1424, 28);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // toolStripMenuItem1
             // 
@@ -198,7 +197,6 @@ namespace cangku_01
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "人员信息";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // Tb_temp
             // 
@@ -294,7 +292,6 @@ namespace cangku_01
             this.pictureBox4.Size = new System.Drawing.Size(123, 140);
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Tb_ShowTime
             // 
@@ -302,7 +299,7 @@ namespace cangku_01
             this.Tb_ShowTime.Location = new System.Drawing.Point(375, 195);
             this.Tb_ShowTime.Name = "Tb_ShowTime";
             this.Tb_ShowTime.ReadOnly = true;
-            this.Tb_ShowTime.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowTime.Size = new System.Drawing.Size(211, 19);
             this.Tb_ShowTime.TabIndex = 7;
             // 
             // label12
@@ -320,7 +317,7 @@ namespace cangku_01
             this.Tb_ShowState.Location = new System.Drawing.Point(375, 151);
             this.Tb_ShowState.Name = "Tb_ShowState";
             this.Tb_ShowState.ReadOnly = true;
-            this.Tb_ShowState.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowState.Size = new System.Drawing.Size(211, 19);
             this.Tb_ShowState.TabIndex = 5;
             // 
             // Tb_ShowName
@@ -329,7 +326,7 @@ namespace cangku_01
             this.Tb_ShowName.Location = new System.Drawing.Point(375, 106);
             this.Tb_ShowName.Name = "Tb_ShowName";
             this.Tb_ShowName.ReadOnly = true;
-            this.Tb_ShowName.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowName.Size = new System.Drawing.Size(211, 19);
             this.Tb_ShowName.TabIndex = 4;
             // 
             // Tb_ShowId
@@ -338,8 +335,9 @@ namespace cangku_01
             this.Tb_ShowId.Location = new System.Drawing.Point(375, 57);
             this.Tb_ShowId.Name = "Tb_ShowId";
             this.Tb_ShowId.ReadOnly = true;
-            this.Tb_ShowId.Size = new System.Drawing.Size(146, 19);
+            this.Tb_ShowId.Size = new System.Drawing.Size(211, 19);
             this.Tb_ShowId.TabIndex = 3;
+            this.Tb_ShowId.TextChanged += new System.EventHandler(this.Tb_ShowId_TextChanged);
             // 
             // label11
             // 
@@ -393,7 +391,6 @@ namespace cangku_01
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "物品到期提醒";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // Dgv_DueToSee
             // 
@@ -413,7 +410,6 @@ namespace cangku_01
             this.Dgv_DueToSee.RowTemplate.Height = 23;
             this.Dgv_DueToSee.Size = new System.Drawing.Size(353, 383);
             this.Dgv_DueToSee.TabIndex = 0;
-            this.Dgv_DueToSee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // DueName
             // 
@@ -480,7 +476,6 @@ namespace cangku_01
             this.Hum_num.Size = new System.Drawing.Size(36, 26);
             this.Hum_num.TabIndex = 5;
             this.Hum_num.Text = "60";
-            this.Hum_num.Click += new System.EventHandler(this.Hum_num_Click);
             // 
             // Tem_num
             // 
@@ -491,7 +486,6 @@ namespace cangku_01
             this.Tem_num.Size = new System.Drawing.Size(36, 26);
             this.Tem_num.TabIndex = 4;
             this.Tem_num.Text = "15";
-            this.Tem_num.Click += new System.EventHandler(this.Tem_num_Click);
             // 
             // label13
             // 
@@ -546,6 +540,10 @@ namespace cangku_01
             this.pictureBox3.Size = new System.Drawing.Size(15, 15);
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // Form1
             // 
@@ -605,13 +603,9 @@ namespace cangku_01
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private TextBox Tb_ShowState;
-        private TextBox Tb_ShowName;
-        private TextBox Tb_ShowId;
         private Label label11;
         private Label label10;
         private Label label9;
-        private TextBox Tb_ShowTime;
         private Label label12;
         private ToolStripMenuItem toolStripMenuItem1;
         private ToolStripMenuItem toolStripMenuItem3;
@@ -636,6 +630,11 @@ namespace cangku_01
         private DataGridViewTextBoxColumn DueTime;
         private DataGridViewTextBoxColumn DaysRemaining;
         private ToolStripMenuItem 归还ToolStripMenuItem;
+        public TextBox Tb_ShowState;
+        public TextBox Tb_ShowName;
+        public TextBox Tb_ShowId;
+        public TextBox Tb_ShowTime;
+        private Timer timer2;
     }
 }
 

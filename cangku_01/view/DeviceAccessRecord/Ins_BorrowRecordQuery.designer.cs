@@ -69,7 +69,7 @@
             // 
             this.la_BorrowQuery.AutoSize = true;
             this.la_BorrowQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_BorrowQuery.Location = new System.Drawing.Point(144, 51);
+            this.la_BorrowQuery.Location = new System.Drawing.Point(270, 48);
             this.la_BorrowQuery.Name = "la_BorrowQuery";
             this.la_BorrowQuery.Size = new System.Drawing.Size(91, 14);
             this.la_BorrowQuery.TabIndex = 1;
@@ -78,7 +78,7 @@
             // tb_borrow
             // 
             this.tb_borrow.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_borrow.Location = new System.Drawing.Point(241, 47);
+            this.tb_borrow.Location = new System.Drawing.Point(367, 45);
             this.tb_borrow.Name = "tb_borrow";
             this.tb_borrow.Size = new System.Drawing.Size(124, 21);
             this.tb_borrow.TabIndex = 2;
@@ -87,7 +87,7 @@
             // 
             this.La_TimeQuery.AutoSize = true;
             this.La_TimeQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_TimeQuery.Location = new System.Drawing.Point(750, 51);
+            this.La_TimeQuery.Location = new System.Drawing.Point(927, 44);
             this.La_TimeQuery.Name = "La_TimeQuery";
             this.La_TimeQuery.Size = new System.Drawing.Size(77, 14);
             this.La_TimeQuery.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // btn_query
             // 
-            this.btn_query.Location = new System.Drawing.Point(1078, 92);
+            this.btn_query.Location = new System.Drawing.Point(1251, 90);
             this.btn_query.Name = "btn_query";
             this.btn_query.Size = new System.Drawing.Size(75, 23);
             this.btn_query.TabIndex = 6;
@@ -106,7 +106,7 @@
             // dtp_begin
             // 
             this.dtp_begin.Enabled = false;
-            this.dtp_begin.Location = new System.Drawing.Point(833, 48);
+            this.dtp_begin.Location = new System.Drawing.Point(1010, 41);
             this.dtp_begin.Name = "dtp_begin";
             this.dtp_begin.Size = new System.Drawing.Size(103, 21);
             this.dtp_begin.TabIndex = 7;
@@ -115,7 +115,7 @@
             // 
             this.la_to.AutoSize = true;
             this.la_to.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_to.Location = new System.Drawing.Point(942, 52);
+            this.la_to.Location = new System.Drawing.Point(1119, 44);
             this.la_to.Name = "la_to";
             this.la_to.Size = new System.Drawing.Size(21, 14);
             this.la_to.TabIndex = 8;
@@ -124,7 +124,7 @@
             // dtp_end
             // 
             this.dtp_end.Enabled = false;
-            this.dtp_end.Location = new System.Drawing.Point(969, 48);
+            this.dtp_end.Location = new System.Drawing.Point(1146, 41);
             this.dtp_end.Name = "dtp_end";
             this.dtp_end.Size = new System.Drawing.Size(103, 21);
             this.dtp_end.TabIndex = 9;
@@ -133,7 +133,7 @@
             // 
             this.la_ModelQuery.AutoSize = true;
             this.la_ModelQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_ModelQuery.Location = new System.Drawing.Point(467, 48);
+            this.la_ModelQuery.Location = new System.Drawing.Point(596, 45);
             this.la_ModelQuery.Name = "la_ModelQuery";
             this.la_ModelQuery.Size = new System.Drawing.Size(77, 14);
             this.la_ModelQuery.TabIndex = 11;
@@ -142,7 +142,7 @@
             // tb_model
             // 
             this.tb_model.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_model.Location = new System.Drawing.Point(550, 44);
+            this.tb_model.Location = new System.Drawing.Point(679, 43);
             this.tb_model.Name = "tb_model";
             this.tb_model.Size = new System.Drawing.Size(124, 21);
             this.tb_model.TabIndex = 12;
@@ -150,6 +150,8 @@
             // dgv_InstrumentQuery
             // 
             this.dgv_InstrumentQuery.AllowUserToAddRows = false;
+            this.dgv_InstrumentQuery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_InstrumentQuery.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgv_InstrumentQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_InstrumentQuery.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.仪器标签ID,
@@ -165,7 +167,7 @@
             this.dgv_InstrumentQuery.Location = new System.Drawing.Point(12, 137);
             this.dgv_InstrumentQuery.Name = "dgv_InstrumentQuery";
             this.dgv_InstrumentQuery.RowTemplate.Height = 23;
-            this.dgv_InstrumentQuery.Size = new System.Drawing.Size(1400, 712);
+            this.dgv_InstrumentQuery.Size = new System.Drawing.Size(1378, 712);
             this.dgv_InstrumentQuery.TabIndex = 0;
             // 
             // 仪器标签ID
@@ -173,69 +175,59 @@
             this.仪器标签ID.HeaderText = "仪器标签ID";
             this.仪器标签ID.Name = "仪器标签ID";
             this.仪器标签ID.ReadOnly = true;
-            this.仪器标签ID.Width = 138;
             // 
             // 仪器名
             // 
             this.仪器名.HeaderText = "仪器名";
             this.仪器名.Name = "仪器名";
             this.仪器名.ReadOnly = true;
-            this.仪器名.Width = 138;
             // 
             // 存放位置
             // 
             this.存放位置.HeaderText = "存放位置";
             this.存放位置.Name = "存放位置";
             this.存放位置.ReadOnly = true;
-            this.存放位置.Width = 138;
             // 
             // 操作时间
             // 
             this.操作时间.HeaderText = "操作时间";
             this.操作时间.Name = "操作时间";
             this.操作时间.ReadOnly = true;
-            this.操作时间.Width = 138;
             // 
             // 仪器型号
             // 
             this.仪器型号.HeaderText = "仪器型号";
             this.仪器型号.Name = "仪器型号";
             this.仪器型号.ReadOnly = true;
-            this.仪器型号.Width = 138;
             // 
             // 借用人
             // 
             this.借用人.HeaderText = "借用人";
             this.借用人.Name = "借用人";
             this.借用人.ReadOnly = true;
-            this.借用人.Width = 138;
             // 
             // 责任人
             // 
             this.责任人.HeaderText = "责任人";
             this.责任人.Name = "责任人";
-            this.责任人.Width = 138;
             // 
             // 操作
             // 
             this.操作.HeaderText = "操作";
             this.操作.Name = "操作";
             this.操作.ReadOnly = true;
-            this.操作.Width = 138;
             // 
             // 生产厂商
             // 
             this.生产厂商.HeaderText = "生产厂商";
             this.生产厂商.Name = "生产厂商";
             this.生产厂商.ReadOnly = true;
-            this.生产厂商.Width = 138;
             // 
             // 生产日期
             // 
             this.生产日期.HeaderText = "生产日期";
             this.生产日期.Name = "生产日期";
             this.生产日期.ReadOnly = true;
-            this.生产日期.Width = 138;
             // 
             // tt_checkborrow
             // 
@@ -252,7 +244,7 @@
             // 
             this.la_DutyQuery.AutoSize = true;
             this.la_DutyQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_DutyQuery.Location = new System.Drawing.Point(144, 96);
+            this.la_DutyQuery.Location = new System.Drawing.Point(270, 92);
             this.la_DutyQuery.Name = "la_DutyQuery";
             this.la_DutyQuery.Size = new System.Drawing.Size(91, 14);
             this.la_DutyQuery.TabIndex = 13;
@@ -261,7 +253,7 @@
             // tb_duty
             // 
             this.tb_duty.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_duty.Location = new System.Drawing.Point(241, 92);
+            this.tb_duty.Location = new System.Drawing.Point(367, 85);
             this.tb_duty.Name = "tb_duty";
             this.tb_duty.Size = new System.Drawing.Size(124, 21);
             this.tb_duty.TabIndex = 14;
@@ -270,7 +262,7 @@
             // 
             this.la_ManufacturerQuery.AutoSize = true;
             this.la_ManufacturerQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_ManufacturerQuery.Location = new System.Drawing.Point(467, 96);
+            this.la_ManufacturerQuery.Location = new System.Drawing.Point(596, 90);
             this.la_ManufacturerQuery.Name = "la_ManufacturerQuery";
             this.la_ManufacturerQuery.Size = new System.Drawing.Size(77, 14);
             this.la_ManufacturerQuery.TabIndex = 15;
@@ -279,7 +271,7 @@
             // tb_manufacturer
             // 
             this.tb_manufacturer.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_manufacturer.Location = new System.Drawing.Point(550, 92);
+            this.tb_manufacturer.Location = new System.Drawing.Point(679, 85);
             this.tb_manufacturer.Name = "tb_manufacturer";
             this.tb_manufacturer.Size = new System.Drawing.Size(124, 21);
             this.tb_manufacturer.TabIndex = 16;
@@ -293,7 +285,7 @@
             "出入库",
             "出库",
             "入库"});
-            this.cb_query.Location = new System.Drawing.Point(12, 12);
+            this.cb_query.Location = new System.Drawing.Point(71, 48);
             this.cb_query.Name = "cb_query";
             this.cb_query.Size = new System.Drawing.Size(121, 20);
             this.cb_query.TabIndex = 17;
@@ -346,7 +338,7 @@
             // 
             this.la_TagQuery.AutoSize = true;
             this.la_TagQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_TagQuery.Location = new System.Drawing.Point(750, 95);
+            this.la_TagQuery.Location = new System.Drawing.Point(903, 92);
             this.la_TagQuery.Name = "la_TagQuery";
             this.la_TagQuery.Size = new System.Drawing.Size(77, 14);
             this.la_TagQuery.TabIndex = 18;
@@ -355,7 +347,7 @@
             // tb_tag
             // 
             this.tb_tag.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_tag.Location = new System.Drawing.Point(833, 92);
+            this.tb_tag.Location = new System.Drawing.Point(986, 85);
             this.tb_tag.Name = "tb_tag";
             this.tb_tag.Size = new System.Drawing.Size(124, 21);
             this.tb_tag.TabIndex = 19;
@@ -363,7 +355,7 @@
             // cb_choicetime
             // 
             this.cb_choicetime.AutoSize = true;
-            this.cb_choicetime.Location = new System.Drawing.Point(729, 51);
+            this.cb_choicetime.Location = new System.Drawing.Point(906, 44);
             this.cb_choicetime.Name = "cb_choicetime";
             this.cb_choicetime.Size = new System.Drawing.Size(15, 14);
             this.cb_choicetime.TabIndex = 21;

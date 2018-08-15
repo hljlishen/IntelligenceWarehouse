@@ -11,15 +11,16 @@ using cangku_01.SQQ;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.GateDrive;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
+
         public Form1()
         {
-            
             InitializeComponent();
             //添加皮肤
             this.skinEngine1.SkinFile = "Longhorn.ssk";    
@@ -27,6 +28,8 @@ namespace cangku_01
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
             SetStyle(ControlStyles.DoubleBuffer, true);
+            
+            
 
             //到期提醒-首页
             RemindInterface Remind_dao = new RemindInterfaceImp();
@@ -42,17 +45,41 @@ namespace cangku_01
             }
 
         }
-
+        GateInterface gate = new GateInterfaceImp();
         private void timer1_Tick(object sender, EventArgs e)
         {
            label1.Text= DateTime.Now.ToString();
+           gate.StartDetect(this);
         }
-
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            lock (this)
+            {
+                timer2.Stop();
+                if (Tb_ShowId.Text != string.Empty)
+                {
+                    Tb_ShowId.Text = "";
+                    Tb_ShowState.Text = "";
+                    Tb_ShowTime.Text = "";
+                }
+            }
+        }
+        private void Tb_ShowId_TextChanged(object sender, EventArgs e)
+        {
+            lock (this)
+            {
+                timer2.Stop();
+                timer2.Start();
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            this.timer1.Start(); 
+            this.timer1.Start();
+            timer2.Interval = 20000;//延时20000毫秒
+            timer2.Tick += new EventHandler(timer2_Tick);
+            gate.Open();
         }
 
         //跳转到登录界面
@@ -71,77 +98,32 @@ namespace cangku_01
                 Application.Exit();
             }
         }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
         //点击查询按钮
         private void button1_Click(object sender, EventArgs e)
         {
             //如果窗口已经存在就不能再次打开
-           
-            if (find_Items==null)
+
+            if (find_Items == null)
             {
                 find_Items = new Find_Items();
                 find_Items.Show();
-            }else if (find_Items.IsDisposed)
+            }
+            else if (find_Items.IsDisposed)
             {
                 find_Items = null;
             }
-            else if (find_Items != null) { 
+            else if (find_Items != null)
             {
                 DialogResult result = MessageBox.Show("查询窗口已经存在！！");
             }
-            }
-
-
+            
         }
-
-        private void toolStripMenuItem3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Tem_num_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Hum_num_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form login = new login();
             login.Show();
         }
+
+
     }
 }

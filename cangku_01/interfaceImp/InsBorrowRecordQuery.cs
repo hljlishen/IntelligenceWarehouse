@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 //仪器出入库接口实现
 namespace cangku_01.interfaceImp
 {
-    class QueryInstrumentImp : QueryInstrumen
+    class InsBorrowRecordQuery : InsBorrowRecordQueryInstrumen
     {
         //定义接收实体类数据的数组
         List<QueryInstrument> instrument_list = new List<QueryInstrument>();

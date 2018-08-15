@@ -18,7 +18,7 @@ namespace cangku_01.MH
     //仪器出入库查询页面
     public partial class Ins_query : Form
     {
-        QueryInstrumen dao = new QueryInstrumentImp();
+        InsBorrowRecordQueryInstrumen dao = new InsBorrowRecordQuery();
         String borrowhint = "请输入借用人的姓名";
         String dutyhint = "请输入责任人的姓名";
         String modelhint = "请输入仪器的型号";
@@ -51,7 +51,6 @@ namespace cangku_01.MH
             this.tb_tag.MouseClick += tbTag_MouseClick;
             //是否选择时间查询
             this.cb_choicetime.MouseClick += cb_openchoicetime_MouseClick;
-            this.cb_choicetime.MouseClick+= cb_closechoicetime_MouseClick;
             //出入库下拉框中固定的值
             this.cb_query.Text = cbquery;
             //调用方法固定页面
@@ -197,21 +196,18 @@ namespace cangku_01.MH
 
         private void cb_openchoicetime_MouseClick(object sender, MouseEventArgs e)
         {
+
             if (cb_choicetime.Checked.Equals(true))
             {
                 dtp_begin.Enabled = true;
                 dtp_end.Enabled = true;
-                
+
             }
-        }
-        private void cb_closechoicetime_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (cb_choicetime.Checked.Equals(false))
+            else
             {
                 dtp_begin.Enabled = false;
                 dtp_end.Enabled = false;
             }
         }
-
     }
 }

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 namespace Gate
 {
-     public static class Device
+     public static class DeviceApi
     {
          private const string DLLNAME = @"UHFGate.dll";
          [DllImport(DLLNAME, CallingConvention = CallingConvention.StdCall)]
