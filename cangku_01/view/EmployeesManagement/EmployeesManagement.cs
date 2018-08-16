@@ -80,7 +80,7 @@ namespace cangku_01.view.EmployeesManagement
                     int usernumber = int.Parse(currentIndex);
                     dao.DeleteEmployee(usernumber);
                     AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
-                    this.dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
+                    dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
 
                 }
             }
@@ -210,9 +210,13 @@ namespace cangku_01.view.EmployeesManagement
             if (cf.DialogResult == DialogResult.OK)
             {
                 Department c = (Department)tv_department.SelectedNode.Tag;
-                c.deleteSelf();
-                AutoClosingMessageBox.Show("节点删除成功", "节点删除", 1000);
-                tv_department.SelectedNode.Remove();//从TV移除
+                int i = c.deleteSelf();
+                if(i==1)
+                { AutoClosingMessageBox.Show("节点删除成功", "节点删除", 1000);
+                    tv_department.SelectedNode.Remove();//从TV移除
+                    return;
+                }
+                AutoClosingMessageBox.Show("无法删除节点", "节点删除失败", 1000); 
             }
         }
 

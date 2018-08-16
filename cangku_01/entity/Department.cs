@@ -102,24 +102,25 @@ namespace cangku_01.entity
         }
 
         //删除选中的节点
-        public void deleteSelf()
+        public int deleteSelf()
         {
             string sql = "select * from t_department where de_belongId = " + id + "";
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count != 0)//存在子节点
             {
                 MessageBox.Show("该部门之下还有子部门，不能删除");
-                return;
+                return 0;
             }
             sql = "select * from t_employee where em_group = " + id + "";
             DataSet ds2 = dbo.ReadDB(sql);
             if (ds2.Tables[0].Rows.Count != 0)//节点下存在联系人
             {
                 MessageBox.Show("该部门之下还有员工，不能删除");
-                return;
+                return 0;
             }
             sql = "delete from t_department where de_id = " + id + "";
             dbo.WriteDB(sql);
+            return 1;
         }
     }
 }
