@@ -57,7 +57,7 @@ namespace cangku_01.view.InstrumentManagement
         //仪器添加
         private void button1_Click(object sender, EventArgs e)  
         {
-            AddOrAlterInstrument add = new AddOrAlterInstrument(this);
+            AddOrUpdateInstrument add = new AddOrUpdateInstrument(this);
             add.Show();
         }
 
@@ -94,9 +94,28 @@ namespace cangku_01.view.InstrumentManagement
                     ins.CheckCycle = int.Parse(dgv_instrumentinformation.CurrentRow.Cells[8].Value.ToString());
                     ins.LastCheckTimes = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[9].Value.ToString());
                     ins.Duty = dgv_instrumentinformation.CurrentRow.Cells[10].Value.ToString();
-                    AddOrAlterInstrument add = new AddOrAlterInstrument(this, ins, e.RowIndex);
-                    add.Show();
+                    AddOrUpdateInstrument Update = new AddOrUpdateInstrument(this, ins, e.RowIndex);
+                    Update.Show();
                 }
+            }
+            //修改
+            if (e.ColumnIndex == 13)
+            {
+                 //获取要修改属性
+                 Instrument ins = new Instrument();
+                 ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
+                 ins.Name = dgv_instrumentinformation.CurrentRow.Cells[1].Value.ToString();
+                 ins.Model = dgv_instrumentinformation.CurrentRow.Cells[2].Value.ToString();
+                 ins.Manufactor = dgv_instrumentinformation.CurrentRow.Cells[3].Value.ToString();
+                 ins.SerialNumber = dgv_instrumentinformation.CurrentRow.Cells[4].Value.ToString();
+                 ins.ProductionDate = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[5].Value.ToString());
+                 ins.Position = dgv_instrumentinformation.CurrentRow.Cells[6].Value.ToString();
+                 ins.IsInWareHouse = dgv_instrumentinformation.CurrentRow.Cells[7].Value.ToString();
+                 ins.CheckCycle = int.Parse(dgv_instrumentinformation.CurrentRow.Cells[8].Value.ToString());
+                 ins.LastCheckTimes = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[9].Value.ToString());
+                 ins.Duty = dgv_instrumentinformation.CurrentRow.Cells[10].Value.ToString();
+                 AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
+                 add.Show();
             }
         }
 

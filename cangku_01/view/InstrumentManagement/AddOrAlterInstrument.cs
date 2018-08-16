@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -11,25 +12,29 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.InstrumentManagement
 {
-    public partial class AddOrAlterInstrument : Form 
+    public partial class AddOrUpdateInstrument : Form 
     {
         private InstrumentManagement fr;
         Instrument ins = new Instrument();
         private int index;
 
         //仪器信息添加构造方法
-        public AddOrAlterInstrument(InstrumentManagement fr)
+        public AddOrUpdateInstrument(InstrumentManagement fr)
         {
             InitializeComponent();
             this.fr = fr;
             title.Text = "添加仪器基本信息";
             tb_tagid.ReadOnly = false;
-            this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
             bt_alterinstrument.Visible = false;
+            tb_isInWareHouse.Visible = false;
+            tb_productionDate.Visible = false;
+            tb_lastCheckTimes.Visible = false;
+            this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+            
         }
 
         //仪器信息修改构造方法
-        public AddOrAlterInstrument(InstrumentManagement fr, Instrument ins ,int index)
+        public AddOrUpdateInstrument(InstrumentManagement fr, Instrument ins ,int index)
         {
             InitializeComponent();
             this.fr = fr;
@@ -37,6 +42,9 @@ namespace cangku_01.view.InstrumentManagement
             title.Text = "修改仪器基本信息";
             this.ins = ins;
             bt_addinstrument.Visible = false;
+            tb_isInWareHouse.Visible = false;
+            tb_productionDate.Visible = false;
+            tb_lastCheckTimes.Visible = false;
             this.ShowInstrumentPhoto();
             tb_tagid.Text = ins.TagId;
             tb_name.Text = ins.Name;
@@ -49,6 +57,49 @@ namespace cangku_01.view.InstrumentManagement
             tb_checkCycle.Text = ins.CheckCycle.ToString();
             time_lastCheckTimes.Text = ins.LastCheckTimes.ToString();
             tb_duty.Text = ins.Duty;
+        }
+
+        //仪器信息详情构造方法
+        public AddOrUpdateInstrument(Instrument ins)
+        {
+            InitializeComponent();
+            title.Text = "查看仪器基本信息";
+            bt_addinstrument.Visible = false;
+            bt_alterinstrument.Visible = false;
+            time_lastCheckTimes.Visible = false;
+            time_productionDate.Visible = false;
+            cb_isInWareHouse.Visible = false;
+            this.ins = ins;
+            this.ShowInstrumentPhoto();
+            this.InstrumentMessageDataTableShowTextBox();
+        }
+
+        //仪器信息展示在页面组件中
+        public void InstrumentMessageDataTableShowTextBox()
+        {
+            InstrumentInterface dao = new InstrumentInterfaceImp();
+            DataTable dt = dao.TagIdQueryInstrument(ins);
+            tb_tagid.Text = ins.TagId;
+            DataRow myDr = dt.Rows[0];
+            tb_name.Text = myDr["in_name"].ToString();
+            tb_model.Text = myDr["in_model"].ToString();
+            tb_manufactor.Text = myDr["in_manufactor"].ToString();
+            tb_serialNumber.Text = myDr["in_serialnumber"].ToString();
+            if (bt_addinstrument.Visible == false && bt_alterinstrument.Visible == false)
+            {
+                tb_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
+                tb_lastCheckTimes.Text = ins.DateFormatConversion((DateTime)myDr["in_lastchecktimes"]);
+                tb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
+            }
+            else
+            {
+                time_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
+                time_lastCheckTimes.Text = ins.DateFormatConversion((DateTime)myDr["in_lastchecktimes"]);
+                cb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
+            }
+            tb_position.Text = myDr["in_position"].ToString();
+            tb_checkCycle.Text = myDr["in_checkcycle"].ToString();
+            tb_duty.Text = myDr["in_duty"].ToString();
         }
 
         private void AddOrModifyInstrument_Load(object sender, EventArgs e)

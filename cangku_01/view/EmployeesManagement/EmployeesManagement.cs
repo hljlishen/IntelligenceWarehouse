@@ -95,7 +95,7 @@ namespace cangku_01.view.EmployeesManagement
                     string company = dgv_employeeinformation.CurrentRow.Cells[3].Value.ToString();
                     string department = dgv_employeeinformation.CurrentRow.Cells[4].Value.ToString();
                     string group = dgv_employeeinformation.CurrentRow.Cells[5].Value.ToString();
-                    AddOrAlterEmployees add = new AddOrAlterEmployees(this,em, company, department, group,e.RowIndex);
+                    AddOrUpdateEmployees add = new AddOrUpdateEmployees(this,em, company, department, group,e.RowIndex);
                     add.Show();
                 }
             }
@@ -104,7 +104,7 @@ namespace cangku_01.view.EmployeesManagement
         //添加员工
         private void bt_addemployee_Click(object sender, EventArgs e)
         {
-            AddOrAlterEmployees add = new AddOrAlterEmployees(this);
+            AddOrUpdateEmployees add = new AddOrUpdateEmployees(this);
             add.Show();
         }
 

@@ -49,6 +49,13 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //TagID查询仪器信息sql
+        public string TagIDQueryInstrumentSql()
+        {
+            string sql = "select * from t_instrument where in_tagid = '" + TagId + "'";
+            return sql;
+        }
+
         //仪器信息添加sql
         public string AddInstrumentSql()
         {

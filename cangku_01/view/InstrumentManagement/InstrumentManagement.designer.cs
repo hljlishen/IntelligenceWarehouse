@@ -33,19 +33,20 @@
             this.txt_found = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.dgv_instrumentinformation = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.上次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.货架位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.出厂编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.型号规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.型号规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.出厂编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.货架位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.检定周期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.上次检验时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,8 @@
             this.上次检验时间,
             this.责任人,
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.查看详情});
             this.dgv_instrumentinformation.Location = new System.Drawing.Point(35, 73);
             this.dgv_instrumentinformation.Name = "dgv_instrumentinformation";
             this.dgv_instrumentinformation.RowTemplate.Height = 23;
@@ -115,86 +117,11 @@
             this.dgv_instrumentinformation.TabIndex = 4;
             this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Column2
+            // ID
             // 
-            this.Column2.HeaderText = "修改";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Text = "修改";
-            this.Column2.UseColumnTextForButtonValue = true;
-            this.Column2.Width = 70;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "删除";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Text = "删除";
-            this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 70;
-            // 
-            // 责任人
-            // 
-            this.责任人.HeaderText = "责任人";
-            this.责任人.Name = "责任人";
-            this.责任人.ReadOnly = true;
-            this.责任人.Width = 90;
-            // 
-            // 上次检验时间
-            // 
-            this.上次检验时间.HeaderText = "上次检验时间";
-            this.上次检验时间.Name = "上次检验时间";
-            this.上次检验时间.ReadOnly = true;
-            this.上次检验时间.Width = 110;
-            // 
-            // 检定周期
-            // 
-            this.检定周期.HeaderText = "检定周期";
-            this.检定周期.Name = "检定周期";
-            this.检定周期.ReadOnly = true;
-            this.检定周期.Width = 90;
-            // 
-            // 在库状态
-            // 
-            this.在库状态.HeaderText = "在库状态";
-            this.在库状态.Name = "在库状态";
-            this.在库状态.ReadOnly = true;
-            this.在库状态.Width = 110;
-            // 
-            // 货架位置
-            // 
-            this.货架位置.HeaderText = "货架位置";
-            this.货架位置.Name = "货架位置";
-            this.货架位置.ReadOnly = true;
-            this.货架位置.Width = 110;
-            // 
-            // 生产日期
-            // 
-            this.生产日期.HeaderText = "生产日期";
-            this.生产日期.Name = "生产日期";
-            this.生产日期.ReadOnly = true;
-            this.生产日期.Width = 110;
-            // 
-            // 出厂编号
-            // 
-            this.出厂编号.HeaderText = "出厂编号";
-            this.出厂编号.Name = "出厂编号";
-            this.出厂编号.ReadOnly = true;
-            this.出厂编号.Width = 110;
-            // 
-            // 生产厂商
-            // 
-            this.生产厂商.HeaderText = "生产厂商";
-            this.生产厂商.Name = "生产厂商";
-            this.生产厂商.ReadOnly = true;
-            this.生产厂商.Width = 110;
-            // 
-            // 型号规格
-            // 
-            this.型号规格.HeaderText = "型号规格";
-            this.型号规格.Name = "型号规格";
-            this.型号规格.ReadOnly = true;
-            this.型号规格.Width = 110;
+            this.ID.HeaderText = "标签ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // name
             // 
@@ -203,11 +130,96 @@
             this.name.ReadOnly = true;
             this.name.Width = 110;
             // 
-            // ID
+            // 型号规格
             // 
-            this.ID.HeaderText = "标签ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
+            this.型号规格.HeaderText = "型号规格";
+            this.型号规格.Name = "型号规格";
+            this.型号规格.ReadOnly = true;
+            this.型号规格.Width = 110;
+            // 
+            // 生产厂商
+            // 
+            this.生产厂商.HeaderText = "生产厂商";
+            this.生产厂商.Name = "生产厂商";
+            this.生产厂商.ReadOnly = true;
+            this.生产厂商.Width = 110;
+            // 
+            // 出厂编号
+            // 
+            this.出厂编号.HeaderText = "出厂编号";
+            this.出厂编号.Name = "出厂编号";
+            this.出厂编号.ReadOnly = true;
+            this.出厂编号.Width = 110;
+            // 
+            // 生产日期
+            // 
+            this.生产日期.HeaderText = "生产日期";
+            this.生产日期.Name = "生产日期";
+            this.生产日期.ReadOnly = true;
+            this.生产日期.Width = 110;
+            // 
+            // 货架位置
+            // 
+            this.货架位置.HeaderText = "货架位置";
+            this.货架位置.Name = "货架位置";
+            this.货架位置.ReadOnly = true;
+            this.货架位置.Width = 110;
+            // 
+            // 在库状态
+            // 
+            this.在库状态.HeaderText = "在库状态";
+            this.在库状态.Name = "在库状态";
+            this.在库状态.ReadOnly = true;
+            this.在库状态.Width = 80;
+            // 
+            // 检定周期
+            // 
+            this.检定周期.HeaderText = "检定周期";
+            this.检定周期.Name = "检定周期";
+            this.检定周期.ReadOnly = true;
+            this.检定周期.Width = 80;
+            // 
+            // 上次检验时间
+            // 
+            this.上次检验时间.HeaderText = "上次检验时间";
+            this.上次检验时间.Name = "上次检验时间";
+            this.上次检验时间.ReadOnly = true;
+            this.上次检验时间.Width = 110;
+            // 
+            // 责任人
+            // 
+            this.责任人.HeaderText = "责任人";
+            this.责任人.Name = "责任人";
+            this.责任人.ReadOnly = true;
+            this.责任人.Width = 80;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "删除";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Text = "删除";
+            this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "修改";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Text = "修改";
+            this.Column2.UseColumnTextForButtonValue = true;
+            this.Column2.Width = 50;
+            // 
+            // 查看详情
+            // 
+            this.查看详情.HeaderText = "查看详情";
+            this.查看详情.Name = "查看详情";
+            this.查看详情.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.查看详情.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.查看详情.Text = "查看详情";
+            this.查看详情.UseColumnTextForButtonValue = true;
+            this.查看详情.Width = 90;
             // 
             // InstrumentManagement
             // 
@@ -250,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 责任人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
+        private System.Windows.Forms.DataGridViewButtonColumn 查看详情;
     }
 }

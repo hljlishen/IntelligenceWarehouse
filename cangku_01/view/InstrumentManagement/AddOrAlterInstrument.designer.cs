@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.view.InstrumentManagement
 {
-    partial class AddOrAlterInstrument
+    partial class AddOrUpdateInstrument
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrAlterInstrument));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrUpdateInstrument));
             this.time_lastCheckTimes = new System.Windows.Forms.DateTimePicker();
             this.time_productionDate = new System.Windows.Forms.DateTimePicker();
             this.title = new System.Windows.Forms.Label();
@@ -56,6 +56,9 @@
             this.bt_alterinstrument = new System.Windows.Forms.Button();
             this.cb_isInWareHouse = new System.Windows.Forms.ComboBox();
             this.pb_instrumentphoto = new System.Windows.Forms.PictureBox();
+            this.tb_isInWareHouse = new System.Windows.Forms.TextBox();
+            this.tb_lastCheckTimes = new System.Windows.Forms.TextBox();
+            this.tb_productionDate = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -315,11 +318,38 @@
             this.pb_instrumentphoto.TabIndex = 60;
             this.pb_instrumentphoto.TabStop = false;
             // 
-            // AddOrAlterInstrument
+            // tb_isInWareHouse
+            // 
+            this.tb_isInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_isInWareHouse.Location = new System.Drawing.Point(168, 354);
+            this.tb_isInWareHouse.Name = "tb_isInWareHouse";
+            this.tb_isInWareHouse.Size = new System.Drawing.Size(84, 26);
+            this.tb_isInWareHouse.TabIndex = 61;
+            // 
+            // tb_lastCheckTimes
+            // 
+            this.tb_lastCheckTimes.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_lastCheckTimes.Location = new System.Drawing.Point(623, 288);
+            this.tb_lastCheckTimes.Name = "tb_lastCheckTimes";
+            this.tb_lastCheckTimes.Size = new System.Drawing.Size(128, 26);
+            this.tb_lastCheckTimes.TabIndex = 62;
+            // 
+            // tb_productionDate
+            // 
+            this.tb_productionDate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_productionDate.Location = new System.Drawing.Point(608, 153);
+            this.tb_productionDate.Name = "tb_productionDate";
+            this.tb_productionDate.Size = new System.Drawing.Size(143, 26);
+            this.tb_productionDate.TabIndex = 63;
+            // 
+            // AddOrUpdateInstrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 511);
+            this.Controls.Add(this.tb_productionDate);
+            this.Controls.Add(this.tb_lastCheckTimes);
+            this.Controls.Add(this.tb_isInWareHouse);
             this.Controls.Add(this.pb_instrumentphoto);
             this.Controls.Add(this.cb_isInWareHouse);
             this.Controls.Add(this.bt_alterinstrument);
@@ -348,7 +378,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddOrAlterInstrument";
+            this.Name = "AddOrUpdateInstrument";
             this.Text = "编辑仪器信息";
             this.Load += new System.EventHandler(this.AddOrModifyInstrument_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).EndInit();
@@ -386,5 +416,8 @@
         private System.Windows.Forms.Button bt_alterinstrument;
         private System.Windows.Forms.ComboBox cb_isInWareHouse;
         private System.Windows.Forms.PictureBox pb_instrumentphoto;
+        private System.Windows.Forms.TextBox tb_isInWareHouse;
+        private System.Windows.Forms.TextBox tb_lastCheckTimes;
+        private System.Windows.Forms.TextBox tb_productionDate;
     }
 }

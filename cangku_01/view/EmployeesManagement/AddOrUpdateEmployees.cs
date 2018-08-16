@@ -16,7 +16,7 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.EmployeesManagement
 {
-    public partial class AddOrAlterEmployees : Form
+    public partial class AddOrUpdateEmployees : Form
     {
         EmployeesInterface dao = new EmployeesInterfaceImp();
         Employee em = new Employee();
@@ -27,7 +27,7 @@ namespace cangku_01.view.EmployeesManagement
         private int index;
 
         //无参构造方法为添加状态
-        public AddOrAlterEmployees(EmployeesManagement fr)
+        public AddOrUpdateEmployees(EmployeesManagement fr)
         {
             InitializeComponent();
             bt_alteremployee.Visible = false;
@@ -35,7 +35,7 @@ namespace cangku_01.view.EmployeesManagement
         }
 
         //重写有参构造方法为修改状态
-        public AddOrAlterEmployees(EmployeesManagement fr , Employee em, string company, string department, string group ,int index)
+        public AddOrUpdateEmployees(EmployeesManagement fr , Employee em, string company, string department, string group ,int index)
         {
             InitializeComponent();
             Bt_addemployee.Visible = false;
