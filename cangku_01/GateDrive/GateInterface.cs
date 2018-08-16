@@ -9,11 +9,11 @@ namespace cangku_01.GateDrive
     interface GateInterface
     {
         //打开门的网口
-        int Open();
+        void Open();
         //关闭门的网口
-        int Close();
-        //开始执行读卡
-        int StartReaderTagId();
+        void Close();
+        //开始探测
+        void StartDetect(Form1 fr);
 
     }
 }

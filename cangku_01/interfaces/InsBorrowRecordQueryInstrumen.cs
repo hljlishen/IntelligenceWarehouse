@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace cangku_01.interfaces
 {
-    interface QueryInstrumen
+    interface InsBorrowRecordQueryInstrumen
     {
         //根据借用人姓名进行查询
         List<QueryInstrument> FindInstrumentByBorrow(String Borrow);

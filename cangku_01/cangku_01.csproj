@@ -80,11 +80,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GateDrive\Gate.cs" />
+    <Compile Include="GateDrive\GateVirtualEntity.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />
     <Compile Include="entity\QueryInstrument.cs" />
-    <Compile Include="GateDrive\GateInterfaceImp.cs" />
+    <Compile Include="GateDrive\GateInterface v1.42.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
@@ -141,13 +141,13 @@
     <Compile Include="entity\Instrument.cs" />
     <Compile Include="interfaceImp\InstrumentInterfaceImp.cs" />
     <Compile Include="interfaces\InstrumentInterface.cs" />
-    <Compile Include="interfaceImp\QueryInstrumentImp.cs" />
-    <Compile Include="interfaces\QueryInstrumen.cs" />
-    <Compile Include="view\DeviceAccessRecord\Ins_query.cs">
+    <Compile Include="interfaceImp\InsBorrowRecordQuery.cs" />
+    <Compile Include="interfaces\InsBorrowRecordQueryInstrumen.cs" />
+    <Compile Include="view\DeviceAccessRecord\Ins_BorrowRecordQuery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DeviceAccessRecord\Ins_query.designer.cs">
-      <DependentUpon>Ins_query.cs</DependentUpon>
+    <Compile Include="view\DeviceAccessRecord\Ins_BorrowRecordQuery.designer.cs">
+      <DependentUpon>Ins_BorrowRecordQuery.cs</DependentUpon>
     </Compile>
     <Compile Include="view\InstrumentManagement\InstrumentManagement.cs">
       <SubType>Form</SubType>
@@ -201,8 +201,8 @@
     <EmbeddedResource Include="view\InstrumentManagement\AddOrAlterInstrument.resx">
       <DependentUpon>AddOrAlterInstrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\DeviceAccessRecord\Ins_query.resx">
-      <DependentUpon>Ins_query.cs</DependentUpon>
+    <EmbeddedResource Include="view\DeviceAccessRecord\Ins_BorrowRecordQuery.resx">
+      <DependentUpon>Ins_BorrowRecordQuery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\InstrumentManagement\InstrumentManagement.resx">
       <DependentUpon>InstrumentManagement.cs</DependentUpon>
