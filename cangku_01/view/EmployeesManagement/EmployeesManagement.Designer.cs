@@ -1,6 +1,6 @@
-﻿namespace cangku_01
+﻿namespace cangku_01.view.EmployeesManagement
 {
-    partial class index_employees
+    partial class EmployeesManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(index_employees));
-            this.La_founduser = new System.Windows.Forms.Label();
-            this.tb_found = new System.Windows.Forms.TextBox();
-            this.bt_found = new System.Windows.Forms.Button();
-            this.bt_addUser = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesManagement));
+            this.tb_foundemployeeid = new System.Windows.Forms.TextBox();
+            this.bt_foundnowgroup = new System.Windows.Forms.Button();
+            this.bt_addemployee = new System.Windows.Forms.Button();
+            this.dgv_employeeinformation = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,44 +42,47 @@
             this.del = new System.Windows.Forms.DataGridViewButtonColumn();
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tv_department = new System.Windows.Forms.TreeView();
-            this.Btn_addrootnode = new System.Windows.Forms.Button();
-            this.Btn_addchildnode = new System.Windows.Forms.Button();
-            this.Btn_removenodes = new System.Windows.Forms.Button();
-            this.Tb_nodename = new System.Windows.Forms.TextBox();
-            this.La_nodename = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btn_addrootnode = new System.Windows.Forms.Button();
+            this.btn_addchildnode = new System.Windows.Forms.Button();
+            this.btn_removenodes = new System.Windows.Forms.Button();
+            this.tb_nodename = new System.Windows.Forms.TextBox();
+            this.la_nodename = new System.Windows.Forms.Label();
+            this.tb_foundname = new System.Windows.Forms.TextBox();
+            this.cb_foundsex = new System.Windows.Forms.ComboBox();
+            this.la_foundemployeeid = new System.Windows.Forms.Label();
+            this.la_foundname = new System.Windows.Forms.Label();
+            this.la_foundsex = new System.Windows.Forms.Label();
+            this.gb_foundemployees = new System.Windows.Forms.GroupBox();
+            this.bt_foundall = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).BeginInit();
+            this.gb_foundemployees.SuspendLayout();
             this.SuspendLayout();
             // 
-            // La_founduser
+            // tb_foundemployeeid
             // 
-            resources.ApplyResources(this.La_founduser, "La_founduser");
-            this.La_founduser.Name = "La_founduser";
+            resources.ApplyResources(this.tb_foundemployeeid, "tb_foundemployeeid");
+            this.tb_foundemployeeid.Name = "tb_foundemployeeid";
             // 
-            // tb_found
+            // bt_foundnowgroup
             // 
-            resources.ApplyResources(this.tb_found, "tb_found");
-            this.tb_found.Name = "tb_found";
+            resources.ApplyResources(this.bt_foundnowgroup, "bt_foundnowgroup");
+            this.bt_foundnowgroup.Name = "bt_foundnowgroup";
+            this.bt_foundnowgroup.UseVisualStyleBackColor = true;
+            this.bt_foundnowgroup.Click += new System.EventHandler(this.bt_foundnowgroup_Click);
             // 
-            // bt_found
+            // bt_addemployee
             // 
-            resources.ApplyResources(this.bt_found, "bt_found");
-            this.bt_found.Name = "bt_found";
-            this.bt_found.UseVisualStyleBackColor = true;
-            this.bt_found.Click += new System.EventHandler(this.bt_found_Click);
+            resources.ApplyResources(this.bt_addemployee, "bt_addemployee");
+            this.bt_addemployee.Name = "bt_addemployee";
+            this.bt_addemployee.UseVisualStyleBackColor = true;
+            this.bt_addemployee.Click += new System.EventHandler(this.bt_addemployee_Click);
             // 
-            // bt_addUser
+            // dgv_employeeinformation
             // 
-            resources.ApplyResources(this.bt_addUser, "bt_addUser");
-            this.bt_addUser.Name = "bt_addUser";
-            this.bt_addUser.UseVisualStyleBackColor = true;
-            this.bt_addUser.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_employeeinformation.AllowUserToAddRows = false;
+            this.dgv_employeeinformation.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgv_employeeinformation.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_employeeinformation.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.姓名,
             this.性别,
@@ -89,12 +91,12 @@
             this.小组,
             this.del,
             this.update_});
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            resources.ApplyResources(this.dgv_employeeinformation, "dgv_employeeinformation");
+            this.dgv_employeeinformation.Name = "dgv_employeeinformation";
+            this.dgv_employeeinformation.ReadOnly = true;
+            this.dgv_employeeinformation.RowHeadersVisible = false;
+            this.dgv_employeeinformation.RowTemplate.Height = 23;
+            this.dgv_employeeinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeinformation_CellContentClick);
             // 
             // ID
             // 
@@ -159,74 +161,123 @@
             this.tv_department.Name = "tv_department";
             this.tv_department.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_department_AfterSelect);
             // 
-            // Btn_addrootnode
+            // btn_addrootnode
             // 
-            resources.ApplyResources(this.Btn_addrootnode, "Btn_addrootnode");
-            this.Btn_addrootnode.Name = "Btn_addrootnode";
-            this.Btn_addrootnode.UseVisualStyleBackColor = true;
-            this.Btn_addrootnode.Click += new System.EventHandler(this.Btn_addrootnode_Click);
+            resources.ApplyResources(this.btn_addrootnode, "btn_addrootnode");
+            this.btn_addrootnode.Name = "btn_addrootnode";
+            this.btn_addrootnode.UseVisualStyleBackColor = true;
+            this.btn_addrootnode.Click += new System.EventHandler(this.Btn_addrootnode_Click);
             // 
-            // Btn_addchildnode
+            // btn_addchildnode
             // 
-            resources.ApplyResources(this.Btn_addchildnode, "Btn_addchildnode");
-            this.Btn_addchildnode.Name = "Btn_addchildnode";
-            this.Btn_addchildnode.UseVisualStyleBackColor = true;
-            this.Btn_addchildnode.Click += new System.EventHandler(this.Btn_addchildnode_Click);
+            resources.ApplyResources(this.btn_addchildnode, "btn_addchildnode");
+            this.btn_addchildnode.Name = "btn_addchildnode";
+            this.btn_addchildnode.UseVisualStyleBackColor = true;
+            this.btn_addchildnode.Click += new System.EventHandler(this.Btn_addchildnode_Click);
             // 
-            // Btn_removenodes
+            // btn_removenodes
             // 
-            resources.ApplyResources(this.Btn_removenodes, "Btn_removenodes");
-            this.Btn_removenodes.Name = "Btn_removenodes";
-            this.Btn_removenodes.UseVisualStyleBackColor = true;
-            this.Btn_removenodes.Click += new System.EventHandler(this.Btn_removenodes_Click);
+            resources.ApplyResources(this.btn_removenodes, "btn_removenodes");
+            this.btn_removenodes.Name = "btn_removenodes";
+            this.btn_removenodes.UseVisualStyleBackColor = true;
+            this.btn_removenodes.Click += new System.EventHandler(this.Btn_removenodes_Click);
             // 
-            // Tb_nodename
+            // tb_nodename
             // 
-            resources.ApplyResources(this.Tb_nodename, "Tb_nodename");
-            this.Tb_nodename.Name = "Tb_nodename";
+            resources.ApplyResources(this.tb_nodename, "tb_nodename");
+            this.tb_nodename.Name = "tb_nodename";
             // 
-            // La_nodename
+            // la_nodename
             // 
-            resources.ApplyResources(this.La_nodename, "La_nodename");
-            this.La_nodename.Name = "La_nodename";
+            resources.ApplyResources(this.la_nodename, "la_nodename");
+            this.la_nodename.Name = "la_nodename";
             // 
-            // index_employees
+            // tb_foundname
+            // 
+            resources.ApplyResources(this.tb_foundname, "tb_foundname");
+            this.tb_foundname.Name = "tb_foundname";
+            // 
+            // cb_foundsex
+            // 
+            this.cb_foundsex.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_foundsex.FormattingEnabled = true;
+            resources.ApplyResources(this.cb_foundsex, "cb_foundsex");
+            this.cb_foundsex.Items.AddRange(new object[] {
+            resources.GetString("cb_foundsex.Items"),
+            resources.GetString("cb_foundsex.Items1"),
+            resources.GetString("cb_foundsex.Items2")});
+            this.cb_foundsex.Name = "cb_foundsex";
+            // 
+            // la_foundemployeeid
+            // 
+            resources.ApplyResources(this.la_foundemployeeid, "la_foundemployeeid");
+            this.la_foundemployeeid.Name = "la_foundemployeeid";
+            // 
+            // la_foundname
+            // 
+            resources.ApplyResources(this.la_foundname, "la_foundname");
+            this.la_foundname.Name = "la_foundname";
+            // 
+            // la_foundsex
+            // 
+            resources.ApplyResources(this.la_foundsex, "la_foundsex");
+            this.la_foundsex.Name = "la_foundsex";
+            // 
+            // gb_foundemployees
+            // 
+            this.gb_foundemployees.Controls.Add(this.bt_foundall);
+            this.gb_foundemployees.Controls.Add(this.la_foundemployeeid);
+            this.gb_foundemployees.Controls.Add(this.cb_foundsex);
+            this.gb_foundemployees.Controls.Add(this.la_foundsex);
+            this.gb_foundemployees.Controls.Add(this.tb_foundemployeeid);
+            this.gb_foundemployees.Controls.Add(this.la_foundname);
+            this.gb_foundemployees.Controls.Add(this.tb_foundname);
+            this.gb_foundemployees.Controls.Add(this.bt_foundnowgroup);
+            resources.ApplyResources(this.gb_foundemployees, "gb_foundemployees");
+            this.gb_foundemployees.Name = "gb_foundemployees";
+            this.gb_foundemployees.TabStop = false;
+            // 
+            // bt_foundall
+            // 
+            resources.ApplyResources(this.bt_foundall, "bt_foundall");
+            this.bt_foundall.Name = "bt_foundall";
+            this.bt_foundall.UseVisualStyleBackColor = true;
+            this.bt_foundall.Click += new System.EventHandler(this.bt_foundall_Click);
+            // 
+            // EmployeesManagement
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.La_nodename);
-            this.Controls.Add(this.Tb_nodename);
-            this.Controls.Add(this.Btn_removenodes);
-            this.Controls.Add(this.Btn_addchildnode);
-            this.Controls.Add(this.Btn_addrootnode);
+            this.Controls.Add(this.gb_foundemployees);
+            this.Controls.Add(this.la_nodename);
+            this.Controls.Add(this.tb_nodename);
+            this.Controls.Add(this.btn_removenodes);
+            this.Controls.Add(this.btn_addchildnode);
+            this.Controls.Add(this.btn_addrootnode);
             this.Controls.Add(this.tv_department);
-            this.Controls.Add(this.bt_addUser);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bt_found);
-            this.Controls.Add(this.tb_found);
-            this.Controls.Add(this.La_founduser);
+            this.Controls.Add(this.bt_addemployee);
+            this.Controls.Add(this.dgv_employeeinformation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "index_employees";
+            this.Name = "EmployeesManagement";
             this.Load += new System.EventHandler(this.index_employees_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).EndInit();
+            this.gb_foundemployees.ResumeLayout(false);
+            this.gb_foundemployees.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label La_founduser;
-        private System.Windows.Forms.TextBox tb_found;
-        private System.Windows.Forms.Button bt_found;
-        private System.Windows.Forms.Button bt_addUser;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox tb_foundemployeeid;
+        private System.Windows.Forms.Button bt_foundnowgroup;
+        private System.Windows.Forms.Button bt_addemployee;
         private System.Windows.Forms.TreeView tv_department;
-        private System.Windows.Forms.Button Btn_addrootnode;
-        private System.Windows.Forms.Button Btn_addchildnode;
-        private System.Windows.Forms.Button Btn_removenodes;
-        private System.Windows.Forms.TextBox Tb_nodename;
-        private System.Windows.Forms.Label La_nodename;
+        private System.Windows.Forms.Button btn_addrootnode;
+        private System.Windows.Forms.Button btn_addchildnode;
+        private System.Windows.Forms.Button btn_removenodes;
+        private System.Windows.Forms.TextBox tb_nodename;
+        private System.Windows.Forms.Label la_nodename;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
@@ -235,5 +286,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 小组;
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
+        public System.Windows.Forms.DataGridView dgv_employeeinformation;
+        private System.Windows.Forms.TextBox tb_foundname;
+        private System.Windows.Forms.ComboBox cb_foundsex;
+        private System.Windows.Forms.Label la_foundemployeeid;
+        private System.Windows.Forms.Label la_foundname;
+        private System.Windows.Forms.Label la_foundsex;
+        private System.Windows.Forms.GroupBox gb_foundemployees;
+        private System.Windows.Forms.Button bt_foundall;
     }
 }

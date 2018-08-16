@@ -117,125 +117,92 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="La_founduser.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="La_founduser.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="tb_foundemployeeid.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10.5pt</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="La_founduser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tb_foundemployeeid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 20</value>
   </data>
-  <data name="La_founduser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 43</value>
+  <data name="tb_foundemployeeid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 26</value>
   </data>
-  <data name="La_founduser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 20</value>
-  </data>
-  <data name="La_founduser.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="La_founduser.Text" xml:space="preserve">
-    <value>搜素员工：</value>
-  </data>
-  <data name="&gt;&gt;La_founduser.Name" xml:space="preserve">
-    <value>La_founduser</value>
-  </data>
-  <data name="&gt;&gt;La_founduser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;La_founduser.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;La_founduser.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
-  <data name="tb_found.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 10.5pt</value>
-  </data>
-  <data name="tb_found.Location" type="System.Drawing.Point, System.Drawing">
-    <value>652, 40</value>
-  </data>
-  <data name="tb_found.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 26</value>
-  </data>
-  <data name="tb_found.TabIndex" type="System.Int32, mscorlib">
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tb_foundemployeeid.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;tb_found.Name" xml:space="preserve">
-    <value>tb_found</value>
+  <data name="&gt;&gt;tb_foundemployeeid.Name" xml:space="preserve">
+    <value>tb_foundemployeeid</value>
   </data>
-  <data name="&gt;&gt;tb_found.Type" xml:space="preserve">
+  <data name="&gt;&gt;tb_foundemployeeid.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;tb_found.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;tb_foundemployeeid.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
   </data>
-  <data name="&gt;&gt;tb_found.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="bt_found.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt</value>
-  </data>
-  <data name="bt_found.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bt_found.Location" type="System.Drawing.Point, System.Drawing">
-    <value>835, 39</value>
-  </data>
-  <data name="bt_found.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 30</value>
-  </data>
-  <data name="bt_found.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="bt_found.Text" xml:space="preserve">
-    <value>搜索</value>
-  </data>
-  <data name="&gt;&gt;bt_found.Name" xml:space="preserve">
-    <value>bt_found</value>
-  </data>
-  <data name="&gt;&gt;bt_found.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bt_found.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;bt_found.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="bt_addUser.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt</value>
-  </data>
-  <data name="bt_addUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="bt_addUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>440, 39</value>
-  </data>
-  <data name="bt_addUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 30</value>
-  </data>
-  <data name="bt_addUser.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;tb_foundemployeeid.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="bt_addUser.Text" xml:space="preserve">
-    <value>添加员工</value>
+  <data name="bt_foundnowgroup.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
   </data>
-  <data name="&gt;&gt;bt_addUser.Name" xml:space="preserve">
-    <value>bt_addUser</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="bt_foundnowgroup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="&gt;&gt;bt_addUser.Type" xml:space="preserve">
+  <data name="bt_foundnowgroup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>505, 18</value>
+  </data>
+  <data name="bt_foundnowgroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 26</value>
+  </data>
+  <data name="bt_foundnowgroup.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="bt_foundnowgroup.Text" xml:space="preserve">
+    <value>搜索当前分组</value>
+  </data>
+  <data name="&gt;&gt;bt_foundnowgroup.Name" xml:space="preserve">
+    <value>bt_foundnowgroup</value>
+  </data>
+  <data name="&gt;&gt;bt_foundnowgroup.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;bt_addUser.Parent" xml:space="preserve">
+  <data name="&gt;&gt;bt_foundnowgroup.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;bt_foundnowgroup.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="bt_addemployee.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="bt_addemployee.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="bt_addemployee.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 39</value>
+  </data>
+  <data name="bt_addemployee.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 30</value>
+  </data>
+  <data name="bt_addemployee.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="bt_addemployee.Text" xml:space="preserve">
+    <value>添加员工</value>
+  </data>
+  <data name="&gt;&gt;bt_addemployee.Name" xml:space="preserve">
+    <value>bt_addemployee</value>
+  </data>
+  <data name="&gt;&gt;bt_addemployee.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bt_addemployee.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;bt_addUser.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;bt_addemployee.ZOrder" xml:space="preserve">
+    <value>7</value>
   </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -288,26 +255,26 @@
   <data name="update_.HeaderText" xml:space="preserve">
     <value>修改</value>
   </data>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>440, 89</value>
+  <data name="dgv_employeeinformation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 103</value>
   </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 700</value>
+  <data name="dgv_employeeinformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>913, 686</value>
   </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
+  <data name="dgv_employeeinformation.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
-    <value>dataGridView1</value>
+  <data name="&gt;&gt;dgv_employeeinformation.Name" xml:space="preserve">
+    <value>dgv_employeeinformation</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
+  <data name="&gt;&gt;dgv_employeeinformation.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dgv_employeeinformation.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;dgv_employeeinformation.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="tv_department.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 18pt</value>
@@ -331,141 +298,348 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tv_department.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
-  <data name="Btn_addrootnode.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btn_addrootnode.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
   </data>
-  <data name="Btn_addrootnode.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_addrootnode.Location" type="System.Drawing.Point, System.Drawing">
     <value>59, 39</value>
   </data>
-  <data name="Btn_addrootnode.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_addrootnode.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
   </data>
-  <data name="Btn_addrootnode.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_addrootnode.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="Btn_addrootnode.Text" xml:space="preserve">
+  <data name="btn_addrootnode.Text" xml:space="preserve">
     <value>添加根节点</value>
   </data>
-  <data name="&gt;&gt;Btn_addrootnode.Name" xml:space="preserve">
-    <value>Btn_addrootnode</value>
+  <data name="&gt;&gt;btn_addrootnode.Name" xml:space="preserve">
+    <value>btn_addrootnode</value>
   </data>
-  <data name="&gt;&gt;Btn_addrootnode.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_addrootnode.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Btn_addrootnode.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_addrootnode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Btn_addrootnode.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;btn_addrootnode.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
-  <data name="Btn_addchildnode.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btn_addchildnode.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
   </data>
-  <data name="Btn_addchildnode.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_addchildnode.Location" type="System.Drawing.Point, System.Drawing">
     <value>180, 39</value>
   </data>
-  <data name="Btn_addchildnode.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_addchildnode.Size" type="System.Drawing.Size, System.Drawing">
     <value>90, 30</value>
   </data>
-  <data name="Btn_addchildnode.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_addchildnode.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="Btn_addchildnode.Text" xml:space="preserve">
+  <data name="btn_addchildnode.Text" xml:space="preserve">
     <value>添加子节点</value>
   </data>
-  <data name="&gt;&gt;Btn_addchildnode.Name" xml:space="preserve">
-    <value>Btn_addchildnode</value>
+  <data name="&gt;&gt;btn_addchildnode.Name" xml:space="preserve">
+    <value>btn_addchildnode</value>
   </data>
-  <data name="&gt;&gt;Btn_addchildnode.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_addchildnode.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Btn_addchildnode.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_addchildnode.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Btn_addchildnode.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;btn_addchildnode.ZOrder" xml:space="preserve">
+    <value>4</value>
   </data>
-  <data name="Btn_removenodes.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btn_removenodes.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
   </data>
-  <data name="Btn_removenodes.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btn_removenodes.Location" type="System.Drawing.Point, System.Drawing">
     <value>305, 39</value>
   </data>
-  <data name="Btn_removenodes.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btn_removenodes.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
   </data>
-  <data name="Btn_removenodes.TabIndex" type="System.Int32, mscorlib">
+  <data name="btn_removenodes.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
   </data>
-  <data name="Btn_removenodes.Text" xml:space="preserve">
+  <data name="btn_removenodes.Text" xml:space="preserve">
     <value>删除选中节点</value>
   </data>
-  <data name="&gt;&gt;Btn_removenodes.Name" xml:space="preserve">
-    <value>Btn_removenodes</value>
+  <data name="&gt;&gt;btn_removenodes.Name" xml:space="preserve">
+    <value>btn_removenodes</value>
   </data>
-  <data name="&gt;&gt;Btn_removenodes.Type" xml:space="preserve">
+  <data name="&gt;&gt;btn_removenodes.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Btn_removenodes.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btn_removenodes.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Btn_removenodes.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btn_removenodes.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="Tb_nodename.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="tb_nodename.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10.5pt</value>
   </data>
-  <data name="Tb_nodename.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tb_nodename.Location" type="System.Drawing.Point, System.Drawing">
     <value>157, 103</value>
   </data>
-  <data name="Tb_nodename.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tb_nodename.Size" type="System.Drawing.Size, System.Drawing">
     <value>248, 26</value>
   </data>
-  <data name="Tb_nodename.TabIndex" type="System.Int32, mscorlib">
+  <data name="tb_nodename.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
   </data>
-  <data name="&gt;&gt;Tb_nodename.Name" xml:space="preserve">
-    <value>Tb_nodename</value>
+  <data name="&gt;&gt;tb_nodename.Name" xml:space="preserve">
+    <value>tb_nodename</value>
   </data>
-  <data name="&gt;&gt;Tb_nodename.Type" xml:space="preserve">
+  <data name="&gt;&gt;tb_nodename.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Tb_nodename.Parent" xml:space="preserve">
+  <data name="&gt;&gt;tb_nodename.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Tb_nodename.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;tb_nodename.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
-  <data name="La_nodename.AutoSize" type="System.Boolean, mscorlib">
+  <data name="la_nodename.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="La_nodename.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="la_nodename.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10.5pt</value>
   </data>
-  <data name="La_nodename.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="la_nodename.Location" type="System.Drawing.Point, System.Drawing">
     <value>55, 106</value>
   </data>
-  <data name="La_nodename.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="la_nodename.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 20</value>
   </data>
-  <data name="La_nodename.TabIndex" type="System.Int32, mscorlib">
+  <data name="la_nodename.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="La_nodename.Text" xml:space="preserve">
+  <data name="la_nodename.Text" xml:space="preserve">
     <value>输入节点名称:</value>
   </data>
-  <data name="&gt;&gt;La_nodename.Name" xml:space="preserve">
-    <value>La_nodename</value>
+  <data name="&gt;&gt;la_nodename.Name" xml:space="preserve">
+    <value>la_nodename</value>
   </data>
-  <data name="&gt;&gt;La_nodename.Type" xml:space="preserve">
+  <data name="&gt;&gt;la_nodename.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;La_nodename.Parent" xml:space="preserve">
+  <data name="&gt;&gt;la_nodename.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;La_nodename.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;la_nodename.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tb_foundname.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="tb_foundname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 20</value>
+  </data>
+  <data name="tb_foundname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 26</value>
+  </data>
+  <data name="tb_foundname.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;tb_foundname.Name" xml:space="preserve">
+    <value>tb_foundname</value>
+  </data>
+  <data name="&gt;&gt;tb_foundname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_foundname.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;tb_foundname.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="cb_foundsex.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="cb_foundsex.Items" xml:space="preserve">
+    <value>男/女</value>
+  </data>
+  <data name="cb_foundsex.Items1" xml:space="preserve">
+    <value>男</value>
+  </data>
+  <data name="cb_foundsex.Items2" xml:space="preserve">
+    <value>女</value>
+  </data>
+  <data name="cb_foundsex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>406, 23</value>
+  </data>
+  <data name="cb_foundsex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="cb_foundsex.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;cb_foundsex.Name" xml:space="preserve">
+    <value>cb_foundsex</value>
+  </data>
+  <data name="&gt;&gt;cb_foundsex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cb_foundsex.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;cb_foundsex.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="la_foundemployeeid.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="la_foundemployeeid.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="la_foundemployeeid.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="la_foundemployeeid.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 23</value>
+  </data>
+  <data name="la_foundemployeeid.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 20</value>
+  </data>
+  <data name="la_foundemployeeid.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="la_foundemployeeid.Text" xml:space="preserve">
+    <value>编号：</value>
+  </data>
+  <data name="&gt;&gt;la_foundemployeeid.Name" xml:space="preserve">
+    <value>la_foundemployeeid</value>
+  </data>
+  <data name="&gt;&gt;la_foundemployeeid.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;la_foundemployeeid.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;la_foundemployeeid.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="la_foundname.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="la_foundname.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="la_foundname.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="la_foundname.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 23</value>
+  </data>
+  <data name="la_foundname.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 20</value>
+  </data>
+  <data name="la_foundname.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="la_foundname.Text" xml:space="preserve">
+    <value>姓名：</value>
+  </data>
+  <data name="&gt;&gt;la_foundname.Name" xml:space="preserve">
+    <value>la_foundname</value>
+  </data>
+  <data name="&gt;&gt;la_foundname.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;la_foundname.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;la_foundname.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="la_foundsex.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="la_foundsex.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="la_foundsex.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="la_foundsex.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 23</value>
+  </data>
+  <data name="la_foundsex.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 20</value>
+  </data>
+  <data name="la_foundsex.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="la_foundsex.Text" xml:space="preserve">
+    <value>性别：</value>
+  </data>
+  <data name="&gt;&gt;la_foundsex.Name" xml:space="preserve">
+    <value>la_foundsex</value>
+  </data>
+  <data name="&gt;&gt;la_foundsex.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;la_foundsex.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;la_foundsex.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="bt_foundall.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="bt_foundall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>649, 17</value>
+  </data>
+  <data name="bt_foundall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 26</value>
+  </data>
+  <data name="bt_foundall.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="bt_foundall.Text" xml:space="preserve">
+    <value>搜索全部</value>
+  </data>
+  <data name="&gt;&gt;bt_foundall.Name" xml:space="preserve">
+    <value>bt_foundall</value>
+  </data>
+  <data name="&gt;&gt;bt_foundall.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bt_foundall.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;bt_foundall.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="gb_foundemployees.Location" type="System.Drawing.Point, System.Drawing">
+    <value>563, 22</value>
+  </data>
+  <data name="gb_foundemployees.Size" type="System.Drawing.Size, System.Drawing">
+    <value>788, 55</value>
+  </data>
+  <data name="gb_foundemployees.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="gb_foundemployees.Text" xml:space="preserve">
+    <value>搜索员工</value>
+  </data>
+  <data name="&gt;&gt;gb_foundemployees.Name" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;gb_foundemployees.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;gb_foundemployees.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;gb_foundemployees.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -535,7 +709,7 @@
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>index_employees</value>
+    <value>EmployeesManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

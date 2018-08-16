@@ -89,14 +89,14 @@
             // 仪器管理ToolStripMenuItem
             // 
             this.仪器管理ToolStripMenuItem.Name = "仪器管理ToolStripMenuItem";
-            this.仪器管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.仪器管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.仪器管理ToolStripMenuItem.Text = "仪器管理";
             this.仪器管理ToolStripMenuItem.Click += new System.EventHandler(this.仪器管理ToolStripMenuItem_Click);
             // 
             // 元器件管理ToolStripMenuItem
             // 
             this.元器件管理ToolStripMenuItem.Name = "元器件管理ToolStripMenuItem";
-            this.元器件管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.元器件管理ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.元器件管理ToolStripMenuItem.Text = "元器件管理";
             // 
             // 器件出入记录ToolStripMenuItem
@@ -111,14 +111,14 @@
             // 仪器ToolStripMenuItem
             // 
             this.仪器ToolStripMenuItem.Name = "仪器ToolStripMenuItem";
-            this.仪器ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.仪器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.仪器ToolStripMenuItem.Text = "仪器";
             this.仪器ToolStripMenuItem.Click += new System.EventHandler(this.仪器ToolStripMenuItem_Click);
             // 
             // 元器件ToolStripMenuItem
             // 
             this.元器件ToolStripMenuItem.Name = "元器件ToolStripMenuItem";
-            this.元器件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.元器件ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.元器件ToolStripMenuItem.Text = "元器件";
             // 
             // Administration

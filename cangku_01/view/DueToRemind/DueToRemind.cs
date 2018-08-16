@@ -37,8 +37,8 @@ namespace cangku_01.YT
                  Dgv_DueToRemind.Rows[index].Cells[3].Value = re.DateFormatConversion(re.LastCheckTimes);
                  string St_Cycle = re.CheckCycle.ToString();
                  Dgv_DueToRemind.Rows[index].Cells[4].Value = St_Cycle;              
-                 Dgv_DueToRemind.Rows[index].Cells[5].Value = re.NextCheckTimes(re.LastCheckTimes,re.CheckCycle);
-                 Dgv_DueToRemind.Rows[index].Cells[6].Value = re.TimeRemaining(re.LastCheckTimes,re.CheckCycle);
+                 Dgv_DueToRemind.Rows[index].Cells[5].Value = re.NextCheckTimes();
+                 Dgv_DueToRemind.Rows[index].Cells[6].Value = re.TimeRemaining();
 
                 //判断剩余日期，并划分不同的背景色颜色
                 for (int x = 0; x < this.Dgv_DueToRemind.Rows.Count; x++)
