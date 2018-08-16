@@ -94,11 +94,17 @@
       <DependentUpon>Administration.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\Employee.cs" />
-    <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.cs">
+    <Compile Include="view\AdminPage\AutoCloseMassageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EmployeesManagement\AddOrAlterEmployees.Designer.cs">
-      <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>
+    <Compile Include="view\AdminPage\AutoCloseMassageBox.Designer.cs">
+      <DependentUpon>AutoCloseMassageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\AddOrUpdateEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EmployeesManagement\AddOrUpdateEmployees.Designer.cs">
+      <DependentUpon>AddOrUpdateEmployees.cs</DependentUpon>
     </Compile>
     <Compile Include="view\AdminPage\Confirm.cs">
       <SubType>Form</SubType>
@@ -174,8 +180,11 @@
     <EmbeddedResource Include="view\AdminPage\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EmployeesManagement\AddOrAlterEmployees.resx">
-      <DependentUpon>AddOrAlterEmployees.cs</DependentUpon>
+    <EmbeddedResource Include="view\AdminPage\AutoCloseMassageBox.resx">
+      <DependentUpon>AutoCloseMassageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EmployeesManagement\AddOrUpdateEmployees.resx">
+      <DependentUpon>AddOrUpdateEmployees.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminPage\Confirm.resx">
       <DependentUpon>Confirm.cs</DependentUpon>

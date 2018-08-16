@@ -25,6 +25,14 @@ namespace cangku_01.interfaceImp
             return dt;
         }
 
+        //TagId查询仪器信息
+        public DataTable TagIdQueryInstrument(Instrument ins)
+        {
+            string sql = ins.TagIDQueryInstrumentSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
         //仪器信息添加
         public void AddInstrument(Instrument ins)
         {

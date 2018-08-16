@@ -46,6 +46,7 @@
             this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.button1.Location = new System.Drawing.Point(35, 29);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 25);
+            this.button1.Size = new System.Drawing.Size(80, 30);
             this.button1.TabIndex = 0;
             this.button1.Text = "添加仪器";
             this.button1.UseVisualStyleBackColor = true;
@@ -82,9 +83,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(480, 27);
+            this.button2.Location = new System.Drawing.Point(480, 30);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 30);
             this.button2.TabIndex = 3;
             this.button2.Text = "搜索";
             this.button2.UseVisualStyleBackColor = true;
@@ -107,7 +108,8 @@
             this.上次检验时间,
             this.责任人,
             this.Column1,
-            this.Column2});
+            this.Column2,
+            this.查看详情});
             this.dgv_instrumentinformation.Location = new System.Drawing.Point(35, 73);
             this.dgv_instrumentinformation.Name = "dgv_instrumentinformation";
             this.dgv_instrumentinformation.RowTemplate.Height = 23;
@@ -168,14 +170,14 @@
             this.在库状态.HeaderText = "在库状态";
             this.在库状态.Name = "在库状态";
             this.在库状态.ReadOnly = true;
-            this.在库状态.Width = 110;
+            this.在库状态.Width = 80;
             // 
             // 检定周期
             // 
             this.检定周期.HeaderText = "检定周期";
             this.检定周期.Name = "检定周期";
             this.检定周期.ReadOnly = true;
-            this.检定周期.Width = 90;
+            this.检定周期.Width = 80;
             // 
             // 上次检验时间
             // 
@@ -189,7 +191,7 @@
             this.责任人.HeaderText = "责任人";
             this.责任人.Name = "责任人";
             this.责任人.ReadOnly = true;
-            this.责任人.Width = 90;
+            this.责任人.Width = 80;
             // 
             // Column1
             // 
@@ -198,7 +200,7 @@
             this.Column1.ReadOnly = true;
             this.Column1.Text = "删除";
             this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 70;
+            this.Column1.Width = 50;
             // 
             // Column2
             // 
@@ -207,7 +209,17 @@
             this.Column2.ReadOnly = true;
             this.Column2.Text = "修改";
             this.Column2.UseColumnTextForButtonValue = true;
-            this.Column2.Width = 70;
+            this.Column2.Width = 50;
+            // 
+            // 查看详情
+            // 
+            this.查看详情.HeaderText = "查看详情";
+            this.查看详情.Name = "查看详情";
+            this.查看详情.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.查看详情.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.查看详情.Text = "查看详情";
+            this.查看详情.UseColumnTextForButtonValue = true;
+            this.查看详情.Width = 90;
             // 
             // InstrumentManagement
             // 
@@ -250,5 +262,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 责任人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
+        private System.Windows.Forms.DataGridViewButtonColumn 查看详情;
     }
 }

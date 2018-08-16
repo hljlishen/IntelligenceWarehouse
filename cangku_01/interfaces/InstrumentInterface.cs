@@ -14,6 +14,8 @@ namespace cangku_01.interfaces
     {
         //获取全部仪器信息
         DataTable QueryAllInstrument();
+        //TagId查询仪器信息
+        DataTable TagIdQueryInstrument(Instrument ins);
         //仪器信息添加
         void AddInstrument(Instrument ins);
         //仪器信息删除
