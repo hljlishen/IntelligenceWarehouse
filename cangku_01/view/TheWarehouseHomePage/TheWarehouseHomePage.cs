@@ -61,6 +61,7 @@ namespace cangku_01
                     Tb_ShowId.Text = "";
                     Tb_ShowState.Text = "";
                     Tb_ShowTime.Text = "";
+                    pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\" +"仪器"+".png");
                 }
             }
         }

@@ -290,6 +290,7 @@ namespace cangku_01
             this.pictureBox4.Location = new System.Drawing.Point(90, 59);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(123, 140);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 8;
             this.pictureBox4.TabStop = false;
             // 
@@ -602,7 +603,6 @@ namespace cangku_01
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private Label label11;
         private Label label10;
         private Label label9;
@@ -624,7 +624,6 @@ namespace cangku_01
         private Label label4;
         private NotifyIcon notifyIcon1;
         private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
         private DataGridView Dgv_DueToSee;
         private DataGridViewTextBoxColumn DueName;
         private DataGridViewTextBoxColumn DueTime;
@@ -635,6 +634,8 @@ namespace cangku_01
         public TextBox Tb_ShowId;
         public TextBox Tb_ShowTime;
         private Timer timer2;
+        public PictureBox pictureBox4;
+        public PictureBox pictureBox5;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using Gate;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -150,9 +151,8 @@ namespace cangku_01.GateDrive
                     }
                     door.TagId = TagId;
                     fr.Tb_ShowId.Text = TagId;
+                    fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
                 }
-              
-
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
             {
