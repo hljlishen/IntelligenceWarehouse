@@ -24,13 +24,13 @@ namespace cangku_01.view.InstrumentManagement
             InitializeComponent();
             this.fr = fr;
             title.Text = "添加仪器基本信息";
+            cb_isInWareHouse.Text = "在库";
             tb_tagid.ReadOnly = false;
             bt_alterinstrument.Visible = false;
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
             tb_lastCheckTimes.Visible = false;
-            this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
-            
+            pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
         }
 
         //仪器信息修改构造方法
@@ -45,18 +45,8 @@ namespace cangku_01.view.InstrumentManagement
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
             tb_lastCheckTimes.Visible = false;
-            this.ShowInstrumentPhoto();
-            tb_tagid.Text = ins.TagId;
-            tb_name.Text = ins.Name;
-            tb_model.Text = ins.Model;
-            tb_manufactor.Text = ins.Manufactor;
-            tb_serialNumber.Text = ins.SerialNumber;
-            time_productionDate.Text = ins.ProductionDate.ToString();
-            tb_position.Text = ins.Position;
-            cb_isInWareHouse.Text = ins.IsInWareHouse;
-            tb_checkCycle.Text = ins.CheckCycle.ToString();
-            time_lastCheckTimes.Text = ins.LastCheckTimes.ToString();
-            tb_duty.Text = ins.Duty;
+            ShowInstrumentPhoto();
+            InstrumentMessageDataTableShowTextBox();
         }
 
         //仪器信息详情构造方法
@@ -70,8 +60,21 @@ namespace cangku_01.view.InstrumentManagement
             time_productionDate.Visible = false;
             cb_isInWareHouse.Visible = false;
             this.ins = ins;
-            this.ShowInstrumentPhoto();
-            this.InstrumentMessageDataTableShowTextBox();
+            SettingAllTextBoxReadOnly();
+            ShowInstrumentPhoto();
+            InstrumentMessageDataTableShowTextBox();
+        }
+
+        //设置页面信息为只读
+        public void SettingAllTextBoxReadOnly()
+        {
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                {
+                    (control as TextBox).ReadOnly = true;
+                }
+            }
         }
 
         //仪器信息展示在页面组件中
@@ -85,26 +88,24 @@ namespace cangku_01.view.InstrumentManagement
             tb_model.Text = myDr["in_model"].ToString();
             tb_manufactor.Text = myDr["in_manufactor"].ToString();
             tb_serialNumber.Text = myDr["in_serialnumber"].ToString();
-            if (bt_addinstrument.Visible == false && bt_alterinstrument.Visible == false)
+            tb_position.Text = myDr["in_position"].ToString();
+            tb_checkCycle.Text = myDr["in_checkcycle"].ToString();
+            tb_duty.Text = myDr["in_duty"].ToString();
+            if (title.Text.Equals("查看仪器基本信息"))
             {
                 tb_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
                 tb_lastCheckTimes.Text = ins.DateFormatConversion((DateTime)myDr["in_lastchecktimes"]);
                 tb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
+                return;
             }
-            else
-            {
-                time_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
-                time_lastCheckTimes.Text = ins.DateFormatConversion((DateTime)myDr["in_lastchecktimes"]);
-                cb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
-            }
-            tb_position.Text = myDr["in_position"].ToString();
-            tb_checkCycle.Text = myDr["in_checkcycle"].ToString();
-            tb_duty.Text = myDr["in_duty"].ToString();
+            time_productionDate.Text = myDr["in_productiondate"].ToString();
+            time_lastCheckTimes.Text = myDr["in_lastchecktimes"].ToString();
+            cb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
         }
 
         private void AddOrModifyInstrument_Load(object sender, EventArgs e)
         {
-            this.cb_isInWareHouse.Text = "在库";
+           
         }
 
         //获取仪器照片地址
@@ -134,7 +135,7 @@ namespace cangku_01.view.InstrumentManagement
             dao.AddInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             index = fr.dgv_instrumentinformation.Rows.Add();
-            this.AddOneEmployeeToTheDataGridView();
+            AddOneEmployeeToTheDataGridView();
         }
 
         //获取仪器信息

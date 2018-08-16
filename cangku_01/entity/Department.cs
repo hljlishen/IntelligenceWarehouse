@@ -111,7 +111,7 @@ namespace cangku_01.entity
                 MessageBox.Show("该部门之下还有子部门，不能删除");
                 return;
             }
-            sql = "select * from t_employees where em_group = " + id + "";
+            sql = "select * from t_employee where em_group = " + id + "";
             DataSet ds2 = dbo.ReadDB(sql);
             if (ds2.Tables[0].Rows.Count != 0)//节点下存在联系人
             {

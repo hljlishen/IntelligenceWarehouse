@@ -145,7 +145,7 @@ namespace cangku_01.view.EmployeesManagement
         {
             if (tv_departmentshow.SelectedNode.Level != 2) //确定选中到部门
             {
-                //MessageBox.Show("未精确到小组");
+                MessageBox.Show("未精确到小组");
                 return;
             }
             Department d1 = tv_departmentshow.SelectedNode.Tag as Department;//获取节点id

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器管理
 
@@ -58,7 +59,7 @@ namespace cangku_01.view.InstrumentManagement
         private void button1_Click(object sender, EventArgs e)  
         {
             AddOrUpdateInstrument add = new AddOrUpdateInstrument(this);
-            add.Show();
+            add.ShowDialog();
         }
 
         //仪器的修改删除
@@ -71,9 +72,8 @@ namespace cangku_01.view.InstrumentManagement
                 {
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
                     dao.DeleteInstrument(ins);
-                    MessageBox.Show("删除成功！");
-                    this.dgv_instrumentinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
-
+                    AutoClosingMessageBox.Show("仪器信息删除成功", "仪器信息删除", 1000);
+                    dgv_instrumentinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
                 }
             }
             //修改
@@ -84,18 +84,8 @@ namespace cangku_01.view.InstrumentManagement
                     //获取要修改属性
                     Instrument ins = new Instrument();
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
-                    ins.Name = dgv_instrumentinformation.CurrentRow.Cells[1].Value.ToString();
-                    ins.Model = dgv_instrumentinformation.CurrentRow.Cells[2].Value.ToString();
-                    ins.Manufactor = dgv_instrumentinformation.CurrentRow.Cells[3].Value.ToString();
-                    ins.SerialNumber = dgv_instrumentinformation.CurrentRow.Cells[4].Value.ToString();
-                    ins.ProductionDate = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[5].Value.ToString());
-                    ins.Position = dgv_instrumentinformation.CurrentRow.Cells[6].Value.ToString();
-                    ins.IsInWareHouse = dgv_instrumentinformation.CurrentRow.Cells[7].Value.ToString();
-                    ins.CheckCycle = int.Parse(dgv_instrumentinformation.CurrentRow.Cells[8].Value.ToString());
-                    ins.LastCheckTimes = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[9].Value.ToString());
-                    ins.Duty = dgv_instrumentinformation.CurrentRow.Cells[10].Value.ToString();
                     AddOrUpdateInstrument Update = new AddOrUpdateInstrument(this, ins, e.RowIndex);
-                    Update.Show();
+                    Update.ShowDialog();
                 }
             }
             //修改
@@ -104,18 +94,8 @@ namespace cangku_01.view.InstrumentManagement
                  //获取要修改属性
                  Instrument ins = new Instrument();
                  ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
-                 ins.Name = dgv_instrumentinformation.CurrentRow.Cells[1].Value.ToString();
-                 ins.Model = dgv_instrumentinformation.CurrentRow.Cells[2].Value.ToString();
-                 ins.Manufactor = dgv_instrumentinformation.CurrentRow.Cells[3].Value.ToString();
-                 ins.SerialNumber = dgv_instrumentinformation.CurrentRow.Cells[4].Value.ToString();
-                 ins.ProductionDate = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[5].Value.ToString());
-                 ins.Position = dgv_instrumentinformation.CurrentRow.Cells[6].Value.ToString();
-                 ins.IsInWareHouse = dgv_instrumentinformation.CurrentRow.Cells[7].Value.ToString();
-                 ins.CheckCycle = int.Parse(dgv_instrumentinformation.CurrentRow.Cells[8].Value.ToString());
-                 ins.LastCheckTimes = Convert.ToDateTime(dgv_instrumentinformation.CurrentRow.Cells[9].Value.ToString());
-                 ins.Duty = dgv_instrumentinformation.CurrentRow.Cells[10].Value.ToString();
                  AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
-                 add.Show();
+                 add.ShowDialog(); 
             }
         }
 

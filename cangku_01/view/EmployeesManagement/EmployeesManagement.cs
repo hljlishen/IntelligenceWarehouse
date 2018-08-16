@@ -15,6 +15,7 @@ using cangku_01.view.EmployeesManagement;
 using cangku_01.view.AdminPage;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //员工信息管理页面
 
@@ -78,7 +79,7 @@ namespace cangku_01.view.EmployeesManagement
                     string currentIndex = dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString();
                     int usernumber = int.Parse(currentIndex);
                     dao.DeleteEmployee(usernumber);
-                    MessageBox.Show("删除成功！");
+                    AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
                     this.dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
 
                 }
@@ -210,7 +211,7 @@ namespace cangku_01.view.EmployeesManagement
             {
                 Department c = (Department)tv_department.SelectedNode.Tag;
                 c.deleteSelf();
-                MessageBox.Show("删除成功！");
+                AutoClosingMessageBox.Show("节点删除成功", "节点删除", 1000);
                 tv_department.SelectedNode.Remove();//从TV移除
             }
         }
