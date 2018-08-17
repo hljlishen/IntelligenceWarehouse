@@ -338,7 +338,7 @@
             // 
             this.la_TagQuery.AutoSize = true;
             this.la_TagQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_TagQuery.Location = new System.Drawing.Point(903, 92);
+            this.la_TagQuery.Location = new System.Drawing.Point(927, 90);
             this.la_TagQuery.Name = "la_TagQuery";
             this.la_TagQuery.Size = new System.Drawing.Size(77, 14);
             this.la_TagQuery.TabIndex = 18;
@@ -347,7 +347,7 @@
             // tb_tag
             // 
             this.tb_tag.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_tag.Location = new System.Drawing.Point(986, 85);
+            this.tb_tag.Location = new System.Drawing.Point(1010, 85);
             this.tb_tag.Name = "tb_tag";
             this.tb_tag.Size = new System.Drawing.Size(124, 21);
             this.tb_tag.TabIndex = 19;

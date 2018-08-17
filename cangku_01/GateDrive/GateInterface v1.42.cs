@@ -130,7 +130,7 @@ namespace cangku_01.GateDrive
                         return;
                     }
                     door.TagId = TagId;
-                    fr.Tb_ShowId.Text = TagId;
+                    fr.Tb_ShowId.Text = door.TagId;
                     FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
                     if (f.Exists)
                     {
@@ -140,10 +140,12 @@ namespace cangku_01.GateDrive
                     {
                         fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
                     }
+           
                 }
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
             {
+                
                 InFlag = Convert.ToByte(Msg[0]);
                 switch (InFlag)
                 {
@@ -171,19 +173,20 @@ namespace cangku_01.GateDrive
                 minutes = Convert.ToString(Msg[15]).PadLeft(2, '0');
                 second = Convert.ToString(Msg[16]).PadLeft(2, '0');
                 ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
-          
-                if (fr.Tb_ShowId.Text.Equals(""))
+                door.ThroughDoorTime = ThroughDoorTime;
+                door.ThroughDoorDirection = ThroughDoorDirection;
+                if (!fr.Tb_ShowId.Text.Equals(""))
                 {
-                    fr.Tb_ShowState.Text = "";
-                    fr.Tb_ShowTime.Text = "";
-                }
-                else
-                {
-                    door.ThroughDoorTime = ThroughDoorTime;
-                    door.ThroughDoorDirection = ThroughDoorDirection;
                     fr.Tb_ShowTime.Text = ThroughDoorTime;
                     fr.Tb_ShowState.Text = ThroughDoorDirection;
-                    BorrowInformation(door);
+                    if (fr.Tb_ShowTime.Text.Equals("") && fr.Tb_ShowState.Text.Equals(""))
+                    {
+                        throw new Exception("未读到数据");
+                    }
+                    else
+                    {
+                        BorrowInformation(door);
+                    }
                 }
             }
             DeviceApi.Acknowledge(ref ControllerAdr, PortHandle);
@@ -194,6 +197,5 @@ namespace cangku_01.GateDrive
             string sql = insborrow.BorrowInformationSql();
             dbo.WriteDB(sql);
         }
-
     }
 }
