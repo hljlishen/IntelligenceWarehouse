@@ -124,7 +124,5 @@ namespace cangku_01
             Form login = new login();
             login.Show();
         }
-
-
     }
 }

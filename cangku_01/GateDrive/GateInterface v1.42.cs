@@ -1,7 +1,9 @@
-﻿using Gate;
+﻿using cangku_01.MysqlConnection;
+using Gate;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,40 +13,18 @@ namespace cangku_01.GateDrive
 {
     class GateInterfaceImp : GateInterface
     {
+        GateVirtualEntity door = new GateVirtualEntity();
         private int fCmdRet = 30;
         private byte ControllerAdr = 0xff;
         private int PortHandle = -1;
         private byte IRStatus;
         private byte fModel;
-        private string mtidaddr = "00";
-        private string Mtidlen = "06";
-        private string Maddr = "0000";
-        private string Mlen = "00";
         private int Port = 6000;
         private string ipAddr = "192.168.1.190";
-        private string Mdata = "";
-        private string rnum = "";
-        private string lnum = "";
         private bool IsGetting;
         private byte[] MaskData = new byte[100];
-        private byte IREnable = 0;
-        private byte IRTime = 0;
-        private byte TagExistTime = 0;
-        private byte AlarmEn = 0;
-        private byte DelayTime = 0;
-        private byte Pepolemsg = 0;
-        private byte AEn = 1;
-        private byte NewAddr = 00;
-        private byte Mode = 1;
         private byte[] setTime = new byte[6];
-        private byte model = 0;
-        private byte Qvalue = 0;
-        private byte Session = 0;
-        private byte AdrTID = 0;
-        private byte LenTID = 0;
-        private byte MaskMem = 0;
         private byte[] MaskAdr = new byte[2];
-        private byte MaskLen = 0;
         private byte[] positive = new byte[3];
         private byte[] reverse = new byte[3];
         private byte[] AlarmNum = new byte[4];
@@ -56,8 +36,8 @@ namespace cangku_01.GateDrive
         private byte[] Msg = new byte[300];
         private string year, month, Dates, Hour, minutes, second;
         private byte MsgLength = 0;
-        private string dminfre = "";
-        private string dmaxfre = "";
+
+        DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //关闭门的网口
         public void Close()
@@ -120,7 +100,7 @@ namespace cangku_01.GateDrive
         
         public void  StartDetect(Form1 fr)
         {
-            GateVirtualEntity door = new GateVirtualEntity();
+            
             string ThroughDoorTime;
             string ThroughDoorDirection;
             IsGetting = true;     //进入该过程时将正在执行标志置1.
@@ -151,7 +131,15 @@ namespace cangku_01.GateDrive
                     }
                     door.TagId = TagId;
                     fr.Tb_ShowId.Text = TagId;
-                    fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
+                    FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
+                    if (f.Exists)
+                    {
+                        fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
+                    }
+                    else
+                    {
+                        fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                    }
                 }
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
@@ -183,9 +171,7 @@ namespace cangku_01.GateDrive
                 minutes = Convert.ToString(Msg[15]).PadLeft(2, '0');
                 second = Convert.ToString(Msg[16]).PadLeft(2, '0');
                 ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
-                door.ThroughDoorTime = ThroughDoorTime;
-                door.ThroughDoorDirection = ThroughDoorDirection;
-                
+          
                 if (fr.Tb_ShowId.Text.Equals(""))
                 {
                     fr.Tb_ShowState.Text = "";
@@ -193,11 +179,21 @@ namespace cangku_01.GateDrive
                 }
                 else
                 {
+                    door.ThroughDoorTime = ThroughDoorTime;
+                    door.ThroughDoorDirection = ThroughDoorDirection;
                     fr.Tb_ShowTime.Text = ThroughDoorTime;
                     fr.Tb_ShowState.Text = ThroughDoorDirection;
+                    BorrowInformation(door);
                 }
             }
             DeviceApi.Acknowledge(ref ControllerAdr, PortHandle);
         }
+        //将探测到的借用信息存入到数据库
+        public void BorrowInformation(GateVirtualEntity insborrow)
+        {
+            string sql = insborrow.BorrowInformationSql();
+            dbo.WriteDB(sql);
+        }
+
     }
 }
