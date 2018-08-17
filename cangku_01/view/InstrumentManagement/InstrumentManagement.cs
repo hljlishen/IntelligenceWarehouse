@@ -12,25 +12,23 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.InstrumentManagement
 {
-    public partial class InstrumentManagement : Form
+    public partial class la_duty : Form
     {
         InstrumentInterface dao = new InstrumentInterfaceImp();
         Instrument ins = new Instrument();
 
-        public InstrumentManagement()
+        public la_duty()
         {
             InitializeComponent();
         }
 
         private void index_instrument_Load(object sender, EventArgs e)
         {
-            this.txt_found.Text = "请输入仪器名称";
-            this.txt_found.MouseClick += textBox1_MouseClick;
-            this.txt_found.Leave += textBox1_Leave;
-            this.Left = 0;
-            this.Top = 0;
+            cb_IsInWareHouse.Text = "出库/入库";
+            Left = 0;
+            Top = 0;
             DataTable dt = dao.QueryAllInstrument();//将全部员工加载
-            this.ShowDataGridView(dt);
+            ShowDataGridView(dt);
         }
 
         //DataGridView显示数据
@@ -98,30 +96,6 @@ namespace cangku_01.view.InstrumentManagement
         //搜索按钮
         private void button2_Click(object sender, EventArgs e)  
         {
-            //获取搜索框中的值  name查
-            String tb_text = txt_found.Text;
-        }
-
-        //搜索框
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (this.txt_found.Text.Trim() == "请输入仪器名称")
-            {
-                this.txt_found.Text = "";
-            }
-        }
-
-        private void textBox1_Leave(object sender, EventArgs e)
-        {
-            if (this.txt_found.Text.Trim() == "")
-            {
-                this.txt_found.Text = "请输入仪器名称";
-            }
-        }
-
-        private void txt_found_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

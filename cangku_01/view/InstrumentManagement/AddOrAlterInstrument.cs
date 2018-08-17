@@ -14,12 +14,12 @@ namespace cangku_01.view.InstrumentManagement
 {
     public partial class AddOrUpdateInstrument : Form 
     {
-        private InstrumentManagement fr;
+        private la_duty fr;
         Instrument ins = new Instrument();
         private int index;
 
         //仪器信息添加构造方法
-        public AddOrUpdateInstrument(InstrumentManagement fr)
+        public AddOrUpdateInstrument(la_duty fr)
         {
             InitializeComponent();
             this.fr = fr;
@@ -34,7 +34,7 @@ namespace cangku_01.view.InstrumentManagement
         }
 
         //仪器信息修改构造方法
-        public AddOrUpdateInstrument(InstrumentManagement fr, Instrument ins ,int index)
+        public AddOrUpdateInstrument(la_duty fr, Instrument ins ,int index)
         {
             InitializeComponent();
             this.fr = fr;
@@ -136,6 +136,20 @@ namespace cangku_01.view.InstrumentManagement
             AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             index = fr.dgv_instrumentinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
+            ResetPageInformation();
+        }
+
+        //重置页面信息
+        public void ResetPageInformation()
+        {
+            foreach (Control ctr in Controls)
+            {
+                if (ctr is TextBox)//考虑是文本框的话
+                {
+                    ((TextBox)ctr).Text = String.Empty;
+                }
+            }
+            cb_isInWareHouse.Text = "入库";
         }
 
         //获取仪器信息
@@ -146,7 +160,7 @@ namespace cangku_01.view.InstrumentManagement
             ins.Model = tb_model.Text;
             ins.Manufactor = tb_manufactor.Text;
             ins.SerialNumber = tb_serialNumber.Text;
-            ins.ProductionDate = Convert.ToDateTime(time_lastCheckTimes.Text);
+            ins.ProductionDate = Convert.ToDateTime(time_productionDate.Text);
             ins.Position = tb_position.Text;
             ins.IsInWareHouse = cb_isInWareHouse.Text;
             ins.CheckCycle = int.Parse(tb_checkCycle.Text);
@@ -162,13 +176,9 @@ namespace cangku_01.view.InstrumentManagement
             fr.dgv_instrumentinformation.Rows[index].Cells[1].Value = ins.Name;
             fr.dgv_instrumentinformation.Rows[index].Cells[2].Value = ins.Model;
             fr.dgv_instrumentinformation.Rows[index].Cells[3].Value = ins.Manufactor;
-            fr.dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.SerialNumber;
-            fr.dgv_instrumentinformation.Rows[index].Cells[5].Value = ins.ProductionDate.ToShortDateString();
-            fr.dgv_instrumentinformation.Rows[index].Cells[6].Value = ins.Position;
-            fr.dgv_instrumentinformation.Rows[index].Cells[7].Value = ins.IsInWareHouse;
-            fr.dgv_instrumentinformation.Rows[index].Cells[8].Value = ins.CheckCycle;
-            fr.dgv_instrumentinformation.Rows[index].Cells[9].Value = ins.LastCheckTimes.ToShortDateString();
-            fr.dgv_instrumentinformation.Rows[index].Cells[10].Value = ins.Duty;
+            fr.dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.Position;
+            fr.dgv_instrumentinformation.Rows[index].Cells[5].Value = ins.IsInWareHouse;
+            fr.dgv_instrumentinformation.Rows[index].Cells[6].Value = ins.Duty;
         }
 
         //仪器信息修改

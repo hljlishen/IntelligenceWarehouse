@@ -20,46 +20,53 @@ namespace cangku_01.YT
         public Due_to_remind()
         {
             InitializeComponent();
-            //获取所有的要提示的快过期信息
-            List<Instrument> All_re = dao.All_remind();
-            //循环遍历在列表中
-            foreach (Instrument re in All_re)
-            {
-                //获取当前时间并且赋值给dt
-                DateTime dt = DateTime.Now;
-                //创建新的行
-                DataGridViewRow row = new DataGridViewRow();
-                int index = Dgv_DueToRemind.Rows.Add(row);
-                //给同一行的每一列赋值
-                 Dgv_DueToRemind.Rows[index].Cells[0].Value = re.TagId;  
-                 Dgv_DueToRemind.Rows[index].Cells[1].Value = re.Name;
-                 Dgv_DueToRemind.Rows[index].Cells[2].Value = re.Manufactor;
-                 Dgv_DueToRemind.Rows[index].Cells[3].Value = re.DateFormatConversion(re.LastCheckTimes);
-                 string St_Cycle = re.CheckCycle.ToString();
-                 Dgv_DueToRemind.Rows[index].Cells[4].Value = St_Cycle;              
-                 Dgv_DueToRemind.Rows[index].Cells[5].Value = re.NextCheckTimes();
-                 Dgv_DueToRemind.Rows[index].Cells[6].Value = re.TimeRemaining();
+            DataTable dt = dao.QueryAllExpireInstrument();
+            ShowDataGridView(dt);
+            DataGridViewColorTips();
+        }
 
-                //判断剩余日期，并划分不同的背景色颜色
-                for (int x = 0; x < this.Dgv_DueToRemind.Rows.Count; x++)
-                {
-                    String s = Dgv_DueToRemind.Rows[x].Cells[6].Value.ToString();
-                    int Day = int.Parse(s);
-                    if (Day <= 0)
-                        this.Dgv_DueToRemind.Rows[x].DefaultCellStyle.BackColor = Color.Crimson;
-                    else if(Day > 0 && Day <= 30)
-                        this.Dgv_DueToRemind.Rows[x].DefaultCellStyle.BackColor = Color.Yellow;
-                    else  if(Day >30 && Day <= 60)
-                        this.Dgv_DueToRemind.Rows[x].DefaultCellStyle.BackColor = Color.DodgerBlue;
-                    else
-                        this.Dgv_DueToRemind.Rows[x].DefaultCellStyle.BackColor = Color.Lavender;
-                }
+        //DataGridView显示到期数据
+        public void ShowDataGridView(DataTable dt)
+        {
+            Instrument ins = new Instrument();
+            dgv_duetoremind.Rows.Clear();
+            foreach (DataRow dr in dt.Rows)
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dgv_duetoremind.Rows.Add(row);
+                ins.LastCheckTimes = (DateTime)dr["in_lastchecktimes"];
+                ins.CheckCycle = (int)dr["in_checkcycle"]; ;
+                dgv_duetoremind.Rows[index].Cells[0].Value = dr["in_tagid"];
+                dgv_duetoremind.Rows[index].Cells[1].Value = dr["in_name"];
+                dgv_duetoremind.Rows[index].Cells[2].Value = dr["in_manufactor"];
+                dgv_duetoremind.Rows[index].Cells[3].Value = dr["in_lastchecktimes"];
+                dgv_duetoremind.Rows[index].Cells[4].Value = dr["in_checkcycle"];
+                dgv_duetoremind.Rows[index].Cells[5].Value = ins.NextCheckTimes();
+                dgv_duetoremind.Rows[index].Cells[6].Value = ins.TimeRemaining();
+            }
+        }
+
+        //DataGridView色彩提示
+        public void DataGridViewColorTips()
+        {
+            for (int x = 0; x < dgv_duetoremind.Rows.Count; x++)
+            {
+                String s = dgv_duetoremind.Rows[x].Cells[6].Value.ToString();
+                int Day = int.Parse(s);
+                if (Day <= 0)
+                    dgv_duetoremind.Rows[x].DefaultCellStyle.BackColor = Color.Crimson;
+                else if (Day > 0 && Day <= 30)
+                    dgv_duetoremind.Rows[x].DefaultCellStyle.BackColor = Color.Yellow;
+                else if (Day > 30 && Day <= 60)
+                    dgv_duetoremind.Rows[x].DefaultCellStyle.BackColor = Color.DodgerBlue;
+                else
+                    dgv_duetoremind.Rows[x].DefaultCellStyle.BackColor = Color.Lavender;
             }
         }
 
         private void Label2_Click(object sender, EventArgs e)
         {
-            this.La_nowtime.Text = DateTime.Now.ToString();
+            La_nowtime.Text = DateTime.Now.ToString();
         }
 
         private void Due_to_remind_Load(object sender, EventArgs e)
@@ -70,7 +77,7 @@ namespace cangku_01.YT
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            this.la_time.Text = DateTime.Now.ToString();
+            la_time.Text = DateTime.Now.ToString();
         }
 
         private void Label1_Click(object sender, EventArgs e)
@@ -86,10 +93,10 @@ namespace cangku_01.YT
                 if (MessageBox.Show("是否确认修改检查时间？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     //获取要修改的id、名字、生产厂商
-                    string Remind_id = Dgv_DueToRemind.CurrentRow.Cells[0].Value.ToString();
-                    string Remind_name = Dgv_DueToRemind.CurrentRow.Cells[1].Value.ToString();
-                    string Remind_manufacturer = Dgv_DueToRemind.CurrentRow.Cells[2].Value.ToString();
-                    string Remind_lasttime = Dgv_DueToRemind.CurrentRow.Cells[3].Value.ToString();
+                    string Remind_id = dgv_duetoremind.CurrentRow.Cells[0].Value.ToString();
+                    string Remind_name = dgv_duetoremind.CurrentRow.Cells[1].Value.ToString();
+                    string Remind_manufacturer = dgv_duetoremind.CurrentRow.Cells[2].Value.ToString();
+                    string Remind_lasttime = dgv_duetoremind.CurrentRow.Cells[3].Value.ToString();
                     
                     //跳转到日期修改页面、并将相关数据传入Alter_remind界面
                     Alter_remind Al_remind = new Alter_remind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime);

@@ -83,10 +83,10 @@ namespace cangku_01.entity
         }
 
         //查询所有的快要到期的仪器的sql语句
-        public string AllRemindSql()
+        public string QueryAllExpireInstrumentSql()
         {
-            string AllRemindSql = "";
-            return AllRemindSql;
+            string sql = "select * from t_instrument";
+            return sql;
         }
 
         //修改检查日期的sql语句
