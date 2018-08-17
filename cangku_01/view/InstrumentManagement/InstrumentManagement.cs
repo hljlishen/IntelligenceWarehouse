@@ -45,13 +45,9 @@ namespace cangku_01.view.InstrumentManagement
                 dgv_instrumentinformation.Rows[index].Cells[1].Value = dr["in_name"];
                 dgv_instrumentinformation.Rows[index].Cells[2].Value = dr["in_model"];
                 dgv_instrumentinformation.Rows[index].Cells[3].Value = dr["in_manufactor"];
-                dgv_instrumentinformation.Rows[index].Cells[4].Value = dr["in_serialnumber"];
-                dgv_instrumentinformation.Rows[index].Cells[5].Value = ins.DateFormatConversion((DateTime)dr["in_productiondate"]);
-                dgv_instrumentinformation.Rows[index].Cells[6].Value = dr["in_position"];
-                dgv_instrumentinformation.Rows[index].Cells[7].Value = dr["in_isinwarehouse"];
-                dgv_instrumentinformation.Rows[index].Cells[8].Value = dr["in_checkcycle"];
-                dgv_instrumentinformation.Rows[index].Cells[9].Value = ins.DateFormatConversion((DateTime)dr["in_lastchecktimes"]);
-                dgv_instrumentinformation.Rows[index].Cells[10].Value = dr["in_duty"];
+                dgv_instrumentinformation.Rows[index].Cells[4].Value = dr["in_position"];
+                dgv_instrumentinformation.Rows[index].Cells[5].Value = dr["in_isinwarehouse"];
+                dgv_instrumentinformation.Rows[index].Cells[6].Value = dr["in_duty"];
             }
         }
 
@@ -66,7 +62,7 @@ namespace cangku_01.view.InstrumentManagement
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
         {
             //删除
-            if (e.ColumnIndex == 11)
+            if (e.ColumnIndex == 7)
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -77,7 +73,7 @@ namespace cangku_01.view.InstrumentManagement
                 }
             }
             //修改
-            if (e.ColumnIndex == 12)
+            if (e.ColumnIndex == 8)
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -89,7 +85,7 @@ namespace cangku_01.view.InstrumentManagement
                 }
             }
             //修改
-            if (e.ColumnIndex == 13)
+            if (e.ColumnIndex == 9)
             {
                  //获取要修改属性
                  Instrument ins = new Instrument();

@@ -104,10 +104,10 @@
             this.Column1,
             this.Column2,
             this.查看详情});
-            this.dgv_instrumentinformation.Location = new System.Drawing.Point(35, 89);
+            this.dgv_instrumentinformation.Location = new System.Drawing.Point(441, 95);
             this.dgv_instrumentinformation.Name = "dgv_instrumentinformation";
             this.dgv_instrumentinformation.RowTemplate.Height = 23;
-            this.dgv_instrumentinformation.Size = new System.Drawing.Size(1340, 684);
+            this.dgv_instrumentinformation.Size = new System.Drawing.Size(934, 684);
             this.dgv_instrumentinformation.TabIndex = 4;
             this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
