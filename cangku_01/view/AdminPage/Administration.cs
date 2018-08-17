@@ -14,7 +14,7 @@ namespace cangku_01
         Form index_employees = new EmployeesManagement();
         Form Due_to_remind = new Due_to_remind();
         Form Ins_query = new Ins_query();
-        Form index_instrument = new InstrumentManagement();
+        Form index_instrument = new la_duty();
         public Administration()
         {
             InitializeComponent();

@@ -29,21 +29,21 @@ namespace cangku_01
             SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
             SetStyle(ControlStyles.DoubleBuffer, true);
             
-            
-
             //到期提醒-首页
-            RemindInterface Remind_dao = new RemindInterfaceImp();
-            List<Instrument> All_re = Remind_dao.All_remind();
-            foreach (Instrument re in All_re)
+            RemindInterface dao = new RemindInterfaceImp();
+            DataTable dt = dao.QueryAllExpireInstrument();
+            Instrument ins = new Instrument();
+            Dgv_DueToSee.Rows.Clear();
+            foreach (DataRow dr in dt.Rows)
             {
-                DateTime dt = DateTime.Now;
                 DataGridViewRow row = new DataGridViewRow();
                 int index = Dgv_DueToSee.Rows.Add(row);
-                Dgv_DueToSee.Rows[index].Cells[0].Value = re.Name;
-                Dgv_DueToSee.Rows[index].Cells[1].Value = re.NextCheckTimes();
-                Dgv_DueToSee.Rows[index].Cells[2].Value = re.TimeRemaining();
+                ins.LastCheckTimes = (DateTime)dr["in_lastchecktimes"];
+                ins.CheckCycle = (int)dr["in_checkcycle"]; ;
+                Dgv_DueToSee.Rows[index].Cells[0].Value = dr["in_name"];
+                Dgv_DueToSee.Rows[index].Cells[1].Value = ins.NextCheckTimes();
+                Dgv_DueToSee.Rows[index].Cells[2].Value = ins.TimeRemaining();
             }
-
         }
         GateInterface gate = new GateInterfaceImp();
         private void timer1_Tick(object sender, EventArgs e)

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Dgv_DueToRemind = new System.Windows.Forms.DataGridView();
+            this.dgv_duetoremind = new System.Windows.Forms.DataGridView();
             this.Co_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Co_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Co_manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,14 +46,14 @@
             this.La_day30 = new System.Windows.Forms.Label();
             this.La_day3060 = new System.Windows.Forms.Label();
             this.La_day60 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToRemind)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_duetoremind)).BeginInit();
             this.SuspendLayout();
             // 
-            // Dgv_DueToRemind
+            // dgv_duetoremind
             // 
-            this.Dgv_DueToRemind.AllowUserToAddRows = false;
-            this.Dgv_DueToRemind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dgv_DueToRemind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgv_duetoremind.AllowUserToAddRows = false;
+            this.dgv_duetoremind.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_duetoremind.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Co_id,
             this.Co_name,
             this.Co_manufacturer,
@@ -62,14 +62,14 @@
             this.Co_nexttime,
             this.Co_surplustimr,
             this.Co_operation});
-            this.Dgv_DueToRemind.Location = new System.Drawing.Point(59, 89);
-            this.Dgv_DueToRemind.Name = "Dgv_DueToRemind";
-            this.Dgv_DueToRemind.ReadOnly = true;
-            this.Dgv_DueToRemind.RowHeadersVisible = false;
-            this.Dgv_DueToRemind.RowTemplate.Height = 23;
-            this.Dgv_DueToRemind.Size = new System.Drawing.Size(1290, 700);
-            this.Dgv_DueToRemind.TabIndex = 0;
-            this.Dgv_DueToRemind.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv_duetoremind.Location = new System.Drawing.Point(59, 89);
+            this.dgv_duetoremind.Name = "dgv_duetoremind";
+            this.dgv_duetoremind.ReadOnly = true;
+            this.dgv_duetoremind.RowHeadersVisible = false;
+            this.dgv_duetoremind.RowTemplate.Height = 23;
+            this.dgv_duetoremind.Size = new System.Drawing.Size(1290, 700);
+            this.dgv_duetoremind.TabIndex = 0;
+            this.dgv_duetoremind.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Co_id
             // 
@@ -228,12 +228,12 @@
             this.Controls.Add(this.la_time);
             this.Controls.Add(this.La_nowtime);
             this.Controls.Add(this.La_NowTimeTxt);
-            this.Controls.Add(this.Dgv_DueToRemind);
+            this.Controls.Add(this.dgv_duetoremind);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Due_to_remind";
             this.Text = "due_to_remind";
             this.Load += new System.EventHandler(this.Due_to_remind_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToRemind)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_duetoremind)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,7 +241,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView Dgv_DueToRemind;
+        private System.Windows.Forms.DataGridView dgv_duetoremind;
         private System.Windows.Forms.Timer Tr_nowtime;
         private System.Windows.Forms.Label La_NowTimeTxt;
         private System.Windows.Forms.Label La_nowtime;
