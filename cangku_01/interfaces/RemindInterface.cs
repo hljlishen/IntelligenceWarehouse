@@ -15,9 +15,8 @@ namespace cangku_01.interfaces
     {
         //查询所有快要到期的仪器
         DataTable QueryAllExpireInstrument();
-        //进行修改
-        int Alter_remind(int Remind_id,DateTime Remind_lastdate);
-
+        //修改最后一次检查时间
+        void UpdateInstrumentLastCheckTime(Instrument ins);
     }
 }
  

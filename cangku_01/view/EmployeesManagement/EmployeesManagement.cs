@@ -23,7 +23,7 @@ namespace cangku_01.view.EmployeesManagement
 {
     public partial class EmployeesManagement : Form
     {
-        EmployeesInterface dao = new EmployeesInterfaceImp();
+        EmployeesInterface dao = new EmployeeDataManipulation();
         private int nodeid;
         private int level;
 

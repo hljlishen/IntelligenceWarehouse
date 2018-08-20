@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.view.InstrumentManagement
 {
-    partial class la_duty
+    partial class InstrumentManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -277,7 +277,7 @@
             this.Controls.Add(this.dgv_instrumentinformation);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "la_duty";
+            this.Name = "InstrumentManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "InstrumentManagement";
             this.Load += new System.EventHandler(this.index_instrument_Load);

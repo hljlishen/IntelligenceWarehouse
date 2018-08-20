@@ -38,11 +38,12 @@ namespace cangku_01
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.仪器位置查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.元器件位置查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.归还ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Tb_temp = new System.Windows.Forms.TextBox();
             this.Tb_name = new System.Windows.Forms.TextBox();
             this.Tb_id = new System.Windows.Forms.TextBox();
@@ -79,8 +80,17 @@ namespace cangku_01
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tp_employeeinformation = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tp_allemployeeinformation = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.人员编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.通行时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -90,6 +100,10 @@ namespace cangku_01
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tp_employeeinformation.SuspendLayout();
+            this.tp_allemployeeinformation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -140,10 +154,25 @@ namespace cangku_01
             // 
             // toolStripMenuItem3
             // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.仪器位置查询ToolStripMenuItem,
+            this.元器件位置查询ToolStripMenuItem});
             this.toolStripMenuItem3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(77, 24);
-            this.toolStripMenuItem3.Text = "仪器查询";
+            this.toolStripMenuItem3.Text = "位置查询";
+            // 
+            // 仪器位置查询ToolStripMenuItem
+            // 
+            this.仪器位置查询ToolStripMenuItem.Name = "仪器位置查询ToolStripMenuItem";
+            this.仪器位置查询ToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.仪器位置查询ToolStripMenuItem.Text = "仪器位置查询";
+            // 
+            // 元器件位置查询ToolStripMenuItem
+            // 
+            this.元器件位置查询ToolStripMenuItem.Name = "元器件位置查询ToolStripMenuItem";
+            this.元器件位置查询ToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.元器件位置查询ToolStripMenuItem.Text = "元器件位置查询";
             // 
             // toolStripMenuItem4
             // 
@@ -178,58 +207,38 @@ namespace cangku_01
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.groupBox1.Controls.Add(this.Tb_temp);
-            this.groupBox1.Controls.Add(this.Tb_name);
-            this.groupBox1.Controls.Add(this.Tb_id);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(161, 110);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(648, 300);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "人员信息";
-            // 
             // Tb_temp
             // 
             this.Tb_temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_temp.Location = new System.Drawing.Point(392, 194);
+            this.Tb_temp.Location = new System.Drawing.Point(392, 144);
             this.Tb_temp.Name = "Tb_temp";
             this.Tb_temp.ReadOnly = true;
-            this.Tb_temp.Size = new System.Drawing.Size(129, 26);
+            this.Tb_temp.Size = new System.Drawing.Size(129, 21);
             this.Tb_temp.TabIndex = 6;
             // 
             // Tb_name
             // 
             this.Tb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_name.Location = new System.Drawing.Point(392, 124);
+            this.Tb_name.Location = new System.Drawing.Point(392, 97);
             this.Tb_name.Name = "Tb_name";
             this.Tb_name.ReadOnly = true;
-            this.Tb_name.Size = new System.Drawing.Size(129, 26);
+            this.Tb_name.Size = new System.Drawing.Size(129, 21);
             this.Tb_name.TabIndex = 5;
             // 
             // Tb_id
             // 
             this.Tb_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_id.Location = new System.Drawing.Point(392, 59);
+            this.Tb_id.Location = new System.Drawing.Point(392, 54);
             this.Tb_id.Name = "Tb_id";
             this.Tb_id.ReadOnly = true;
-            this.Tb_id.Size = new System.Drawing.Size(129, 26);
+            this.Tb_id.Size = new System.Drawing.Size(129, 21);
             this.Tb_id.TabIndex = 4;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(285, 196);
+            this.label8.Location = new System.Drawing.Point(285, 144);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(90, 21);
             this.label8.TabIndex = 3;
@@ -239,7 +248,7 @@ namespace cangku_01
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(285, 126);
+            this.label7.Location = new System.Drawing.Point(285, 97);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(90, 21);
             this.label7.TabIndex = 2;
@@ -249,7 +258,7 @@ namespace cangku_01
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(285, 61);
+            this.label6.Location = new System.Drawing.Point(285, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 1;
@@ -259,7 +268,7 @@ namespace cangku_01
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(90, 61);
+            this.pictureBox5.Location = new System.Drawing.Point(86, 54);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(123, 140);
             this.pictureBox5.TabIndex = 0;
@@ -546,6 +555,111 @@ namespace cangku_01
             // 
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tp_employeeinformation);
+            this.tabControl1.Controls.Add(this.tp_allemployeeinformation);
+            this.tabControl1.ItemSize = new System.Drawing.Size(321, 18);
+            this.tabControl1.Location = new System.Drawing.Point(161, 89);
+            this.tabControl1.Multiline = true;
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(648, 300);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabControl1.TabIndex = 17;
+            // 
+            // tp_employeeinformation
+            // 
+            this.tp_employeeinformation.Controls.Add(this.textBox1);
+            this.tp_employeeinformation.Controls.Add(this.label5);
+            this.tp_employeeinformation.Controls.Add(this.pictureBox5);
+            this.tp_employeeinformation.Controls.Add(this.label6);
+            this.tp_employeeinformation.Controls.Add(this.Tb_temp);
+            this.tp_employeeinformation.Controls.Add(this.label7);
+            this.tp_employeeinformation.Controls.Add(this.label8);
+            this.tp_employeeinformation.Controls.Add(this.Tb_name);
+            this.tp_employeeinformation.Controls.Add(this.Tb_id);
+            this.tp_employeeinformation.Location = new System.Drawing.Point(4, 22);
+            this.tp_employeeinformation.Name = "tp_employeeinformation";
+            this.tp_employeeinformation.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_employeeinformation.Size = new System.Drawing.Size(640, 274);
+            this.tp_employeeinformation.TabIndex = 0;
+            this.tp_employeeinformation.Text = "人员信息";
+            this.tp_employeeinformation.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Location = new System.Drawing.Point(392, 195);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(129, 21);
+            this.textBox1.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(285, 195);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 21);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "通行时间：";
+            // 
+            // tp_allemployeeinformation
+            // 
+            this.tp_allemployeeinformation.Controls.Add(this.dataGridView1);
+            this.tp_allemployeeinformation.Location = new System.Drawing.Point(4, 22);
+            this.tp_allemployeeinformation.Name = "tp_allemployeeinformation";
+            this.tp_allemployeeinformation.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_allemployeeinformation.Size = new System.Drawing.Size(640, 274);
+            this.tp_allemployeeinformation.TabIndex = 1;
+            this.tp_allemployeeinformation.Text = "人员通行记录";
+            this.tp_allemployeeinformation.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.人员编号,
+            this.姓名,
+            this.所属部门,
+            this.通行时间});
+            this.dataGridView1.GridColor = System.Drawing.Color.Black;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 23;
+            this.dataGridView1.Size = new System.Drawing.Size(628, 262);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // 人员编号
+            // 
+            this.人员编号.HeaderText = "人员编号";
+            this.人员编号.Name = "人员编号";
+            this.人员编号.ReadOnly = true;
+            // 
+            // 姓名
+            // 
+            this.姓名.HeaderText = "姓名";
+            this.姓名.Name = "姓名";
+            this.姓名.ReadOnly = true;
+            // 
+            // 所属部门
+            // 
+            this.所属部门.HeaderText = "所属部门";
+            this.所属部门.Name = "所属部门";
+            this.所属部门.ReadOnly = true;
+            // 
+            // 通行时间
+            // 
+            this.通行时间.HeaderText = "通行时间";
+            this.通行时间.Name = "通行时间";
+            this.通行时间.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -553,12 +667,12 @@ namespace cangku_01
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1424, 862);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
@@ -569,8 +683,6 @@ namespace cangku_01
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -582,6 +694,11 @@ namespace cangku_01
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tp_employeeinformation.ResumeLayout(false);
+            this.tp_employeeinformation.PerformLayout();
+            this.tp_allemployeeinformation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -594,7 +711,6 @@ namespace cangku_01
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private Button button1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.TextBox Tb_temp;
@@ -636,6 +752,18 @@ namespace cangku_01
         private Timer timer2;
         public PictureBox pictureBox4;
         public PictureBox pictureBox5;
+        private TabControl tabControl1;
+        private TabPage tp_employeeinformation;
+        private TabPage tp_allemployeeinformation;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn 人员编号;
+        private DataGridViewTextBoxColumn 姓名;
+        private DataGridViewTextBoxColumn 所属部门;
+        private DataGridViewTextBoxColumn 通行时间;
+        private TextBox textBox1;
+        private Label label5;
+        private ToolStripMenuItem 仪器位置查询ToolStripMenuItem;
+        private ToolStripMenuItem 元器件位置查询ToolStripMenuItem;
     }
 }
 

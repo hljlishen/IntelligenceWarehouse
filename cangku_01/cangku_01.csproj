@@ -124,7 +124,7 @@
     <Compile Include="view\EmployeesManagement\EmployeesManagement.Designer.cs">
       <DependentUpon>EmployeesManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaceImp\EmployeesInterfaceImp.cs" />
+    <Compile Include="interfaceImp\EmployeeDataManipulation.cs" />
     <Compile Include="interfaces\EmployeesInterface.cs" />
     <Compile Include="view\AdminPage\AdminLogin.cs">
       <SubType>Form</SubType>
@@ -139,7 +139,7 @@
       <DependentUpon>AddOrAlterInstrument.cs</DependentUpon>
     </Compile>
     <Compile Include="entity\Instrument.cs" />
-    <Compile Include="interfaceImp\InstrumentInterfaceImp.cs" />
+    <Compile Include="interfaceImp\InstrumentDataManipulation.cs" />
     <Compile Include="interfaces\InstrumentInterface.cs" />
     <Compile Include="interfaceImp\InsBorrowRecordQuery.cs" />
     <Compile Include="interfaces\InsBorrowRecordQueryInstrumen.cs" />
@@ -163,11 +163,11 @@
     <Compile Include="view\TheWarehouseHomePage\FindQuery.Designer.cs">
       <DependentUpon>FindQuery.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\DueToRemind\AlterRemind.cs">
+    <Compile Include="view\DueToRemind\UpdateRemind.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DueToRemind\AlterRemind.Designer.cs">
-      <DependentUpon>AlterRemind.cs</DependentUpon>
+    <Compile Include="view\DueToRemind\UpdateRemind.Designer.cs">
+      <DependentUpon>UpdateRemind.cs</DependentUpon>
     </Compile>
     <Compile Include="view\DueToRemind\DueToRemind.cs">
       <SubType>Form</SubType>
@@ -175,7 +175,7 @@
     <Compile Include="view\DueToRemind\DueToRemind.Designer.cs">
       <DependentUpon>DueToRemind.cs</DependentUpon>
     </Compile>
-    <Compile Include="interfaceImp\RemindInterfaceImp.cs" />
+    <Compile Include="interfaceImp\CheckTimeQueryAndUpdate.cs" />
     <Compile Include="interfaces\RemindInterface.cs" />
     <EmbeddedResource Include="view\AdminPage\Administration.resx">
       <DependentUpon>Administration.cs</DependentUpon>
@@ -216,8 +216,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\DueToRemind\AlterRemind.resx">
-      <DependentUpon>AlterRemind.cs</DependentUpon>
+    <EmbeddedResource Include="view\DueToRemind\UpdateRemind.resx">
+      <DependentUpon>UpdateRemind.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TheWarehouseHomePage\FindQuery.resx">
       <DependentUpon>FindQuery.cs</DependentUpon>

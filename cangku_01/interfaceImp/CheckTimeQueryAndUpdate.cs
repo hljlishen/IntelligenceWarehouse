@@ -13,7 +13,7 @@ using cangku_01.MysqlConnection;
 
 namespace cangku_01.interfaceImp
 {
-    class RemindInterfaceImp : RemindInterface
+    class CheckTimeQueryAndUpdate : RemindInterface
     {
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
@@ -26,12 +26,11 @@ namespace cangku_01.interfaceImp
             return dt;
         }
 
-        //将修改的信息传入，对数据库进行修改
-        int RemindInterface.Alter_remind(int Remind_id, DateTime Remind_lastdate)
+        //仪器信息修改
+        public void UpdateInstrumentLastCheckTime(Instrument ins)
         {
-            int i = 1;
-           
-            return i;
+            string sql = ins.UpdateInstrumentLastCheckTimeSql();
+            dbo.WriteDB(sql);
         }
     }
 }

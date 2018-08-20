@@ -18,20 +18,20 @@ namespace cangku_01.entity
         public string Position { get; set; }         //货架位置  
         public string IsInWareHouse { get; set; }    //在库状态       
         public int CheckCycle { get; set; }          //检定周期
-        public DateTime LastCheckTimes { get; set; } //上一次检查时间
+        public DateTime LastCheckTime { get; set; } //上一次检查时间
         public string Duty { get; set; }             //责任人
 
         //计算下一次检查日期
         public string NextCheckTimes()
         {
-            string NextCheckTimes = LastCheckTimes.AddDays(CheckCycle).ToString("yyyy-MM-dd");
+            string NextCheckTimes = LastCheckTime.AddDays(CheckCycle).ToString("yyyy-MM-dd");
             return NextCheckTimes;
         }
 
         //计算剩余的检查日期
         public string TimeRemaining()
         {
-            string TimeRemaining = (LastCheckTimes.AddDays(CheckCycle) - DateTime.Now).Days.ToString();
+            string TimeRemaining = (LastCheckTime.AddDays(CheckCycle) - DateTime.Now).Days.ToString();
             return TimeRemaining;
         }
 
@@ -61,7 +61,7 @@ namespace cangku_01.entity
         {
             string sql = "insert into t_instrument (in_tagid,in_name,in_model,in_manufactor,in_serialnumber,in_productiondate,in_position,in_isinwarehouse,in_checkcycle,in_lastchecktimes,in_duty)" +
                 "values('"+ TagId + "','" + Name + "','" + Model + "','" + Manufactor + "','" + SerialNumber + "','" + ProductionDate + "','" 
-                + Position + "','" + IsInWareHouse + "','" + CheckCycle + "','" + LastCheckTimes + "','" + Duty + "')";
+                + Position + "','" + IsInWareHouse + "','" + CheckCycle + "','" + LastCheckTime + "','" + Duty + "')";
             return sql;
         }
 
@@ -71,7 +71,7 @@ namespace cangku_01.entity
             string sql = "update t_instrument set in_name='" + Name + "',in_model='"
                 + Model + "',in_manufactor='" + Manufactor + "',in_serialnumber='" + SerialNumber + "',in_productiondate='" 
                 + ProductionDate + "',in_position='" + Position + "',in_isinwarehouse='" + IsInWareHouse + "',in_checkcycle='"
-                + CheckCycle + "',in_lastchecktimes='" + LastCheckTimes + "',in_duty='" + Duty + "' where in_tagid = '" + TagId + "'";
+                + CheckCycle + "',in_lastchecktimes='" + LastCheckTime + "',in_duty='" + Duty + "' where in_tagid = '" + TagId + "'";
             return sql;
         }
 
@@ -90,10 +90,11 @@ namespace cangku_01.entity
         }
 
         //修改检查日期的sql语句
-        public string AlterRemindSql(int TagId,DateTime NewLastCheckTimes)
+        public string UpdateInstrumentLastCheckTimeSql()
         {
-            string AlterRemindSql = "";
-            return AlterRemindSql;
+            string sql = "update t_instrument set in_lastchecktimes='" 
+                + LastCheckTime + "' where in_tagid = '" + TagId + "'";
+            return sql;
         }
 
     }

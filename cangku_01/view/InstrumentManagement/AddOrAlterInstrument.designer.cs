@@ -59,6 +59,7 @@
             this.tb_isInWareHouse = new System.Windows.Forms.TextBox();
             this.tb_lastCheckTimes = new System.Windows.Forms.TextBox();
             this.tb_productionDate = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -342,11 +343,20 @@
             this.tb_productionDate.Size = new System.Drawing.Size(143, 26);
             this.tb_productionDate.TabIndex = 63;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(514, 354);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(237, 26);
+            this.textBox1.TabIndex = 64;
+            // 
             // AddOrUpdateInstrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 511);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tb_productionDate);
             this.Controls.Add(this.tb_lastCheckTimes);
             this.Controls.Add(this.tb_isInWareHouse);
@@ -419,5 +429,6 @@
         private System.Windows.Forms.TextBox tb_isInWareHouse;
         private System.Windows.Forms.TextBox tb_lastCheckTimes;
         private System.Windows.Forms.TextBox tb_productionDate;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

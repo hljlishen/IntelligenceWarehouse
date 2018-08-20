@@ -14,12 +14,12 @@ namespace cangku_01.view.InstrumentManagement
 {
     public partial class AddOrUpdateInstrument : Form 
     {
-        private la_duty fr;
+        private InstrumentManagement fr;
         Instrument ins = new Instrument();
         private int index;
 
         //仪器信息添加构造方法
-        public AddOrUpdateInstrument(la_duty fr)
+        public AddOrUpdateInstrument(InstrumentManagement fr)
         {
             InitializeComponent();
             this.fr = fr;
@@ -34,7 +34,7 @@ namespace cangku_01.view.InstrumentManagement
         }
 
         //仪器信息修改构造方法
-        public AddOrUpdateInstrument(la_duty fr, Instrument ins ,int index)
+        public AddOrUpdateInstrument(InstrumentManagement fr, Instrument ins ,int index)
         {
             InitializeComponent();
             this.fr = fr;
@@ -80,7 +80,7 @@ namespace cangku_01.view.InstrumentManagement
         //仪器信息展示在页面组件中
         public void InstrumentMessageDataTableShowTextBox()
         {
-            InstrumentInterface dao = new InstrumentInterfaceImp();
+            InstrumentInterface dao = new InstrumentDataManipulation();
             DataTable dt = dao.TagIdQueryInstrument(ins);
             tb_tagid.Text = ins.TagId;
             DataRow myDr = dt.Rows[0];
@@ -131,7 +131,7 @@ namespace cangku_01.view.InstrumentManagement
         //仪器信息添加
         private void bt_addinstrument_Click(object sender, EventArgs e)    
         {
-            InstrumentInterface dao = new InstrumentInterfaceImp();
+            InstrumentInterface dao = new InstrumentDataManipulation();
             dao.AddInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             index = fr.dgv_instrumentinformation.Rows.Add();
@@ -164,7 +164,7 @@ namespace cangku_01.view.InstrumentManagement
             ins.Position = tb_position.Text;
             ins.IsInWareHouse = cb_isInWareHouse.Text;
             ins.CheckCycle = int.Parse(tb_checkCycle.Text);
-            ins.LastCheckTimes = Convert.ToDateTime(time_lastCheckTimes.Text);
+            ins.LastCheckTime = Convert.ToDateTime(time_lastCheckTimes.Text);
             ins.Duty = tb_duty.Text;
             return ins;
         }
@@ -184,7 +184,7 @@ namespace cangku_01.view.InstrumentManagement
         //仪器信息修改
         private void bt_alterinstrument_Click(object sender, EventArgs e)
         {
-            InstrumentInterface dao = new InstrumentInterfaceImp();
+            InstrumentInterface dao = new InstrumentDataManipulation();
             dao.UpdateInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息修改成功", "仪器信息修改", 1000);
             fr.dgv_instrumentinformation.Rows.RemoveAt(index);
