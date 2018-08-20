@@ -46,6 +46,7 @@ namespace cangku_01
             }
         }
         GateInterface gate = new GateInterfaceImp();
+        GateVirtualEntity door = new GateVirtualEntity();
         private void timer1_Tick(object sender, EventArgs e)
         {
            label1.Text= DateTime.Now.ToString();
@@ -56,12 +57,9 @@ namespace cangku_01
             lock (this)
             {
                 timer2.Stop();
-                if (Tb_ShowId.Text != string.Empty)
+                if (Tb_ShowId.Text!=string.Empty)
                 {
                     Tb_ShowId.Text = "";
-                    Tb_ShowState.Text = "";
-                    Tb_ShowTime.Text = "";
-                    pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\" +"仪器"+".png");
                 }
             }
         }
@@ -75,10 +73,10 @@ namespace cangku_01
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            this.timer1.Start();
-            timer2.Interval = 20000;//延时20000毫秒
+            timer1.Interval = 1000;
+            timer1.Tick += new System.EventHandler(timer1_Tick);
+            timer1.Start();
+            timer2.Interval =10000 ;//延时10000毫秒
             timer2.Tick += new EventHandler(timer2_Tick);
             gate.Open();
         }
