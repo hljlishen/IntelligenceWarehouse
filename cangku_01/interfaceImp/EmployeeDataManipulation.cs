@@ -14,7 +14,7 @@ using cangku_01.MysqlConnection;
 
 namespace cangku_01.interfaceImp
 {
-    class EmployeesInterfaceImp : EmployeesInterface
+    class EmployeeDataManipulation : EmployeesInterface
     {
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 

@@ -33,7 +33,7 @@ namespace cangku_01
             SetStyle(ControlStyles.DoubleBuffer, true);
             
             //到期提醒-首页
-            RemindInterface dao = new RemindInterfaceImp();
+            RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataTable dt = dao.QueryAllExpireInstrument();
             Instrument ins = new Instrument();
             Dgv_DueToSee.Rows.Clear();
@@ -41,7 +41,7 @@ namespace cangku_01
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = Dgv_DueToSee.Rows.Add(row);
-                ins.LastCheckTimes = (DateTime)dr["in_lastchecktimes"];
+                ins.LastCheckTime = (DateTime)dr["in_lastchecktimes"];
                 ins.CheckCycle = (int)dr["in_checkcycle"]; ;
                 Dgv_DueToSee.Rows[index].Cells[0].Value = dr["in_name"];
                 Dgv_DueToSee.Rows[index].Cells[1].Value = ins.NextCheckTimes();

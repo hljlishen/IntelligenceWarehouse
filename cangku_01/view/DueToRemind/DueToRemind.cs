@@ -11,13 +11,13 @@ using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 
-namespace cangku_01.YT
+namespace cangku_01.view.DueToRemind
 {
-    public partial class Due_to_remind : Form
+    public partial class DueToRemind : Form
     {
-        RemindInterface dao = new RemindInterfaceImp();
+        RemindInterface dao = new CheckTimeQueryAndUpdate();
 
-        public Due_to_remind()
+        public DueToRemind()
         {
             InitializeComponent();
             DataTable dt = dao.QueryAllExpireInstrument();
@@ -34,7 +34,7 @@ namespace cangku_01.YT
             {
                 DataGridViewRow row = new DataGridViewRow();
                 int index = dgv_duetoremind.Rows.Add(row);
-                ins.LastCheckTimes = (DateTime)dr["in_lastchecktimes"];
+                ins.LastCheckTime = (DateTime)dr["in_lastchecktimes"];
                 ins.CheckCycle = (int)dr["in_checkcycle"]; ;
                 dgv_duetoremind.Rows[index].Cells[0].Value = dr["in_tagid"];
                 dgv_duetoremind.Rows[index].Cells[1].Value = dr["in_name"];
@@ -96,11 +96,10 @@ namespace cangku_01.YT
                     string Remind_id = dgv_duetoremind.CurrentRow.Cells[0].Value.ToString();
                     string Remind_name = dgv_duetoremind.CurrentRow.Cells[1].Value.ToString();
                     string Remind_manufacturer = dgv_duetoremind.CurrentRow.Cells[2].Value.ToString();
-                    string Remind_lasttime = dgv_duetoremind.CurrentRow.Cells[3].Value.ToString();
-                    
+                    string Remind_lasttime = dgv_duetoremind.CurrentRow.Cells[3].Value.ToString();                  
                     //跳转到日期修改页面、并将相关数据传入Alter_remind界面
-                    Alter_remind Al_remind = new Alter_remind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime);
-                    Al_remind.Show();
+                    UpdateRemind updateremind = new UpdateRemind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime);
+                    updateremind.ShowDialog();
                 }
             }
 

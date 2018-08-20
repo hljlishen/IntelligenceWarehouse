@@ -12,7 +12,7 @@ using cangku_01.MysqlConnection;
 
 namespace cangku_01.interfaceImp
 {
-    class InstrumentInterfaceImp : InstrumentInterface
+    class InstrumentDataManipulation : InstrumentInterface
     {
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 

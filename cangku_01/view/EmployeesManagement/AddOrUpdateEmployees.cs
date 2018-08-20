@@ -18,7 +18,7 @@ namespace cangku_01.view.EmployeesManagement
 {
     public partial class AddOrUpdateEmployees : Form
     {
-        EmployeesInterface dao = new EmployeesInterfaceImp();
+        EmployeesInterface dao = new EmployeeDataManipulation();
         Employee em = new Employee();
         private EmployeesManagement fr;
         private string companytext;

@@ -1,9 +1,7 @@
 ﻿using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
-using cangku_01.view.InstrumentManagement;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
@@ -12,12 +10,12 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.InstrumentManagement
 {
-    public partial class la_duty : Form
+    public partial class InstrumentManagement : Form
     {
-        InstrumentInterface dao = new InstrumentInterfaceImp();
+        InstrumentInterface dao = new InstrumentDataManipulation();
         Instrument ins = new Instrument();
 
-        public la_duty()
+        public InstrumentManagement()
         {
             InitializeComponent();
         }

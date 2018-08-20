@@ -1,6 +1,6 @@
-﻿namespace cangku_01.YT
+﻿namespace cangku_01.view.DueToRemind
 {
-    partial class Due_to_remind
+    partial class DueToRemind
     {
         /// <summary>
         /// Required designer variable.
@@ -38,14 +38,14 @@
             this.Co_nexttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Co_surplustimr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Co_operation = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Tr_nowtime = new System.Windows.Forms.Timer(this.components);
-            this.La_NowTimeTxt = new System.Windows.Forms.Label();
+            this.tr_nowtime = new System.Windows.Forms.Timer(this.components);
+            this.la_nowtimetxt = new System.Windows.Forms.Label();
             this.La_nowtime = new System.Windows.Forms.Label();
             this.la_time = new System.Windows.Forms.Label();
-            this.La_day0 = new System.Windows.Forms.Label();
-            this.La_day30 = new System.Windows.Forms.Label();
-            this.La_day3060 = new System.Windows.Forms.Label();
-            this.La_day60 = new System.Windows.Forms.Label();
+            this.la_day0 = new System.Windows.Forms.Label();
+            this.la_day30 = new System.Windows.Forms.Label();
+            this.la_day3060 = new System.Windows.Forms.Label();
+            this.la_day60 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_duetoremind)).BeginInit();
             this.SuspendLayout();
             // 
@@ -137,20 +137,20 @@
             this.Co_operation.UseColumnTextForButtonValue = true;
             this.Co_operation.Width = 160;
             // 
-            // Tr_nowtime
+            // tr_nowtime
             // 
-            this.Tr_nowtime.Enabled = true;
-            this.Tr_nowtime.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.tr_nowtime.Enabled = true;
+            this.tr_nowtime.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // La_NowTimeTxt
+            // la_nowtimetxt
             // 
-            this.La_NowTimeTxt.AutoSize = true;
-            this.La_NowTimeTxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_NowTimeTxt.Location = new System.Drawing.Point(56, 45);
-            this.La_NowTimeTxt.Name = "La_NowTimeTxt";
-            this.La_NowTimeTxt.Size = new System.Drawing.Size(90, 21);
-            this.La_NowTimeTxt.TabIndex = 1;
-            this.La_NowTimeTxt.Text = "当前时间：";
+            this.la_nowtimetxt.AutoSize = true;
+            this.la_nowtimetxt.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_nowtimetxt.Location = new System.Drawing.Point(56, 45);
+            this.la_nowtimetxt.Name = "la_nowtimetxt";
+            this.la_nowtimetxt.Size = new System.Drawing.Size(90, 21);
+            this.la_nowtimetxt.TabIndex = 1;
+            this.la_nowtimetxt.Text = "当前时间：";
             // 
             // La_nowtime
             // 
@@ -172,65 +172,65 @@
             this.la_time.TabIndex = 3;
             this.la_time.Click += new System.EventHandler(this.Label1_Click);
             // 
-            // La_day0
+            // la_day0
             // 
-            this.La_day0.AutoSize = true;
-            this.La_day0.BackColor = System.Drawing.Color.Crimson;
-            this.La_day0.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_day0.Location = new System.Drawing.Point(399, 45);
-            this.La_day0.Name = "La_day0";
-            this.La_day0.Size = new System.Drawing.Size(122, 21);
-            this.La_day0.TabIndex = 4;
-            this.La_day0.Text = "已超过检查日期";
+            this.la_day0.AutoSize = true;
+            this.la_day0.BackColor = System.Drawing.Color.Crimson;
+            this.la_day0.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_day0.Location = new System.Drawing.Point(399, 45);
+            this.la_day0.Name = "la_day0";
+            this.la_day0.Size = new System.Drawing.Size(122, 21);
+            this.la_day0.TabIndex = 4;
+            this.la_day0.Text = "已超过检查日期";
             // 
-            // La_day30
+            // la_day30
             // 
-            this.La_day30.AutoSize = true;
-            this.La_day30.BackColor = System.Drawing.Color.Yellow;
-            this.La_day30.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_day30.Location = new System.Drawing.Point(553, 45);
-            this.La_day30.Name = "La_day30";
-            this.La_day30.Size = new System.Drawing.Size(92, 21);
-            this.La_day30.TabIndex = 5;
-            this.La_day30.Text = "30天内到检";
+            this.la_day30.AutoSize = true;
+            this.la_day30.BackColor = System.Drawing.Color.Yellow;
+            this.la_day30.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_day30.Location = new System.Drawing.Point(553, 45);
+            this.la_day30.Name = "la_day30";
+            this.la_day30.Size = new System.Drawing.Size(92, 21);
+            this.la_day30.TabIndex = 5;
+            this.la_day30.Text = "30天内到检";
             // 
-            // La_day3060
+            // la_day3060
             // 
-            this.La_day3060.AutoSize = true;
-            this.La_day3060.BackColor = System.Drawing.Color.DodgerBlue;
-            this.La_day3060.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_day3060.Location = new System.Drawing.Point(687, 45);
-            this.La_day3060.Name = "La_day3060";
-            this.La_day3060.Size = new System.Drawing.Size(117, 21);
-            this.La_day3060.TabIndex = 6;
-            this.La_day3060.Text = "30-60天内到检";
+            this.la_day3060.AutoSize = true;
+            this.la_day3060.BackColor = System.Drawing.Color.DodgerBlue;
+            this.la_day3060.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_day3060.Location = new System.Drawing.Point(687, 45);
+            this.la_day3060.Name = "la_day3060";
+            this.la_day3060.Size = new System.Drawing.Size(117, 21);
+            this.la_day3060.TabIndex = 6;
+            this.la_day3060.Text = "30-60天内到检";
             // 
-            // La_day60
+            // la_day60
             // 
-            this.La_day60.AutoSize = true;
-            this.La_day60.BackColor = System.Drawing.Color.Lavender;
-            this.La_day60.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_day60.Location = new System.Drawing.Point(838, 45);
-            this.La_day60.Name = "La_day60";
-            this.La_day60.Size = new System.Drawing.Size(92, 21);
-            this.La_day60.TabIndex = 7;
-            this.La_day60.Text = "60天后到检";
+            this.la_day60.AutoSize = true;
+            this.la_day60.BackColor = System.Drawing.Color.Lavender;
+            this.la_day60.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_day60.Location = new System.Drawing.Point(838, 45);
+            this.la_day60.Name = "la_day60";
+            this.la_day60.Size = new System.Drawing.Size(92, 21);
+            this.la_day60.TabIndex = 7;
+            this.la_day60.Text = "60天后到检";
             // 
-            // Due_to_remind
+            // DueToRemind
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1420, 840);
-            this.Controls.Add(this.La_day60);
-            this.Controls.Add(this.La_day3060);
-            this.Controls.Add(this.La_day30);
-            this.Controls.Add(this.La_day0);
+            this.Controls.Add(this.la_day60);
+            this.Controls.Add(this.la_day3060);
+            this.Controls.Add(this.la_day30);
+            this.Controls.Add(this.la_day0);
             this.Controls.Add(this.la_time);
             this.Controls.Add(this.La_nowtime);
-            this.Controls.Add(this.La_NowTimeTxt);
+            this.Controls.Add(this.la_nowtimetxt);
             this.Controls.Add(this.dgv_duetoremind);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Due_to_remind";
+            this.Name = "DueToRemind";
             this.Text = "due_to_remind";
             this.Load += new System.EventHandler(this.Due_to_remind_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_duetoremind)).EndInit();
@@ -242,14 +242,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_duetoremind;
-        private System.Windows.Forms.Timer Tr_nowtime;
-        private System.Windows.Forms.Label La_NowTimeTxt;
+        private System.Windows.Forms.Timer tr_nowtime;
+        private System.Windows.Forms.Label la_nowtimetxt;
         private System.Windows.Forms.Label La_nowtime;
         private System.Windows.Forms.Label la_time;
-        private System.Windows.Forms.Label La_day0;
-        private System.Windows.Forms.Label La_day30;
-        private System.Windows.Forms.Label La_day3060;
-        private System.Windows.Forms.Label La_day60;
+        private System.Windows.Forms.Label la_day0;
+        private System.Windows.Forms.Label la_day30;
+        private System.Windows.Forms.Label la_day3060;
+        private System.Windows.Forms.Label la_day60;
         private System.Windows.Forms.DataGridViewTextBoxColumn Co_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Co_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Co_manufacturer;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using cangku_01.MH;
-using cangku_01.YT;
+using cangku_01.view.DueToRemind;
 using cangku_01.view.EmployeesManagement;
 using cangku_01.view.InstrumentManagement;
 
@@ -12,9 +12,9 @@ namespace cangku_01
     public partial class Administration : Form
     {
         Form index_employees = new EmployeesManagement();
-        Form Due_to_remind = new Due_to_remind();
+        Form Due_to_remind = new DueToRemind();
         Form Ins_query = new Ins_query();
-        Form index_instrument = new la_duty();
+        Form index_instrument = new InstrumentManagement();
         public Administration()
         {
             InitializeComponent();
