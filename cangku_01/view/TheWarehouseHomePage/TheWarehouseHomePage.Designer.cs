@@ -78,7 +78,6 @@ namespace cangku_01
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -338,7 +337,6 @@ namespace cangku_01
             this.Tb_ShowId.ReadOnly = true;
             this.Tb_ShowId.Size = new System.Drawing.Size(211, 19);
             this.Tb_ShowId.TabIndex = 3;
-            this.Tb_ShowId.TextChanged += new System.EventHandler(this.Tb_ShowId_TextChanged);
             // 
             // label11
             // 
@@ -542,10 +540,6 @@ namespace cangku_01
             this.pictureBox3.TabIndex = 16;
             this.pictureBox3.TabStop = false;
             // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -633,7 +627,6 @@ namespace cangku_01
         public TextBox Tb_ShowName;
         public TextBox Tb_ShowId;
         public TextBox Tb_ShowTime;
-        private Timer timer2;
         public PictureBox pictureBox4;
         public PictureBox pictureBox5;
     }

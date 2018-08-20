@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace cangku_01.GateDrive
 {
-    class GateVirtualEntity
+    class GateData
     {
         public string TagId { get; set; }  //仪器标签Id
         public string Name { get; set; }   //仪器名称
@@ -18,6 +18,13 @@ namespace cangku_01.GateDrive
         {
             string sql = "insert into t_insborrow (ins_tagid,ins_name,ins_throughtime,ins_throughstate)values('"
                 + TagId + "','" + Name + "','" + ThroughDoorTime + "','" + ThroughDoorDirection + "')";
+            return sql;
+        }
+
+        //TagID查询仪器名称信息
+        public string TagIDQueryInstrumentNameSql()
+        {
+            string sql = "select in_name from t_instrument where in_tagid ='"+ TagId + "'";
             return sql;
         }
     }

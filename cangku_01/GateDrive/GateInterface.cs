@@ -1,5 +1,7 @@
-﻿using System;
+﻿using cangku_01.entity;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ namespace cangku_01.GateDrive
         //开始探测
         void StartDetect(Form1 fr);
         //添加借用信息
-        void BorrowInformation(GateVirtualEntity insborrow);
+        void BorrowInformation(GateData insborrow);
+
     }
 }

@@ -1,7 +1,11 @@
-﻿using cangku_01.MysqlConnection;
+﻿using cangku_01.entity;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
+using cangku_01.MysqlConnection;
 using Gate;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,7 +17,6 @@ namespace cangku_01.GateDrive
 {
     class GateInterfaceImp : GateInterface
     {
-        GateVirtualEntity door = new GateVirtualEntity();
         private int fCmdRet = 30;
         private byte ControllerAdr = 0xff;
         private int PortHandle = -1;
@@ -38,6 +41,8 @@ namespace cangku_01.GateDrive
         private byte MsgLength = 0;
 
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
+        List<GateData> gateDatas = new List<GateData>();
+        GateData door = new GateData();
 
         //关闭门的网口
         public void Close()
@@ -45,9 +50,7 @@ namespace cangku_01.GateDrive
             fCmdRet = DeviceApi.CloseNetPort(PortHandle);
             if (fCmdRet != 0)
             {
-                throw new Exception("网口关闭失败");
-                
-
+                throw new Exception("网口关闭失败"); 
             }
             MessageBox.Show("关闭成功");
 
@@ -79,7 +82,6 @@ namespace cangku_01.GateDrive
             return sb.ToString().ToUpper();
         }
        
-
         private void GetDeviceInfo()
         {
             fCmdRet = DeviceApi.GetControllerInfo(ref ControllerAdr, ref Productcode, ref MainVer, ref SubVer, ref IRStatus, PortHandle);
@@ -98,12 +100,11 @@ namespace cangku_01.GateDrive
             }
         }
         
-        public void  StartDetect(Form1 fr)
+        public void StartDetect(Form1 fr)
         {
-            
             string ThroughDoorTime;
             string ThroughDoorDirection;
-            IsGetting = true;     //进入该过程时将正在执行标志置1.
+            IsGetting = true;    
             byte MsgType = 0;
             ThroughDoorDirection = "";
             ThroughDoorTime = "";
@@ -130,22 +131,21 @@ namespace cangku_01.GateDrive
                         return;
                     }
                     door.TagId = TagId;
-                    fr.Tb_ShowId.Text = door.TagId;
-                    FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
-                    if (f.Exists)
-                    {
-                        fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
-                    }
-                    else
-                    {
-                        fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
-                    }
-           
+                    fr.Tb_ShowId.Text = TagId;
+                    //FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
+                    //if (f.Exists)
+                    //{
+                    //    fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + TagId + ".png");
+                    //}
+                    //else
+                    //{
+                    //    fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                    //}
+
                 }
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
             {
-                
                 InFlag = Convert.ToByte(Msg[0]);
                 switch (InFlag)
                 {
@@ -156,16 +156,6 @@ namespace cangku_01.GateDrive
                         ThroughDoorDirection = " 出  库  ";
                         break;
                 }
-                int num = 0;
-                num = Msg[3] << 16 + Msg[2] << 8 + Msg[1];
-                string Rnum = num.ToString();
-
-                num = Msg[6] << 16 + Msg[5] << 8 + Msg[4];
-                string Lnum = num.ToString();
-
-                num = Msg[10] << 24 + Msg[9] << 16 + Msg[8] << 8 + Msg[7];
-                string Anum = num.ToString();
-
                 year = Convert.ToString(Msg[11]).PadLeft(2, '0');
                 month = Convert.ToString(Msg[12]).PadLeft(2, '0');
                 Dates = Convert.ToString(Msg[13]).PadLeft(2, '0');
@@ -175,27 +165,44 @@ namespace cangku_01.GateDrive
                 ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
                 door.ThroughDoorTime = ThroughDoorTime;
                 door.ThroughDoorDirection = ThroughDoorDirection;
-                if (!fr.Tb_ShowId.Text.Equals(""))
-                {
-                    fr.Tb_ShowTime.Text = ThroughDoorTime;
-                    fr.Tb_ShowState.Text = ThroughDoorDirection;
-                    if (fr.Tb_ShowTime.Text.Equals("") && fr.Tb_ShowState.Text.Equals(""))
-                    {
-                        throw new Exception("未读到数据");
-                    }
-                    else
-                    {
-                        BorrowInformation(door);
-                    }
-                }
+                gateDatas.Add(door);
+                MessageBox.Show(door.TagId);
+                MessageBox.Show(door.ThroughDoorTime);
+                MessageBox.Show(door.ThroughDoorDirection);
+                //if (!fr.Tb_ShowId.Text.Equals(""))
+                //{
+                //    TagIDQueryInstrumentName(door);
+                //    DataTable dt = TagIDQueryInstrumentName(door);
+                //    DataRow myDr = dt.Rows[0];
+                //    fr.Tb_ShowName.Text = myDr["in_name"].ToString();
+                //    fr.Tb_ShowTime.Text = ThroughDoorTime;
+                //    fr.Tb_ShowState.Text = ThroughDoorDirection;
+                //    if (fr.Tb_ShowTime.Text.Equals("") && fr.Tb_ShowState.Text.Equals(""))
+                //    {
+                //        throw new Exception("未读到数据");
+                //    }
+                //    else
+                //    {
+                //        BorrowInformation(door);
+
+                //    }
+                // }
             }
             DeviceApi.Acknowledge(ref ControllerAdr, PortHandle);
         }
         //将探测到的借用信息存入到数据库
-        public void BorrowInformation(GateVirtualEntity insborrow)
+        public void BorrowInformation(GateData insborrow)
         {
             string sql = insborrow.BorrowInformationSql();
+            
             dbo.WriteDB(sql);
+        }
+        //查询Tagid仪器名
+        public DataTable TagIDQueryInstrumentName(GateData door)
+        {
+            string sql = door.TagIDQueryInstrumentNameSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
     }
 }
