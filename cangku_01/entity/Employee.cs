@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DbLink;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,8 @@ namespace cangku_01.entity
         public int Company { get; set; }             //公司
         public int Department { get; set; }          //部门
         public int Group { get; set; }               //组名 
+
+        SelectSqlMaker maker;
 
         //查询全部员工sql
         public string QueryAllEmployeeSql()
@@ -122,6 +125,11 @@ namespace cangku_01.entity
                 sql += $" and D.de_id={nondeid}";
             }
             return sql;
+        }
+
+        private void Setup()
+        {
+            maker = new SelectSqlMaker("User");
         }
     }  
 }

@@ -214,9 +214,9 @@
             this.cb_IsInWareHouse.FormattingEnabled = true;
             this.cb_IsInWareHouse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_IsInWareHouse.Items.AddRange(new object[] {
-            "出库/入库",
-            "出库",
-            "入库"});
+            "全部",
+            "在库",
+            "不在库"});
             this.cb_IsInWareHouse.Location = new System.Drawing.Point(673, 20);
             this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
             this.cb_IsInWareHouse.Size = new System.Drawing.Size(100, 20);
@@ -268,7 +268,7 @@
             this.tb_manufactor.Size = new System.Drawing.Size(150, 26);
             this.tb_manufactor.TabIndex = 5;
             // 
-            // la_duty
+            // InstrumentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

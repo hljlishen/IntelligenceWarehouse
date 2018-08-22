@@ -17,6 +17,10 @@ namespace cangku_01.interfaces
         DataTable QueryAllExpireInstrument();
         //修改最后一次检查时间
         void UpdateInstrumentLastCheckTime(Instrument ins);
+        //添加历次检查时间
+        void AddInstrumentAllPreviousCheckDate(Instrument ins);
+        //查询仪器历次检查信息
+        DataSet QueryInstrumentAllCheckDate(Instrument ins);
     }
 }
  

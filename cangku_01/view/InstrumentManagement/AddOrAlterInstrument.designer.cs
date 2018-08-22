@@ -59,7 +59,8 @@
             this.tb_isInWareHouse = new System.Windows.Forms.TextBox();
             this.tb_lastCheckTimes = new System.Windows.Forms.TextBox();
             this.tb_productionDate = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cb_allcheckdate = new System.Windows.Forms.ComboBox();
+            this.la_allcheckdate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -304,7 +305,7 @@
             this.cb_isInWareHouse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_isInWareHouse.Items.AddRange(new object[] {
             "在库",
-            "出库"});
+            "不在库"});
             this.cb_isInWareHouse.Location = new System.Drawing.Point(168, 360);
             this.cb_isInWareHouse.Name = "cb_isInWareHouse";
             this.cb_isInWareHouse.Size = new System.Drawing.Size(84, 20);
@@ -322,7 +323,7 @@
             // tb_isInWareHouse
             // 
             this.tb_isInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_isInWareHouse.Location = new System.Drawing.Point(168, 354);
+            this.tb_isInWareHouse.Location = new System.Drawing.Point(167, 354);
             this.tb_isInWareHouse.Name = "tb_isInWareHouse";
             this.tb_isInWareHouse.Size = new System.Drawing.Size(84, 26);
             this.tb_isInWareHouse.TabIndex = 61;
@@ -343,20 +344,32 @@
             this.tb_productionDate.Size = new System.Drawing.Size(143, 26);
             this.tb_productionDate.TabIndex = 63;
             // 
-            // textBox1
+            // cb_allcheckdate
             // 
-            this.textBox1.Location = new System.Drawing.Point(514, 354);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 26);
-            this.textBox1.TabIndex = 64;
+            this.cb_allcheckdate.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.cb_allcheckdate.FormattingEnabled = true;
+            this.cb_allcheckdate.Location = new System.Drawing.Point(623, 354);
+            this.cb_allcheckdate.Name = "cb_allcheckdate";
+            this.cb_allcheckdate.Size = new System.Drawing.Size(128, 25);
+            this.cb_allcheckdate.TabIndex = 66;
+            // 
+            // la_allcheckdate
+            // 
+            this.la_allcheckdate.AutoSize = true;
+            this.la_allcheckdate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_allcheckdate.Location = new System.Drawing.Point(510, 357);
+            this.la_allcheckdate.Name = "la_allcheckdate";
+            this.la_allcheckdate.Size = new System.Drawing.Size(107, 20);
+            this.la_allcheckdate.TabIndex = 67;
+            this.la_allcheckdate.Text = "历次检验时间：";
             // 
             // AddOrUpdateInstrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 511);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.la_allcheckdate);
+            this.Controls.Add(this.cb_allcheckdate);
             this.Controls.Add(this.tb_productionDate);
             this.Controls.Add(this.tb_lastCheckTimes);
             this.Controls.Add(this.tb_isInWareHouse);
@@ -429,6 +442,7 @@
         private System.Windows.Forms.TextBox tb_isInWareHouse;
         private System.Windows.Forms.TextBox tb_lastCheckTimes;
         private System.Windows.Forms.TextBox tb_productionDate;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cb_allcheckdate;
+        private System.Windows.Forms.Label la_allcheckdate;
     }
 }

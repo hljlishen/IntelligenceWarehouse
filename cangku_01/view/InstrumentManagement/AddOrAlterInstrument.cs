@@ -30,6 +30,8 @@ namespace cangku_01.view.InstrumentManagement
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
             tb_lastCheckTimes.Visible = false;
+            cb_allcheckdate.Visible = false;
+            la_allcheckdate.Visible = false;
             pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
         }
 
@@ -45,6 +47,8 @@ namespace cangku_01.view.InstrumentManagement
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
             tb_lastCheckTimes.Visible = false;
+            cb_allcheckdate.Visible = false;
+            la_allcheckdate.Visible = false;
             ShowInstrumentPhoto();
             InstrumentMessageDataTableShowTextBox();
         }
@@ -60,6 +64,11 @@ namespace cangku_01.view.InstrumentManagement
             time_productionDate.Visible = false;
             cb_isInWareHouse.Visible = false;
             this.ins = ins;
+            RemindInterface dao = new CheckTimeQueryAndUpdate();
+            DataSet ds = dao.QueryInstrumentAllCheckDate(ins);
+            cb_allcheckdate.DataSource = ds.Tables[0];
+            cb_allcheckdate.DisplayMember = "ch_date";
+            cb_allcheckdate.ValueMember = "ch_date";
             SettingAllTextBoxReadOnly();
             ShowInstrumentPhoto();
             InstrumentMessageDataTableShowTextBox();
@@ -192,6 +201,7 @@ namespace cangku_01.view.InstrumentManagement
             this.AddOneEmployeeToTheDataGridView();
             Close();
         }
+
     }
 
 
