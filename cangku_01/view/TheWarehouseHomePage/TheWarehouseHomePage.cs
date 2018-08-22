@@ -20,18 +20,18 @@ namespace cangku_01
     {
         Find_Items find_Items = null;
         GateInterface gate = new GateInterfaceImp();
-        GateData door = new GateData();
+        
 
         public Form1()
         {
             InitializeComponent();
             //添加皮肤
-            this.skinEngine1.SkinFile = "Longhorn.ssk";    
+            this.skinEngine1.SkinFile = "Longhorn.ssk";
             //防止屏幕闪烁
             SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
-            
+
             //到期提醒-首页
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataTable dt = dao.QueryAllExpireInstrument();
@@ -48,11 +48,11 @@ namespace cangku_01
                 Dgv_DueToSee.Rows[index].Cells[2].Value = ins.TimeRemaining();
             }
         }
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-           label1.Text= DateTime.Now.ToString();
-           gate.StartDetect(this);
+            label1.Text = DateTime.Now.ToString();
+            gate.StartDetect(this);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -96,6 +96,7 @@ namespace cangku_01
                 DialogResult result = MessageBox.Show("查询窗口已经存在！！");
             }
         }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form login = new login();

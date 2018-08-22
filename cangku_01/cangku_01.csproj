@@ -80,12 +80,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GateDrive\DataTransferInterface.cs" />
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />
     <Compile Include="entity\QueryInstrument.cs" />
     <Compile Include="GateDrive\GateInterface v1.42.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
+    <Compile Include="GateDrive\DataShow.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
       <SubType>Form</SubType>

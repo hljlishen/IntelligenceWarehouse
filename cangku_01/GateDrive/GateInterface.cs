@@ -16,8 +16,5 @@ namespace cangku_01.GateDrive
         void Close();
         //开始探测
         void StartDetect(Form1 fr);
-        //添加借用信息
-        void BorrowInformation(GateData insborrow);
-
     }
 }

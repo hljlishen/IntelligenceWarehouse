@@ -27,5 +27,6 @@ namespace cangku_01.GateDrive
             string sql = "select in_name from t_instrument where in_tagid ='"+ TagId + "'";
             return sql;
         }
+        
     }
 }
