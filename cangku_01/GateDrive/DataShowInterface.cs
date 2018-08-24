@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace cangku_01.GateDrive
 {
-    interface DataTransferInterface
+    interface DataShowInterface
     {
-        void DataTransfer(GateData door, Form1 fr, string[] gatedata);
-        //添加借用信息
+        void TextShow(GateData door, Form1 fr);
+        void ListViewShow(GateData door, Form1 fr);
+        void GetTagIdName(GateData door);
         void BorrowInformation(GateData insborrow);
     }
 }

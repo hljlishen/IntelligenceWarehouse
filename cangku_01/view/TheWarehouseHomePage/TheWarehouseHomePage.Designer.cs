@@ -102,6 +102,7 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bt_empty = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -690,6 +691,7 @@ namespace cangku_01
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.bt_empty);
             this.tabPage1.Controls.Add(this.lv_instrumrntinformation);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -715,7 +717,7 @@ namespace cangku_01
             this.lv_instrumrntinformation.GridLines = true;
             this.lv_instrumrntinformation.Location = new System.Drawing.Point(0, 3);
             this.lv_instrumrntinformation.Name = "lv_instrumrntinformation";
-            this.lv_instrumrntinformation.Size = new System.Drawing.Size(636, 264);
+            this.lv_instrumrntinformation.Size = new System.Drawing.Size(636, 250);
             this.lv_instrumrntinformation.TabIndex = 0;
             this.lv_instrumrntinformation.UseCompatibleStateImageBehavior = false;
             this.lv_instrumrntinformation.View = System.Windows.Forms.View.Details;
@@ -767,6 +769,16 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.HeaderText = "人员编号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // bt_empty
+            // 
+            this.bt_empty.Location = new System.Drawing.Point(285, 251);
+            this.bt_empty.Name = "bt_empty";
+            this.bt_empty.Size = new System.Drawing.Size(75, 23);
+            this.bt_empty.TabIndex = 1;
+            this.bt_empty.Text = "清空";
+            this.bt_empty.UseVisualStyleBackColor = true;
+            this.bt_empty.Click += new System.EventHandler(this.bt_empty_Click);
             // 
             // Form1
             // 
@@ -886,6 +898,7 @@ namespace cangku_01
         public TextBox tb_ShowState;
         public TextBox tb_ShowName;
         public TextBox tb_ShowId;
+        private Button bt_empty;
     }
 }
 
