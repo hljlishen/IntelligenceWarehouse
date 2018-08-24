@@ -12,23 +12,26 @@ using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.GateDrive;
+using System.IO;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
         Find_Items find_Items = null;
+        GateInterface gate = new GateInterfaceImp();
+        
 
         public Form1()
         {
             InitializeComponent();
             //添加皮肤
-            this.skinEngine1.SkinFile = "Longhorn.ssk";    
+            this.skinEngine1.SkinFile = "Longhorn.ssk";
             //防止屏幕闪烁
             SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true); 
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
-            
+
             //到期提醒-首页
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataTable dt = dao.QueryAllExpireInstrument();
@@ -45,39 +48,17 @@ namespace cangku_01
                 Dgv_DueToSee.Rows[index].Cells[2].Value = ins.TimeRemaining();
             }
         }
-        GateInterface gate = new GateInterfaceImp();
-        GateVirtualEntity door = new GateVirtualEntity();
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-           label1.Text= DateTime.Now.ToString();
-           gate.StartDetect(this);
-        }
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            lock (this)
-            {
-                timer2.Stop();
-                if (Tb_ShowId.Text!=string.Empty)
-                {
-                    Tb_ShowId.Text = "";
-                }
-            }
-        }
-        private void Tb_ShowId_TextChanged(object sender, EventArgs e)
-        {
-            lock (this)
-            {
-                timer2.Stop();
-                timer2.Start();
-            }
+            label1.Text = DateTime.Now.ToString();
+            gate.StartDetect(this);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             timer1.Tick += new System.EventHandler(timer1_Tick);
             timer1.Start();
-            timer2.Interval =10000 ;//延时10000毫秒
-            timer2.Tick += new EventHandler(timer2_Tick);
             gate.Open();
         }
 
@@ -101,7 +82,6 @@ namespace cangku_01
         private void button1_Click(object sender, EventArgs e)
         {
             //如果窗口已经存在就不能再次打开
-
             if (find_Items == null)
             {
                 find_Items = new Find_Items();
@@ -115,8 +95,8 @@ namespace cangku_01
             {
                 DialogResult result = MessageBox.Show("查询窗口已经存在！！");
             }
-            
         }
+
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Form login = new login();
