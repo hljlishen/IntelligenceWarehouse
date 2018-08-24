@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DbLink;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace cangku_01.entity
         public int CheckCycle { get; set; }          //检定周期
         public DateTime LastCheckTime { get; set; } //上一次检查时间
         public string Duty { get; set; }             //责任人
+
+        SelectSqlMaker maker;
 
         //计算下一次检查日期
         public string NextCheckTimes()
@@ -45,14 +48,17 @@ namespace cangku_01.entity
         //获取全部仪器信息sql
         public string QueryAllInstrumentSql()
         {
-            string sql = "select * from t_instrument";
+            SetupInstrument();
+            string sql = maker.MakeSelectSql();
             return sql;
         }
 
         //TagID查询仪器信息sql
         public string TagIDQueryInstrumentSql()
         {
-            string sql = "select * from t_instrument where in_tagid = '" + TagId + "'";
+            SetupInstrument();
+            maker.AddAndCondition(new StringEqual("in_tagid", TagId));
+            string sql = maker.MakeSelectSql();
             return sql;
         }
 
@@ -96,6 +102,50 @@ namespace cangku_01.entity
                 + LastCheckTime + "' where in_tagid = '" + TagId + "'";
             return sql;
         }
-      
+
+        //员工多条件搜素
+        public string QueryInstrumentSql()
+        {
+            SetupInstrument();
+            maker.AddAndCondition(new StringLike("in_name", Name));
+            maker.AddAndCondition(new StringLike("in_manufactor", Manufactor));
+            maker.AddAndCondition(new StringLike("in_isinwarehouse", IsInWareHouse));
+            maker.AddAndCondition(new StringLike("in_duty", Duty));
+            maker.AddFieldsWillBeSelected("in_tagid");
+            maker.AddFieldsWillBeSelected("in_name");
+            maker.AddFieldsWillBeSelected("in_model");
+            maker.AddFieldsWillBeSelected("in_manufactor");
+            maker.AddFieldsWillBeSelected("in_position");
+            maker.AddFieldsWillBeSelected("in_isinwarehouse");
+            maker.AddFieldsWillBeSelected("in_duty");
+            string sql = maker.MakeSelectSql();
+            return sql;
+        }
+
+        //仪器历次检查时间信息添加sql
+        public string AddInstrumentAllPreviousCheckDateSql()
+        {
+            string sql = "insert into t_checkdate (ch_instrumentid,ch_date) values('" + TagId + "','" + LastCheckTime + "')";
+            return sql;
+        }
+
+        //获取仪器历次检查信息sql
+        public string QueryAllCheckDateSql()
+        {
+            SetupCheckdate();
+            maker.AddAndCondition(new StringEqual("ch_instrumentid", TagId));
+            string sql = maker.MakeSelectSql();
+            return sql;
+        }
+
+        private void SetupInstrument()
+        {
+            maker = new SelectSqlMaker("t_instrument");
+        }
+
+        private void SetupCheckdate()
+        {
+            maker = new SelectSqlMaker("t_checkdate");
+        }
     }
 }

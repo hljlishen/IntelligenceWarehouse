@@ -22,7 +22,7 @@ namespace cangku_01.view.InstrumentManagement
 
         private void index_instrument_Load(object sender, EventArgs e)
         {
-            cb_IsInWareHouse.Text = "出库/入库";
+            cb_IsInWareHouse.Text = "全部";
             Left = 0;
             Top = 0;
             DataTable dt = dao.QueryAllInstrument();//将全部员工加载
@@ -94,6 +94,11 @@ namespace cangku_01.view.InstrumentManagement
         //搜索按钮
         private void button2_Click(object sender, EventArgs e)  
         {
+            ins.Name = tb_instrumentname.Text;
+            ins.Manufactor = tb_manufactor.Text;
+            ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
+            ins.Duty = tb_duty.Text;
+            ShowDataGridView(dao.QueryInstrument(ins));
         }
     }
 }

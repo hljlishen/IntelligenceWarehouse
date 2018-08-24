@@ -22,5 +22,7 @@ namespace cangku_01.interfaces
         void DeleteInstrument(Instrument ins);
         //修改
         void UpdateInstrument(Instrument ins);
+        //仪器搜索
+        DataTable QueryInstrument(Instrument ins);
     }
 }

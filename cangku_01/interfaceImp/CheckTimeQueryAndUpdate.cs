@@ -32,5 +32,20 @@ namespace cangku_01.interfaceImp
             string sql = ins.UpdateInstrumentLastCheckTimeSql();
             dbo.WriteDB(sql);
         }
+
+        //仪器历次检查日期添加
+        public void AddInstrumentAllPreviousCheckDate(Instrument ins)
+        {
+            string sql = ins.AddInstrumentAllPreviousCheckDateSql();
+            dbo.WriteDB(sql);
+        }
+
+        //查询仪器历次检查信息
+        public DataSet QueryInstrumentAllCheckDate(Instrument ins)
+        {
+            string sql = ins.QueryAllCheckDateSql();
+            DataSet ds = dbo.ReadDB(sql);
+            return ds;
+        }
     }
 }

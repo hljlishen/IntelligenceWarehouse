@@ -49,6 +49,7 @@ namespace cangku_01.view.DueToRemind
             {
                 //调用修改检查日期的方法
                 dao.UpdateInstrumentLastCheckTime(ins);
+                dao.AddInstrumentAllPreviousCheckDate(ins);
                 AutoClosingMessageBox.Show("检查日期修改成功", "检查日期修", 1000);
                 Close();
             }
