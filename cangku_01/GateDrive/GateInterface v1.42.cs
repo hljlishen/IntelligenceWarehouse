@@ -38,10 +38,9 @@ namespace cangku_01.GateDrive
         private byte MsgType = 0;
         private string ThroughDoorTime = "";
         private string ThroughDoorDirection = "";
-        private string TagId;
         private string productCode = "";
+        private static GateData door = new GateData();
 
-        GateData door = new GateData();
         DataShowInterface data = new DataShow();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
@@ -63,15 +62,27 @@ namespace cangku_01.GateDrive
             {
                 GetDeviceInfo();
                 fModel = 0;
-                fCmdRet = DeviceApi.ModeSwitch(ref ControllerAdr, ref fModel, ref IRStatus, PortHandle);           
+                fCmdRet = DeviceApi.ModeSwitch(ref ControllerAdr, ref fModel, ref IRStatus, PortHandle);
             }
             else
             {
-                MessageBox.Show("连接失败");
-                throw new Exception("连接失败");      
+                MessageBox.Show("连接失败");    
             }
         }
-       
+
+        private void GetDeviceInfo()
+        {
+            fCmdRet = DeviceApi.GetControllerInfo(ref ControllerAdr, ref Productcode, ref MainVer, ref SubVer, ref IRStatus, PortHandle);
+            if (fCmdRet == 0)
+            {
+                if (productCode == Convert.ToString(Productcode, 16).PadLeft(2, '0').ToUpper())
+                {
+                    string gatemodel = gateModel;
+                }
+                string version = Convert.ToString(MainVer, 16).PadLeft(2, '0').ToUpper() + "." + Convert.ToString(SubVer, 16).PadLeft(2, '0').ToUpper();
+            }
+        }
+
         private string ByteArrayToHexString(byte[] data)
         {
             StringBuilder sb = new StringBuilder(data.Length * 3);
@@ -80,30 +91,18 @@ namespace cangku_01.GateDrive
             return sb.ToString().ToUpper();
         }
        
-        private void GetDeviceInfo()
-        {
-            fCmdRet = DeviceApi.GetControllerInfo(ref ControllerAdr, ref Productcode, ref MainVer, ref SubVer, ref IRStatus, PortHandle);
-            if (fCmdRet == 0)
-            {
-                if (productCode == Convert.ToString(Productcode, 16).PadLeft(2, '0').ToUpper())
-                {
-                    string gatemodel= gateModel;
-                }
-                string version = Convert.ToString(MainVer, 16).PadLeft(2, '0').ToUpper() + "." + Convert.ToString(SubVer, 16).PadLeft(2, '0').ToUpper();
-            }
-        }
-        
+        //开始探测
         public void StartDetect(Form1 fr)
         {
             IsGetting = true;
             fCmdRet = DeviceApi.GetChannelMessage(ref ControllerAdr, Msg, ref MsgLength, ref MsgType, ref IRStatus, PortHandle);
             if ((fCmdRet == 0) && (MsgType == 0))
             {
-                DetectTagId(fr);  
+                DetectTagId(fr);//获取TagID  
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
             {
-                DetectDirectionAndTime(fr);
+                DetectDirectionAndTime(fr);//获取方向和时间
                 if (door.TagId != null)
                 {
                     data.TextShow(door, fr);
@@ -118,9 +117,8 @@ namespace cangku_01.GateDrive
             if (CardNum == 0) return;
             byte[] daw = new byte[MsgLength - 7];//除去前面6个字节的时间和1个字节的长度
             Array.Copy(Msg, 7, daw, 0, MsgLength - 7);
-            string temps;
-            temps = ByteArrayToHexString(daw);
-            TagId = null;
+            string temps = ByteArrayToHexString(daw);
+            string TagId = null;
             int m = 0;
             for (int CardIndex = 0; CardIndex < CardNum; CardIndex++)
             {
@@ -134,6 +132,7 @@ namespace cangku_01.GateDrive
                     data.ListViewShow(door,fr);
                 }
             }
+            door.ThroughDoorDirection = null;
         }
 
         public void DetectDirectionAndTime(Form1 fr)

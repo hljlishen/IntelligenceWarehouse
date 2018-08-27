@@ -17,8 +17,7 @@ namespace cangku_01.GateDrive
     {
         ListViewItem listView = new ListViewItem();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
-        private bool isonlistview = false;
-
+        //显示仪器通过的最后一条记录
         public void TextShow(GateData door, Form1 fr)
         {
             if (door.ThroughDoorDirection != null)
@@ -42,7 +41,7 @@ namespace cangku_01.GateDrive
                 AutoClosingMessageBox.Show("未获取到过门信息", "为null", 1000);
             }
         }
-
+        //仪器通过记录显示在ListView列表中
         public void ListViewShow(GateData door, Form1 fr)
         {
             bool isonlistview = false;
@@ -52,7 +51,7 @@ namespace cangku_01.GateDrive
                 DateTime date2 = DateTime.Parse(fr.lv_instrumrntinformation.Items[i].SubItems[4].Text);
                 TimeSpan td = date1.Subtract(date2).Duration();
                 double timeInterval = td.TotalSeconds;
-                if (door.TagId == fr.lv_instrumrntinformation.Items[i].SubItems[1].Text && door.ThroughDoorDirection == fr.lv_instrumrntinformation.Items[i].SubItems[3].Text && timeInterval <=5)
+                if (door.TagId == fr.lv_instrumrntinformation.Items[i].SubItems[1].Text && door.ThroughDoorDirection == fr.lv_instrumrntinformation.Items[i].SubItems[3].Text && timeInterval <=3)
                 {
                     listView = fr.lv_instrumrntinformation.Items[i];
                     ChangeSubItem(listView, 1, door.TagId);
@@ -69,10 +68,10 @@ namespace cangku_01.GateDrive
                 listView.SubItems.Add(door.ThroughDoorTime);
                 ChangeSubItem(listView, 1, door.TagId);
                 BorrowInformation(door);
-                door = null;
+                door.Name = null;
             }
         }
-      
+        
         public void ChangeSubItem(ListViewItem ListItem, int subItemIndex, string ItemText)
         {
             if (subItemIndex == 1)
@@ -89,9 +88,17 @@ namespace cangku_01.GateDrive
                         ListItem.SubItems[subItemIndex + 2].Text = Convert.ToString(Convert.ToInt32(ListItem.SubItems[subItemIndex + 3].Text) + 1);
                     }
                 }
-
             }
         }
+        
+        //将探测到的借用信息存入到数据库
+        public void BorrowInformation(GateData insborrow)
+        {
+            string sql = insborrow.BorrowInformationSql();
+
+            dbo.WriteDB(sql);
+        }
+        //查询Tagid仪器名
         public void GetTagIdName(GateData door)
         {
             DataTable dt = TagIDQueryInstrumentName(door);
@@ -103,14 +110,7 @@ namespace cangku_01.GateDrive
             DataRow myDr = dt.Rows[0];
             door.Name = myDr["in_name"].ToString();
         }
-        //将探测到的借用信息存入到数据库
-        public void BorrowInformation(GateData insborrow)
-        {
-            string sql = insborrow.BorrowInformationSql();
 
-            dbo.WriteDB(sql);
-        }
-        //查询Tagid仪器名
         public DataTable TagIDQueryInstrumentName(GateData door)
         {
             string sql = door.TagIDQueryInstrumentNameSql();

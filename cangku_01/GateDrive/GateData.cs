@@ -1,4 +1,5 @@
 ﻿using cangku_01.entity;
+using DbLink;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace cangku_01.GateDrive
         public string ThroughDoorTime { get; set; }//通过门的时间
         public string ThroughDoorDirection { get; set; }//仪器过门的操作
 
+        SelectSqlMaker maker;
         //添加借用信息sql 
         public string BorrowInformationSql()
         {
@@ -25,9 +27,15 @@ namespace cangku_01.GateDrive
         //TagID查询仪器名称信息
         public string TagIDQueryInstrumentNameSql()
         {
-            string sql = "select in_name from t_instrument where in_tagid ='"+ TagId + "'";
+            SetupInstrument();
+            maker.AddAndCondition(new StringEqual("in_tagid", TagId));
+            string sql = maker.MakeSelectSql();
             return sql;
         }
-        
+
+        private void SetupInstrument()
+        {
+            maker = new SelectSqlMaker("t_instrument");
+        }
     }
 }

@@ -92,6 +92,7 @@ namespace cangku_01
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bt_empty = new System.Windows.Forms.Button();
             this.lv_instrumrntinformation = new System.Windows.Forms.ListView();
             this.column_Insnumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Insid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -102,7 +103,6 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bt_empty = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -701,6 +701,16 @@ namespace cangku_01
             this.tabPage1.Text = "仪器通过记录";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // bt_empty
+            // 
+            this.bt_empty.Location = new System.Drawing.Point(285, 254);
+            this.bt_empty.Name = "bt_empty";
+            this.bt_empty.Size = new System.Drawing.Size(75, 21);
+            this.bt_empty.TabIndex = 1;
+            this.bt_empty.Text = "清空";
+            this.bt_empty.UseVisualStyleBackColor = true;
+            this.bt_empty.Click += new System.EventHandler(this.bt_empty_Click);
+            // 
             // lv_instrumrntinformation
             // 
             this.lv_instrumrntinformation.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
@@ -769,16 +779,6 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.HeaderText = "人员编号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // bt_empty
-            // 
-            this.bt_empty.Location = new System.Drawing.Point(285, 251);
-            this.bt_empty.Name = "bt_empty";
-            this.bt_empty.Size = new System.Drawing.Size(75, 23);
-            this.bt_empty.TabIndex = 1;
-            this.bt_empty.Text = "清空";
-            this.bt_empty.UseVisualStyleBackColor = true;
-            this.bt_empty.Click += new System.EventHandler(this.bt_empty_Click);
             // 
             // Form1
             // 

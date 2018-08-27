@@ -103,6 +103,8 @@
     <Compile Include="SelectCondition\SelectSqlMaker.cs" />
     <Compile Include="SelectCondition\StringEqual.cs" />
     <Compile Include="SelectCondition\StringLike.cs" />
+    <Compile Include="UHFReader09\UHFReader.cs" />
+    <Compile Include="UHFReader09\UHFReader09Interface.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
       <SubType>Form</SubType>
     </Compile>

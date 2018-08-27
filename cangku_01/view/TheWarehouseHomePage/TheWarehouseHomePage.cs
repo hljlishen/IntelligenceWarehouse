@@ -13,6 +13,8 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.GateDrive;
 using System.IO;
+using cangku_01.UHFReader09CSharp;
+using cangku_01.UHFReader09;
 
 namespace cangku_01
 {
@@ -20,7 +22,6 @@ namespace cangku_01
     {
         Find_Items find_Items = null;
         GateInterface gate = new GateInterfaceImp();
-        
 
         public Form1()
         {
@@ -103,6 +104,7 @@ namespace cangku_01
             login.Show();
         }
 
+        //清空ListView里的数据
         private void bt_empty_Click(object sender, EventArgs e)
         {
             lv_instrumrntinformation.Items.Clear();
