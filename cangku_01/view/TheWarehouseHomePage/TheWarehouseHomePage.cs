@@ -89,5 +89,10 @@ namespace cangku_01
             Form login = new login();
             login.Show();
         }
+
+        private void bt_empty_Click(object sender, EventArgs e)
+        {
+            lv_instrumrntinformation.Items.Clear();
+        }
     }
 }

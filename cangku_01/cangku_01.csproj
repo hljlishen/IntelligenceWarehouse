@@ -78,6 +78,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UHFReader09CSharp">
+      <HintPath>..\..\201346153826334\演示软件\C#\C# dll\UHFReader09CSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="entity\WarehouseLocation.cs" />
