@@ -95,6 +95,7 @@
     <Compile Include="GateDrive\DataShow.cs" />
     <Compile Include="interfaceImp\GetFingerprintInformation.cs" />
     <Compile Include="interfaces\FingerprintInformation.cs" />
+    <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="SelectCondition\DateEqual.cs" />
     <Compile Include="SelectCondition\DateTimeBetweenCloseInterval.cs" />

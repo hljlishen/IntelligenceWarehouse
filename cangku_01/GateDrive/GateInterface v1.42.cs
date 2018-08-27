@@ -67,8 +67,7 @@ namespace cangku_01.GateDrive
             }
             else
             {
-                MessageBox.Show("连接失败");
-                throw new Exception("连接失败");      
+                MessageBox.Show("连接失败"); 
             }
         }
        

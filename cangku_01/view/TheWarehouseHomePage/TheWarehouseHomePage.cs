@@ -5,13 +5,17 @@ using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.GateDrive;
+using System.IO;
+using System.Drawing;
 
 namespace cangku_01
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form , IDataDisplayer
     {
         GateInterface gate = new GateInterfaceImp();
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
+        delegate void EmployeeDataHandler(Employee employee);
+        ListViewItem listView = new ListViewItem();
 
         public Form1()
         {
@@ -34,7 +38,7 @@ namespace cangku_01
         {
             gate.Open();
             connectFingerprint.GetIPConnect();
-            connectFingerprint.setfrom(this);
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -68,6 +72,45 @@ namespace cangku_01
 
         }
 
+        //线程触发
+        public void FingerprintUpdate(Employee em)
+        {
+            Invoke(new EmployeeDataHandler(UpdateEmployee), new object[] { em });
+        }
+
+        //展示指纹信息
+        private void UpdateEmployee(Employee em)
+        {
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            DataTable dt = dao.EmployeeNumberQueryEmployee(em);
+            DataRow myDr = dt.Rows[0];
+            tb_employeeunmber.Text = em.EmployeeNumber;
+            tb_employeename.Text = myDr["em_name"].ToString();
+            tb_temp.Text = myDr["em_department"].ToString();
+            tb_employeepassdoor.Text = em.PassDoor.ToString();
+            ShowEmployeePhoto(em);
+
+            listView = lv_employeepassdoor.Items.Add((lv_employeepassdoor.Items.Count + 1).ToString());
+            listView.SubItems.Add(em.EmployeeNumber);
+            listView.SubItems.Add(myDr["em_name"].ToString());
+            listView.SubItems.Add(myDr["em_department"].ToString());
+            listView.SubItems.Add(em.PassDoor.ToString());
+        }
+
+        //展示员工照片
+        private void ShowEmployeePhoto(Employee em)
+        {
+            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
+            if (f.Exists)
+            {
+                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
+            }
+            else
+            {
+                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + "人员相片" + ".png");
+            }
+        }
+
         //点击关闭按钮
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -90,9 +133,16 @@ namespace cangku_01
             login.Show();
         }
 
+        //清空仪器出入表
         private void bt_empty_Click(object sender, EventArgs e)
         {
             lv_instrumrntinformation.Items.Clear();
+        }
+
+        //清空员工指纹表
+        private void bt_emptyemployeepassdoor_Click(object sender, EventArgs e)
+        {
+            lv_employeepassdoor.Items.Clear();
         }
     }
 }

@@ -44,13 +44,13 @@ namespace cangku_01
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.归还ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
-            this.Tb_temp = new System.Windows.Forms.TextBox();
-            this.Tb_name = new System.Windows.Forms.TextBox();
-            this.Tb_id = new System.Windows.Forms.TextBox();
+            this.tb_temp = new System.Windows.Forms.TextBox();
+            this.tb_employeename = new System.Windows.Forms.TextBox();
+            this.tb_employeeunmber = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pb_employeephoto = new System.Windows.Forms.PictureBox();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -72,14 +72,15 @@ namespace cangku_01
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tp_employeeinformation = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_employeepassdoor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tp_allemployeeinformation = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.人员编号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.所属部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.通行时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lv_employeepassdoor = new System.Windows.Forms.ListView();
+            this.ch_number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_employeenumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_temp = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ch_passdoordatetime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tp_instrumrntinformation = new System.Windows.Forms.TabPage();
             this.tb_ShowTime = new System.Windows.Forms.TextBox();
@@ -92,6 +93,7 @@ namespace cangku_01
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bt_empty = new System.Windows.Forms.Button();
             this.lv_instrumrntinformation = new System.Windows.Forms.ListView();
             this.column_Insnumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Insid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -102,9 +104,9 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bt_empty = new System.Windows.Forms.Button();
+            this.bt_emptyemployeepassdoor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_employeephoto)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToSee)).BeginInit();
             this.groupBox4.SuspendLayout();
@@ -114,7 +116,6 @@ namespace cangku_01
             this.tabControl1.SuspendLayout();
             this.tp_employeeinformation.SuspendLayout();
             this.tp_allemployeeinformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tp_instrumrntinformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -222,32 +223,32 @@ namespace cangku_01
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Tb_temp
+            // tb_temp
             // 
-            this.Tb_temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_temp.Location = new System.Drawing.Point(392, 144);
-            this.Tb_temp.Name = "Tb_temp";
-            this.Tb_temp.ReadOnly = true;
-            this.Tb_temp.Size = new System.Drawing.Size(129, 21);
-            this.Tb_temp.TabIndex = 6;
+            this.tb_temp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_temp.Location = new System.Drawing.Point(392, 144);
+            this.tb_temp.Name = "tb_temp";
+            this.tb_temp.ReadOnly = true;
+            this.tb_temp.Size = new System.Drawing.Size(186, 21);
+            this.tb_temp.TabIndex = 6;
             // 
-            // Tb_name
+            // tb_employeename
             // 
-            this.Tb_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_name.Location = new System.Drawing.Point(392, 97);
-            this.Tb_name.Name = "Tb_name";
-            this.Tb_name.ReadOnly = true;
-            this.Tb_name.Size = new System.Drawing.Size(129, 21);
-            this.Tb_name.TabIndex = 5;
+            this.tb_employeename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_employeename.Location = new System.Drawing.Point(392, 97);
+            this.tb_employeename.Name = "tb_employeename";
+            this.tb_employeename.ReadOnly = true;
+            this.tb_employeename.Size = new System.Drawing.Size(186, 21);
+            this.tb_employeename.TabIndex = 5;
             // 
-            // Tb_id
+            // tb_employeeunmber
             // 
-            this.Tb_id.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Tb_id.Location = new System.Drawing.Point(392, 54);
-            this.Tb_id.Name = "Tb_id";
-            this.Tb_id.ReadOnly = true;
-            this.Tb_id.Size = new System.Drawing.Size(129, 21);
-            this.Tb_id.TabIndex = 4;
+            this.tb_employeeunmber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_employeeunmber.Location = new System.Drawing.Point(392, 54);
+            this.tb_employeeunmber.Name = "tb_employeeunmber";
+            this.tb_employeeunmber.ReadOnly = true;
+            this.tb_employeeunmber.Size = new System.Drawing.Size(186, 21);
+            this.tb_employeeunmber.TabIndex = 4;
             // 
             // label8
             // 
@@ -279,15 +280,16 @@ namespace cangku_01
             this.label6.TabIndex = 1;
             this.label6.Text = "员工编号：";
             // 
-            // pictureBox5
+            // pb_employeephoto
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(86, 54);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(123, 140);
-            this.pictureBox5.TabIndex = 0;
-            this.pictureBox5.TabStop = false;
+            this.pb_employeephoto.BackColor = System.Drawing.Color.Transparent;
+            this.pb_employeephoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pb_employeephoto.BackgroundImage")));
+            this.pb_employeephoto.Location = new System.Drawing.Point(86, 54);
+            this.pb_employeephoto.Name = "pb_employeephoto";
+            this.pb_employeephoto.Size = new System.Drawing.Size(123, 140);
+            this.pb_employeephoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_employeephoto.TabIndex = 0;
+            this.pb_employeephoto.TabStop = false;
             // 
             // skinEngine1
             // 
@@ -310,7 +312,7 @@ namespace cangku_01
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox3.Location = new System.Drawing.Point(884, 306);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(374, 425);
+            this.groupBox3.Size = new System.Drawing.Size(374, 436);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "物品到期提醒";
@@ -479,15 +481,15 @@ namespace cangku_01
             // 
             // tp_employeeinformation
             // 
-            this.tp_employeeinformation.Controls.Add(this.textBox1);
+            this.tp_employeeinformation.Controls.Add(this.tb_employeepassdoor);
             this.tp_employeeinformation.Controls.Add(this.label5);
-            this.tp_employeeinformation.Controls.Add(this.pictureBox5);
+            this.tp_employeeinformation.Controls.Add(this.pb_employeephoto);
             this.tp_employeeinformation.Controls.Add(this.label6);
-            this.tp_employeeinformation.Controls.Add(this.Tb_temp);
+            this.tp_employeeinformation.Controls.Add(this.tb_temp);
             this.tp_employeeinformation.Controls.Add(this.label7);
             this.tp_employeeinformation.Controls.Add(this.label8);
-            this.tp_employeeinformation.Controls.Add(this.Tb_name);
-            this.tp_employeeinformation.Controls.Add(this.Tb_id);
+            this.tp_employeeinformation.Controls.Add(this.tb_employeename);
+            this.tp_employeeinformation.Controls.Add(this.tb_employeeunmber);
             this.tp_employeeinformation.Location = new System.Drawing.Point(4, 22);
             this.tp_employeeinformation.Name = "tp_employeeinformation";
             this.tp_employeeinformation.Padding = new System.Windows.Forms.Padding(3);
@@ -496,14 +498,14 @@ namespace cangku_01
             this.tp_employeeinformation.Text = "人员信息";
             this.tp_employeeinformation.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tb_employeepassdoor
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(392, 195);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(129, 21);
-            this.textBox1.TabIndex = 8;
+            this.tb_employeepassdoor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tb_employeepassdoor.Location = new System.Drawing.Point(392, 195);
+            this.tb_employeepassdoor.Name = "tb_employeepassdoor";
+            this.tb_employeepassdoor.ReadOnly = true;
+            this.tb_employeepassdoor.Size = new System.Drawing.Size(186, 21);
+            this.tb_employeepassdoor.TabIndex = 8;
             // 
             // label5
             // 
@@ -517,7 +519,8 @@ namespace cangku_01
             // 
             // tp_allemployeeinformation
             // 
-            this.tp_allemployeeinformation.Controls.Add(this.dataGridView1);
+            this.tp_allemployeeinformation.Controls.Add(this.bt_emptyemployeepassdoor);
+            this.tp_allemployeeinformation.Controls.Add(this.lv_employeepassdoor);
             this.tp_allemployeeinformation.Location = new System.Drawing.Point(4, 22);
             this.tp_allemployeeinformation.Name = "tp_allemployeeinformation";
             this.tp_allemployeeinformation.Padding = new System.Windows.Forms.Padding(3);
@@ -526,48 +529,49 @@ namespace cangku_01
             this.tp_allemployeeinformation.Text = "人员通行记录";
             this.tp_allemployeeinformation.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // lv_employeepassdoor
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.人员编号,
-            this.姓名,
-            this.所属部门,
-            this.通行时间});
-            this.dataGridView1.GridColor = System.Drawing.Color.Black;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.RowTemplate.Height = 23;
-            this.dataGridView1.Size = new System.Drawing.Size(628, 262);
-            this.dataGridView1.TabIndex = 0;
+            this.lv_employeepassdoor.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
+            this.lv_employeepassdoor.AutoArrange = false;
+            this.lv_employeepassdoor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lv_employeepassdoor.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ch_number,
+            this.ch_employeenumber,
+            this.ch_name,
+            this.ch_temp,
+            this.ch_passdoordatetime});
+            this.lv_employeepassdoor.FullRowSelect = true;
+            this.lv_employeepassdoor.GridLines = true;
+            this.lv_employeepassdoor.Location = new System.Drawing.Point(6, 6);
+            this.lv_employeepassdoor.Name = "lv_employeepassdoor";
+            this.lv_employeepassdoor.Size = new System.Drawing.Size(628, 233);
+            this.lv_employeepassdoor.TabIndex = 2;
+            this.lv_employeepassdoor.UseCompatibleStateImageBehavior = false;
+            this.lv_employeepassdoor.View = System.Windows.Forms.View.Details;
             // 
-            // 人员编号
+            // ch_number
             // 
-            this.人员编号.HeaderText = "人员编号";
-            this.人员编号.Name = "人员编号";
-            this.人员编号.ReadOnly = true;
+            this.ch_number.Text = "序号";
             // 
-            // 姓名
+            // ch_employeenumber
             // 
-            this.姓名.HeaderText = "姓名";
-            this.姓名.Name = "姓名";
-            this.姓名.ReadOnly = true;
+            this.ch_employeenumber.Text = "编号";
+            this.ch_employeenumber.Width = 120;
             // 
-            // 所属部门
+            // ch_name
             // 
-            this.所属部门.HeaderText = "所属部门";
-            this.所属部门.Name = "所属部门";
-            this.所属部门.ReadOnly = true;
+            this.ch_name.Text = "名字";
+            this.ch_name.Width = 130;
             // 
-            // 通行时间
+            // ch_temp
             // 
-            this.通行时间.HeaderText = "通行时间";
-            this.通行时间.Name = "通行时间";
-            this.通行时间.ReadOnly = true;
+            this.ch_temp.Text = "部门";
+            this.ch_temp.Width = 125;
+            // 
+            // ch_passdoordatetime
+            // 
+            this.ch_passdoordatetime.Text = "通过时间";
+            this.ch_passdoordatetime.Width = 190;
             // 
             // tabControl2
             // 
@@ -643,9 +647,9 @@ namespace cangku_01
             this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.Location = new System.Drawing.Point(281, 65);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 21);
+            this.label12.Size = new System.Drawing.Size(90, 21);
             this.label12.TabIndex = 11;
-            this.label12.Text = "仪器Id：";
+            this.label12.Text = "仪器编号：";
             // 
             // label11
             // 
@@ -701,6 +705,16 @@ namespace cangku_01
             this.tabPage1.Text = "仪器通过记录";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // bt_empty
+            // 
+            this.bt_empty.Location = new System.Drawing.Point(555, 245);
+            this.bt_empty.Name = "bt_empty";
+            this.bt_empty.Size = new System.Drawing.Size(75, 23);
+            this.bt_empty.TabIndex = 1;
+            this.bt_empty.Text = "清空";
+            this.bt_empty.UseVisualStyleBackColor = true;
+            this.bt_empty.Click += new System.EventHandler(this.bt_empty_Click);
+            // 
             // lv_instrumrntinformation
             // 
             this.lv_instrumrntinformation.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
@@ -715,9 +729,9 @@ namespace cangku_01
             this.column_Instime});
             this.lv_instrumrntinformation.FullRowSelect = true;
             this.lv_instrumrntinformation.GridLines = true;
-            this.lv_instrumrntinformation.Location = new System.Drawing.Point(0, 3);
+            this.lv_instrumrntinformation.Location = new System.Drawing.Point(8, 6);
             this.lv_instrumrntinformation.Name = "lv_instrumrntinformation";
-            this.lv_instrumrntinformation.Size = new System.Drawing.Size(636, 250);
+            this.lv_instrumrntinformation.Size = new System.Drawing.Size(622, 231);
             this.lv_instrumrntinformation.TabIndex = 0;
             this.lv_instrumrntinformation.UseCompatibleStateImageBehavior = false;
             this.lv_instrumrntinformation.View = System.Windows.Forms.View.Details;
@@ -739,12 +753,12 @@ namespace cangku_01
             // column_Insstate
             // 
             this.column_Insstate.Text = "通过状态";
-            this.column_Insstate.Width = 100;
+            this.column_Insstate.Width = 80;
             // 
             // column_Instime
             // 
             this.column_Instime.Text = "通过时间";
-            this.column_Instime.Width = 145;
+            this.column_Instime.Width = 140;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -770,15 +784,15 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // bt_empty
+            // bt_emptyemployeepassdoor
             // 
-            this.bt_empty.Location = new System.Drawing.Point(285, 251);
-            this.bt_empty.Name = "bt_empty";
-            this.bt_empty.Size = new System.Drawing.Size(75, 23);
-            this.bt_empty.TabIndex = 1;
-            this.bt_empty.Text = "清空";
-            this.bt_empty.UseVisualStyleBackColor = true;
-            this.bt_empty.Click += new System.EventHandler(this.bt_empty_Click);
+            this.bt_emptyemployeepassdoor.Location = new System.Drawing.Point(559, 245);
+            this.bt_emptyemployeepassdoor.Name = "bt_emptyemployeepassdoor";
+            this.bt_emptyemployeepassdoor.Size = new System.Drawing.Size(75, 23);
+            this.bt_emptyemployeepassdoor.TabIndex = 2;
+            this.bt_emptyemployeepassdoor.Text = "清空";
+            this.bt_emptyemployeepassdoor.UseVisualStyleBackColor = true;
+            this.bt_emptyemployeepassdoor.Click += new System.EventHandler(this.bt_emptyemployeepassdoor_Click);
             // 
             // Form1
             // 
@@ -803,7 +817,7 @@ namespace cangku_01
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_employeephoto)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Dgv_DueToSee)).EndInit();
             this.groupBox4.ResumeLayout(false);
@@ -815,7 +829,6 @@ namespace cangku_01
             this.tp_employeeinformation.ResumeLayout(false);
             this.tp_employeeinformation.PerformLayout();
             this.tp_allemployeeinformation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tp_instrumrntinformation.ResumeLayout(false);
             this.tp_instrumrntinformation.PerformLayout();
@@ -834,9 +847,9 @@ namespace cangku_01
         private System.Windows.Forms.MenuStrip menuStrip1;
         private Button button1;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
-        private System.Windows.Forms.TextBox Tb_temp;
-        private System.Windows.Forms.TextBox Tb_name;
-        private System.Windows.Forms.TextBox Tb_id;
+        private System.Windows.Forms.TextBox tb_temp;
+        private System.Windows.Forms.TextBox tb_employeename;
+        private System.Windows.Forms.TextBox tb_employeeunmber;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -863,16 +876,11 @@ namespace cangku_01
         private DataGridViewTextBoxColumn DaysRemaining;
         private ToolStripMenuItem 归还ToolStripMenuItem;
         private Timer timer2;
-        public PictureBox pictureBox5;
+        public PictureBox pb_employeephoto;
         private TabControl tabControl1;
         private TabPage tp_employeeinformation;
         private TabPage tp_allemployeeinformation;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn 人员编号;
-        private DataGridViewTextBoxColumn 姓名;
-        private DataGridViewTextBoxColumn 所属部门;
-        private DataGridViewTextBoxColumn 通行时间;
-        private TextBox textBox1;
+        private TextBox tb_employeepassdoor;
         private Label label5;
         private ToolStripMenuItem 仪器位置查询ToolStripMenuItem;
         private ToolStripMenuItem 元器件位置查询ToolStripMenuItem;
@@ -899,6 +907,13 @@ namespace cangku_01
         public TextBox tb_ShowName;
         public TextBox tb_ShowId;
         private Button bt_empty;
+        private ListView lv_employeepassdoor;
+        private ColumnHeader ch_employeenumber;
+        private ColumnHeader ch_name;
+        private ColumnHeader ch_temp;
+        private ColumnHeader ch_passdoordatetime;
+        private ColumnHeader ch_number;
+        private Button bt_emptyemployeepassdoor;
     }
 }
 
