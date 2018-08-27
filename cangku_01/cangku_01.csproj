@@ -80,6 +80,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="entity\WarehouseLocation.cs" />
+    <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
     <Compile Include="GateDrive\DataTransferInterface.cs" />
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
@@ -88,6 +90,8 @@
     <Compile Include="GateDrive\GateInterface v1.42.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="GateDrive\DataShow.cs" />
+    <Compile Include="interfaceImp\GetFingerprintInformation.cs" />
+    <Compile Include="interfaces\FingerprintInformation.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="SelectCondition\DateEqual.cs" />
     <Compile Include="SelectCondition\DateTimeBetweenCloseInterval.cs" />
@@ -190,6 +194,12 @@
     </Compile>
     <Compile Include="interfaceImp\CheckTimeQueryAndUpdate.cs" />
     <Compile Include="interfaces\RemindInterface.cs" />
+    <Compile Include="view\WarehouseManagement\GetNodeName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\WarehouseManagement\GetNodeName.Designer.cs">
+      <DependentUpon>GetNodeName.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\WarehouseManagement\WarehouseManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +254,9 @@
     <EmbeddedResource Include="view\DueToRemind\DueToRemind.resx">
       <DependentUpon>DueToRemind.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\WarehouseManagement\GetNodeName.resx">
+      <DependentUpon>GetNodeName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\WarehouseManagement\WarehouseManagement.resx">
       <DependentUpon>WarehouseManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -288,6 +301,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MysqlConnection\cangku_01.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

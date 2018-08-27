@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
-namespace cangku_01.GateDrive
+namespace cangku_01.FingerprintDrive
 {
     class GateInterfaceImp : GateInterface
     {
@@ -41,7 +41,7 @@ namespace cangku_01.GateDrive
 
         GateData door = new GateData();
         //List<GateData> gatelist = new List<GateData>();
-        DataTransferInterface data = new DataShow();
+        DataTransferInterface data = new FingerprintDataShow();
 
         //关闭门的网口
         public void Close()
@@ -68,7 +68,8 @@ namespace cangku_01.GateDrive
             }
             else
             {
-                throw new Exception("连接失败");
+                MessageBox.Show("连接成功");
+               // throw new Exception("连接失败");
             }
             
         }

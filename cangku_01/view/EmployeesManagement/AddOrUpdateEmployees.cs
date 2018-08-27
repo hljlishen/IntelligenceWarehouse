@@ -75,7 +75,7 @@ namespace cangku_01.view.EmployeesManagement
                 MessageBox.Show("请填写完整信息！");
                 return;
             }
-            if (dao.EmployeesRechecking(int.Parse(Tb_employeesid.Text.ToString())) != 0)
+            if (dao.EmployeesRechecking(Tb_employeesid.Text.ToString()) != 0)
             {
                 MessageBox.Show("已存在该员工编号！");
                 return;
@@ -95,7 +95,7 @@ namespace cangku_01.view.EmployeesManagement
         //获取员工信息
         public void GetEmployeeInformation()
         {
-            em.EmployeeNumber = int.Parse(Tb_employeesid.Text.ToString());
+            em.EmployeeNumber = Tb_employeesid.Text.ToString();
             em.Name = Tb_name.Text.ToString();
             if (Rb_sexman.Checked) em.Sex = "男";
             else em.Sex = "女";

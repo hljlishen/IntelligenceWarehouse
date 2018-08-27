@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2018-08-21 08:55:55
+Date: 2018-08-23 10:37:27
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,4 +116,22 @@ CREATE TABLE `t_instrument` (
 
 -- ----------------------------
 -- Records of t_instrument
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `t_warehouselocation`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_warehouselocation`;
+CREATE TABLE `t_warehouselocation` (
+  `wa_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '仓库位置id',
+  `wa_name` varchar(255) NOT NULL COMMENT '位置名字',
+  `wa_tier` int(11) NOT NULL COMMENT '层级',
+  `wa_belongid` int(11) NOT NULL COMMENT '父节点id',
+  `wa_instrument` varchar(255) DEFAULT NULL COMMENT '仪器id',
+  `wa_ledid` varchar(255) NOT NULL COMMENT '仓库灯id',
+  PRIMARY KEY (`wa_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_warehouselocation
 -- ----------------------------

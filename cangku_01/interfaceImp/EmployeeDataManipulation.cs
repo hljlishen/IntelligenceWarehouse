@@ -28,7 +28,7 @@ namespace cangku_01.interfaceImp
         }
 
         //员工查重
-        public int EmployeesRechecking(int employeenumber)
+        public int EmployeesRechecking(string employeenumber)
         {
             Employee e = new Employee();
             e.EmployeeNumber = employeenumber;
@@ -45,7 +45,7 @@ namespace cangku_01.interfaceImp
         }
 
         //删除员工
-        public void DeleteEmployee(int employeenumber)
+        public void DeleteEmployee(string employeenumber)
         {
             Employee e = new Employee();
             e.EmployeeNumber = employeenumber;
@@ -91,6 +91,13 @@ namespace cangku_01.interfaceImp
             string sql = em.QueryEmployeeSql(0, 0);
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
+        }
+
+        //添加员工过门信息
+        public void AddEmployeePassDoorInformation(Employee em)
+        {
+            string sql = em.AddEmployeePassDoorInformationSql();
+            dbo.WriteDB(sql);
         }
     }
 }

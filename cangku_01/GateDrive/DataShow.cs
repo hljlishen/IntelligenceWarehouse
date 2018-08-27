@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
-namespace cangku_01.GateDrive
+namespace cangku_01.FingerprintDrive
 {
-    class DataShow : DataTransferInterface
+    class FingerprintDataShow : DataTransferInterface
     {
         ListViewItem listView = new ListViewItem();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);

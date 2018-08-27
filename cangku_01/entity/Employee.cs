@@ -13,12 +13,13 @@ namespace cangku_01.entity
     public class Employee
     {
         public int Id {get;set;}                     //sql员工主键ID
-        public int EmployeeNumber { get; set; }      //员工编号
+        public string EmployeeNumber { get; set; }   //员工编号
         public string Name { get; set; }             //名字
         public string Sex { get; set; }              //性别
         public int Company { get; set; }             //公司
         public int Department { get; set; }          //部门
         public int Group { get; set; }               //组名 
+        public DateTime PassDoor { get; set; }         //过门时间
 
         SelectSqlMaker maker;
 
@@ -83,24 +84,32 @@ namespace cangku_01.entity
             }
         }
 
+        //添加员工过门信息
+        public string AddEmployeePassDoorInformationSql()
+        {
+            string sql = "insert into t_fingerprint (fi_employeenumber,fi_passtime)values('"
+                + EmployeeNumber + "','" + PassDoor + "')";
+            return sql;
+        }
+
         //员工多条件搜素
         public string QueryEmployeeSql(int level,int nondeid)
         {
             string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
                         "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id where ";
-            if(EmployeeNumber!=0 )
+            if(!EmployeeNumber.Equals(""))
             {
                 sql += $" em_employeenumber={EmployeeNumber}";
             }
-            if (!Name.Equals("") && EmployeeNumber == 0)
+            if (!Name.Equals("") && EmployeeNumber.Equals(""))
             {
                 sql += $" em_name='{Name}'";
             }
-            if (!Name.Equals("") && EmployeeNumber != 0)
+            if (!Name.Equals("") && !EmployeeNumber.Equals(""))
             {
                 sql += $" and em_name='{Name}'";
             }
-            if (!Sex.Equals("男/女") && EmployeeNumber != 0 )
+            if (!Sex.Equals("男/女") && !EmployeeNumber.Equals(""))
             {
                 sql += $" and em_sex='{Sex}'";
             }
@@ -108,7 +117,7 @@ namespace cangku_01.entity
             {
                 sql += $" and em_sex='{Sex}'";
             }
-            if (!Sex.Equals("男/女") && EmployeeNumber == 0 && Name.Equals(""))
+            if (!Sex.Equals("男/女") && EmployeeNumber.Equals("") && Name.Equals(""))
             {
                 sql += $" em_sex='{Sex}'";
             }

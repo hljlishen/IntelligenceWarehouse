@@ -822,9 +822,6 @@ namespace cangku_01
         private System.Windows.Forms.MenuStrip menuStrip1;
         private Button button1;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
-        private System.Windows.Forms.TextBox Tb_temp;
-        private System.Windows.Forms.TextBox Tb_name;
-        private System.Windows.Forms.TextBox Tb_id;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -852,15 +849,12 @@ namespace cangku_01
         private ToolStripMenuItem 归还ToolStripMenuItem;
         private Timer timer2;
         public PictureBox pictureBox5;
-        private TabControl tabControl1;
         private TabPage tp_employeeinformation;
         private TabPage tp_allemployeeinformation;
-        private DataGridView dataGridView1;
         private DataGridViewTextBoxColumn 人员编号;
         private DataGridViewTextBoxColumn 姓名;
         private DataGridViewTextBoxColumn 所属部门;
         private DataGridViewTextBoxColumn 通行时间;
-        private TextBox textBox1;
         private Label label5;
         private ToolStripMenuItem 仪器位置查询ToolStripMenuItem;
         private ToolStripMenuItem 元器件位置查询ToolStripMenuItem;
@@ -886,6 +880,12 @@ namespace cangku_01
         public TextBox tb_ShowState;
         public TextBox tb_ShowName;
         public TextBox tb_ShowId;
+        public TextBox Tb_temp;
+        public TextBox Tb_name;
+        public TextBox Tb_id;
+        public DataGridView dataGridView1;
+        public TextBox textBox1;
+        public TabControl tabControl1;
     }
 }
 

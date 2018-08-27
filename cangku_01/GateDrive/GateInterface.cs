@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cangku_01.GateDrive
+namespace cangku_01.FingerprintDrive
 {
     interface GateInterface
     {
