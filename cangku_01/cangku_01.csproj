@@ -85,7 +85,7 @@
   <ItemGroup>
     <Compile Include="entity\WarehouseLocation.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
-    <Compile Include="GateDrive\DataTransferInterface.cs" />
+    <Compile Include="GateDrive\DataShowInterface.cs" />
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />

@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 //指纹设备连接 --饿汉式
 
-namespace cangku_01.FingerprintDrive
+namespace cangku_01.GateDrive
 {
     class ConnectFingerprint
     {
@@ -61,8 +61,8 @@ namespace cangku_01.FingerprintDrive
             string passtime = iYear.ToString() + "-" + iMonth.ToString() + "-" + iDay.ToString() + " " + iHour.ToString() + ":" + iMinute.ToString() + ":" + iSecond.ToString();
             em.PassDoor = Convert.ToDateTime(passtime);
             SavePassDoorInformation();
-            fr.Tb_id.Text = em.EmployeeNumber;
-            fr.textBox1.Text = passtime; 
+           // fr.Tb_id.Text = em.EmployeeNumber;
+           // fr.textBox1.Text = passtime; 
         }
         #endregion
 

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
-using cangku_01.FingerprintDrive;
+using cangku_01.GateDrive;
 
 namespace cangku_01
 {
