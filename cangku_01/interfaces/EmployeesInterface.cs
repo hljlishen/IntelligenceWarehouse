@@ -17,13 +17,13 @@ namespace cangku_01.interfaces
         DataTable QueryAllEmployee();
 
         //员工添加查重
-        int EmployeesRechecking(int employeesid);
+        int EmployeesRechecking(string employeesid);
 
         //添加用户
         void AddEmployee(Employee em);
 
         //删除员工信息
-        void DeleteEmployee(int employeesid);
+        void DeleteEmployee(string employeesid);
 
         //修改用户
         void UpdateEmployee(Employee em);
@@ -39,5 +39,8 @@ namespace cangku_01.interfaces
 
         //在全部人员中搜索
         DataTable QueryInTheAllEmployee(Employee em);
+
+        //添加员工过门信息
+        void AddEmployeePassDoorInformation(Employee em);
     }
 }

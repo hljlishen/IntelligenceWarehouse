@@ -1,39 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using cangku_01.SQQ;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.GateDrive;
-using System.IO;
-using cangku_01.UHFReader09CSharp;
-using cangku_01.UHFReader09;
 
 namespace cangku_01
 {
     public partial class Form1 : Form
     {
-        Find_Items find_Items = null;
         GateInterface gate = new GateInterfaceImp();
+        ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
 
         public Form1()
         {
             InitializeComponent();
             //添加皮肤
-            this.skinEngine1.SkinFile = "Longhorn.ssk";
+            skinEngine1.SkinFile = "Longhorn.ssk";
             //防止屏幕闪烁
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
+        }
 
-            //到期提醒-首页
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToString();
+            gate.StartDetect(this);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            gate.Open();
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.setfrom(this);
+            DueToRemind();
+            timer1.Interval = 1000;
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Start();
+        }
+
+        //首页——到期提醒
+        private void DueToRemind()
+        {
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataTable dt = dao.QueryAllExpireInstrument();
             Instrument ins = new Instrument();
@@ -50,19 +60,6 @@ namespace cangku_01
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            label1.Text = DateTime.Now.ToString();
-            gate.StartDetect(this);
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            timer1.Interval = 1000;
-            timer1.Tick += new System.EventHandler(timer1_Tick);
-            timer1.Start();
-            gate.Open();
-        }
-
         //跳转到登录界面
         private void 管理员ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -70,6 +67,7 @@ namespace cangku_01
             login.Show();
 
         }
+
         //点击关闭按钮
         private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -79,23 +77,11 @@ namespace cangku_01
                 Application.Exit();
             }
         }
+
         //点击查询按钮
         private void button1_Click(object sender, EventArgs e)
         {
-            //如果窗口已经存在就不能再次打开
-            if (find_Items == null)
-            {
-                find_Items = new Find_Items();
-                find_Items.Show();
-            }
-            else if (find_Items.IsDisposed)
-            {
-                find_Items = null;
-            }
-            else if (find_Items != null)
-            {
-                DialogResult result = MessageBox.Show("查询窗口已经存在！！");
-            }
+           
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -104,7 +90,6 @@ namespace cangku_01
             login.Show();
         }
 
-        //清空ListView里的数据
         private void bt_empty_Click(object sender, EventArgs e)
         {
             lv_instrumrntinformation.Items.Clear();

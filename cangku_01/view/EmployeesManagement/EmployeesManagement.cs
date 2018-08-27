@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using cangku_01;
 using cangku_01.interfaceImp;
-using System.Collections;
 using cangku_01.entity;
-using cangku_01.view.EmployeesManagement;
 using cangku_01.view.AdminPage;
 using cangku_01.interfaces;
-using cangku_01.MysqlConnection;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //员工信息管理页面
@@ -33,14 +24,14 @@ namespace cangku_01.view.EmployeesManagement
         }
 
         //初始化页面信息
-        private void index_employees_Load(object sender, EventArgs e)
+        public void index_employees_Load(object sender, EventArgs e)
         {
-            this.Top = 0;
-            this.Left = 0;
-            this.ShowTreeView();  //加载部门树状图
+            Top = 0;
+            Left = 0;
+            ShowTreeView();  //加载部门树状图
             DataTable dt = dao.QueryAllEmployee();//将全部员工加载
-            this.ShowDataGridView(dt);
-            this.cb_foundsex.Text = "男/女";
+            ShowDataGridView(dt);
+            cb_foundsex.Text = "男/女";
         }
 
         //TreeView显示数据
@@ -77,7 +68,7 @@ namespace cangku_01.view.EmployeesManagement
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {  
                     string currentIndex = dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString();
-                    int usernumber = int.Parse(currentIndex);
+                    string usernumber = currentIndex;
                     dao.DeleteEmployee(usernumber);
                     AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
                     dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
@@ -90,7 +81,7 @@ namespace cangku_01.view.EmployeesManagement
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     Employee em = new Employee();
-                    em.EmployeeNumber = int.Parse(dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString());
+                    em.EmployeeNumber = dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString();
                     em.Name = dgv_employeeinformation.CurrentRow.Cells[1].Value.ToString();
                     em.Sex = dgv_employeeinformation.CurrentRow.Cells[2].Value.ToString();
                     string company = dgv_employeeinformation.CurrentRow.Cells[3].Value.ToString();
@@ -115,15 +106,15 @@ namespace cangku_01.view.EmployeesManagement
             Employee em = new Employee();
             if (tb_foundemployeeid.Text.ToString().Equals(""))
             {
-                em.EmployeeNumber = 0;
+                em.EmployeeNumber = "";
             }
             else
             {
-                em.EmployeeNumber = int.Parse(tb_foundemployeeid.Text);
+                em.EmployeeNumber = tb_foundemployeeid.Text;
             }
             em.Name = tb_foundname.Text;
             em.Sex = cb_foundsex.Text;
-            if (em.EmployeeNumber == 0 && em.Name.Equals("") && em.Sex.Equals("男/女"))
+            if (em.EmployeeNumber.Equals("") && em.Name.Equals("") && em.Sex.Equals("男/女"))
             {
                 this.ShowDataGridView(dao.TreeQueryEmployee(level, nodeid));
                 return;
@@ -137,15 +128,15 @@ namespace cangku_01.view.EmployeesManagement
             Employee em = new Employee();
             if(tb_foundemployeeid.Text.ToString().Equals(""))
             {
-                em.EmployeeNumber = 0;
+                em.EmployeeNumber = "";
             }
             else
             {
-                em.EmployeeNumber = int.Parse(tb_foundemployeeid.Text);
+                em.EmployeeNumber = tb_foundemployeeid.Text;
             }  
             em.Name = tb_foundname.Text;
             em.Sex = cb_foundsex.Text;
-            if (em.EmployeeNumber == 0 && em.Name.Equals("") && em.Sex.Equals("男/女"))
+            if (em.EmployeeNumber.Equals("") && em.Name.Equals("") && em.Sex.Equals("男/女"))
             {
                 this.ShowDataGridView(dao.QueryAllEmployee());
                 return;
@@ -228,7 +219,7 @@ namespace cangku_01.view.EmployeesManagement
             nodeid = d.id;
             level = tv_department.SelectedNode.Level;
             dt = dao.TreeQueryEmployee(level,nodeid);
-            this.ShowDataGridView(dt);
+            ShowDataGridView(dt);
         }
 
     }

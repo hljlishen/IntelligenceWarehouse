@@ -348,7 +348,7 @@
             // 
             this.cb_allcheckdate.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cb_allcheckdate.FormattingEnabled = true;
-            this.cb_allcheckdate.Location = new System.Drawing.Point(623, 354);
+            this.cb_allcheckdate.Location = new System.Drawing.Point(622, 355);
             this.cb_allcheckdate.Name = "cb_allcheckdate";
             this.cb_allcheckdate.Size = new System.Drawing.Size(128, 25);
             this.cb_allcheckdate.TabIndex = 66;
