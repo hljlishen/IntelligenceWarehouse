@@ -15,9 +15,8 @@ namespace cangku_01.view.InstrumentManagement
     public partial class InstrumentManagement : Form
     {   
         InstrumentInterface dao = new InstrumentDataManipulation();
-        UHFReader09Interface uHF = new UHFReader();
         Instrument ins = new Instrument();
-        
+        private static UHFReader09Interface ReaderDrive = null;
 
         public InstrumentManagement()
         {
@@ -54,16 +53,9 @@ namespace cangku_01.view.InstrumentManagement
         //仪器添加
         private void button1_Click(object sender, EventArgs e)  
         {
-            if (uHF.ReadTagId() != "")
-            {
-                AddOrUpdateInstrument add = new AddOrUpdateInstrument(this);
-                add.ShowDialog();
-            }
-            else
-            {
-                AutoClosingMessageBox.Show("未读取到卡", "未读取到卡", 1000);
-            }
-           
+            UHFReader reader = UHFReader.CreateInstance();
+            AddOrUpdateInstrument add = new AddOrUpdateInstrument(this, reader);
+            add.ShowDialog();
         }
 
         //仪器的修改删除
@@ -85,10 +77,11 @@ namespace cangku_01.view.InstrumentManagement
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    UHFReader reader = UHFReader.CreateInstance();
                     //获取要修改属性
                     Instrument ins = new Instrument();
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
-                    AddOrUpdateInstrument Update = new AddOrUpdateInstrument(this, ins, e.RowIndex);
+                    AddOrUpdateInstrument Update = new AddOrUpdateInstrument(this, ins, e.RowIndex,reader);
                     Update.ShowDialog();
                 }
             }
@@ -106,12 +99,35 @@ namespace cangku_01.view.InstrumentManagement
         //搜索按钮
         private void button2_Click(object sender, EventArgs e)  
         {
-            
             ins.Name = tb_instrumentname.Text;
             ins.Manufactor = tb_manufactor.Text;
             ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
             ins.Duty = tb_duty.Text;
             ShowDataGridView(dao.QueryInstrument(ins));
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            UHFReader reader = UHFReader.CreateInstance();
+            TagIdQuery(reader);
+            ShowDataGridView(dao.TagIdQueryInstrument(ins));
+        }
+
+        private void TagIdQuery(UHFReader09Interface readerDrive)
+        {
+            ReaderDrive = readerDrive;
+            ReaderDrive.OpenConnectReader();
+            ReaderDrive.TagConnected += ReaderDrive_TagConnected;
+        }
+
+        private void ReaderDrive_TagConnected(string tagId)
+        {
+            ins.TagId = tagId;
+        }
+
+        private void button2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            ReaderDrive.TagConnected -= ReaderDrive_TagConnected;
         }
     }
 }

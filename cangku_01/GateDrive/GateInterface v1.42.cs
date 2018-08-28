@@ -12,6 +12,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -39,10 +40,13 @@ namespace cangku_01.GateDrive
         private string ThroughDoorTime = "";
         private string ThroughDoorDirection = "";
         private string productCode = "";
-        private static GateData door = new GateData();
 
-        DataShowInterface data = new DataShow();
+        private static GateData door = new GateData();
+        private static DataShowInterface data = new DataShow();
+        private static GateInterfaceImp gateInterface = null;
+
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
+
 
         //关闭门的网口
         public void Close()

@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace cangku_01.UHFReader09CSharp
 {
-    interface UHFReader09Interface
+    public delegate void TagConnectedHandler(string tagId);
+
+    public interface UHFReader09Interface
     {
-        void ConnectReader();
+        void OpenConnectReader();
+
         void CloseConnectReader();
-        string ReadTagId();
+
+        string StartRead();
+
+        event TagConnectedHandler TagConnected;
     }
 }

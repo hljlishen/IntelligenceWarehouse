@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace cangku_01.GateDrive
 {
+
     interface GateInterface
     {
         //打开门的网口

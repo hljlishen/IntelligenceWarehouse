@@ -643,9 +643,9 @@ namespace cangku_01
             this.label12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label12.Location = new System.Drawing.Point(281, 65);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(73, 21);
+            this.label12.Size = new System.Drawing.Size(90, 21);
             this.label12.TabIndex = 11;
-            this.label12.Text = "仪器Id：";
+            this.label12.Text = "仪器编号：";
             // 
             // label11
             // 
@@ -738,7 +738,7 @@ namespace cangku_01
             // 
             // column_Insid
             // 
-            this.column_Insid.Text = "仪器Id";
+            this.column_Insid.Text = "仪器编号";
             this.column_Insid.Width = 240;
             // 
             // column_Insname

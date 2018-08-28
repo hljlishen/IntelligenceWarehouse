@@ -90,6 +90,7 @@ namespace cangku_01
             login.Show();
         }
 
+        //仪器清空
         private void bt_empty_Click(object sender, EventArgs e)
         {
             lv_instrumrntinformation.Items.Clear();

@@ -403,6 +403,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddOrUpdateInstrument";
             this.Text = "编辑仪器信息";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddOrUpdateInstrument_FormClosing);
             this.Load += new System.EventHandler(this.AddOrModifyInstrument_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).EndInit();
             this.ResumeLayout(false);

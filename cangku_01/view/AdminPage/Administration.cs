@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using cangku_01.MH;
+using cangku_01.UHFReader09;
 using cangku_01.view.DueToRemind;
 using cangku_01.view.EmployeesManagement;
 using cangku_01.view.InstrumentManagement;
@@ -96,6 +97,7 @@ namespace cangku_01
 
         private void 仪器管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UHFReader reader = UHFReader.CreateInstance();
             if (index_instrument == null)
             {
                 index_instrument = new InstrumentManagement();

@@ -19,19 +19,19 @@ namespace cangku_01.view.InstrumentManagement
         private InstrumentManagement fr;
         Instrument ins = new Instrument();
         private int index;
-        private static UHFReader09Interface uHF = new UHFReader();
-        
+        private static UHFReader09Interface ReaderDrive;
 
         //仪器信息添加构造方法
-        public AddOrUpdateInstrument(InstrumentManagement fr)
+        public AddOrUpdateInstrument(InstrumentManagement fr, UHFReader09Interface readerDrive)
         {
             InitializeComponent();
             this.fr = fr;
             title.Text = "添加仪器基本信息";
             cb_isInWareHouse.Text = "在库";
-            tb_tagid.ReadOnly = false;
-            uHF.ConnectReader();
-            tb_tagid.Text = uHF.ReadTagId();
+            ReaderDrive = readerDrive;
+            ReaderDrive.OpenConnectReader();
+            ReaderDrive.TagConnected += ReaderDrive_TagConnected;
+            tb_tagid.ReadOnly = true;
             bt_alterinstrument.Visible = false;
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
@@ -41,13 +41,22 @@ namespace cangku_01.view.InstrumentManagement
             pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
         }
 
+        private void ReaderDrive_TagConnected(string tagId)
+        {
+            tb_tagid.Text = tagId;
+        }
+
         //仪器信息修改构造方法
-        public AddOrUpdateInstrument(InstrumentManagement fr, Instrument ins ,int index)
+        public AddOrUpdateInstrument(InstrumentManagement fr, Instrument ins ,int index, UHFReader09Interface readerDrive)
         {
             InitializeComponent();
             this.fr = fr;
             this.index = index;
             title.Text = "修改仪器基本信息";
+            ReaderDrive = readerDrive;
+            ReaderDrive.OpenConnectReader();
+            ReaderDrive.TagConnected += ReaderDrive_TagConnecteds;
+            tb_tagid.ReadOnly = true;
             this.ins = ins;
             bt_addinstrument.Visible = false;
             tb_isInWareHouse.Visible = false;
@@ -57,6 +66,17 @@ namespace cangku_01.view.InstrumentManagement
             la_allcheckdate.Visible = false;
             ShowInstrumentPhoto();
             InstrumentMessageDataTableShowTextBox();
+        }
+        private void ReaderDrive_TagConnecteds(string tagId)
+        {
+            if (tb_tagid.Text != tagId)
+            {
+                bt_alterinstrument.Enabled = false;
+            }
+            else
+            {
+                bt_alterinstrument.Enabled = true;
+            }
         }
 
         //仪器信息详情构造方法
@@ -208,7 +228,11 @@ namespace cangku_01.view.InstrumentManagement
             this.AddOneEmployeeToTheDataGridView();
             Close();
         }
-
+        //注销事件
+        private void AddOrUpdateInstrument_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReaderDrive.TagConnected -= ReaderDrive_TagConnected;
+        }
     }
 
 

@@ -9,8 +9,11 @@ namespace cangku_01.GateDrive
     interface DataShowInterface
     {
         void TextShow(GateData door, Form1 fr);
+
         void ListViewShow(GateData door, Form1 fr);
+
         void GetTagIdName(GateData door);
+
         void BorrowInformation(GateData insborrow);
     }
 }
