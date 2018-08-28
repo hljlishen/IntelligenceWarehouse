@@ -1,6 +1,8 @@
 ﻿using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.UHFReader09;
+using cangku_01.UHFReader09CSharp;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -11,9 +13,11 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 namespace cangku_01.view.InstrumentManagement
 {
     public partial class InstrumentManagement : Form
-    {
+    {   
         InstrumentInterface dao = new InstrumentDataManipulation();
+        UHFReader09Interface uHF = new UHFReader();
         Instrument ins = new Instrument();
+        
 
         public InstrumentManagement()
         {
@@ -50,8 +54,16 @@ namespace cangku_01.view.InstrumentManagement
         //仪器添加
         private void button1_Click(object sender, EventArgs e)  
         {
-            AddOrUpdateInstrument add = new AddOrUpdateInstrument(this);
-            add.ShowDialog();
+            if (uHF.ReadTagId() != "")
+            {
+                AddOrUpdateInstrument add = new AddOrUpdateInstrument(this);
+                add.ShowDialog();
+            }
+            else
+            {
+                AutoClosingMessageBox.Show("未读取到卡", "未读取到卡", 1000);
+            }
+           
         }
 
         //仪器的修改删除
@@ -94,6 +106,7 @@ namespace cangku_01.view.InstrumentManagement
         //搜索按钮
         private void button2_Click(object sender, EventArgs e)  
         {
+            
             ins.Name = tb_instrumentname.Text;
             ins.Manufactor = tb_manufactor.Text;
             ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;

@@ -6,6 +6,8 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.UHFReader09;
+using cangku_01.UHFReader09CSharp;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //添加仪器  观察者模式
@@ -17,6 +19,8 @@ namespace cangku_01.view.InstrumentManagement
         private InstrumentManagement fr;
         Instrument ins = new Instrument();
         private int index;
+        private static UHFReader09Interface uHF = new UHFReader();
+        
 
         //仪器信息添加构造方法
         public AddOrUpdateInstrument(InstrumentManagement fr)
@@ -26,6 +30,8 @@ namespace cangku_01.view.InstrumentManagement
             title.Text = "添加仪器基本信息";
             cb_isInWareHouse.Text = "在库";
             tb_tagid.ReadOnly = false;
+            uHF.ConnectReader();
+            tb_tagid.Text = uHF.ReadTagId();
             bt_alterinstrument.Visible = false;
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
@@ -90,6 +96,7 @@ namespace cangku_01.view.InstrumentManagement
         public void InstrumentMessageDataTableShowTextBox()
         {
             InstrumentInterface dao = new InstrumentDataManipulation();
+           
             DataTable dt = dao.TagIdQueryInstrument(ins);
             tb_tagid.Text = ins.TagId;
             DataRow myDr = dt.Rows[0];
