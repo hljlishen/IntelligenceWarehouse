@@ -19,7 +19,7 @@ namespace cangku_01.entity
         public int Company { get; set; }             //公司
         public int Department { get; set; }          //部门
         public int Group { get; set; }               //组名 
-        public DateTime PassDoor { get; set; }         //过门时间
+        public DateTime PassDoor { get; set; }       //过门时间
 
         SelectSqlMaker maker;
 
@@ -34,7 +34,9 @@ namespace cangku_01.entity
         //员工编号查询员工sql
         public string EmployeeNumberFindEmployeeSql()
         {
-            string sql = "select * from t_employee where em_employeenumber = " + EmployeeNumber + "";
+            string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
+                      "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
+                      "where em_employeenumber = " + EmployeeNumber + "";
             return sql;
         }
 

@@ -1,12 +1,8 @@
 ﻿using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
-using cangku_01.view.WarehouseManagement;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 //指纹设备连接 --饿汉式
@@ -22,10 +18,17 @@ namespace cangku_01.GateDrive
         private bool bIsConnected = false;//连接状态
         private int iMachineNumber = 1;//设备连接的序列号
         Employee em = new Employee();
-        Form1 fr;
+        List<IDataDisplayer> displayers;
 
         private ConnectFingerprint() {
+            displayers = new List<IDataDisplayer>();
+        }
 
+        public void AddDisplayer(IDataDisplayer displayer)
+        {
+            if (displayers.Contains(displayer)) return;
+
+            displayers.Add(displayer);
         }
 
         public static ConnectFingerprint GetInstance()
@@ -61,8 +64,8 @@ namespace cangku_01.GateDrive
             string passtime = iYear.ToString() + "-" + iMonth.ToString() + "-" + iDay.ToString() + " " + iHour.ToString() + ":" + iMinute.ToString() + ":" + iSecond.ToString();
             em.PassDoor = Convert.ToDateTime(passtime);
             SavePassDoorInformation();
-           // fr.Tb_id.Text = em.EmployeeNumber;
-           // fr.textBox1.Text = passtime; 
+            foreach(var From1 in displayers)
+                GetPassDoorInformation(From1);
         }
         #endregion
 
@@ -73,11 +76,10 @@ namespace cangku_01.GateDrive
             dao.AddEmployeePassDoorInformation(em);
         }
 
-        //获取展示页面
-        public void setfrom(Form1 fr)
+        //将人员信息传出
+        public void GetPassDoorInformation(IDataDisplayer dataDisplayer)
         {
-            this.fr = fr;
-
+            dataDisplayer.FingerprintUpdate(em);
         }
 
         //关闭连接

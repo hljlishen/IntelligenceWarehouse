@@ -1,10 +1,6 @@
 ﻿using cangku_01.MysqlConnection;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace cangku_01.entity
@@ -18,6 +14,7 @@ namespace cangku_01.entity
         public int belongid;
         public TreeNode tn;
         public List<WarehouseLocation> LowerRank;
+
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //添加节点
