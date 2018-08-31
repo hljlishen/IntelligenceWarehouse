@@ -1,13 +1,13 @@
-﻿using cangku_01.GateDrive;
+﻿using cangku_01.entity;
+using cangku_01.view.AdminPage;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
+
+//仓库位置管理
 
 namespace cangku_01.view.WarehouseManagement
 {
@@ -26,6 +26,7 @@ namespace cangku_01.view.WarehouseManagement
         {
             Top = 0;
             Left = 0;
+            ShowTreeView();
             tv_warehouse.HideSelection = false;
         }
 
@@ -64,7 +65,8 @@ namespace cangku_01.view.WarehouseManagement
                     tsm_newshelves.Visible = true;
                     tsm_newrowandcolumn.Visible = false;
                     tsm_delete.Visible = true;
-                    tsm_rename.Visible = true;
+                    tsm_rename.Visible = false;
+                    tsm_alterinformation.Visible = true;
                     break;
                 case 1:
                     tsm_newwarehouse.Visible = false;
@@ -72,6 +74,7 @@ namespace cangku_01.view.WarehouseManagement
                     tsm_newrowandcolumn.Visible = true;
                     tsm_delete.Visible = true;
                     tsm_rename.Visible = true;
+                    tsm_alterinformation.Visible = false;
                     break;
                 case 2:
                     tsm_newwarehouse.Visible = false;
@@ -79,6 +82,7 @@ namespace cangku_01.view.WarehouseManagement
                     tsm_newrowandcolumn.Visible = false;
                     tsm_delete.Visible = true;
                     tsm_rename.Visible = true;
+                    tsm_alterinformation.Visible = false;
                     break;
                 case -1:
                     tv_warehouse.ContextMenuStrip = cms_warehousetreeview;
@@ -87,6 +91,7 @@ namespace cangku_01.view.WarehouseManagement
                     tsm_newrowandcolumn.Visible = false;
                     tsm_delete.Visible = false;
                     tsm_rename.Visible = false;
+                    tsm_alterinformation.Visible = false;
                     cms_warehousetreeview.Show(MousePosition);
                     break;
             }
@@ -95,39 +100,82 @@ namespace cangku_01.view.WarehouseManagement
         //创建仓库
         private void tsm_newwarehouse_Click(object sender, EventArgs e)
         {
-            GetNodeName getnodename = new GetNodeName();
-            if (getnodename.ShowDialog() == DialogResult.OK)
+            AlterAndAddWarehouse addWarehouse = new AlterAndAddWarehouse();
+            if (addWarehouse.ShowDialog() == DialogResult.OK)
             {
-                tv_warehouse.Nodes.Add(getnodename.nodeName);
+                tv_warehouse.Nodes.Add(addWarehouse.WarehouseName);
+                ShowTreeView();
+            }
+
+        }
+
+        //修改仓库
+        private void tsm_alterinformation_Click(object sender, EventArgs e)
+        {
+            WarehouseLocation node = tv_warehouse.SelectedNode.Tag as WarehouseLocation;
+            AlterAndAddWarehouse alterWarehouse = new AlterAndAddWarehouse(node.id);
+            if (alterWarehouse.ShowDialog() == DialogResult.OK)
+            {
+                tv_warehouse.SelectedNode.Text = alterWarehouse.WarehouseName;
             }
         }
 
         //创建货架
         private void tsm_newshelves_Click(object sender, EventArgs e)
         {
-            GetNodeName getnodename = new GetNodeName();
-            if (getnodename.ShowDialog() == DialogResult.OK)
-            {
-                tv_warehouse.SelectedNode.Nodes.Add(getnodename.nodeName);
-            }
+            AddChildNodes();
         }
 
         //创建排列号
         private void tsm_newrowandcolumn_Click(object sender, EventArgs e)
         {
-            tsm_newshelves_Click(sender,e);
+            AddChildNodes();
+        }
+
+        //添加子节点
+        private void AddChildNodes()
+        {
+            string parentnodename = tv_warehouse.SelectedNode.Text;
+            WarehouseLocation node = tv_warehouse.SelectedNode.Tag as WarehouseLocation;//获取节点id
+            GetNodeName getnodename = new GetNodeName(parentnodename, node.tier, node.id);
+            if (getnodename.ShowDialog() == DialogResult.OK)
+            {
+                ShowTreeView();
+            }
+            tv_warehouse.ExpandAll();
         }
 
         //删除节点
         private void tsm_delete_Click(object sender, EventArgs e)
         {
-            tv_warehouse.SelectedNode.Remove();
+            Confirm cf = new Confirm("确定删除该节点？");
+            cf.ShowDialog();
+            if (cf.DialogResult == DialogResult.OK)
+            {
+                WarehouseLocation warehouselocation = (WarehouseLocation)tv_warehouse.SelectedNode.Tag;
+                int deletenode = warehouselocation.DeleteSelf();
+                if (deletenode == 1)
+                {
+                    AutoClosingMessageBox.Show("节点删除成功", "节点删除", 1000);
+                    tv_warehouse.SelectedNode.Remove();//从TV移除
+                    return;
+                }
+            }
         }
 
         //重命名
         private void tsm_rename_Click(object sender, EventArgs e)
         {
-
+            string parentnodename = tv_warehouse.SelectedNode.Parent.Text;
+            string nodename = tv_warehouse.SelectedNode.Text;
+            WarehouseLocation parentnode = tv_warehouse.SelectedNode.Parent.Tag as WarehouseLocation;//获取节点id
+            WarehouseLocation node = tv_warehouse.SelectedNode.Tag as WarehouseLocation;
+            GetNodeName getnodename = new GetNodeName(parentnodename, parentnode.id, nodename, node.id);
+            if (getnodename.ShowDialog() == DialogResult.OK)
+            {
+                tv_warehouse.SelectedNode.Text = getnodename.nodeName;
+            }
+            tv_warehouse.ExpandAll();
         }
 
         private void tv_warehouse_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -135,5 +183,31 @@ namespace cangku_01.view.WarehouseManagement
             e.DrawDefault = true; //只需要在TreeView失去焦点时选中节点仍然突显  
         }
 
+        //加载仓库位置树状图
+        private void ShowTreeView()
+        {
+            List<TreeNode> ls = WarehouseLocation.loadDepartmentStructure();
+            tv_warehouse.Nodes.Clear();
+            tv_warehouse.Nodes.AddRange(ls.ToArray());
+            tv_warehouse.ExpandAll();
+        }
+
+        //树状图刷新仓库数据
+        private void tv_warehouse_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            DataTable dt = new DataTable();
+            WarehouseLocation warehouselocation = tv_warehouse.SelectedNode.Tag as WarehouseLocation;//获取节点id
+            int level = tv_warehouse.SelectedNode.Level;
+            if (level == 0)
+            {
+                dt = warehouselocation.SqlIdQueryWarehouseInformation();
+                DataRow myDr = dt.Rows[0];
+                tb_id.Text = myDr["wa_id"].ToString();
+                tb_name.Text = myDr["wa_name"].ToString();
+                tb_companyanddepartment.Text = myDr["wa_temp"].ToString();
+                tb_synopsis.Text = myDr["wa_synopsis"].ToString();
+            }
+
+        }
     }
 }

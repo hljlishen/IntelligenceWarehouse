@@ -211,5 +211,11 @@ namespace cangku_01.UHFReader09
                 buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
             return buffer;
         }
+
+        
+        public void ReadCardInformation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

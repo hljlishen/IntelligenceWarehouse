@@ -35,7 +35,7 @@
             // 
             this.la_massageshow.AutoSize = true;
             this.la_massageshow.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_massageshow.Location = new System.Drawing.Point(83, 34);
+            this.la_massageshow.Location = new System.Drawing.Point(42, 35);
             this.la_massageshow.Name = "la_massageshow";
             this.la_massageshow.Size = new System.Drawing.Size(0, 21);
             this.la_massageshow.TabIndex = 0;

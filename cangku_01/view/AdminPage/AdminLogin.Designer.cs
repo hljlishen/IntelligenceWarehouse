@@ -36,22 +36,22 @@
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // AdminName
             // 
             this.AdminName.AutoSize = true;
             this.AdminName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.AdminName.Location = new System.Drawing.Point(83, 140);
-            this.AdminName.Name = "label1";
+            this.AdminName.Location = new System.Drawing.Point(83, 79);
+            this.AdminName.Name = "AdminName";
             this.AdminName.Size = new System.Drawing.Size(74, 21);
             this.AdminName.TabIndex = 0;
             this.AdminName.Text = "用户名：";
             // 
-            // label2
+            // AdminPassWord
             // 
             this.AdminPassWord.AutoSize = true;
             this.AdminPassWord.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.AdminPassWord.Location = new System.Drawing.Point(83, 203);
-            this.AdminPassWord.Name = "label2";
+            this.AdminPassWord.Location = new System.Drawing.Point(83, 142);
+            this.AdminPassWord.Name = "AdminPassWord";
             this.AdminPassWord.Size = new System.Drawing.Size(58, 21);
             this.AdminPassWord.TabIndex = 1;
             this.AdminPassWord.Text = "密码：";
@@ -59,7 +59,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(157, 140);
+            this.textBox1.Location = new System.Drawing.Point(157, 79);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 29);
             this.textBox1.TabIndex = 2;
@@ -68,7 +68,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(157, 200);
+            this.textBox2.Location = new System.Drawing.Point(157, 139);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(156, 29);
             this.textBox2.TabIndex = 3;
@@ -78,9 +78,9 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(124, 293);
+            this.button1.Location = new System.Drawing.Point(129, 241);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 23);
+            this.button1.Size = new System.Drawing.Size(113, 30);
             this.button1.TabIndex = 4;
             this.button1.Text = "登   录";
             this.button1.UseVisualStyleBackColor = true;
@@ -90,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(382, 450);
+            this.ClientSize = new System.Drawing.Size(382, 343);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);

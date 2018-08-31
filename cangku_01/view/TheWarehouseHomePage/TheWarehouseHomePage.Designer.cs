@@ -75,6 +75,7 @@ namespace cangku_01
             this.tb_employeepassdoor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tp_allemployeeinformation = new System.Windows.Forms.TabPage();
+            this.bt_emptyemployeepassdoor = new System.Windows.Forms.Button();
             this.lv_employeepassdoor = new System.Windows.Forms.ListView();
             this.ch_number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ch_employeenumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -104,7 +105,6 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bt_emptyemployeepassdoor = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_employeephoto)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -529,6 +529,16 @@ namespace cangku_01
             this.tp_allemployeeinformation.Text = "人员通行记录";
             this.tp_allemployeeinformation.UseVisualStyleBackColor = true;
             // 
+            // bt_emptyemployeepassdoor
+            // 
+            this.bt_emptyemployeepassdoor.Location = new System.Drawing.Point(559, 245);
+            this.bt_emptyemployeepassdoor.Name = "bt_emptyemployeepassdoor";
+            this.bt_emptyemployeepassdoor.Size = new System.Drawing.Size(75, 23);
+            this.bt_emptyemployeepassdoor.TabIndex = 2;
+            this.bt_emptyemployeepassdoor.Text = "清空";
+            this.bt_emptyemployeepassdoor.UseVisualStyleBackColor = true;
+            this.bt_emptyemployeepassdoor.Click += new System.EventHandler(this.bt_emptyemployeepassdoor_Click);
+            // 
             // lv_employeepassdoor
             // 
             this.lv_employeepassdoor.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
@@ -784,16 +794,6 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // bt_emptyemployeepassdoor
-            // 
-            this.bt_emptyemployeepassdoor.Location = new System.Drawing.Point(559, 245);
-            this.bt_emptyemployeepassdoor.Name = "bt_emptyemployeepassdoor";
-            this.bt_emptyemployeepassdoor.Size = new System.Drawing.Size(75, 23);
-            this.bt_emptyemployeepassdoor.TabIndex = 2;
-            this.bt_emptyemployeepassdoor.Text = "清空";
-            this.bt_emptyemployeepassdoor.UseVisualStyleBackColor = true;
-            this.bt_emptyemployeepassdoor.Click += new System.EventHandler(this.bt_emptyemployeepassdoor_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -813,6 +813,7 @@ namespace cangku_01
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "仓库管理系统";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);

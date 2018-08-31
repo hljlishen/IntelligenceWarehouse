@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
@@ -236,29 +237,45 @@ namespace cangku_01.view.InstrumentManagement
         //获取到写入卡的信息
         private void GetWriteCardInformation()
         {
-            string name="";
-            string model = "";
-            string position = "";
-            string duty = "";
-            foreach (char letter in ins.Name.ToCharArray())
+            string writenum = "";
+            string ChineseCharacters = "";
+            int i;
+            string[] Data = { ins.Name +  ins.Model + ins.Position +  ins.Manufactor + ins.CheckCycle.ToString() +ins.Duty };
+            for (i=0; i<Data.Length; i++)
             {
-                name = String.Format("{0:X}", Convert.ToInt32(letter));
+                if (Regex.IsMatch(Data[i], @"^[0-9]+$"))
+                {
+                    int num = Convert.ToInt16(Data[i]);
+                    string a = num.ToString("x4");//十进制转十六进制
+                    writenum = a.ToString();//十六进制转ascii
+                }
+                else if (Regex.IsMatch(Data[i], @"[\u4e00-\u9fbb]"))
+                {
+                    //ChineseCharacters = String.Format("{0:X}", Convert.ToInt32(Data[i]));
+                }
             }
-            foreach (char letter in ins.Model.ToCharArray())
-            {
-                model = String.Format("{0:X}", Convert.ToInt32(letter));
-            }
-            foreach (char letter in ins.Position.ToCharArray())
-            {
-                position = String.Format("{0:X}", Convert.ToInt32(letter));
-            }
-            string a = ins.CheckCycle.ToString("x4");//十进制转十六进制
-            string checkcycle = a.ToString();//十六进制转ascii
-            foreach (char letter in ins.Duty.ToCharArray())
-            {
-                duty = String.Format("{0:X}", Convert.ToInt32(letter));
-            }
-            string writedata = name + model + position + checkcycle + duty;
+            //string name="";
+            //string model = "";
+            //string position = "";
+            //string duty = "";
+            //foreach (char letter in ins.Name.ToCharArray())
+            //{
+            //    name = String.Format("{0:X}", Convert.ToInt32(letter));
+            //}
+            //foreach (char letter in ins.Model.ToCharArray())
+            //{
+            //    model = String.Format("{0:X}", Convert.ToInt32(letter));
+            //}
+            //foreach (char letter in ins.Position.ToCharArray())
+            //{
+            //    position = String.Format("{0:X}", Convert.ToInt32(letter));
+            //}
+            //foreach (char letter in ins.Duty.ToCharArray())
+            //{
+            //    duty = String.Format("{0:X}", Convert.ToInt32(letter));
+            //}
+            string writedata = writenum+ ChineseCharacters;
+            Console.WriteLine(writedata);
             ReaderDrive.WriteCardInformation(writedata);
         }
 
