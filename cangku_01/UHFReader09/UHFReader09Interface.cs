@@ -12,11 +12,17 @@ namespace cangku_01.UHFReader09CSharp
 
     public interface UHFReader09Interface
     {
+        //连接读写器
         void OpenConnectReader();
 
+        //关闭读写器
         void CloseConnectReader();
 
-        string StartRead();
+        //开始读取卡片TagId
+        string StartReadTagId();
+
+        //卡片信息写入
+        void WriteCardInformation(string writedatas);
 
         event TagConnectedHandler TagConnected;
     }

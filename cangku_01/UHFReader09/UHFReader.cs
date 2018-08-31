@@ -23,6 +23,12 @@ namespace cangku_01.UHFReader09
         private string AlreadyOpenCOM;
         private bool fIsInventoryScan;
         private string sEPC;
+        private byte MaskFlag;
+        private byte Maskadr;
+        private byte MaskLen;
+        private byte[] fPassWord = new byte[4];
+        private int ferrorcode;
+        private byte[] EPC;
         private static UHFReader instance = null;
 
         Timer readTimer;
@@ -46,10 +52,11 @@ namespace cangku_01.UHFReader09
 
         private void ReadTimer_Tick(object sender, EventArgs e)
         {
-            string tagId = StartRead();
+            string tagId = StartReadTagId();
             TagConnected?.Invoke(tagId);
         }
 
+        //关闭连接
         public void CloseConnectReader()
         {
             int port;
@@ -70,6 +77,7 @@ namespace cangku_01.UHFReader09
                 MessageBox.Show("串口通讯错误", "信息提示");
         }
 
+        //开启连接
         public void OpenConnectReader()
         {
             int port = 0;
@@ -111,7 +119,8 @@ namespace cangku_01.UHFReader09
                 MessageBox.Show("连接失败");
         }
 
-        public string StartRead()
+        //获取TagId
+        public string StartReadTagId()
         {
             int CardNum = 0;
             int Totallen = 0;
@@ -150,6 +159,57 @@ namespace cangku_01.UHFReader09
             foreach (byte b in data)
                 sb.Append(Convert.ToString(b, 16).PadLeft(2, '0'));
             return sb.ToString().ToUpper();
+        }
+
+        //将仪器信息写入卡片
+        public void WriteCardInformation(string writedatas)
+        {
+            byte WordPtr;
+            byte Num = 0;
+            byte Mem = 3;//存储到用户区
+            byte WNum = 0;
+            byte EPClength = 0;
+            byte Writedatalen = 0;
+            int WrittenDataNum = 0;
+            string s2 ;
+            byte[] CardData = new byte[320];
+            byte[] writedata = new byte[230];
+            string pc="";
+            if (Convert.ToInt32("00") + Convert.ToInt32("4") > 120)
+                return;
+            int m, n;
+            n = writedatas.Length;
+            if (n % 4 == 0)
+            {
+                m = n / 4;
+                m = (m & 0x3F) << 3;
+                pc = Convert.ToString(m, 16).PadLeft(2, '0') + "00";
+            }
+            WordPtr = Convert.ToByte("02", 16);
+            Num = Convert.ToByte("20");
+            s2 = writedatas;
+            if (s2.Length % 4 != 0)
+            {
+                MessageBox.Show("以字为单位输入.", "写");
+                return;
+            }
+            WNum = Convert.ToByte(s2.Length / 4);
+            byte[] Writedata = new byte[WNum * 2];
+            Writedata = HexStringToByteArray(s2);
+            Writedatalen = Convert.ToByte(WNum * 2);
+            WordPtr = 1;
+            Writedatalen = Convert.ToByte(writedatas.Length / 2 + 2);
+            Writedata = HexStringToByteArray(pc + writedatas);
+            fCmdRet = StaticClassReaderB.WriteCard_G2(ref fComAdr, EPC, Mem, WordPtr, Writedatalen, Writedata, fPassWord, Maskadr, MaskLen, MaskFlag, WrittenDataNum, EPClength, ref ferrorcode, frmcomportindex);
+        }
+
+        private byte[] HexStringToByteArray(string s)
+        {
+            s = s.Replace(" ", "");
+            byte[] buffer = new byte[s.Length / 2];
+            for (int i = 0; i < s.Length; i += 2)
+                buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
+            return buffer;
         }
     }
 }

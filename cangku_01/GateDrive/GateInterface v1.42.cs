@@ -43,7 +43,7 @@ namespace cangku_01.GateDrive
 
         private static GateData door = new GateData();
         private static DataShowInterface data = new DataShow();
-        private static GateInterfaceImp gateInterface = null;
+        private static GateInterfaceImp gateInterface = new GateInterfaceImp();
 
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
@@ -107,14 +107,11 @@ namespace cangku_01.GateDrive
             else if ((fCmdRet == 0) && (MsgType == 1))
             {
                 DetectDirectionAndTime(fr);//获取方向和时间
-                if (door.TagId != null)
-                {
-                    data.TextShow(door, fr);
-                }
             }
             DeviceApi.Acknowledge(ref ControllerAdr, PortHandle);
         }
 
+        //探测的TagId
         public void DetectTagId(Form1 fr)
         {
             int CardNum = Msg[6];
@@ -133,12 +130,14 @@ namespace cangku_01.GateDrive
                 data.GetTagIdName(door);
                 if (door.TagId != null && door.Name != null && door.ThroughDoorDirection != null)
                 {
-                    data.ListViewShow(door,fr);
+                    data.ShowInstrumentPhoto(door, fr);
+                    data.TextAndListViewShow(door,fr);
                 }
             }
             door.ThroughDoorDirection = null;
         }
 
+        //探测的方向和时间
         public void DetectDirectionAndTime(Form1 fr)
         {
             InFlag = Convert.ToByte(Msg[0]);

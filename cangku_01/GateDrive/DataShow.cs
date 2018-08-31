@@ -17,33 +17,36 @@ namespace cangku_01.GateDrive
     {
         ListViewItem listView = new ListViewItem();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
-        //显示仪器通过的最后一条记录
-        public void TextShow(GateData door, Form1 fr)
+
+        //显示仪器图片
+        public void ShowInstrumentPhoto(GateData door, Form1 fr)
         {
+            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + door.TagId + ".png");
+            if (f.Exists)
+            {
+                fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + door.TagId + ".png");
+            }
+            else
+            {
+                fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+            }
+        }
+
+        //仪器通过记录显示在text和ListView列表中
+        public void TextAndListViewShow(GateData door, Form1 fr)
+        {
+            BorrowInformation(door);
             if (door.ThroughDoorDirection != null)
             {
                 fr.tb_ShowId.Text = door.TagId;
                 fr.tb_ShowName.Text = door.Name;
                 fr.tb_ShowState.Text = door.ThroughDoorDirection;
                 fr.tb_ShowTime.Text = door.ThroughDoorTime;
-                FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + door.TagId + ".png");
-                if (f.Exists)
-                {
-                    fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + door.TagId + ".png");
-                }
-                else
-                {
-                    fr.pictureBox4.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
-                }
             }
             else
             {
                 AutoClosingMessageBox.Show("未获取到过门信息", "为null", 1000);
             }
-        }
-        //仪器通过记录显示在ListView列表中
-        public void ListViewShow(GateData door, Form1 fr)
-        {
             bool isonlistview = false;
             for (int i = 0; i < fr.lv_instrumrntinformation.Items.Count; i++)
             {
@@ -67,7 +70,6 @@ namespace cangku_01.GateDrive
                 listView.SubItems.Add(door.ThroughDoorDirection);
                 listView.SubItems.Add(door.ThroughDoorTime);
                 ChangeSubItem(listView, 1, door.TagId);
-                BorrowInformation(door);
                 door.Name = null;
             }
         }
@@ -98,6 +100,7 @@ namespace cangku_01.GateDrive
 
             dbo.WriteDB(sql);
         }
+
         //查询Tagid仪器名
         public void GetTagIdName(GateData door)
         {

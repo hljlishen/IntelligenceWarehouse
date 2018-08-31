@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -30,7 +31,7 @@ namespace cangku_01.view.InstrumentManagement
             cb_isInWareHouse.Text = "在库";
             ReaderDrive = readerDrive;
             ReaderDrive.OpenConnectReader();
-            ReaderDrive.TagConnected += ReaderDrive_TagConnected;
+            ReaderDrive.TagConnected += ReaderAddDrive_TagConnected;
             tb_tagid.ReadOnly = true;
             bt_alterinstrument.Visible = false;
             tb_isInWareHouse.Visible = false;
@@ -41,7 +42,7 @@ namespace cangku_01.view.InstrumentManagement
             pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
         }
 
-        private void ReaderDrive_TagConnected(string tagId)
+        private void ReaderAddDrive_TagConnected(string tagId)
         {
             tb_tagid.Text = tagId;
         }
@@ -55,7 +56,7 @@ namespace cangku_01.view.InstrumentManagement
             title.Text = "修改仪器基本信息";
             ReaderDrive = readerDrive;
             ReaderDrive.OpenConnectReader();
-            ReaderDrive.TagConnected += ReaderDrive_TagConnecteds;
+            ReaderDrive.TagConnected += ReaderUpdateDrive_TagConnected;
             tb_tagid.ReadOnly = true;
             this.ins = ins;
             bt_addinstrument.Visible = false;
@@ -67,7 +68,8 @@ namespace cangku_01.view.InstrumentManagement
             ShowInstrumentPhoto();
             InstrumentMessageDataTableShowTextBox();
         }
-        private void ReaderDrive_TagConnecteds(string tagId)
+
+        private void ReaderUpdateDrive_TagConnected(string tagId)
         {
             if (tb_tagid.Text != tagId)
             {
@@ -170,6 +172,7 @@ namespace cangku_01.view.InstrumentManagement
             InstrumentInterface dao = new InstrumentDataManipulation();
             dao.AddInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
+            GetWriteCardInformation();
             index = fr.dgv_instrumentinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
             ResetPageInformation();
@@ -223,17 +226,47 @@ namespace cangku_01.view.InstrumentManagement
             InstrumentInterface dao = new InstrumentDataManipulation();
             dao.UpdateInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息修改成功", "仪器信息修改", 1000);
+            GetWriteCardInformation();
             fr.dgv_instrumentinformation.Rows.RemoveAt(index);
             index = fr.dgv_instrumentinformation.Rows.Add();
             this.AddOneEmployeeToTheDataGridView();
             Close();
         }
+
+        //获取到写入卡的信息
+        private void GetWriteCardInformation()
+        {
+            string name="";
+            string model = "";
+            string position = "";
+            string duty = "";
+            foreach (char letter in ins.Name.ToCharArray())
+            {
+                name = String.Format("{0:X}", Convert.ToInt32(letter));
+            }
+            foreach (char letter in ins.Model.ToCharArray())
+            {
+                model = String.Format("{0:X}", Convert.ToInt32(letter));
+            }
+            foreach (char letter in ins.Position.ToCharArray())
+            {
+                position = String.Format("{0:X}", Convert.ToInt32(letter));
+            }
+            string a = ins.CheckCycle.ToString("x4");//十进制转十六进制
+            string checkcycle = a.ToString();//十六进制转ascii
+            foreach (char letter in ins.Duty.ToCharArray())
+            {
+                duty = String.Format("{0:X}", Convert.ToInt32(letter));
+            }
+            string writedata = name + model + position + checkcycle + duty;
+            ReaderDrive.WriteCardInformation(writedata);
+        }
+
         //注销事件
         private void AddOrUpdateInstrument_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ReaderDrive.TagConnected -= ReaderDrive_TagConnected;
+            ReaderDrive.TagConnected -= ReaderAddDrive_TagConnected;
+            ReaderDrive.TagConnected -= ReaderUpdateDrive_TagConnected;
         }
     }
-
-
 }
