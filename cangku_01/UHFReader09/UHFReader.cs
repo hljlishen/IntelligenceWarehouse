@@ -172,8 +172,6 @@ namespace cangku_01.UHFReader09
             byte Writedatalen = 0;
             int WrittenDataNum = 0;
             string s2 ;
-            byte[] CardData = new byte[320];
-            byte[] writedata = new byte[230];
             string pc="";
             if (Convert.ToInt32("00") + Convert.ToInt32("4") > 120)
                 return;
@@ -186,7 +184,7 @@ namespace cangku_01.UHFReader09
                 pc = Convert.ToString(m, 16).PadLeft(2, '0') + "00";
             }
             WordPtr = Convert.ToByte("02", 16);
-            Num = Convert.ToByte("20");
+            Num = Convert.ToByte("32");
             s2 = writedatas;
             if (s2.Length % 4 != 0)
             {
@@ -210,6 +208,12 @@ namespace cangku_01.UHFReader09
             for (int i = 0; i < s.Length; i += 2)
                 buffer[i / 2] = (byte)Convert.ToByte(s.Substring(i, 2), 16);
             return buffer;
+        }
+
+        
+        public void ReadCardInformation()
+        {
+            throw new NotImplementedException();
         }
     }
 }
