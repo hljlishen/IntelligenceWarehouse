@@ -37,18 +37,16 @@
             this.tsm_newrowandcolumn = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_rename = new System.Windows.Forms.ToolStripMenuItem();
-            this.la_id = new System.Windows.Forms.Label();
-            this.la_name = new System.Windows.Forms.Label();
-            this.la_location = new System.Windows.Forms.Label();
-            this.la_companyanddepartment = new System.Windows.Forms.Label();
-            this.la_warehouseintroduced = new System.Windows.Forms.Label();
-            this.tb_id = new System.Windows.Forms.TextBox();
-            this.tb_name = new System.Windows.Forms.TextBox();
+            this.tsm_alterinformation = new System.Windows.Forms.ToolStripMenuItem();
+            this.tb_synopsis = new System.Windows.Forms.TextBox();
             this.tb_companyanddepartment = new System.Windows.Forms.TextBox();
-            this.lb_warehouseintroduced = new System.Windows.Forms.ListBox();
-            this.pb_location = new System.Windows.Forms.PictureBox();
+            this.tb_name = new System.Windows.Forms.TextBox();
+            this.tb_id = new System.Windows.Forms.TextBox();
+            this.la_warehouseintroduced = new System.Windows.Forms.Label();
+            this.la_companyanddepartment = new System.Windows.Forms.Label();
+            this.la_name = new System.Windows.Forms.Label();
+            this.la_id = new System.Windows.Forms.Label();
             this.cms_warehousetreeview.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_location)).BeginInit();
             this.SuspendLayout();
             // 
             // tv_warehouse
@@ -59,6 +57,7 @@
             this.tv_warehouse.Name = "tv_warehouse";
             this.tv_warehouse.Size = new System.Drawing.Size(698, 694);
             this.tv_warehouse.TabIndex = 0;
+            this.tv_warehouse.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_warehouse_AfterSelect);
             this.tv_warehouse.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
             // 
             // la_warehouseinformation
@@ -80,9 +79,10 @@
             this.tsm_newshelves,
             this.tsm_newrowandcolumn,
             this.tsm_delete,
-            this.tsm_rename});
+            this.tsm_rename,
+            this.tsm_alterinformation});
             this.cms_warehousetreeview.Name = "contextMenuStrip1";
-            this.cms_warehousetreeview.Size = new System.Drawing.Size(149, 124);
+            this.cms_warehousetreeview.Size = new System.Drawing.Size(149, 148);
             // 
             // tsm_newwarehouse
             // 
@@ -119,110 +119,101 @@
             this.tsm_rename.Text = "重命名";
             this.tsm_rename.Click += new System.EventHandler(this.tsm_rename_Click);
             // 
-            // la_id
+            // tsm_alterinformation
             // 
-            this.la_id.AutoSize = true;
-            this.la_id.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_id.Location = new System.Drawing.Point(897, 143);
-            this.la_id.Name = "la_id";
-            this.la_id.Size = new System.Drawing.Size(72, 21);
-            this.la_id.TabIndex = 17;
-            this.la_id.Text = "仓库id：";
+            this.tsm_alterinformation.Name = "tsm_alterinformation";
+            this.tsm_alterinformation.Size = new System.Drawing.Size(148, 24);
+            this.tsm_alterinformation.Text = "修改信息";
+            this.tsm_alterinformation.Click += new System.EventHandler(this.tsm_alterinformation_Click);
             // 
-            // la_name
+            // tb_synopsis
             // 
-            this.la_name.AutoSize = true;
-            this.la_name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_name.Location = new System.Drawing.Point(882, 228);
-            this.la_name.Name = "la_name";
-            this.la_name.Size = new System.Drawing.Size(90, 21);
-            this.la_name.TabIndex = 18;
-            this.la_name.Text = "仓库名称：";
+            this.tb_synopsis.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_synopsis.Location = new System.Drawing.Point(1052, 534);
+            this.tb_synopsis.Multiline = true;
+            this.tb_synopsis.Name = "tb_synopsis";
+            this.tb_synopsis.ReadOnly = true;
+            this.tb_synopsis.Size = new System.Drawing.Size(271, 196);
+            this.tb_synopsis.TabIndex = 49;
             // 
-            // la_location
+            // tb_companyanddepartment
             // 
-            this.la_location.AutoSize = true;
-            this.la_location.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_location.Location = new System.Drawing.Point(882, 313);
-            this.la_location.Name = "la_location";
-            this.la_location.Size = new System.Drawing.Size(90, 21);
-            this.la_location.TabIndex = 19;
-            this.la_location.Text = "仓库位置：";
+            this.tb_companyanddepartment.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_companyanddepartment.Location = new System.Drawing.Point(1052, 421);
+            this.tb_companyanddepartment.Name = "tb_companyanddepartment";
+            this.tb_companyanddepartment.ReadOnly = true;
+            this.tb_companyanddepartment.Size = new System.Drawing.Size(200, 29);
+            this.tb_companyanddepartment.TabIndex = 48;
             // 
-            // la_companyanddepartment
+            // tb_name
             // 
-            this.la_companyanddepartment.AutoSize = true;
-            this.la_companyanddepartment.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_companyanddepartment.Location = new System.Drawing.Point(840, 507);
-            this.la_companyanddepartment.Name = "la_companyanddepartment";
-            this.la_companyanddepartment.Size = new System.Drawing.Size(138, 21);
-            this.la_companyanddepartment.TabIndex = 20;
-            this.la_companyanddepartment.Text = "所属单位及部门：";
+            this.tb_name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_name.Location = new System.Drawing.Point(1052, 273);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.ReadOnly = true;
+            this.tb_name.Size = new System.Drawing.Size(200, 29);
+            this.tb_name.TabIndex = 47;
+            // 
+            // tb_id
+            // 
+            this.tb_id.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_id.Location = new System.Drawing.Point(1052, 152);
+            this.tb_id.Name = "tb_id";
+            this.tb_id.ReadOnly = true;
+            this.tb_id.Size = new System.Drawing.Size(200, 29);
+            this.tb_id.TabIndex = 46;
             // 
             // la_warehouseintroduced
             // 
             this.la_warehouseintroduced.AutoSize = true;
             this.la_warehouseintroduced.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_warehouseintroduced.Location = new System.Drawing.Point(882, 589);
+            this.la_warehouseintroduced.Location = new System.Drawing.Point(908, 534);
             this.la_warehouseintroduced.Name = "la_warehouseintroduced";
             this.la_warehouseintroduced.Size = new System.Drawing.Size(90, 21);
-            this.la_warehouseintroduced.TabIndex = 22;
+            this.la_warehouseintroduced.TabIndex = 45;
             this.la_warehouseintroduced.Text = "仓库介绍：";
             // 
-            // tb_id
+            // la_companyanddepartment
             // 
-            this.tb_id.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_id.Location = new System.Drawing.Point(1026, 140);
-            this.tb_id.Name = "tb_id";
-            this.tb_id.Size = new System.Drawing.Size(200, 29);
-            this.tb_id.TabIndex = 23;
+            this.la_companyanddepartment.AutoSize = true;
+            this.la_companyanddepartment.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_companyanddepartment.Location = new System.Drawing.Point(866, 424);
+            this.la_companyanddepartment.Name = "la_companyanddepartment";
+            this.la_companyanddepartment.Size = new System.Drawing.Size(138, 21);
+            this.la_companyanddepartment.TabIndex = 44;
+            this.la_companyanddepartment.Text = "所属单位及部门：";
             // 
-            // tb_name
+            // la_name
             // 
-            this.tb_name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_name.Location = new System.Drawing.Point(1026, 225);
-            this.tb_name.Name = "tb_name";
-            this.tb_name.Size = new System.Drawing.Size(200, 29);
-            this.tb_name.TabIndex = 24;
+            this.la_name.AutoSize = true;
+            this.la_name.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_name.Location = new System.Drawing.Point(908, 276);
+            this.la_name.Name = "la_name";
+            this.la_name.Size = new System.Drawing.Size(90, 21);
+            this.la_name.TabIndex = 43;
+            this.la_name.Text = "仓库名称：";
             // 
-            // tb_companyanddepartment
+            // la_id
             // 
-            this.tb_companyanddepartment.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_companyanddepartment.Location = new System.Drawing.Point(1026, 504);
-            this.tb_companyanddepartment.Name = "tb_companyanddepartment";
-            this.tb_companyanddepartment.Size = new System.Drawing.Size(200, 29);
-            this.tb_companyanddepartment.TabIndex = 26;
-            // 
-            // lb_warehouseintroduced
-            // 
-            this.lb_warehouseintroduced.FormattingEnabled = true;
-            this.lb_warehouseintroduced.ItemHeight = 12;
-            this.lb_warehouseintroduced.Location = new System.Drawing.Point(1026, 589);
-            this.lb_warehouseintroduced.Name = "lb_warehouseintroduced";
-            this.lb_warehouseintroduced.Size = new System.Drawing.Size(302, 148);
-            this.lb_warehouseintroduced.TabIndex = 28;
-            // 
-            // pb_location
-            // 
-            this.pb_location.Location = new System.Drawing.Point(1026, 313);
-            this.pb_location.Name = "pb_location";
-            this.pb_location.Size = new System.Drawing.Size(302, 145);
-            this.pb_location.TabIndex = 29;
-            this.pb_location.TabStop = false;
+            this.la_id.AutoSize = true;
+            this.la_id.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_id.Location = new System.Drawing.Point(923, 155);
+            this.la_id.Name = "la_id";
+            this.la_id.Size = new System.Drawing.Size(72, 21);
+            this.la_id.TabIndex = 42;
+            this.la_id.Text = "仓库id：";
             // 
             // WarehouseManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1420, 840);
-            this.Controls.Add(this.pb_location);
-            this.Controls.Add(this.lb_warehouseintroduced);
+            this.Controls.Add(this.tb_synopsis);
             this.Controls.Add(this.tb_companyanddepartment);
             this.Controls.Add(this.tb_name);
             this.Controls.Add(this.tb_id);
             this.Controls.Add(this.la_warehouseintroduced);
             this.Controls.Add(this.la_companyanddepartment);
-            this.Controls.Add(this.la_location);
             this.Controls.Add(this.la_name);
             this.Controls.Add(this.la_id);
             this.Controls.Add(this.la_warehouseinformation);
@@ -232,7 +223,6 @@
             this.Text = "WarehouseManagement";
             this.Load += new System.EventHandler(this.WarehouseManagement_Load);
             this.cms_warehousetreeview.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_location)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,15 +238,14 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_newrowandcolumn;
         private System.Windows.Forms.ToolStripMenuItem tsm_delete;
         private System.Windows.Forms.ToolStripMenuItem tsm_rename;
-        private System.Windows.Forms.Label la_id;
-        private System.Windows.Forms.Label la_name;
-        private System.Windows.Forms.Label la_location;
-        private System.Windows.Forms.Label la_companyanddepartment;
-        private System.Windows.Forms.Label la_warehouseintroduced;
-        private System.Windows.Forms.TextBox tb_name;
+        private System.Windows.Forms.ToolStripMenuItem tsm_alterinformation;
+        private System.Windows.Forms.TextBox tb_synopsis;
         private System.Windows.Forms.TextBox tb_companyanddepartment;
-        private System.Windows.Forms.ListBox lb_warehouseintroduced;
-        private System.Windows.Forms.PictureBox pb_location;
+        private System.Windows.Forms.TextBox tb_name;
         public System.Windows.Forms.TextBox tb_id;
+        private System.Windows.Forms.Label la_warehouseintroduced;
+        private System.Windows.Forms.Label la_companyanddepartment;
+        private System.Windows.Forms.Label la_name;
+        private System.Windows.Forms.Label la_id;
     }
 }

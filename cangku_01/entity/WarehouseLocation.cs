@@ -2,55 +2,90 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
+
+//仓库位置树状图实体类
 
 namespace cangku_01.entity
 {
     class WarehouseLocation
     {
 
-        public int id;
-        public string name;
-        public int tier;
-        public int belongid;
-        public TreeNode tn;
-        public List<WarehouseLocation> LowerRank;
+        public int id;                      //仓库位置SQLid
+        public string name;                 //仓库位置节点名
+        public int tier;                    //节点深度
+        public int belongid;                //父节点SQLid
+        private string synopsis;            //仓库简介
+        private string instrumenttagid;     //仓库储存仪器Tageid
+        private string temp;                //仓库所属部门
+        private TreeNode tn;
+        private List<WarehouseLocation> LowerRank;
 
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
-        //添加节点
-        public WarehouseLocation(string n, int r, int b)
+        //添加根节点
+        public WarehouseLocation(string name, int tier, int belongid, string temp, string synopsis)
         {
             id = -1;
-            name = n;
-            tier = r;
-            belongid = b;
+            this.name = name;
+            this.tier = tier;
+            this.belongid = belongid;
+            this.synopsis = synopsis;
+            this.temp = temp;
             LowerRank = new List<WarehouseLocation>();
-            string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count != 0)
-            {
-                MessageBox.Show("已存在该节点，无法重复添加！");
-                return;
-            }
-            sql = "insert into t_department (de_name,de_tier,de_belongId) values ('" + name + "'," + tier.ToString() + "," + belongid.ToString() + ")";
+            string sql = "insert into t_warehouselocation (wa_name,wa_tier,wa_belongId,wa_synopsis,wa_temp) " +
+                "values ('" + name + "'," + tier + "," + belongid + ",'" + synopsis + "','" + temp + "')";
+            dbo.WriteDB(sql);
+        }
+
+        //修改根节点
+        public WarehouseLocation(int id, string name, string temp, string synopsis)
+        {
+            this.id = id;
+            this.name = name;
+            this.synopsis = synopsis;
+            this.temp = temp;
+            LowerRank = new List<WarehouseLocation>();
+            string sql = "update t_warehouselocation set wa_name = '" + name + "',wa_synopsis = '" + synopsis + "',wa_temp = '" + temp + "' " +
+                "where wa_id = " + id + "";
+            dbo.WriteDB(sql);
+        }
+
+        //添加子节点
+        public void AddChildNodes()
+        {
+            string sql = "insert into t_warehouselocation (wa_name,wa_tier,wa_belongId) " +
+               "values ('" + name + "'," + tier + "," + belongid + ")";
+            dbo.WriteDB(sql);
+        }
+
+        //修改子节点
+        public void AlterChildNodes()
+        {
+            string sql = "update t_warehouselocation set wa_name = '" + name + " 'where wa_id = " + id + "";
             dbo.WriteDB(sql);
         }
 
         public WarehouseLocation(DataRow r)
         {
-            id = int.Parse(r["de_id"].ToString());
-            name = r["de_name"].ToString();
-            tier = int.Parse(r["de_tier"].ToString());
-            belongid = int.Parse(r["de_belongId"].ToString());
+            id = int.Parse(r["wa_id"].ToString());
+            name = r["wa_name"].ToString();
+            tier = int.Parse(r["wa_tier"].ToString());
+            belongid = int.Parse(r["wa_belongId"].ToString());
+            instrumenttagid = r["wa_instrumenttagid"].ToString();
             LowerRank = new List<WarehouseLocation>();
             loadLowerRankDepartment();
             getNodeStructure();
         }
 
+        public WarehouseLocation()
+        {
+        }
+
         private void loadLowerRankDepartment()
         {
             List<WarehouseLocation> ret = new List<WarehouseLocation>();
-            string sql = "select * from t_department where de_belongId="
+            string sql = "select * from t_warehouselocation where wa_belongId="
                 + id.ToString() + "";
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count == 0)
@@ -69,8 +104,7 @@ namespace cangku_01.entity
             List<TreeNode> ls = new List<TreeNode>();
             if (LowerRank.Count == 0)
             {
-                this.tn = new TreeNode(name);
-
+                tn = new TreeNode(name);
                 tn.Tag = this;
             }
             else
@@ -80,45 +114,91 @@ namespace cangku_01.entity
                     c.getNodeStructure();
                     ls.Add(c.tn);
                 }
-                this.tn = new TreeNode(name, ls.ToArray());
+                tn = new TreeNode(name, ls.ToArray());
+                tn.Tag = this;
+            }
+        }
+
+        //生成节点的结构
+        private void getNodeStructure2()
+        {
+            List<TreeNode> ls = new List<TreeNode>();
+            if (LowerRank.Count == 0)
+            {
+                tn = new TreeNode(name + "(" + instrumenttagid + ")");
+                tn.Tag = this;
+            }
+            else
+            {
+                foreach (WarehouseLocation c in LowerRank)
+                {
+                    c.getNodeStructure();
+                    ls.Add(c.tn);
+                }
+                tn = new TreeNode(name + "(" + instrumenttagid + ")", ls.ToArray());
                 tn.Tag = this;
             }
         }
 
         public static List<TreeNode> loadDepartmentStructure()
         {
-            string sql = "select * from t_department where de_tier = 0";
+            string sql = "select * from t_warehouselocation where wa_tier = 0";
             DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
             DataSet ds = dbo.ReadDB(sql);
             List<TreeNode> ret = new List<TreeNode>();
             foreach (DataRow r in ds.Tables[0].Rows)
             {
-                Department c = new Department(r);
+                WarehouseLocation c = new WarehouseLocation(r);
                 ret.Add(c.tn);
             }
             return ret;
         }
 
         //删除选中的节点
-        public int deleteSelf()
+        public int DeleteSelf()
         {
-            string sql = "select * from t_department where de_belongId = " + id + "";
+            string sql = "select * from t_warehouselocation where wa_belongId = " + id + "";
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count != 0)//存在子节点
             {
-                MessageBox.Show("该部门之下还有子部门，不能删除");
+                AutoClosingMessageBox.Show("该节点之下还有子节点，不能删除", "存在子节点", 1000);
                 return 0;
             }
-            sql = "select * from t_employee where em_group = " + id + "";
-            DataSet ds2 = dbo.ReadDB(sql);
-            if (ds2.Tables[0].Rows.Count != 0)//节点下存在联系人
+            sql = "select wa_instrumenttagid from t_warehouselocation where wa_id = '" + id + "'";
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            DataRow myDr = dt.Rows[0];
+            if (!myDr["wa_instrumenttagid"].ToString().Equals(""))//节点下存获取
             {
-                MessageBox.Show("该部门之下还有员工，不能删除");
+                AutoClosingMessageBox.Show("该节点之有货物存放，不能删除", "存在货物", 1000);
                 return 0;
             }
-            sql = "delete from t_department where de_id = " + id + "";
+            sql = "delete from t_warehouselocation where wa_id = " + id + "";
             dbo.WriteDB(sql);
             return 1;
+        }
+
+        //SqlId查询仓库信息
+        public DataTable SqlIdQueryWarehouseInformation()
+        {
+            string sql = "select * from t_warehouselocation where wa_id = " + id + "";
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
+        //name查询仓库信息
+        public DataSet NameQueryWarehouseInformation()
+        {
+            string sql = "select * from t_warehouselocation where wa_name='" + name + "' and wa_tier=" + 0 + " and wa_belongId=" + 0 + "";
+            DataSet ds = dbo.ReadDB(sql);
+            return ds;
+        }
+
+        //belongid查询
+        public DataSet BelongIDQueryWarehouseInformation()
+        {
+            string sql = "select * from t_warehouselocation where wa_belongId=" + belongid + " and wa_name='" + name + "'";
+            DataSet ds = dbo.ReadDB(sql);
+            return ds;
         }
 
     }

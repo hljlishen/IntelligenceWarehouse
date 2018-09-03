@@ -76,6 +76,7 @@
             this.Controls.Add(this.La_text);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Confirm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "确认";
             this.Load += new System.EventHandler(this.Confirm_Load);
             this.ResumeLayout(false);

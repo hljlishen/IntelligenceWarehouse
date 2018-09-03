@@ -32,6 +32,7 @@
             this.bt_sure = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
             this.tb_nodename = new System.Windows.Forms.TextBox();
+            this.bt_alter = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // la_nodenametext
@@ -74,12 +75,24 @@
             this.tb_nodename.Size = new System.Drawing.Size(170, 26);
             this.tb_nodename.TabIndex = 3;
             // 
+            // bt_alter
+            // 
+            this.bt_alter.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_alter.Location = new System.Drawing.Point(125, 98);
+            this.bt_alter.Name = "bt_alter";
+            this.bt_alter.Size = new System.Drawing.Size(75, 30);
+            this.bt_alter.TabIndex = 5;
+            this.bt_alter.Text = "修改";
+            this.bt_alter.UseVisualStyleBackColor = true;
+            this.bt_alter.Click += new System.EventHandler(this.bt_alter_Click);
+            // 
             // GetNodeName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(480, 160);
+            this.Controls.Add(this.bt_alter);
             this.Controls.Add(this.tb_nodename);
             this.Controls.Add(this.bt_cancel);
             this.Controls.Add(this.bt_sure);
@@ -100,5 +113,6 @@
         private System.Windows.Forms.Button bt_sure;
         private System.Windows.Forms.Button bt_cancel;
         private System.Windows.Forms.TextBox tb_nodename;
+        private System.Windows.Forms.Button bt_alter;
     }
 }
