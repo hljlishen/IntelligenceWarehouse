@@ -18,7 +18,7 @@ namespace cangku_01.entity
         private string synopsis;            //仓库简介
         private string instrumenttagid;     //仓库储存仪器Tageid
         private string temp;                //仓库所属部门
-        private TreeNode tn;
+        public TreeNode tn;
         private List<WarehouseLocation> LowerRank;
 
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
@@ -199,6 +199,14 @@ namespace cangku_01.entity
             string sql = "select * from t_warehouselocation where wa_belongId=" + belongid + " and wa_name='" + name + "'";
             DataSet ds = dbo.ReadDB(sql);
             return ds;
+        }
+
+        //tier查询
+        public DataTable TierQueryWarehouseInformation()
+        {
+            string sql = "select * from t_warehouselocation where wa_tier=" + tier + "";
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
 
     }

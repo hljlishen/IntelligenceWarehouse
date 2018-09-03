@@ -135,6 +135,12 @@
     <Compile Include="view\AdminPage\Confirm.Designer.cs">
       <DependentUpon>Confirm.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\InstrumentManagement\ShelvesTreeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\InstrumentManagement\ShelvesTreeView.Designer.cs">
+      <DependentUpon>ShelvesTreeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\TheWarehouseHomePage\TheWarehouseHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminPage\Confirm.resx">
       <DependentUpon>Confirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\InstrumentManagement\ShelvesTreeView.resx">
+      <DependentUpon>ShelvesTreeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TheWarehouseHomePage\TheWarehouseHomePage.resx">
       <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>

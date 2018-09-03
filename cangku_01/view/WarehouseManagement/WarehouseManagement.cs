@@ -63,7 +63,8 @@ namespace cangku_01.view.WarehouseManagement
                 case 0:
                     tsm_newwarehouse.Visible = false;
                     tsm_newshelves.Visible = true;
-                    tsm_newrowandcolumn.Visible = false;
+                    tsm_newtier.Visible = false;
+                    tsm_newplace.Visible = false;
                     tsm_delete.Visible = true;
                     tsm_rename.Visible = false;
                     tsm_alterinformation.Visible = true;
@@ -71,7 +72,8 @@ namespace cangku_01.view.WarehouseManagement
                 case 1:
                     tsm_newwarehouse.Visible = false;
                     tsm_newshelves.Visible = false;
-                    tsm_newrowandcolumn.Visible = true;
+                    tsm_newtier.Visible = true;
+                    tsm_newplace.Visible = false;
                     tsm_delete.Visible = true;
                     tsm_rename.Visible = true;
                     tsm_alterinformation.Visible = false;
@@ -79,7 +81,17 @@ namespace cangku_01.view.WarehouseManagement
                 case 2:
                     tsm_newwarehouse.Visible = false;
                     tsm_newshelves.Visible = false;
-                    tsm_newrowandcolumn.Visible = false;
+                    tsm_newtier.Visible = false;
+                    tsm_newplace.Visible = true;
+                    tsm_delete.Visible = true;
+                    tsm_rename.Visible = true;
+                    tsm_alterinformation.Visible = false;
+                    break;
+                case 3:
+                    tsm_newwarehouse.Visible = false;
+                    tsm_newshelves.Visible = false;
+                    tsm_newtier.Visible = false;
+                    tsm_newplace.Visible = false;
                     tsm_delete.Visible = true;
                     tsm_rename.Visible = true;
                     tsm_alterinformation.Visible = false;
@@ -88,7 +100,8 @@ namespace cangku_01.view.WarehouseManagement
                     tv_warehouse.ContextMenuStrip = cms_warehousetreeview;
                     tsm_newwarehouse.Visible = true;
                     tsm_newshelves.Visible = false;
-                    tsm_newrowandcolumn.Visible = false;
+                    tsm_newtier.Visible = false;
+                    tsm_newplace.Visible = false;
                     tsm_delete.Visible = false;
                     tsm_rename.Visible = false;
                     tsm_alterinformation.Visible = false;
@@ -120,14 +133,20 @@ namespace cangku_01.view.WarehouseManagement
             }
         }
 
-        //创建货架
+        //创建货架编码
         private void tsm_newshelves_Click(object sender, EventArgs e)
         {
             AddChildNodes();
         }
 
-        //创建排列号
+        //创建货架层编码
         private void tsm_newrowandcolumn_Click(object sender, EventArgs e)
+        {
+            AddChildNodes();
+        }
+
+        //创建货架位编码
+        private void 创建货架位编码ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddChildNodes();
         }
@@ -207,7 +226,6 @@ namespace cangku_01.view.WarehouseManagement
                 tb_companyanddepartment.Text = myDr["wa_temp"].ToString();
                 tb_synopsis.Text = myDr["wa_synopsis"].ToString();
             }
-
         }
     }
 }

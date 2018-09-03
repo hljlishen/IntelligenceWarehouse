@@ -151,9 +151,9 @@ namespace cangku_01.view.EmployeesManagement
             Department d1 = tv_departmentshow.SelectedNode.Tag as Department;//获取节点id
             Department d2 = tv_departmentshow.SelectedNode.Parent.Tag as Department;
             Department d3 = tv_departmentshow.SelectedNode.Parent.Parent.Tag as Department;
-            this.la_group.Text = tv_departmentshow.SelectedNode.Text;
-            this.la_department.Text = tv_departmentshow.SelectedNode.Parent.Text;
-            this.la_company.Text = tv_departmentshow.SelectedNode.Parent.Parent.Text;
+            la_group.Text = tv_departmentshow.SelectedNode.Text;
+            la_department.Text = tv_departmentshow.SelectedNode.Parent.Text;
+            la_company.Text = tv_departmentshow.SelectedNode.Parent.Parent.Text;
             em.Company = d3.id;
             em.Department = d2.id;
             em.Group = d1.id;
