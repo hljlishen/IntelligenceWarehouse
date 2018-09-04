@@ -71,7 +71,7 @@ namespace cangku_01.entity
             List<TreeNode> ls = new List<TreeNode>();
             if (LowerRank.Count == 0)
             {
-                this.tn = new TreeNode(name);
+                tn = new TreeNode(name);
 
                 tn.Tag = this;
             }
@@ -82,7 +82,7 @@ namespace cangku_01.entity
                     c.getNodeStructure();
                     ls.Add(c.tn);
                 }
-                this.tn = new TreeNode(name,ls.ToArray());
+                tn = new TreeNode(name,ls.ToArray());
                 tn.Tag = this;
             }
         }

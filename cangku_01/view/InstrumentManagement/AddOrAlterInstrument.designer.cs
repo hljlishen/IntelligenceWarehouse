@@ -61,6 +61,7 @@
             this.tb_productionDate = new System.Windows.Forms.TextBox();
             this.cb_allcheckdate = new System.Windows.Forms.ComboBox();
             this.la_allcheckdate = new System.Windows.Forms.Label();
+            this.bt_showshelves = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,7 +134,7 @@
             this.tb_position.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_position.Location = new System.Drawing.Point(608, 92);
             this.tb_position.Name = "tb_position";
-            this.tb_position.Size = new System.Drawing.Size(143, 26);
+            this.tb_position.Size = new System.Drawing.Size(105, 26);
             this.tb_position.TabIndex = 47;
             // 
             // tb_serialNumber
@@ -363,11 +364,23 @@
             this.la_allcheckdate.TabIndex = 67;
             this.la_allcheckdate.Text = "历次检验时间：";
             // 
+            // bt_showshelves
+            // 
+            this.bt_showshelves.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_showshelves.Location = new System.Drawing.Point(720, 92);
+            this.bt_showshelves.Name = "bt_showshelves";
+            this.bt_showshelves.Size = new System.Drawing.Size(30, 26);
+            this.bt_showshelves.TabIndex = 68;
+            this.bt_showshelves.Text = "...";
+            this.bt_showshelves.UseVisualStyleBackColor = true;
+            this.bt_showshelves.Click += new System.EventHandler(this.bt_showshelves_Click);
+            // 
             // AddOrUpdateInstrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 511);
+            this.Controls.Add(this.bt_showshelves);
             this.Controls.Add(this.la_allcheckdate);
             this.Controls.Add(this.cb_allcheckdate);
             this.Controls.Add(this.tb_productionDate);
@@ -445,5 +458,6 @@
         private System.Windows.Forms.TextBox tb_productionDate;
         private System.Windows.Forms.ComboBox cb_allcheckdate;
         private System.Windows.Forms.Label la_allcheckdate;
+        private System.Windows.Forms.Button bt_showshelves;
     }
 }

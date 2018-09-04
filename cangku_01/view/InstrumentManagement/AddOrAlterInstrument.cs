@@ -153,18 +153,18 @@ namespace cangku_01.view.InstrumentManagement
             FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
             if (f.Exists)
             {
-                this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
+                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
             }
             else
             {
-                this.pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
             }
         }
 
         //取消按钮
         private void bt_close_Click_1(object sender, EventArgs e)     
         {
-            this.Close();
+            Close();
         }
 
         //仪器信息添加
@@ -276,6 +276,17 @@ namespace cangku_01.view.InstrumentManagement
         {
             ReaderDrive.TagConnected -= ReaderAddDrive_TagConnected;
             ReaderDrive.TagConnected -= ReaderUpdateDrive_TagConnected;
+        }
+
+        //选择货架位置
+        private void bt_showshelves_Click(object sender, EventArgs e)
+        {
+            ShelvesTreeView shelvesTreeView = new ShelvesTreeView();
+            if (shelvesTreeView.ShowDialog() == DialogResult.OK)
+            {
+                tb_position.Text = shelvesTreeView.locationName;
+                MessageBox.Show(shelvesTreeView.PlaceIdCoding);
+            }
         }
     }
 }
