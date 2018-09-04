@@ -239,7 +239,7 @@ namespace cangku_01.view.InstrumentManagement
         {
             string write = "";
             string writedata = "";
-            string Data = ins.Name + "/"+ins.CheckCycle.ToString() +"/"+ ins.Model + "/"+ins.Manufactor +"/"+ins.Position +"/"+ ins.Duty;
+            string Data = ins.Name +"/"+ ins.Model + "/"+ins.Position ;
             for (int i=0; i < Data.Length; i++)
             {
                 if (Regex.IsMatch(Data[i].ToString(), @"^[0-9]+$"))

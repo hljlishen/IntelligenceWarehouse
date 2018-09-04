@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.la_BorrowQuery = new System.Windows.Forms.Label();
-            this.tb_borrow = new System.Windows.Forms.TextBox();
             this.La_TimeQuery = new System.Windows.Forms.Label();
             this.btn_query = new System.Windows.Forms.Button();
             this.dtp_begin = new System.Windows.Forms.DateTimePicker();
             this.la_to = new System.Windows.Forms.Label();
             this.dtp_end = new System.Windows.Forms.DateTimePicker();
-            this.la_ModelQuery = new System.Windows.Forms.Label();
-            this.tb_model = new System.Windows.Forms.TextBox();
             this.dgv_InstrumentQuery = new System.Windows.Forms.DataGridView();
             this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,45 +44,28 @@
             this.操作 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tt_checkborrow = new System.Windows.Forms.ToolTip(this.components);
-            this.la_DutyQuery = new System.Windows.Forms.Label();
-            this.tb_duty = new System.Windows.Forms.TextBox();
-            this.la_ManufacturerQuery = new System.Windows.Forms.Label();
-            this.tb_manufacturer = new System.Windows.Forms.TextBox();
             this.cb_query = new System.Windows.Forms.ComboBox();
-            this.tt_checkduty = new System.Windows.Forms.ToolTip(this.components);
-            this.tt_checkmodel = new System.Windows.Forms.ToolTip(this.components);
-            this.tt_checkmanufacturer = new System.Windows.Forms.ToolTip(this.components);
-            this.tt_checktime = new System.Windows.Forms.ToolTip(this.components);
             this.la_TagQuery = new System.Windows.Forms.Label();
             this.tb_tag = new System.Windows.Forms.TextBox();
             this.cb_choicetime = new System.Windows.Forms.CheckBox();
+            this.btn_selectInstrument = new System.Windows.Forms.Button();
+            this.tb_instrumentId = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tb_employeeId = new System.Windows.Forms.TextBox();
+            this.btn_selectemployee = new System.Windows.Forms.Button();
+            this.gb_foundrecord = new System.Windows.Forms.GroupBox();
+            this.l_instrument = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentQuery)).BeginInit();
+            this.gb_foundrecord.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // la_BorrowQuery
-            // 
-            this.la_BorrowQuery.AutoSize = true;
-            this.la_BorrowQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_BorrowQuery.Location = new System.Drawing.Point(270, 48);
-            this.la_BorrowQuery.Name = "la_BorrowQuery";
-            this.la_BorrowQuery.Size = new System.Drawing.Size(91, 14);
-            this.la_BorrowQuery.TabIndex = 1;
-            this.la_BorrowQuery.Text = "借用人查询：";
-            // 
-            // tb_borrow
-            // 
-            this.tb_borrow.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_borrow.Location = new System.Drawing.Point(367, 45);
-            this.tb_borrow.Name = "tb_borrow";
-            this.tb_borrow.Size = new System.Drawing.Size(124, 21);
-            this.tb_borrow.TabIndex = 2;
             // 
             // La_TimeQuery
             // 
             this.La_TimeQuery.AutoSize = true;
             this.La_TimeQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_TimeQuery.Location = new System.Drawing.Point(927, 44);
+            this.La_TimeQuery.Location = new System.Drawing.Point(948, 33);
             this.La_TimeQuery.Name = "La_TimeQuery";
             this.La_TimeQuery.Size = new System.Drawing.Size(77, 14);
             this.La_TimeQuery.TabIndex = 4;
@@ -95,7 +73,7 @@
             // 
             // btn_query
             // 
-            this.btn_query.Location = new System.Drawing.Point(1251, 90);
+            this.btn_query.Location = new System.Drawing.Point(1167, 70);
             this.btn_query.Name = "btn_query";
             this.btn_query.Size = new System.Drawing.Size(75, 23);
             this.btn_query.TabIndex = 6;
@@ -106,7 +84,7 @@
             // dtp_begin
             // 
             this.dtp_begin.Enabled = false;
-            this.dtp_begin.Location = new System.Drawing.Point(1010, 41);
+            this.dtp_begin.Location = new System.Drawing.Point(1031, 29);
             this.dtp_begin.Name = "dtp_begin";
             this.dtp_begin.Size = new System.Drawing.Size(103, 21);
             this.dtp_begin.TabIndex = 7;
@@ -115,7 +93,7 @@
             // 
             this.la_to.AutoSize = true;
             this.la_to.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_to.Location = new System.Drawing.Point(1119, 44);
+            this.la_to.Location = new System.Drawing.Point(1140, 32);
             this.la_to.Name = "la_to";
             this.la_to.Size = new System.Drawing.Size(21, 14);
             this.la_to.TabIndex = 8;
@@ -124,28 +102,10 @@
             // dtp_end
             // 
             this.dtp_end.Enabled = false;
-            this.dtp_end.Location = new System.Drawing.Point(1146, 41);
+            this.dtp_end.Location = new System.Drawing.Point(1167, 29);
             this.dtp_end.Name = "dtp_end";
             this.dtp_end.Size = new System.Drawing.Size(103, 21);
             this.dtp_end.TabIndex = 9;
-            // 
-            // la_ModelQuery
-            // 
-            this.la_ModelQuery.AutoSize = true;
-            this.la_ModelQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_ModelQuery.Location = new System.Drawing.Point(596, 45);
-            this.la_ModelQuery.Name = "la_ModelQuery";
-            this.la_ModelQuery.Size = new System.Drawing.Size(77, 14);
-            this.la_ModelQuery.TabIndex = 11;
-            this.la_ModelQuery.Text = "型号查询：";
-            // 
-            // tb_model
-            // 
-            this.tb_model.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_model.Location = new System.Drawing.Point(679, 43);
-            this.tb_model.Name = "tb_model";
-            this.tb_model.Size = new System.Drawing.Size(124, 21);
-            this.tb_model.TabIndex = 12;
             // 
             // dgv_InstrumentQuery
             // 
@@ -164,10 +124,10 @@
             this.操作,
             this.生产厂商,
             this.生产日期});
-            this.dgv_InstrumentQuery.Location = new System.Drawing.Point(12, 137);
+            this.dgv_InstrumentQuery.Location = new System.Drawing.Point(69, 117);
             this.dgv_InstrumentQuery.Name = "dgv_InstrumentQuery";
             this.dgv_InstrumentQuery.RowTemplate.Height = 23;
-            this.dgv_InstrumentQuery.Size = new System.Drawing.Size(1378, 712);
+            this.dgv_InstrumentQuery.Size = new System.Drawing.Size(1279, 732);
             this.dgv_InstrumentQuery.TabIndex = 0;
             // 
             // 仪器标签ID
@@ -229,53 +189,6 @@
             this.生产日期.Name = "生产日期";
             this.生产日期.ReadOnly = true;
             // 
-            // tt_checkborrow
-            // 
-            this.tt_checkborrow.AutoPopDelay = 5000;
-            this.tt_checkborrow.BackColor = System.Drawing.Color.Red;
-            this.tt_checkborrow.ForeColor = System.Drawing.Color.Red;
-            this.tt_checkborrow.InitialDelay = 1000;
-            this.tt_checkborrow.ReshowDelay = 500;
-            this.tt_checkborrow.ShowAlways = true;
-            this.tt_checkborrow.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tt_checkborrow.ToolTipTitle = "错误提示";
-            // 
-            // la_DutyQuery
-            // 
-            this.la_DutyQuery.AutoSize = true;
-            this.la_DutyQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_DutyQuery.Location = new System.Drawing.Point(270, 92);
-            this.la_DutyQuery.Name = "la_DutyQuery";
-            this.la_DutyQuery.Size = new System.Drawing.Size(91, 14);
-            this.la_DutyQuery.TabIndex = 13;
-            this.la_DutyQuery.Text = "责任人查询：";
-            // 
-            // tb_duty
-            // 
-            this.tb_duty.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_duty.Location = new System.Drawing.Point(367, 85);
-            this.tb_duty.Name = "tb_duty";
-            this.tb_duty.Size = new System.Drawing.Size(124, 21);
-            this.tb_duty.TabIndex = 14;
-            // 
-            // la_ManufacturerQuery
-            // 
-            this.la_ManufacturerQuery.AutoSize = true;
-            this.la_ManufacturerQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_ManufacturerQuery.Location = new System.Drawing.Point(596, 90);
-            this.la_ManufacturerQuery.Name = "la_ManufacturerQuery";
-            this.la_ManufacturerQuery.Size = new System.Drawing.Size(77, 14);
-            this.la_ManufacturerQuery.TabIndex = 15;
-            this.la_ManufacturerQuery.Text = "厂商查询：";
-            // 
-            // tb_manufacturer
-            // 
-            this.tb_manufacturer.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_manufacturer.Location = new System.Drawing.Point(679, 85);
-            this.tb_manufacturer.Name = "tb_manufacturer";
-            this.tb_manufacturer.Size = new System.Drawing.Size(124, 21);
-            this.tb_manufacturer.TabIndex = 16;
-            // 
             // cb_query
             // 
             this.cb_query.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -285,60 +198,16 @@
             "出入库",
             "出库",
             "入库"});
-            this.cb_query.Location = new System.Drawing.Point(71, 48);
+            this.cb_query.Location = new System.Drawing.Point(543, 29);
             this.cb_query.Name = "cb_query";
             this.cb_query.Size = new System.Drawing.Size(121, 20);
             this.cb_query.TabIndex = 17;
-            // 
-            // tt_checkduty
-            // 
-            this.tt_checkduty.AutoPopDelay = 5000;
-            this.tt_checkduty.BackColor = System.Drawing.Color.Red;
-            this.tt_checkduty.ForeColor = System.Drawing.Color.Red;
-            this.tt_checkduty.InitialDelay = 500;
-            this.tt_checkduty.ReshowDelay = 100;
-            this.tt_checkduty.ShowAlways = true;
-            this.tt_checkduty.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tt_checkduty.ToolTipTitle = "错误提示";
-            // 
-            // tt_checkmodel
-            // 
-            this.tt_checkmodel.AutoPopDelay = 5000;
-            this.tt_checkmodel.BackColor = System.Drawing.Color.Red;
-            this.tt_checkmodel.ForeColor = System.Drawing.Color.Red;
-            this.tt_checkmodel.InitialDelay = 500;
-            this.tt_checkmodel.ReshowDelay = 100;
-            this.tt_checkmodel.ShowAlways = true;
-            this.tt_checkmodel.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tt_checkmodel.ToolTipTitle = "错误提示";
-            // 
-            // tt_checkmanufacturer
-            // 
-            this.tt_checkmanufacturer.AutoPopDelay = 5000;
-            this.tt_checkmanufacturer.BackColor = System.Drawing.Color.Red;
-            this.tt_checkmanufacturer.ForeColor = System.Drawing.Color.Red;
-            this.tt_checkmanufacturer.InitialDelay = 500;
-            this.tt_checkmanufacturer.ReshowDelay = 100;
-            this.tt_checkmanufacturer.ShowAlways = true;
-            this.tt_checkmanufacturer.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tt_checkmanufacturer.ToolTipTitle = "错误提示";
-            // 
-            // tt_checktime
-            // 
-            this.tt_checktime.AutoPopDelay = 5000;
-            this.tt_checktime.BackColor = System.Drawing.Color.Red;
-            this.tt_checktime.ForeColor = System.Drawing.Color.Red;
-            this.tt_checktime.InitialDelay = 500;
-            this.tt_checktime.ReshowDelay = 100;
-            this.tt_checktime.ShowAlways = true;
-            this.tt_checktime.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            this.tt_checktime.ToolTipTitle = "错误提示";
             // 
             // la_TagQuery
             // 
             this.la_TagQuery.AutoSize = true;
             this.la_TagQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_TagQuery.Location = new System.Drawing.Point(927, 90);
+            this.la_TagQuery.Location = new System.Drawing.Point(688, 32);
             this.la_TagQuery.Name = "la_TagQuery";
             this.la_TagQuery.Size = new System.Drawing.Size(77, 14);
             this.la_TagQuery.TabIndex = 18;
@@ -346,70 +215,148 @@
             // 
             // tb_tag
             // 
-            this.tb_tag.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.tb_tag.Location = new System.Drawing.Point(1010, 85);
+            this.tb_tag.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.tb_tag.Location = new System.Drawing.Point(771, 28);
             this.tb_tag.Name = "tb_tag";
+            this.tb_tag.ReadOnly = true;
             this.tb_tag.Size = new System.Drawing.Size(124, 21);
             this.tb_tag.TabIndex = 19;
             // 
             // cb_choicetime
             // 
             this.cb_choicetime.AutoSize = true;
-            this.cb_choicetime.Location = new System.Drawing.Point(906, 44);
+            this.cb_choicetime.Location = new System.Drawing.Point(927, 34);
             this.cb_choicetime.Name = "cb_choicetime";
             this.cb_choicetime.Size = new System.Drawing.Size(15, 14);
             this.cb_choicetime.TabIndex = 21;
             this.cb_choicetime.UseVisualStyleBackColor = true;
+            // 
+            // btn_selectInstrument
+            // 
+            this.btn_selectInstrument.Location = new System.Drawing.Point(193, 28);
+            this.btn_selectInstrument.Name = "btn_selectInstrument";
+            this.btn_selectInstrument.Size = new System.Drawing.Size(28, 23);
+            this.btn_selectInstrument.TabIndex = 22;
+            this.btn_selectInstrument.Text = "...";
+            this.btn_selectInstrument.UseVisualStyleBackColor = true;
+            this.btn_selectInstrument.Click += new System.EventHandler(this.btn_selectInstrument_Click);
+            // 
+            // tb_instrumentId
+            // 
+            this.tb_instrumentId.Location = new System.Drawing.Point(87, 29);
+            this.tb_instrumentId.Name = "tb_instrumentId";
+            this.tb_instrumentId.ReadOnly = true;
+            this.tb_instrumentId.Size = new System.Drawing.Size(100, 21);
+            this.tb_instrumentId.TabIndex = 23;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(18, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 14);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "仪器Id：";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(238, 33);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 14);
+            this.label2.TabIndex = 24;
+            this.label2.Text = "员工Id：";
+            // 
+            // tb_employeeId
+            // 
+            this.tb_employeeId.Location = new System.Drawing.Point(307, 28);
+            this.tb_employeeId.Name = "tb_employeeId";
+            this.tb_employeeId.ReadOnly = true;
+            this.tb_employeeId.Size = new System.Drawing.Size(100, 21);
+            this.tb_employeeId.TabIndex = 25;
+            // 
+            // btn_selectemployee
+            // 
+            this.btn_selectemployee.Location = new System.Drawing.Point(413, 27);
+            this.btn_selectemployee.Name = "btn_selectemployee";
+            this.btn_selectemployee.Size = new System.Drawing.Size(28, 23);
+            this.btn_selectemployee.TabIndex = 26;
+            this.btn_selectemployee.Text = "...";
+            this.btn_selectemployee.UseVisualStyleBackColor = true;
+            this.btn_selectemployee.Click += new System.EventHandler(this.btn_selectemployee_Click);
+            // 
+            // gb_foundrecord
+            // 
+            this.gb_foundrecord.Controls.Add(this.l_instrument);
+            this.gb_foundrecord.Controls.Add(this.label3);
+            this.gb_foundrecord.Controls.Add(this.cb_choicetime);
+            this.gb_foundrecord.Controls.Add(this.btn_query);
+            this.gb_foundrecord.Controls.Add(this.label1);
+            this.gb_foundrecord.Controls.Add(this.btn_selectemployee);
+            this.gb_foundrecord.Controls.Add(this.dtp_end);
+            this.gb_foundrecord.Controls.Add(this.cb_query);
+            this.gb_foundrecord.Controls.Add(this.la_to);
+            this.gb_foundrecord.Controls.Add(this.tb_tag);
+            this.gb_foundrecord.Controls.Add(this.dtp_begin);
+            this.gb_foundrecord.Controls.Add(this.tb_instrumentId);
+            this.gb_foundrecord.Controls.Add(this.la_TagQuery);
+            this.gb_foundrecord.Controls.Add(this.La_TimeQuery);
+            this.gb_foundrecord.Controls.Add(this.tb_employeeId);
+            this.gb_foundrecord.Controls.Add(this.btn_selectInstrument);
+            this.gb_foundrecord.Controls.Add(this.label2);
+            this.gb_foundrecord.Location = new System.Drawing.Point(69, 12);
+            this.gb_foundrecord.Name = "gb_foundrecord";
+            this.gb_foundrecord.Size = new System.Drawing.Size(1279, 99);
+            this.gb_foundrecord.TabIndex = 27;
+            this.gb_foundrecord.TabStop = false;
+            this.gb_foundrecord.Text = "搜索记录";
+            // 
+            // l_instrument
+            // 
+            this.l_instrument.AutoSize = true;
+            this.l_instrument.Location = new System.Drawing.Point(87, 70);
+            this.l_instrument.Name = "l_instrument";
+            this.l_instrument.Size = new System.Drawing.Size(41, 12);
+            this.l_instrument.TabIndex = 28;
+            this.l_instrument.Text = "label4";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(460, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 14);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "状态记录：";
             // 
             // Ins_query
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1424, 861);
-            this.Controls.Add(this.cb_choicetime);
-            this.Controls.Add(this.tb_tag);
-            this.Controls.Add(this.la_TagQuery);
-            this.Controls.Add(this.cb_query);
-            this.Controls.Add(this.tb_manufacturer);
-            this.Controls.Add(this.la_ManufacturerQuery);
-            this.Controls.Add(this.tb_duty);
-            this.Controls.Add(this.la_DutyQuery);
+            this.Controls.Add(this.gb_foundrecord);
             this.Controls.Add(this.dgv_InstrumentQuery);
-            this.Controls.Add(this.tb_model);
-            this.Controls.Add(this.la_ModelQuery);
-            this.Controls.Add(this.dtp_end);
-            this.Controls.Add(this.la_to);
-            this.Controls.Add(this.dtp_begin);
-            this.Controls.Add(this.btn_query);
-            this.Controls.Add(this.La_TimeQuery);
-            this.Controls.Add(this.tb_borrow);
-            this.Controls.Add(this.la_BorrowQuery);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Ins_query";
             this.Text = "InstrumentQuery";
             this.Load += new System.EventHandler(this.InstrumentQuery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentQuery)).EndInit();
+            this.gb_foundrecord.ResumeLayout(false);
+            this.gb_foundrecord.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label la_BorrowQuery;
-        private System.Windows.Forms.TextBox tb_borrow;
         private System.Windows.Forms.Label La_TimeQuery;
         private System.Windows.Forms.Button btn_query;
         private System.Windows.Forms.DateTimePicker dtp_begin;
         private System.Windows.Forms.Label la_to;
         private System.Windows.Forms.DateTimePicker dtp_end;
-        private System.Windows.Forms.Label la_ModelQuery;
-        private System.Windows.Forms.TextBox tb_model;
         private System.Windows.Forms.DataGridView dgv_InstrumentQuery;
-        private System.Windows.Forms.ToolTip tt_checkborrow;
-        private System.Windows.Forms.Label la_DutyQuery;
-        private System.Windows.Forms.TextBox tb_duty;
-        private System.Windows.Forms.Label la_ManufacturerQuery;
-        private System.Windows.Forms.TextBox tb_manufacturer;
         private System.Windows.Forms.ComboBox cb_query;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器标签ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器名;
@@ -421,12 +368,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 操作;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产厂商;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产日期;
-        private System.Windows.Forms.ToolTip tt_checkduty;
-        private System.Windows.Forms.ToolTip tt_checkmodel;
-        private System.Windows.Forms.ToolTip tt_checkmanufacturer;
-        private System.Windows.Forms.ToolTip tt_checktime;
         private System.Windows.Forms.Label la_TagQuery;
         private System.Windows.Forms.TextBox tb_tag;
         private System.Windows.Forms.CheckBox cb_choicetime;
+        private System.Windows.Forms.Button btn_selectInstrument;
+        private System.Windows.Forms.TextBox tb_instrumentId;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tb_employeeId;
+        private System.Windows.Forms.Button btn_selectemployee;
+        private System.Windows.Forms.GroupBox gb_foundrecord;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label l_instrument;
     }
 }

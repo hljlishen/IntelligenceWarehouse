@@ -21,7 +21,6 @@ namespace cangku_01
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             textBox2.PasswordChar = '*';
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -33,8 +32,8 @@ namespace cangku_01
             String password = "admin";
             if (name.Equals("admin") && password.Equals("admin"))
             {
-                //Close();
-                AutoClosingMessageBox.Show("登陆成功", "登陆成功", 1000);
+                Close();
+                //AutoClosingMessageBox.Show("登陆成功", "登陆成功", 1000);
                 Form administration = new Administration();
                 administration.ShowDialog();
             }

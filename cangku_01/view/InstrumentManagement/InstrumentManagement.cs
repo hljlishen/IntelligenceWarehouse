@@ -5,6 +5,7 @@ using cangku_01.UHFReader09;
 using cangku_01.UHFReader09CSharp;
 using System;
 using System.Data;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -17,6 +18,8 @@ namespace cangku_01.view.InstrumentManagement
         InstrumentInterface dao = new InstrumentDataManipulation();
         Instrument ins = new Instrument();
         private static UHFReader09Interface ReaderDrive = null;
+        public delegate void InstrumentSelectedHandler(List<int> instrumentIds);
+        public event InstrumentSelectedHandler InstrumentSelected;
 
         public InstrumentManagement()
         {
@@ -47,6 +50,7 @@ namespace cangku_01.view.InstrumentManagement
                 dgv_instrumentinformation.Rows[index].Cells[4].Value = dr["in_position"];
                 dgv_instrumentinformation.Rows[index].Cells[5].Value = dr["in_isinwarehouse"];
                 dgv_instrumentinformation.Rows[index].Cells[6].Value = dr["in_duty"];
+                dgv_instrumentinformation.Rows[index].Cells[10].Value = dr["in_id"];
             }
         }
 
@@ -128,6 +132,18 @@ namespace cangku_01.view.InstrumentManagement
         private void button2_KeyPress(object sender, KeyPressEventArgs e)
         {
             ReaderDrive.TagConnected -= ReaderDrive_TagConnected;
+        }
+
+        private void dgv_instrumentinformation_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var selectedRows = dgv_instrumentinformation.SelectedRows;
+            List<int> ids = new List<int>();
+            foreach(var row in selectedRows)
+            {
+                int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
+                ids.Add(id);
+            }
+            InstrumentSelected?.Invoke(ids);
         }
     }
 }
