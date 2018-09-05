@@ -12,7 +12,7 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.EmployeesManagement
 {
-    public partial class EmployeesManagement : Form
+    public partial class EmployeeManagement : Form
     {
         EmployeesInterface dao = new EmployeeDataManipulation();
         private int nodeid;
@@ -20,7 +20,7 @@ namespace cangku_01.view.EmployeesManagement
         public delegate void EmployeesSelectedHandler(List<int> employeesIds);
         public event EmployeesSelectedHandler EmployeesSelected;
 
-        public EmployeesManagement()
+        public EmployeeManagement()
         {
             InitializeComponent();
         }
@@ -90,7 +90,7 @@ namespace cangku_01.view.EmployeesManagement
                     string company = dgv_employeeinformation.CurrentRow.Cells[3].Value.ToString();
                     string department = dgv_employeeinformation.CurrentRow.Cells[4].Value.ToString();
                     string group = dgv_employeeinformation.CurrentRow.Cells[5].Value.ToString();
-                    AddOrUpdateEmployees add = new AddOrUpdateEmployees(this,em, company, department, group,e.RowIndex);
+                    AddOrUpdateEmployee add = new AddOrUpdateEmployee(this,em, company, department, group,e.RowIndex);
                     add.Show();
                 }
             }
@@ -99,7 +99,7 @@ namespace cangku_01.view.EmployeesManagement
         //添加员工
         private void bt_addemployee_Click(object sender, EventArgs e)
         {
-            AddOrUpdateEmployees add = new AddOrUpdateEmployees(this);
+            AddOrUpdateEmployee add = new AddOrUpdateEmployee(this);
             add.Show();
         }
 

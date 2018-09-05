@@ -49,9 +49,22 @@ namespace cangku_01.view.InstrumentManagement
                 dgv_instrumentinformation.Rows[index].Cells[3].Value = dr["in_manufactor"];
                 dgv_instrumentinformation.Rows[index].Cells[4].Value = dr["in_position"];
                 dgv_instrumentinformation.Rows[index].Cells[5].Value = dr["in_isinwarehouse"];
-                dgv_instrumentinformation.Rows[index].Cells[6].Value = dr["in_duty"];
+                dgv_instrumentinformation.Rows[index].Cells[6].Value = SelectDuty((int)dr["in_duty"]);
                 dgv_instrumentinformation.Rows[index].Cells[10].Value = dr["in_id"];
             }
+        }
+
+        //责任人查询
+        public string SelectDuty(int id)
+        {
+            string dutyname;
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            em.Id = id;
+            DataTable dt = dao.IdQueryEmployee(em);
+            DataRow myDr = dt.Rows[0];
+            dutyname = myDr["em_name"].ToString();
+            return dutyname;
         }
 
         //仪器添加
@@ -104,9 +117,9 @@ namespace cangku_01.view.InstrumentManagement
         private void button2_Click(object sender, EventArgs e)  
         {
             ins.Name = tb_instrumentname.Text;
-            ins.Manufactor = tb_manufactor.Text;
+            ins.Model = tb_model.Text;
             ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
-            ins.Duty = tb_duty.Text;
+            //ins.Duty = tb_duty.Text;
             ShowDataGridView(dao.QueryInstrument(ins));
         }
 

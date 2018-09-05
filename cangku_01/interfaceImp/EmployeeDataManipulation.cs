@@ -77,6 +77,15 @@ namespace cangku_01.interfaceImp
             return dt;
         }
 
+
+        //编号查询员工
+        public DataTable IdQueryEmployee(Employee em)
+        {
+            string sql = em.IdFindEmployeeSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
         //在当前分组中搜索
         public DataTable QueryInTheGroupEmployee(Employee em , int level, int nodeid)
         {

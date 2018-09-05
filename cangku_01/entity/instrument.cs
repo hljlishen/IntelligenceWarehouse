@@ -19,8 +19,8 @@ namespace cangku_01.entity
         public string Position { get; set; }         //货架位置  
         public string IsInWareHouse { get; set; }    //在库状态       
         public int CheckCycle { get; set; }          //检定周期
-        public DateTime LastCheckTime { get; set; } //上一次检查时间
-        public string Duty { get; set; }             //责任人
+        public DateTime LastCheckTime { get; set; }  //上一次检查时间
+        public int Duty { get; set; }                //责任人
 
         SelectSqlMaker maker;
 
@@ -108,9 +108,12 @@ namespace cangku_01.entity
         {
             SetupInstrument();
             maker.AddAndCondition(new StringLike("in_name", Name));
+            maker.AddAndCondition(new StringLike("in_model", Model));
             maker.AddAndCondition(new StringLike("in_manufactor", Manufactor));
-            maker.AddAndCondition(new StringLike("in_isinwarehouse", IsInWareHouse));
-            maker.AddAndCondition(new StringLike("in_duty", Duty));
+            maker.AddAndCondition(new StringLike("in_serialNumber", SerialNumber));
+            maker.AddAndCondition(new StringEqual("in_isinwarehouse", IsInWareHouse));
+            //maker.AddAndCondition(new IntEqual("in_duty", Duty));
+            maker.AddFieldsWillBeSelected("in_id");
             maker.AddFieldsWillBeSelected("in_tagid");
             maker.AddFieldsWillBeSelected("in_name");
             maker.AddFieldsWillBeSelected("in_model");

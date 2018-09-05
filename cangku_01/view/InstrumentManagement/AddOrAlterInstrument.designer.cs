@@ -35,9 +35,9 @@
             this.bt_close = new System.Windows.Forms.Button();
             this.bt_addinstrument = new System.Windows.Forms.Button();
             this.tb_duty = new System.Windows.Forms.TextBox();
-            this.tb_checkCycle = new System.Windows.Forms.TextBox();
+            this.tb_checkcycle = new System.Windows.Forms.TextBox();
             this.tb_position = new System.Windows.Forms.TextBox();
-            this.tb_serialNumber = new System.Windows.Forms.TextBox();
+            this.tb_serialnumber = new System.Windows.Forms.TextBox();
             this.tb_manufactor = new System.Windows.Forms.TextBox();
             this.tb_model = new System.Windows.Forms.TextBox();
             this.tb_name = new System.Windows.Forms.TextBox();
@@ -62,6 +62,21 @@
             this.cb_allcheckdate = new System.Windows.Forms.ComboBox();
             this.la_allcheckdate = new System.Windows.Forms.Label();
             this.bt_showshelves = new System.Windows.Forms.Button();
+            this.bt_selectduty = new System.Windows.Forms.Button();
+            this.la_company = new System.Windows.Forms.Label();
+            this.la_group = new System.Windows.Forms.Label();
+            this.la_department = new System.Windows.Forms.Label();
+            this.tb_company = new System.Windows.Forms.TextBox();
+            this.tb_department = new System.Windows.Forms.TextBox();
+            this.tb_group = new System.Windows.Forms.TextBox();
+            this.la_errortagidnull = new System.Windows.Forms.Label();
+            this.la_modelnull = new System.Windows.Forms.Label();
+            this.la_namenull = new System.Windows.Forms.Label();
+            this.la_positionnull = new System.Windows.Forms.Label();
+            this.la_serialnumbernull = new System.Windows.Forms.Label();
+            this.la_checkcyclenull = new System.Windows.Forms.Label();
+            this.la_manufactornull = new System.Windows.Forms.Label();
+            this.la_dutynull = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -94,7 +109,7 @@
             // bt_close
             // 
             this.bt_close.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_close.Location = new System.Drawing.Point(472, 436);
+            this.bt_close.Location = new System.Drawing.Point(472, 479);
             this.bt_close.Name = "bt_close";
             this.bt_close.Size = new System.Drawing.Size(80, 30);
             this.bt_close.TabIndex = 52;
@@ -105,7 +120,7 @@
             // bt_addinstrument
             // 
             this.bt_addinstrument.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_addinstrument.Location = new System.Drawing.Point(262, 436);
+            this.bt_addinstrument.Location = new System.Drawing.Point(262, 479);
             this.bt_addinstrument.Name = "bt_addinstrument";
             this.bt_addinstrument.Size = new System.Drawing.Size(80, 30);
             this.bt_addinstrument.TabIndex = 51;
@@ -118,32 +133,34 @@
             this.tb_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_duty.Location = new System.Drawing.Point(354, 354);
             this.tb_duty.Name = "tb_duty";
-            this.tb_duty.Size = new System.Drawing.Size(125, 26);
+            this.tb_duty.ReadOnly = true;
+            this.tb_duty.Size = new System.Drawing.Size(87, 26);
             this.tb_duty.TabIndex = 50;
             // 
-            // tb_checkCycle
+            // tb_checkcycle
             // 
-            this.tb_checkCycle.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_checkCycle.Location = new System.Drawing.Point(168, 288);
-            this.tb_checkCycle.Name = "tb_checkCycle";
-            this.tb_checkCycle.Size = new System.Drawing.Size(84, 26);
-            this.tb_checkCycle.TabIndex = 49;
+            this.tb_checkcycle.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_checkcycle.Location = new System.Drawing.Point(168, 288);
+            this.tb_checkcycle.Name = "tb_checkcycle";
+            this.tb_checkcycle.Size = new System.Drawing.Size(84, 26);
+            this.tb_checkcycle.TabIndex = 49;
             // 
             // tb_position
             // 
             this.tb_position.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_position.Location = new System.Drawing.Point(608, 92);
             this.tb_position.Name = "tb_position";
+            this.tb_position.ReadOnly = true;
             this.tb_position.Size = new System.Drawing.Size(105, 26);
             this.tb_position.TabIndex = 47;
             // 
-            // tb_serialNumber
+            // tb_serialnumber
             // 
-            this.tb_serialNumber.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_serialNumber.Location = new System.Drawing.Point(354, 288);
-            this.tb_serialNumber.Name = "tb_serialNumber";
-            this.tb_serialNumber.Size = new System.Drawing.Size(125, 26);
-            this.tb_serialNumber.TabIndex = 46;
+            this.tb_serialnumber.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_serialnumber.Location = new System.Drawing.Point(354, 288);
+            this.tb_serialnumber.Name = "tb_serialnumber";
+            this.tb_serialnumber.Size = new System.Drawing.Size(125, 26);
+            this.tb_serialnumber.TabIndex = 46;
             // 
             // tb_manufactor
             // 
@@ -291,7 +308,7 @@
             // bt_alterinstrument
             // 
             this.bt_alterinstrument.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_alterinstrument.Location = new System.Drawing.Point(262, 436);
+            this.bt_alterinstrument.Location = new System.Drawing.Point(262, 479);
             this.bt_alterinstrument.Name = "bt_alterinstrument";
             this.bt_alterinstrument.Size = new System.Drawing.Size(80, 30);
             this.bt_alterinstrument.TabIndex = 58;
@@ -375,11 +392,190 @@
             this.bt_showshelves.UseVisualStyleBackColor = true;
             this.bt_showshelves.Click += new System.EventHandler(this.bt_showshelves_Click);
             // 
+            // bt_selectduty
+            // 
+            this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_selectduty.Location = new System.Drawing.Point(449, 354);
+            this.bt_selectduty.Name = "bt_selectduty";
+            this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
+            this.bt_selectduty.TabIndex = 69;
+            this.bt_selectduty.Text = "...";
+            this.bt_selectduty.UseVisualStyleBackColor = true;
+            this.bt_selectduty.Click += new System.EventHandler(this.bt_selectduty_Click);
+            // 
+            // la_company
+            // 
+            this.la_company.AutoSize = true;
+            this.la_company.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_company.Location = new System.Drawing.Point(82, 415);
+            this.la_company.Name = "la_company";
+            this.la_company.Size = new System.Drawing.Size(79, 20);
+            this.la_company.TabIndex = 70;
+            this.la_company.Text = "所属公司：";
+            // 
+            // la_group
+            // 
+            this.la_group.AutoSize = true;
+            this.la_group.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_group.Location = new System.Drawing.Point(510, 415);
+            this.la_group.Name = "la_group";
+            this.la_group.Size = new System.Drawing.Size(79, 20);
+            this.la_group.TabIndex = 71;
+            this.la_group.Text = "所属小组：";
+            // 
+            // la_department
+            // 
+            this.la_department.AutoSize = true;
+            this.la_department.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_department.Location = new System.Drawing.Point(269, 415);
+            this.la_department.Name = "la_department";
+            this.la_department.Size = new System.Drawing.Size(79, 20);
+            this.la_department.TabIndex = 72;
+            this.la_department.Text = "所属部门：";
+            // 
+            // tb_company
+            // 
+            this.tb_company.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_company.Location = new System.Drawing.Point(167, 412);
+            this.tb_company.Name = "tb_company";
+            this.tb_company.ReadOnly = true;
+            this.tb_company.Size = new System.Drawing.Size(84, 26);
+            this.tb_company.TabIndex = 73;
+            // 
+            // tb_department
+            // 
+            this.tb_department.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_department.Location = new System.Drawing.Point(354, 412);
+            this.tb_department.Name = "tb_department";
+            this.tb_department.ReadOnly = true;
+            this.tb_department.Size = new System.Drawing.Size(125, 26);
+            this.tb_department.TabIndex = 74;
+            // 
+            // tb_group
+            // 
+            this.tb_group.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_group.Location = new System.Drawing.Point(608, 412);
+            this.tb_group.Name = "tb_group";
+            this.tb_group.ReadOnly = true;
+            this.tb_group.Size = new System.Drawing.Size(143, 26);
+            this.tb_group.TabIndex = 75;
+            // 
+            // la_errortagidnull
+            // 
+            this.la_errortagidnull.AutoSize = true;
+            this.la_errortagidnull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_errortagidnull.ForeColor = System.Drawing.Color.Red;
+            this.la_errortagidnull.Location = new System.Drawing.Point(351, 121);
+            this.la_errortagidnull.Name = "la_errortagidnull";
+            this.la_errortagidnull.Size = new System.Drawing.Size(74, 17);
+            this.la_errortagidnull.TabIndex = 76;
+            this.la_errortagidnull.Text = "*未读到卡ID";
+            this.la_errortagidnull.Visible = false;
+            // 
+            // la_modelnull
+            // 
+            this.la_modelnull.AutoSize = true;
+            this.la_modelnull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_modelnull.ForeColor = System.Drawing.Color.Red;
+            this.la_modelnull.Location = new System.Drawing.Point(351, 251);
+            this.la_modelnull.Name = "la_modelnull";
+            this.la_modelnull.Size = new System.Drawing.Size(109, 17);
+            this.la_modelnull.TabIndex = 77;
+            this.la_modelnull.Text = "*型号规格不能为空";
+            this.la_modelnull.Visible = false;
+            // 
+            // la_namenull
+            // 
+            this.la_namenull.AutoSize = true;
+            this.la_namenull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_namenull.ForeColor = System.Drawing.Color.Red;
+            this.la_namenull.Location = new System.Drawing.Point(351, 182);
+            this.la_namenull.Name = "la_namenull";
+            this.la_namenull.Size = new System.Drawing.Size(109, 17);
+            this.la_namenull.TabIndex = 79;
+            this.la_namenull.Text = "*仪器名称不能为空";
+            this.la_namenull.Visible = false;
+            // 
+            // la_positionnull
+            // 
+            this.la_positionnull.AutoSize = true;
+            this.la_positionnull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_positionnull.ForeColor = System.Drawing.Color.Red;
+            this.la_positionnull.Location = new System.Drawing.Point(605, 121);
+            this.la_positionnull.Name = "la_positionnull";
+            this.la_positionnull.Size = new System.Drawing.Size(97, 17);
+            this.la_positionnull.TabIndex = 80;
+            this.la_positionnull.Text = "*未选择货架位置";
+            this.la_positionnull.Visible = false;
+            // 
+            // la_serialnumbernull
+            // 
+            this.la_serialnumbernull.AutoSize = true;
+            this.la_serialnumbernull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_serialnumbernull.ForeColor = System.Drawing.Color.Red;
+            this.la_serialnumbernull.Location = new System.Drawing.Point(351, 317);
+            this.la_serialnumbernull.Name = "la_serialnumbernull";
+            this.la_serialnumbernull.Size = new System.Drawing.Size(109, 17);
+            this.la_serialnumbernull.TabIndex = 81;
+            this.la_serialnumbernull.Text = "*出厂编号不能为空";
+            this.la_serialnumbernull.Visible = false;
+            // 
+            // la_checkcyclenull
+            // 
+            this.la_checkcyclenull.AutoSize = true;
+            this.la_checkcyclenull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_checkcyclenull.ForeColor = System.Drawing.Color.Red;
+            this.la_checkcyclenull.Location = new System.Drawing.Point(165, 317);
+            this.la_checkcyclenull.Name = "la_checkcyclenull";
+            this.la_checkcyclenull.Size = new System.Drawing.Size(97, 17);
+            this.la_checkcyclenull.TabIndex = 82;
+            this.la_checkcyclenull.Text = "*请输入正确数字";
+            this.la_checkcyclenull.Visible = false;
+            // 
+            // la_manufactornull
+            // 
+            this.la_manufactornull.AutoSize = true;
+            this.la_manufactornull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_manufactornull.ForeColor = System.Drawing.Color.Red;
+            this.la_manufactornull.Location = new System.Drawing.Point(605, 251);
+            this.la_manufactornull.Name = "la_manufactornull";
+            this.la_manufactornull.Size = new System.Drawing.Size(109, 17);
+            this.la_manufactornull.TabIndex = 83;
+            this.la_manufactornull.Text = "*生产厂商不能为空";
+            this.la_manufactornull.Visible = false;
+            // 
+            // la_dutynull
+            // 
+            this.la_dutynull.AutoSize = true;
+            this.la_dutynull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_dutynull.ForeColor = System.Drawing.Color.Red;
+            this.la_dutynull.Location = new System.Drawing.Point(351, 383);
+            this.la_dutynull.Name = "la_dutynull";
+            this.la_dutynull.Size = new System.Drawing.Size(85, 17);
+            this.la_dutynull.TabIndex = 86;
+            this.la_dutynull.Text = "*未选择责任人";
+            this.la_dutynull.Visible = false;
+            // 
             // AddOrUpdateInstrument
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 511);
+            this.ClientSize = new System.Drawing.Size(804, 542);
+            this.Controls.Add(this.la_dutynull);
+            this.Controls.Add(this.la_manufactornull);
+            this.Controls.Add(this.la_checkcyclenull);
+            this.Controls.Add(this.la_serialnumbernull);
+            this.Controls.Add(this.la_positionnull);
+            this.Controls.Add(this.la_namenull);
+            this.Controls.Add(this.la_modelnull);
+            this.Controls.Add(this.la_errortagidnull);
+            this.Controls.Add(this.tb_group);
+            this.Controls.Add(this.tb_department);
+            this.Controls.Add(this.tb_company);
+            this.Controls.Add(this.la_department);
+            this.Controls.Add(this.la_group);
+            this.Controls.Add(this.la_company);
+            this.Controls.Add(this.bt_selectduty);
             this.Controls.Add(this.bt_showshelves);
             this.Controls.Add(this.la_allcheckdate);
             this.Controls.Add(this.cb_allcheckdate);
@@ -395,9 +591,9 @@
             this.Controls.Add(this.bt_close);
             this.Controls.Add(this.bt_addinstrument);
             this.Controls.Add(this.tb_duty);
-            this.Controls.Add(this.tb_checkCycle);
+            this.Controls.Add(this.tb_checkcycle);
             this.Controls.Add(this.tb_position);
-            this.Controls.Add(this.tb_serialNumber);
+            this.Controls.Add(this.tb_serialnumber);
             this.Controls.Add(this.tb_manufactor);
             this.Controls.Add(this.tb_model);
             this.Controls.Add(this.tb_name);
@@ -432,9 +628,9 @@
         private System.Windows.Forms.Button bt_close;
         private System.Windows.Forms.Button bt_addinstrument;
         private System.Windows.Forms.TextBox tb_duty;
-        private System.Windows.Forms.TextBox tb_checkCycle;
+        private System.Windows.Forms.TextBox tb_checkcycle;
         private System.Windows.Forms.TextBox tb_position;
-        private System.Windows.Forms.TextBox tb_serialNumber;
+        private System.Windows.Forms.TextBox tb_serialnumber;
         private System.Windows.Forms.TextBox tb_manufactor;
         private System.Windows.Forms.TextBox tb_model;
         private System.Windows.Forms.TextBox tb_name;
@@ -459,5 +655,20 @@
         private System.Windows.Forms.ComboBox cb_allcheckdate;
         private System.Windows.Forms.Label la_allcheckdate;
         private System.Windows.Forms.Button bt_showshelves;
+        private System.Windows.Forms.Button bt_selectduty;
+        private System.Windows.Forms.Label la_company;
+        private System.Windows.Forms.Label la_group;
+        private System.Windows.Forms.Label la_department;
+        private System.Windows.Forms.TextBox tb_company;
+        private System.Windows.Forms.TextBox tb_department;
+        private System.Windows.Forms.TextBox tb_group;
+        private System.Windows.Forms.Label la_errortagidnull;
+        private System.Windows.Forms.Label la_modelnull;
+        private System.Windows.Forms.Label la_namenull;
+        private System.Windows.Forms.Label la_positionnull;
+        private System.Windows.Forms.Label la_serialnumbernull;
+        private System.Windows.Forms.Label la_checkcyclenull;
+        private System.Windows.Forms.Label la_manufactornull;
+        private System.Windows.Forms.Label la_dutynull;
     }
 }

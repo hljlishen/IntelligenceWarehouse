@@ -8,8 +8,8 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
-using cangku_01.UHFReader09;
 using cangku_01.UHFReader09CSharp;
+using cangku_01.view.EmployeesManagement;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //添加仪器  观察者模式
@@ -18,10 +18,18 @@ namespace cangku_01.view.InstrumentManagement
 {
     public partial class AddOrUpdateInstrument : Form 
     {
+        private int dutyid;
+        private string placeidcoding;
+        EmployeeManagement selectEmployees;
         private InstrumentManagement fr;
         Instrument ins = new Instrument();
         private int index;
         private static UHFReader09Interface ReaderDrive;
+
+        private void AddOrModifyInstrument_Load(object sender, EventArgs e)
+        {
+
+        }
 
         //仪器信息添加构造方法
         public AddOrUpdateInstrument(InstrumentManagement fr, UHFReader09Interface readerDrive)
@@ -70,6 +78,7 @@ namespace cangku_01.view.InstrumentManagement
             InstrumentMessageDataTableShowTextBox();
         }
 
+        //修改信息是只有读到卡，才可操作
         private void ReaderUpdateDrive_TagConnected(string tagId)
         {
             if (tb_tagid.Text != tagId)
@@ -92,6 +101,8 @@ namespace cangku_01.view.InstrumentManagement
             time_lastCheckTimes.Visible = false;
             time_productionDate.Visible = false;
             cb_isInWareHouse.Visible = false;
+            bt_showshelves.Enabled = false;
+            bt_selectduty.Enabled = false;
             this.ins = ins;
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataSet ds = dao.QueryInstrumentAllCheckDate(ins);
@@ -126,10 +137,10 @@ namespace cangku_01.view.InstrumentManagement
             tb_name.Text = myDr["in_name"].ToString();
             tb_model.Text = myDr["in_model"].ToString();
             tb_manufactor.Text = myDr["in_manufactor"].ToString();
-            tb_serialNumber.Text = myDr["in_serialnumber"].ToString();
+            tb_serialnumber.Text = myDr["in_serialnumber"].ToString();
             tb_position.Text = myDr["in_position"].ToString();
-            tb_checkCycle.Text = myDr["in_checkcycle"].ToString();
-            tb_duty.Text = myDr["in_duty"].ToString();
+            tb_checkcycle.Text = myDr["in_checkcycle"].ToString();
+            DutyInformation((int)myDr["in_duty"]);
             if (title.Text.Equals("查看仪器基本信息"))
             {
                 tb_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
@@ -140,11 +151,6 @@ namespace cangku_01.view.InstrumentManagement
             time_productionDate.Text = myDr["in_productiondate"].ToString();
             time_lastCheckTimes.Text = myDr["in_lastchecktimes"].ToString();
             cb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
-        }
-
-        private void AddOrModifyInstrument_Load(object sender, EventArgs e)
-        {
-           
         }
 
         //获取仪器照片地址
@@ -170,10 +176,23 @@ namespace cangku_01.view.InstrumentManagement
         //仪器信息添加
         private void bt_addinstrument_Click(object sender, EventArgs e)    
         {
+            if (!FormValidation()) return;
             InstrumentInterface dao = new InstrumentDataManipulation();
+            DataTable dt = dao.TagIdQueryInstrument(GetInstrumentInformation());
+            if (dt.Rows.Count == 0)
+            {
+                AutoClosingMessageBox.Show("已存在该仪器TagId，误重复添加", "仪器信息添加重复", 1000);
+                return;
+            }
+            string[] sArray = placeidcoding.Split(new char[1] { '-'});
+            int placeid = int.Parse(sArray[3]);
+            WarehouseLocation wa = new WarehouseLocation();
+            wa.id = placeid;
+            wa.instrumenttagid = tb_tagid.Text;
+            wa.AddInstrument();
             dao.AddInstrument(GetInstrumentInformation());
-            AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             GetWriteCardInformation();
+            AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             index = fr.dgv_instrumentinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
             ResetPageInformation();
@@ -199,13 +218,13 @@ namespace cangku_01.view.InstrumentManagement
             ins.Name = tb_name.Text;
             ins.Model = tb_model.Text;
             ins.Manufactor = tb_manufactor.Text;
-            ins.SerialNumber = tb_serialNumber.Text;
+            ins.SerialNumber = tb_serialnumber.Text;
             ins.ProductionDate = Convert.ToDateTime(time_productionDate.Text);
-            ins.Position = tb_position.Text;
+            ins.Position = placeidcoding;
             ins.IsInWareHouse = cb_isInWareHouse.Text;
-            ins.CheckCycle = int.Parse(tb_checkCycle.Text);
+            ins.CheckCycle = int.Parse(tb_checkcycle.Text);
             ins.LastCheckTime = Convert.ToDateTime(time_lastCheckTimes.Text);
-            ins.Duty = tb_duty.Text;
+            ins.Duty = dutyid;
             return ins;
         }
 
@@ -224,6 +243,7 @@ namespace cangku_01.view.InstrumentManagement
         //仪器信息修改
         private void bt_alterinstrument_Click(object sender, EventArgs e)
         {
+            if (!FormValidation()) return;
             InstrumentInterface dao = new InstrumentDataManipulation();
             dao.UpdateInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息修改成功", "仪器信息修改", 1000);
@@ -285,8 +305,115 @@ namespace cangku_01.view.InstrumentManagement
             if (shelvesTreeView.ShowDialog() == DialogResult.OK)
             {
                 tb_position.Text = shelvesTreeView.locationName;
-                MessageBox.Show(shelvesTreeView.PlaceIdCoding);
+                placeidcoding = shelvesTreeView.PlaceIdCoding;
             }
+        }
+
+        //选择责任人
+        private void bt_selectduty_Click(object sender, EventArgs e)
+        {
+            selectEmployees = new EmployeeManagement();
+            selectEmployees.FormBorderStyle = FormBorderStyle.FixedSingle;
+            selectEmployees.EmployeesSelected += EmployeesSelected;
+            selectEmployees.ShowDialog();
+            selectEmployees.EmployeesSelected -= EmployeesSelected;
+        }
+
+        //显示责任人信息
+        private void EmployeesSelected(List<int> employeesIds)
+        {
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            foreach (var id in employeesIds)
+            {
+                dutyid = id;
+                em.Id = id;
+                DataTable dt = dao.IdQueryEmployee(em);
+                DataRow myDr = dt.Rows[0];
+                tb_duty.Text = myDr["em_name"].ToString();
+                tb_company.Text = myDr["em_company"].ToString();
+                tb_department.Text = myDr["em_department"].ToString();
+                tb_group.Text = myDr["em_group"].ToString();
+            }
+            tb_duty.Text = tb_duty.Text.Substring(0, tb_duty.Text.Length);
+        }
+
+        //获取责任人信息
+        public void DutyInformation(int id)
+        {
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            em.Id = id;
+            DataTable dt = dao.IdQueryEmployee(em);
+            DataRow myDr = dt.Rows[0];
+            tb_duty.Text = myDr["em_name"].ToString();
+            tb_company.Text = myDr["em_company"].ToString();
+            tb_department.Text = myDr["em_department"].ToString();
+            tb_group.Text = myDr["em_group"].ToString();
+        }
+
+        //表单验证
+        private bool FormValidation()
+        {
+            bool validation = true;
+            int tmp;
+            if (tb_tagid.Text.Trim().Equals(""))
+            {
+                la_errortagidnull.Visible = true;
+                la_errortagidnull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_errortagidnull.Visible = false;
+            if (tb_position.Text.Trim().Equals(""))
+            {
+                la_positionnull.Visible = true;
+                la_positionnull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_positionnull.Visible = false;
+            if (tb_name.Text.Trim().Equals(""))
+            {
+                la_namenull.Visible = true;
+                la_namenull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_namenull.Visible = false;
+            if (tb_model.Text.Trim().Equals(""))
+            {
+                la_modelnull.Visible = true;
+                la_modelnull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_modelnull.Visible = false;
+            if (tb_manufactor.Text.Trim().Equals(""))
+            {
+                la_manufactornull.Visible = true;
+                la_manufactornull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_manufactornull.Visible = false;
+            if (!int.TryParse(tb_checkcycle.Text, out tmp))
+            {
+                la_checkcyclenull.Visible = true;
+                la_checkcyclenull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_checkcyclenull.Visible = false;
+            if (tb_serialnumber.Text.Trim().Equals(""))
+            {
+                la_serialnumbernull.Visible = true;
+                la_serialnumbernull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_serialnumbernull.Visible = false;
+            if (tb_duty.Text.Trim().Equals(""))
+            {
+                la_dutynull.Visible = true;
+                la_dutynull.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_dutynull.Visible = false;
+            return validation;
         }
     }
 }

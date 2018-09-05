@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.view.EmployeesManagement
 {
-    partial class AddOrUpdateEmployees
+    partial class AddOrUpdateEmployee
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrUpdateEmployees));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrUpdateEmployee));
             this.La_addoralter = new System.Windows.Forms.Label();
             this.La_userid = new System.Windows.Forms.Label();
             this.la_employeesname = new System.Windows.Forms.Label();

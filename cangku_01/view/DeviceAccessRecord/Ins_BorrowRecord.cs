@@ -23,7 +23,7 @@ namespace cangku_01.MH
     {
         InstrumenBorrowRecord dao = new InsBorrowRecord();
         InstrumentManagement selectInstrument;
-        EmployeesManagement selectEmployees;
+        EmployeeManagement selectEmployees;
 
         public Ins_query()
         {
@@ -85,7 +85,7 @@ namespace cangku_01.MH
 
         private void btn_selectemployee_Click(object sender, EventArgs e)
         {
-            selectEmployees = new EmployeesManagement();
+            selectEmployees = new EmployeeManagement();
             selectEmployees.FormBorderStyle = FormBorderStyle.FixedSingle;
             selectEmployees.EmployeesSelected += EmployeesSelected;
             selectEmployees.ShowDialog();

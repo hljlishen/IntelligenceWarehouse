@@ -181,13 +181,14 @@ namespace cangku_01
             // 仪器位置查询ToolStripMenuItem
             // 
             this.仪器位置查询ToolStripMenuItem.Name = "仪器位置查询ToolStripMenuItem";
-            this.仪器位置查询ToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.仪器位置查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.仪器位置查询ToolStripMenuItem.Text = "仪器位置查询";
+            this.仪器位置查询ToolStripMenuItem.Click += new System.EventHandler(this.仪器位置查询ToolStripMenuItem_Click);
             // 
             // 元器件位置查询ToolStripMenuItem
             // 
             this.元器件位置查询ToolStripMenuItem.Name = "元器件位置查询ToolStripMenuItem";
-            this.元器件位置查询ToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.元器件位置查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.元器件位置查询ToolStripMenuItem.Text = "元器件位置查询";
             // 
             // toolStripMenuItem4
@@ -203,13 +204,13 @@ namespace cangku_01
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(106, 24);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 24);
             this.toolStripMenuItem6.Text = "借用";
             // 
             // 归还ToolStripMenuItem
             // 
             this.归还ToolStripMenuItem.Name = "归还ToolStripMenuItem";
-            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.归还ToolStripMenuItem.Text = "归还";
             // 
             // button1
