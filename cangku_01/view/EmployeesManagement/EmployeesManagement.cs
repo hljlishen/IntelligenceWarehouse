@@ -17,7 +17,7 @@ namespace cangku_01.view.EmployeesManagement
         EmployeesInterface dao = new EmployeeDataManipulation();
         private int nodeid;
         private int level;
-        public delegate void EmployeesSelectedHandler(List<int> employeesIds);
+        public delegate void EmployeesSelectedHandler(List<int> employeesIds,List<string> emNameAndId);
         public event EmployeesSelectedHandler EmployeesSelected;
 
         public EmployeesManagement()
@@ -229,12 +229,16 @@ namespace cangku_01.view.EmployeesManagement
         {
             var selectedRows = dgv_employeeinformation.SelectedRows;
             List<int> ids = new List<int>();
+            List<string> name = new List<string>();
             foreach (var row in selectedRows)
             {
                 int id = int.Parse(((DataGridViewRow)row).Cells[8].Value.ToString());
-                ids.Add(id);
+                string na = (((DataGridViewRow)row).Cells[0].Value.ToString());
+                string number = (((DataGridViewRow)row).Cells[1].Value.ToString());
+                name.Add(na);
+                name.Add(number);
             }
-            EmployeesSelected?.Invoke(ids);
+            EmployeesSelected?.Invoke(ids,name);
         }
     }
 }

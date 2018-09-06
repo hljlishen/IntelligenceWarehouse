@@ -83,7 +83,7 @@ namespace cangku_01.view.InstrumentManagement
         }
 
         //仪器信息详情构造方法
-        public AddOrUpdateInstrument(Instrument ins)
+        public AddOrUpdateInstrument(Instrument ins, UHFReader09Interface readerDrive)
         {
             InitializeComponent();
             title.Text = "查看仪器基本信息";
@@ -93,6 +93,9 @@ namespace cangku_01.view.InstrumentManagement
             time_productionDate.Visible = false;
             cb_isInWareHouse.Visible = false;
             this.ins = ins;
+            ReaderDrive = readerDrive;
+            ReaderDrive.OpenConnectReader();
+            ReaderDrive.TagConnected += ReadercheckDrive_TagConnected;
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataSet ds = dao.QueryInstrumentAllCheckDate(ins);
             cb_allcheckdate.DataSource = ds.Tables[0];
@@ -101,6 +104,11 @@ namespace cangku_01.view.InstrumentManagement
             SettingAllTextBoxReadOnly();
             ShowInstrumentPhoto();
             InstrumentMessageDataTableShowTextBox();
+        }
+
+        private void ReadercheckDrive_TagConnected(string tagId)
+        {
+            
         }
 
         //设置页面信息为只读
@@ -276,6 +284,7 @@ namespace cangku_01.view.InstrumentManagement
         {
             ReaderDrive.TagConnected -= ReaderAddDrive_TagConnected;
             ReaderDrive.TagConnected -= ReaderUpdateDrive_TagConnected;
+            ReaderDrive.TagConnected -= ReadercheckDrive_TagConnected;
         }
 
         //选择货架位置

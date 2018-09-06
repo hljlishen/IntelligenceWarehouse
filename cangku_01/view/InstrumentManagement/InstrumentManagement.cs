@@ -18,7 +18,7 @@ namespace cangku_01.view.InstrumentManagement
         InstrumentInterface dao = new InstrumentDataManipulation();
         Instrument ins = new Instrument();
         private static UHFReader09Interface ReaderDrive = null;
-        public delegate void InstrumentSelectedHandler(List<int> instrumentIds);
+        public delegate void InstrumentSelectedHandler(List<int> instrumentIds,List<string> insNameAndModel);
         public event InstrumentSelectedHandler InstrumentSelected;
 
         public InstrumentManagement()
@@ -92,10 +92,11 @@ namespace cangku_01.view.InstrumentManagement
             //修改
             if (e.ColumnIndex == 9)
             {
-                 //获取要修改属性
-                 Instrument ins = new Instrument();
+                UHFReader reader = UHFReader.CreateInstance();
+                //获取要修改属性
+                Instrument ins = new Instrument();
                  ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
-                 AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
+                 AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins, reader);
                  add.ShowDialog(); 
             }
         }
@@ -138,12 +139,18 @@ namespace cangku_01.view.InstrumentManagement
         {
             var selectedRows = dgv_instrumentinformation.SelectedRows;
             List<int> ids = new List<int>();
-            foreach(var row in selectedRows)
+            List<string> name = new List<string>();
+            foreach (var row in selectedRows)
             {
                 int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
-                ids.Add(id);
+                string na = ((DataGridViewRow)row).Cells[1].Value.ToString();
+                string mo = ((DataGridViewRow)row).Cells[2].Value.ToString();
+                string ma = ((DataGridViewRow)row).Cells[3].Value.ToString();
+                name.Add(na);
+                name.Add(mo);
+                name.Add(ma);
             }
-            InstrumentSelected?.Invoke(ids);
+            InstrumentSelected?.Invoke(ids,name);
         }
     }
 }

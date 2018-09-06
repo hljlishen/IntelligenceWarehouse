@@ -51,7 +51,7 @@
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.仪器Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -111,7 +111,7 @@
             this.Column1,
             this.Column2,
             this.查看详情,
-            this.仪器Id});
+            this.仪器id});
             this.dgv_instrumentinformation.Location = new System.Drawing.Point(73, 95);
             this.dgv_instrumentinformation.MultiSelect = false;
             this.dgv_instrumentinformation.Name = "dgv_instrumentinformation";
@@ -291,11 +291,11 @@
             this.查看详情.UseColumnTextForButtonValue = true;
             this.查看详情.Width = 120;
             // 
-            // 仪器Id
+            // 仪器id
             // 
-            this.仪器Id.HeaderText = "仪器Id";
-            this.仪器Id.Name = "仪器Id";
-            this.仪器Id.Visible = false;
+            this.仪器id.HeaderText = "仪器id";
+            this.仪器id.Name = "仪器id";
+            this.仪器id.Visible = false;
             // 
             // InstrumentManagement
             // 
@@ -342,6 +342,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn 查看详情;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器id;
     }
 }

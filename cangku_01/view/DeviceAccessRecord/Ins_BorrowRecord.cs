@@ -1,20 +1,12 @@
 ﻿using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.view.EmployeesManagement;
+using cangku_01.view.InstrumentManagement;
+using DbLink;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
-using DbLink;
-using cangku_01.view.InstrumentManagement;
-using cangku_01.view.EmployeesManagement;
 
 namespace cangku_01.MH
 {
@@ -22,6 +14,7 @@ namespace cangku_01.MH
     public partial class Ins_query : Form
     {
         InstrumenBorrowRecord dao = new InsBorrowRecord();
+        InstrumentInAndOutRecord record ;
         InstrumentManagement selectInstrument;
         EmployeesManagement selectEmployees;
 
@@ -30,40 +23,66 @@ namespace cangku_01.MH
             InitializeComponent();
         }
 
+
         private void InstrumentQuery_Load(object sender, EventArgs e)
         {
             cb_query.Text = "出入库";
             //选择时间查询
-            this.cb_choicetime.MouseClick += cb_openchoicetime_MouseClick;
-            this.cb_choicetime.MouseClick += cb_closechoicetime_MouseClick;
+            cb_choicetime.MouseClick += cb_choicetime_MouseClick;
             //调用方法固定页面
             Top = 0;
             Left = 0;
+            DataTable dt = dao.AllInAndOutRecords();//将全部员工加载
+            ShowDataGridView(dt);
         }
 
+        //DataGridView显示数据
+        public void ShowDataGridView(DataTable dt)
+        {
+            dgv_InstrumentInAndOutrecord.Rows.Clear();
+            foreach (DataRow dr in dt.Rows)
+            {
+                DataGridViewRow row2 = new DataGridViewRow();
+                int index = dgv_InstrumentInAndOutrecord.Rows.Add(row2);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = dr["in_tagid"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = dr["in_name"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = dr["in_position"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = dr["ins_time"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = dr["ins_direct"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["in_model"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = dr["em_name"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = dr["in_duty"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = dr["in_manufactor"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[9].Value = dr["in_productiondate"];
+            }
+        }
+
+        //搜索仪器出入库信息按钮
         private void Btnquery_Click(object sender, EventArgs e)
         {
-            ISelectSqlMaker maker = DbLinkManager.GetLinkFactory().CreateSelectSqlMaker("t_insinandoutrecords");
+            //ISelectSqlMaker maker = DbLinkManager.GetLinkFactory().CreateSelectSqlMaker("t_insinandoutrecords");
+            record.InstrumentId = Convert.ToUInt16(tb_instrument.Text);
+            record.EmployeeId = Convert.ToUInt16(tb_employee.Text);
+            record.Direction = cb_query.Text.Equals("出入库") ? null : cb_query.Text;
+            ShowDataGridView(dao.SearchRecords(record));
         }
 
-        private void cb_openchoicetime_MouseClick(object sender, MouseEventArgs e)
+        //点击勾选框选择时间查询
+        private void cb_choicetime_MouseClick(object sender, MouseEventArgs e)
         {
             if (cb_choicetime.Checked.Equals(true))
             {
                 dtp_begin.Enabled = true;
                 dtp_end.Enabled = true;
-
             }
-        }
-        private void cb_closechoicetime_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (cb_choicetime.Checked.Equals(false))
+            else
             {
                 dtp_begin.Enabled = false;
                 dtp_end.Enabled = false;
             }
         }
 
+        //查找仪器信息
         private void btn_selectInstrument_Click(object sender, EventArgs e)
         {
             selectInstrument = new InstrumentManagement();
@@ -73,16 +92,18 @@ namespace cangku_01.MH
             selectInstrument.InstrumentSelected -= InstrumentSelected;
         }
 
-        private void InstrumentSelected(List<int> instrumentIds)
+        private void InstrumentSelected(List<int> instrumentIds,List<string> insNameAndModel)
         {
-            tb_instrumentId.Text = "";
-            foreach(var id in instrumentIds)
+            tb_instrument.Text = "";
+            foreach (var name in insNameAndModel)
             {
-                tb_instrumentId.Text += id;
+                tb_instrument.Text += name;
+                tb_instrument.Text += ",";
             }
-            tb_instrumentId.Text = tb_instrumentId.Text.Substring(0, tb_instrumentId.Text.Length);
+            tb_instrument.Text = tb_instrument.Text.Substring(0, tb_instrument.Text.Length-1);
         }
 
+        //查找员工信息
         private void btn_selectemployee_Click(object sender, EventArgs e)
         {
             selectEmployees = new EmployeesManagement();
@@ -92,16 +113,27 @@ namespace cangku_01.MH
             selectEmployees.EmployeesSelected -= EmployeesSelected;
         }
 
-        private void EmployeesSelected(List<int> employeesIds)
+        private void EmployeesSelected(List<int> employeesIds, List<string> emNameAndId)
         {
-            tb_employeeId.Text = "";
-            foreach (var id in employeesIds)
+            tb_employee.Text = "";
+            foreach (var name in emNameAndId)
             {
-                tb_employeeId.Text += id;
+                tb_employee.Text += name;
+                tb_employee.Text += ",";
             }
-            tb_employeeId.Text = tb_employeeId.Text.Substring(0, tb_employeeId.Text.Length);
+            tb_employee.Text = tb_employee.Text.Substring(0, tb_employee.Text.Length-1);
         }
 
+        //双击清空textbox
+        private void tb_employee_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            tb_employee.Text = "";
+        }
 
+        //双击清空textbox
+        private void tb_instrument_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            tb_instrument.Text = "";
+        }
     }
 }

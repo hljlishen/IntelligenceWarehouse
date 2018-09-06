@@ -94,7 +94,7 @@ namespace cangku_01
             this.label9 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.bt_empty = new System.Windows.Forms.Button();
+            this.bt_instrument = new System.Windows.Forms.Button();
             this.lv_instrumrntinformation = new System.Windows.Forms.ListView();
             this.column_Insnumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Insid = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -705,7 +705,7 @@ namespace cangku_01
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.bt_empty);
+            this.tabPage1.Controls.Add(this.bt_instrument);
             this.tabPage1.Controls.Add(this.lv_instrumrntinformation);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -715,15 +715,15 @@ namespace cangku_01
             this.tabPage1.Text = "仪器通过记录";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // bt_empty
+            // bt_instrument
             // 
-            this.bt_empty.Location = new System.Drawing.Point(555, 245);
-            this.bt_empty.Name = "bt_empty";
-            this.bt_empty.Size = new System.Drawing.Size(75, 23);
-            this.bt_empty.TabIndex = 1;
-            this.bt_empty.Text = "清空";
-            this.bt_empty.UseVisualStyleBackColor = true;
-            this.bt_empty.Click += new System.EventHandler(this.bt_empty_Click);
+            this.bt_instrument.Location = new System.Drawing.Point(555, 245);
+            this.bt_instrument.Name = "bt_instrument";
+            this.bt_instrument.Size = new System.Drawing.Size(75, 23);
+            this.bt_instrument.TabIndex = 1;
+            this.bt_instrument.Text = "清空";
+            this.bt_instrument.UseVisualStyleBackColor = true;
+            this.bt_instrument.Click += new System.EventHandler(this.bt_instrument_Click);
             // 
             // lv_instrumrntinformation
             // 
@@ -907,7 +907,7 @@ namespace cangku_01
         public TextBox tb_ShowState;
         public TextBox tb_ShowName;
         public TextBox tb_ShowId;
-        private Button bt_empty;
+        private Button bt_instrument;
         private ListView lv_employeepassdoor;
         private ColumnHeader ch_employeenumber;
         private ColumnHeader ch_name;
