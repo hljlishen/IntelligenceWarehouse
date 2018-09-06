@@ -13,7 +13,7 @@ namespace cangku_01
 {
     public partial class Administration : Form
     {
-        private EmployeesManagement index_employees = null;
+        private EmployeeManagement index_employees = null;
         private WarehouseManagement warehouseManagement = null;
         private DueToRemind Due_to_remind = null;
         private Ins_query Ins_query = null;
@@ -34,12 +34,12 @@ namespace cangku_01
         {
             if (index_employees == null)
             {
-                index_employees = new EmployeesManagement();
+                index_employees = new EmployeeManagement();
             }
             else
             {
                 index_employees.Close();
-                index_employees = new EmployeesManagement();
+                index_employees = new EmployeeManagement();
             }
             index_employees.MdiParent = this;
             index_employees.Show();

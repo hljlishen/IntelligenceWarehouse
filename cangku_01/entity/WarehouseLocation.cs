@@ -16,7 +16,7 @@ namespace cangku_01.entity
         public int tier;                    //节点深度
         public int belongid;                //父节点SQLid
         private string synopsis;            //仓库简介
-        private string instrumenttagid;     //仓库储存仪器Tageid
+        public string instrumenttagid;      //仓库储存仪器Tageid
         private string temp;                //仓库所属部门
         public TreeNode tn;
         private List<WarehouseLocation> LowerRank;
@@ -207,6 +207,13 @@ namespace cangku_01.entity
             string sql = "select * from t_warehouselocation where wa_tier=" + tier + "";
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
+        }
+
+        //给位置添加货物
+        public void AddInstrument()
+        {
+            string sql = "update t_warehouselocation set wa_instrumenttagid = '" + instrumenttagid + " 'where wa_id = " + id + "";
+            dbo.WriteDB(sql);
         }
 
     }

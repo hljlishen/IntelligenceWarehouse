@@ -127,11 +127,11 @@
     <Compile Include="view\AdminPage\AutoCloseMassageBox.Designer.cs">
       <DependentUpon>AutoCloseMassageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EmployeesManagement\AddOrUpdateEmployees.cs">
+    <Compile Include="view\EmployeesManagement\AddOrUpdateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EmployeesManagement\AddOrUpdateEmployees.Designer.cs">
-      <DependentUpon>AddOrUpdateEmployees.cs</DependentUpon>
+    <Compile Include="view\EmployeesManagement\AddOrUpdateEmployee.Designer.cs">
+      <DependentUpon>AddOrUpdateEmployee.cs</DependentUpon>
     </Compile>
     <Compile Include="view\AdminPage\Confirm.cs">
       <SubType>Form</SubType>
@@ -151,11 +151,11 @@
     <Compile Include="view\TheWarehouseHomePage\TheWarehouseHomePage.Designer.cs">
       <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EmployeesManagement\EmployeesManagement.cs">
+    <Compile Include="view\EmployeesManagement\EmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EmployeesManagement\EmployeesManagement.Designer.cs">
-      <DependentUpon>EmployeesManagement.cs</DependentUpon>
+    <Compile Include="view\EmployeesManagement\EmployeeManagement.Designer.cs">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="interfaceImp\EmployeeDataManipulation.cs" />
     <Compile Include="interfaces\EmployeesInterface.cs" />
@@ -234,8 +234,8 @@
     <EmbeddedResource Include="view\AdminPage\AutoCloseMassageBox.resx">
       <DependentUpon>AutoCloseMassageBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EmployeesManagement\AddOrUpdateEmployees.resx">
-      <DependentUpon>AddOrUpdateEmployees.cs</DependentUpon>
+    <EmbeddedResource Include="view\EmployeesManagement\AddOrUpdateEmployee.resx">
+      <DependentUpon>AddOrUpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminPage\Confirm.resx">
       <DependentUpon>Confirm.cs</DependentUpon>
@@ -246,8 +246,8 @@
     <EmbeddedResource Include="view\TheWarehouseHomePage\TheWarehouseHomePage.resx">
       <DependentUpon>TheWarehouseHomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EmployeesManagement\EmployeesManagement.resx">
-      <DependentUpon>EmployeesManagement.cs</DependentUpon>
+    <EmbeddedResource Include="view\EmployeesManagement\EmployeeManagement.resx">
+      <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\AdminPage\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>

@@ -34,6 +34,9 @@ namespace cangku_01.interfaces
         //编号查询员工
         DataTable EmployeeNumberQueryEmployee(Employee em);
 
+        //Id查询员工
+        DataTable IdQueryEmployee(Employee em);
+
         //在组中搜素员工
         DataTable QueryInTheGroupEmployee(Employee em, int level, int nodeid);
 

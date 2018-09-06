@@ -1,25 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using cangku_01.SQQ;
+using cangku_01.entity;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
-namespace cangku_01.SQQ
+//仪器查询
+
+namespace cangku_01.view.TheWarehouseHomePage
 {
     public partial class Find_Items : Form
     {
-        String instrument_query_info = "请输入仪器的名称";
-        String Component_query_info = "请输入元器件的名称";
         public Find_Items()
         {
             InitializeComponent();
-            Component.Text = Component_query_info;
-            Instrument.Text = instrument_query_info;
         }
 
         private void Find_Items_Load(object sender, EventArgs e)
@@ -28,41 +23,60 @@ namespace cangku_01.SQQ
 
         }
 
-        private void Instrument_Leave(object sender, EventArgs e)
+        //搜索
+        private void bt_findinstrument_Click(object sender, EventArgs e)
         {
-            if (this.Instrument.Text.Trim() == "")
+            if (!FormValidation()) return;
+            Instrument ins = new Instrument();
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            ins.Name = tb_name.Text;
+            ins.Model = tb_model.Text;
+            ins.Manufactor = tb_manufactor.Text;
+            ins.SerialNumber = tb_serialnumber.Text;
+            ShowDataGridView(dao.QueryInstrument(ins));
+
+        }
+
+        //DataGridView显示数据
+        public void ShowDataGridView(DataTable dt)
+        {
+            foreach (DataRow dr in dt.Rows)
             {
-                this.Instrument.Text = instrument_query_info;
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dgv_instrumentplace.Rows.Add(row);
+                dgv_instrumentplace.Rows[index].Cells[0].Value = dr["in_name"];
+                dgv_instrumentplace.Rows[index].Cells[1].Value = dr["in_model"];
+                dgv_instrumentplace.Rows[index].Cells[2].Value = PlaceUnscramble(dr["in_position"].ToString());
             }
         }
 
-        private void Instrument_MouseClick(object sender, MouseEventArgs e)
+        //表单验证
+        private bool FormValidation()
         {
-            if (this.Instrument.Text.Trim() == instrument_query_info)
+            bool validation = true;
+            if (tb_name.Text.Trim().Equals("")&& tb_model.Text.Trim().Equals("") && tb_manufactor.Text.Trim().Equals("") && tb_serialnumber.Text.Trim().Equals(""))
             {
-                this.Instrument.Text = "";
+                AutoClosingMessageBox.Show("您未输入任何查询信息", "无查询信息", 1000);
+                validation = false;
             }
+            return validation;
         }
 
-        private void Component_Leave(object sender, EventArgs e)
+        //位置编码解读
+        private string PlaceUnscramble(string position)
         {
-            if (this.Component.Text.Trim() == "")
+            string place = "";
+            WarehouseLocation wa = new WarehouseLocation();
+            string[] sArray = position.Split(new char[1] { '-' });
+            for (int i = 0; i <= 3; i++)
             {
-                this.Component.Text = Component_query_info;
+                wa.id = int.Parse(sArray[i]);
+                DataTable dt = wa.SqlIdQueryWarehouseInformation();
+                DataRow myDr = dt.Rows[0];
+                place += myDr["wa_name"].ToString()+"-";
             }
-        }
- 
-        private void Component_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (this.Component.Text.Trim() == Component_query_info)
-            {
-                this.Component.Text = "";
-            }
-        }
-       
-        private void Info_title_Enter(object sender, EventArgs e)
-        {
-
+            place = place.Substring(0, place.Length - 1);
+            return place;
         }
     }
 }

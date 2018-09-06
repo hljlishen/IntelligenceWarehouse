@@ -7,6 +7,7 @@ using cangku_01.interfaces;
 using cangku_01.GateDrive;
 using System.IO;
 using System.Drawing;
+using cangku_01.view.TheWarehouseHomePage;
 
 namespace cangku_01
 {
@@ -143,6 +144,13 @@ namespace cangku_01
         private void bt_emptyemployeepassdoor_Click(object sender, EventArgs e)
         {
             lv_employeepassdoor.Items.Clear();
+        }
+
+        //仪器位置查询
+        private void 仪器位置查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Find_Items queryinstrument = new Find_Items();
+            queryinstrument.ShowDialog();
         }
     }
 }

@@ -213,17 +213,11 @@
   <data name="ID.ToolTipText" xml:space="preserve">
     <value>01</value>
   </data>
-  <data name="ID.Width" type="System.Int32, mscorlib">
-    <value>114</value>
-  </data>
   <metadata name="姓名.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="姓名.HeaderText" xml:space="preserve">
     <value>姓名</value>
-  </data>
-  <data name="姓名.Width" type="System.Int32, mscorlib">
-    <value>114</value>
   </data>
   <metadata name="性别.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -268,7 +262,7 @@
     <value>删除</value>
   </data>
   <data name="del.Width" type="System.Int32, mscorlib">
-    <value>113</value>
+    <value>108</value>
   </data>
   <metadata name="update_.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -277,7 +271,7 @@
     <value>修改</value>
   </data>
   <data name="update_.Width" type="System.Int32, mscorlib">
-    <value>114</value>
+    <value>108</value>
   </data>
   <metadata name="员工Id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -624,6 +618,21 @@
   <data name="&gt;&gt;la_foundsex.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="bt_foundall.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="bt_foundall.Location" type="System.Drawing.Point, System.Drawing">
+    <value>649, 17</value>
+  </data>
+  <data name="bt_foundall.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 26</value>
+  </data>
+  <data name="bt_foundall.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="bt_foundall.Text" xml:space="preserve">
+    <value>搜索全部</value>
+  </data>
   <data name="&gt;&gt;bt_foundall.Name" xml:space="preserve">
     <value>bt_foundall</value>
   </data>
@@ -658,33 +667,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;gb_foundemployees.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="bt_foundall.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt</value>
-  </data>
-  <data name="bt_foundall.Location" type="System.Drawing.Point, System.Drawing">
-    <value>649, 17</value>
-  </data>
-  <data name="bt_foundall.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 26</value>
-  </data>
-  <data name="bt_foundall.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="bt_foundall.Text" xml:space="preserve">
-    <value>搜索全部</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.Name" xml:space="preserve">
-    <value>bt_foundall</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.Parent" xml:space="preserve">
-    <value>gb_foundemployees</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -760,7 +742,7 @@
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>EmployeesManagement</value>
+    <value>EmployeeManagement</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.view.EmployeesManagement
 {
-    partial class EmployeesManagement
+    partial class EmployeeManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesManagement));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManagement));
             this.tb_foundemployeeid = new System.Windows.Forms.TextBox();
             this.bt_foundnowgroup = new System.Windows.Forms.Button();
             this.bt_addemployee = new System.Windows.Forms.Button();
             this.dgv_employeeinformation = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.公司 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.小组 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.del = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.员工Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tv_department = new System.Windows.Forms.TreeView();
             this.btn_addrootnode = new System.Windows.Forms.Button();
             this.btn_addchildnode = new System.Windows.Forms.Button();
@@ -46,15 +55,6 @@
             this.la_foundsex = new System.Windows.Forms.Label();
             this.gb_foundemployees = new System.Windows.Forms.GroupBox();
             this.bt_foundall = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.姓名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.性别 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.公司 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.部门 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.小组 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.del = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.员工Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).BeginInit();
             this.gb_foundemployees.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,69 @@
             this.dgv_employeeinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_employeeinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeinformation_CellContentClick);
             this.dgv_employeeinformation.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_employeeinformation_CellMouseClick);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "01";
+            resources.ApplyResources(this.ID, "ID");
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // 姓名
+            // 
+            resources.ApplyResources(this.姓名, "姓名");
+            this.姓名.Name = "姓名";
+            this.姓名.ReadOnly = true;
+            // 
+            // 性别
+            // 
+            resources.ApplyResources(this.性别, "性别");
+            this.性别.Name = "性别";
+            this.性别.ReadOnly = true;
+            // 
+            // 公司
+            // 
+            resources.ApplyResources(this.公司, "公司");
+            this.公司.Name = "公司";
+            this.公司.ReadOnly = true;
+            // 
+            // 部门
+            // 
+            resources.ApplyResources(this.部门, "部门");
+            this.部门.Name = "部门";
+            this.部门.ReadOnly = true;
+            // 
+            // 小组
+            // 
+            resources.ApplyResources(this.小组, "小组");
+            this.小组.Name = "小组";
+            this.小组.ReadOnly = true;
+            // 
+            // del
+            // 
+            this.del.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            resources.ApplyResources(this.del, "del");
+            this.del.Name = "del";
+            this.del.ReadOnly = true;
+            this.del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.del.Text = "删除";
+            this.del.UseColumnTextForButtonValue = true;
+            // 
+            // update_
+            // 
+            this.update_.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            resources.ApplyResources(this.update_, "update_");
+            this.update_.Name = "update_";
+            this.update_.ReadOnly = true;
+            this.update_.Text = "修改";
+            this.update_.UseColumnTextForButtonValue = true;
+            // 
+            // 员工Id
+            // 
+            resources.ApplyResources(this.员工Id, "员工Id");
+            this.员工Id.Name = "员工Id";
+            this.员工Id.ReadOnly = true;
             // 
             // tv_department
             // 
@@ -189,70 +252,7 @@
             this.bt_foundall.UseVisualStyleBackColor = true;
             this.bt_foundall.Click += new System.EventHandler(this.bt_foundall_Click);
             // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "01";
-            resources.ApplyResources(this.ID, "ID");
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // 姓名
-            // 
-            resources.ApplyResources(this.姓名, "姓名");
-            this.姓名.Name = "姓名";
-            this.姓名.ReadOnly = true;
-            // 
-            // 性别
-            // 
-            resources.ApplyResources(this.性别, "性别");
-            this.性别.Name = "性别";
-            this.性别.ReadOnly = true;
-            // 
-            // 公司
-            // 
-            resources.ApplyResources(this.公司, "公司");
-            this.公司.Name = "公司";
-            this.公司.ReadOnly = true;
-            // 
-            // 部门
-            // 
-            resources.ApplyResources(this.部门, "部门");
-            this.部门.Name = "部门";
-            this.部门.ReadOnly = true;
-            // 
-            // 小组
-            // 
-            resources.ApplyResources(this.小组, "小组");
-            this.小组.Name = "小组";
-            this.小组.ReadOnly = true;
-            // 
-            // del
-            // 
-            this.del.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            resources.ApplyResources(this.del, "del");
-            this.del.Name = "del";
-            this.del.ReadOnly = true;
-            this.del.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.del.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.del.Text = "删除";
-            this.del.UseColumnTextForButtonValue = true;
-            // 
-            // update_
-            // 
-            this.update_.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            resources.ApplyResources(this.update_, "update_");
-            this.update_.Name = "update_";
-            this.update_.ReadOnly = true;
-            this.update_.Text = "修改";
-            this.update_.UseColumnTextForButtonValue = true;
-            // 
-            // 员工Id
-            // 
-            resources.ApplyResources(this.员工Id, "员工Id");
-            this.员工Id.Name = "员工Id";
-            this.员工Id.ReadOnly = true;
-            // 
-            // EmployeesManagement
+            // EmployeeManagement
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -266,7 +266,7 @@
             this.Controls.Add(this.bt_addemployee);
             this.Controls.Add(this.dgv_employeeinformation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "EmployeesManagement";
+            this.Name = "EmployeeManagement";
             this.Load += new System.EventHandler(this.index_employees_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).EndInit();
             this.gb_foundemployees.ResumeLayout(false);

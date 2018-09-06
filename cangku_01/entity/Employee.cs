@@ -40,6 +40,15 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //员工id查询员工sql
+        public string IdFindEmployeeSql()
+        {
+            string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
+                      "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
+                      "where em_id = " + Id + "";
+            return sql;
+        }
+
         //添加员工sql
         public string AddEmployeeSql()
         {
