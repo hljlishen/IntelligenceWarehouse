@@ -97,7 +97,6 @@ namespace cangku_01.GateDrive
         public void BorrowInformation(GateData insborrow)
         {
             string sql = insborrow.BorrowInformationSql();
-
             dbo.WriteDB(sql);
         }
 

@@ -135,7 +135,7 @@ namespace cangku_01
         }
 
         //清空仪器出入表
-        private void bt_empty_Click(object sender, EventArgs e)
+        private void bt_instrument_Click(object sender, EventArgs e)
         {
             lv_instrumrntinformation.Items.Clear();
         }

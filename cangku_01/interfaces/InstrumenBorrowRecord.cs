@@ -1,4 +1,5 @@
 ﻿using cangku_01.entity;
+using cangku_01.GateDrive;
 using cangku_01.interfaceImp;
 using System;
 using System.Collections.Generic;
@@ -13,21 +14,15 @@ namespace cangku_01.interfaces
 {
     interface InstrumenBorrowRecord
     {
-
+        //添加仪器出入记录
+        void AddInAndOutRecords(InstrumentInAndOutRecord rec,Employee ee, GateData door);
 
         //获取全部仪器出入库信息
-        DataTable QueryInAndOutRecords();
-
-        //获取全部仪器的出库信息
-        DataTable QueryOutRecords();
-
-        //获取全部仪器的入库信息
-        DataTable QueryInRecords();
-
-        //仪器出入库信息的添加
-        void AddInAndOutRecords(InstrumentInAndOutRecord rec);
+        DataTable AllInAndOutRecords();
 
         //仪器出入库信息的搜索
         DataTable SearchRecords(InstrumentInAndOutRecord rec);
+
+
     }
 }
