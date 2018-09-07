@@ -12,6 +12,8 @@ namespace cangku_01.entity
 {
     public class Employee
     {
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+
         public int Id {get;set;}                     //sql员工主键ID
         public string EmployeeNumber { get; set; }   //员工编号
         public string Name { get; set; }             //名字
@@ -21,7 +23,7 @@ namespace cangku_01.entity
         public int Group { get; set; }               //组名 
         public DateTime PassDoor { get; set; }       //过门时间
 
-        SelectSqlMaker maker;
+        ISelectSqlMaker maker;
 
         //查询全部员工sql
         public string QueryAllEmployeeSql()
@@ -149,7 +151,7 @@ namespace cangku_01.entity
 
         private void Setup()
         {
-            maker = new SelectSqlMaker("User");
+            maker = factory.CreateSelectSqlMaker("t_employee");
         }
     }  
 }

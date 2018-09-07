@@ -10,12 +10,14 @@ namespace cangku_01.GateDrive
 {
     class GateData
     {
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+
         public string TagId  { get; set; }  //仪器标签Id
         public string Name { get; set; }   //仪器名称
         public string ThroughDoorTime { get; set; }//通过门的时间
         public string ThroughDoorDirection { get; set; }//仪器过门的操作
 
-        SelectSqlMaker maker;
+        ISelectSqlMaker maker;
         //添加借用信息sql 
         public string BorrowInformationSql()
         {
@@ -35,7 +37,7 @@ namespace cangku_01.GateDrive
 
         private void SetupInstrument()
         {
-            maker = new SelectSqlMaker("t_instrument");
+            maker = factory.CreateSelectSqlMaker("t_instrument");
         }
     }
 }

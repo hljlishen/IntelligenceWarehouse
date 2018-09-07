@@ -1,14 +1,14 @@
 ﻿using DbLink2;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+//仪器实体类
 
 namespace cangku_01.entity
 {
     public class Instrument
     {
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+
         public int Id { get; set; }                  //sql仪器主键id
         public string TagId { get; set; }            //仪器标签ID
         public string Name { get; set; }             //仪器名称
@@ -22,7 +22,7 @@ namespace cangku_01.entity
         public DateTime LastCheckTime { get; set; }  //上一次检查时间
         public int Duty { get; set; }                //责任人
 
-        SelectSqlMaker maker;
+        ISelectSqlMaker maker;
 
         //计算下一次检查日期
         public string NextCheckTimes()
@@ -113,14 +113,14 @@ namespace cangku_01.entity
             maker.AddAndCondition(new StringLike("in_serialNumber", SerialNumber));
             maker.AddAndCondition(new StringEqual("in_isinwarehouse", IsInWareHouse));
             //maker.AddAndCondition(new IntEqual("in_duty", Duty));
-            maker.AddFieldsWillBeSelected("in_id");
-            maker.AddFieldsWillBeSelected("in_tagid");
-            maker.AddFieldsWillBeSelected("in_name");
-            maker.AddFieldsWillBeSelected("in_model");
-            maker.AddFieldsWillBeSelected("in_manufactor");
-            maker.AddFieldsWillBeSelected("in_position");
-            maker.AddFieldsWillBeSelected("in_isinwarehouse");
-            maker.AddFieldsWillBeSelected("in_duty");
+            maker.AddSelectField("in_id");
+            maker.AddSelectField("in_tagid");
+            maker.AddSelectField("in_name");
+            maker.AddSelectField("in_model");
+            maker.AddSelectField("in_manufactor");
+            maker.AddSelectField("in_position");
+            maker.AddSelectField("in_isinwarehouse");
+            maker.AddSelectField("in_duty");
             string sql = maker.MakeSelectSql();
             return sql;
         }
@@ -151,12 +151,12 @@ namespace cangku_01.entity
 
         private void SetupInstrument()
         {
-            maker = new SelectSqlMaker("t_instrument");
+            maker = factory.CreateSelectSqlMaker("t_instrument");
         }
 
         private void SetupCheckdate()
         {
-            maker = new SelectSqlMaker("t_checkdate");
+            maker = factory.CreateSelectSqlMaker("t_checkdate");
         }
     }
 }

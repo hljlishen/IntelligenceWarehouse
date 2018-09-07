@@ -195,6 +195,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Find_Items";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "位置查询";
             this.Load += new System.EventHandler(this.Find_Items_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentplace)).EndInit();
