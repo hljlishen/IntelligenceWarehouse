@@ -101,17 +101,6 @@
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="entity\InstrumentInAndOutRecord.cs" />
-    <Compile Include="SelectCondition\DateEqual.cs" />
-    <Compile Include="SelectCondition\DateTimeBetweenCloseInterval.cs" />
-    <Compile Include="SelectCondition\DoubleBetween.cs" />
-    <Compile Include="SelectCondition\IDateTimeFormater.cs" />
-    <Compile Include="SelectCondition\IntBetweenCloseInterval.cs" />
-    <Compile Include="SelectCondition\IntBetweenOpenInterval.cs" />
-    <Compile Include="SelectCondition\IntEqual.cs" />
-    <Compile Include="SelectCondition\SelectCondition.cs" />
-    <Compile Include="SelectCondition\SelectSqlMaker.cs" />
-    <Compile Include="SelectCondition\StringEqual.cs" />
-    <Compile Include="SelectCondition\StringLike.cs" />
     <Compile Include="UHFReader09\UHFReader.cs" />
     <Compile Include="UHFReader09\UHFReader09Interface.cs" />
     <Compile Include="view\AdminPage\Administration.cs">
