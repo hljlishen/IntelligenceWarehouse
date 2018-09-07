@@ -3,52 +3,77 @@ using DbLink;
 
 namespace cangku_01
 {
-    class InstrumentInAndOutRecord : ActiveRecord
+    public class InstrumentInAndOutRecord : ActiveRecord
     {
-        private InstrumentInAndOutRecord record;
-        private ISelectSqlMaker makerIns;
-        ISelectSqlMaker makerEm;
+        private ISelectSqlMaker maker;
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
 
-        public int? Id { get; set; }
-        public int? InstrumentId { get; set; }
-        public int? EmployeeId { get; set; }
-        public string Direction { get; set; }
-        public DateTime? Time { get; set; }
+        public int? ins_recordsid { get; set; }
+        public int? ins_instrumentid { get; set; }
+        public int? ins_employeeid { get; set; }
+        public string ins_direct { get; set; }
+        public DateTime? ins_time { get; set; }
 
-        private InstrumentInAndOutRecord(DbLinkFactory factory) : base("t_insinandoutrecords", "Id", factory)
+        public InstrumentInAndOutRecord() : base("t_insinandoutrecords", "ins_recordsid", factory)
         {
-            AddInstrumentRecordSql();
-            record = new InstrumentInAndOutRecord(factory);
-            makerIns = factory.CreateSelectSqlMaker("t_instrument");
-            makerEm = factory.CreateSelectSqlMaker("t_employee");
         }
 
-        //添加仪器记录
-        private string AddInstrumentRecordSql()
+        private void SetupInsRecord()
         {
-            record.InstrumentId = 1;
-            record.EmployeeId = 3;
-            record.Direction = "是";
-            record.Time = new DateTime(2018, 3, 11, 23, 14, 59);
-            //record.InstrumentId = Convert.ToUInt16("ins_instrument");
-            //record.EmployeeId = Convert.ToUInt16("ins_employeeid");
-            //record.Direction = "ins_direct";
-            //record.Time = new DateTime(Convert.ToUInt32("ins_time"));
-            string sql = record.MakeInsertSqlCommand();
+            maker = factory.CreateSelectSqlMaker("t_insinandoutrecords");
+        }
+
+        private void SetInstrument()
+        {
+            maker = factory.CreateSelectSqlMaker("t_instrument");
+        }
+
+        private void SetEmployee()
+        {
+            maker = factory.CreateSelectSqlMaker("t_employee");
+        }
+
+        ////添加仪器记录
+        //public string AddInstrumentRecordSql()
+        //{
+        //    SetupInsRecord();
+        //    record.ins_instrumentid = Convert.ToUInt16("ins_instrument");
+        //    record.ins_employeeid = Convert.ToUInt16("ins_employeeid");
+        //    record.ins_direct = "ins_direct";
+        //    record.ins_time = new DateTime(Convert.ToUInt32("ins_time"));
+        //    string sql = record.MakeInsertSqlCommand();
+        //    return sql;
+        //}
+
+        //获取全部仪器出入库记录的信息
+        public string QueryAllInstrumentInAndOutRecordsSql()
+        {
+            SetupInsRecord();
+            string sql = maker.MakeSelectSql();
             return sql;
         }
 
-        //通过tagid查仪器数据库id
-        private string GetInstrumentInformation(string TagId)
+        //员工id查员工信息
+        public string IdQueryEmployeeSql()
         {
-            string sql = makerIns.MakeSelectSql();
+            SetEmployee();
+            string sql = maker.MakeSelectSql();
             return sql;
         }
 
-        //获取员工id
-        private string GetEmployeesInformation()
+        //仪器出入库记录的多条件搜索
+        public string QueryInAndOutRecordSql()
         {
-            string sql = makerEm.MakeSelectSql();
+            SetupInsRecord();
+            maker.AddAndCondition(new IntEqual("ins_instrumentid",Convert.ToInt32(ins_instrumentid)));
+            maker.AddAndCondition(new IntEqual("ins_employeeid", Convert.ToInt32(ins_employeeid)));
+            maker.AddAndCondition(new StringEqual("ins_direct", ins_direct));
+            maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", ins_time, ins_time, factory.CreateDateTimeFormater()));
+            maker.AddSelectField("ins_instrumentid");
+            maker.AddSelectField("ins_employeeid");
+            maker.AddSelectField("ins_direct");
+            maker.AddSelectField("ins_time");
+            string sql = maker.MakeSelectSql();
             return sql;
         }
     }

@@ -34,6 +34,16 @@
             this.la_to = new System.Windows.Forms.Label();
             this.dtp_end = new System.Windows.Forms.DateTimePicker();
             this.dgv_InstrumentInAndOutrecord = new System.Windows.Forms.DataGridView();
+            this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.通过时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.通过方向 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器型号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.借用人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cb_query = new System.Windows.Forms.ComboBox();
             this.cb_choicetime = new System.Windows.Forms.CheckBox();
             this.btn_selectInstrument = new System.Windows.Forms.Button();
@@ -45,16 +55,8 @@
             this.gb_foundrecord = new System.Windows.Forms.GroupBox();
             this.l_instrument = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.仪器标签ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.仪器名 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.存放位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.通过时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.通过方向 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.仪器型号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.借用人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.la_intrument = new System.Windows.Forms.Label();
+            this.la_employee = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentInAndOutrecord)).BeginInit();
             this.gb_foundrecord.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +129,65 @@
             this.dgv_InstrumentInAndOutrecord.RowTemplate.Height = 23;
             this.dgv_InstrumentInAndOutrecord.Size = new System.Drawing.Size(1279, 752);
             this.dgv_InstrumentInAndOutrecord.TabIndex = 0;
+            // 
+            // 仪器标签ID
+            // 
+            this.仪器标签ID.HeaderText = "仪器标签ID";
+            this.仪器标签ID.Name = "仪器标签ID";
+            this.仪器标签ID.ReadOnly = true;
+            // 
+            // 仪器名
+            // 
+            this.仪器名.HeaderText = "仪器名";
+            this.仪器名.Name = "仪器名";
+            this.仪器名.ReadOnly = true;
+            // 
+            // 存放位置
+            // 
+            this.存放位置.HeaderText = "存放位置";
+            this.存放位置.Name = "存放位置";
+            this.存放位置.ReadOnly = true;
+            // 
+            // 通过时间
+            // 
+            this.通过时间.HeaderText = "通过时间";
+            this.通过时间.Name = "通过时间";
+            this.通过时间.ReadOnly = true;
+            // 
+            // 通过方向
+            // 
+            this.通过方向.HeaderText = "通过方向";
+            this.通过方向.Name = "通过方向";
+            this.通过方向.ReadOnly = true;
+            // 
+            // 仪器型号
+            // 
+            this.仪器型号.HeaderText = "仪器型号";
+            this.仪器型号.Name = "仪器型号";
+            this.仪器型号.ReadOnly = true;
+            // 
+            // 借用人
+            // 
+            this.借用人.HeaderText = "借用人";
+            this.借用人.Name = "借用人";
+            this.借用人.ReadOnly = true;
+            // 
+            // 责任人
+            // 
+            this.责任人.HeaderText = "责任人";
+            this.责任人.Name = "责任人";
+            // 
+            // 生产厂商
+            // 
+            this.生产厂商.HeaderText = "生产厂商";
+            this.生产厂商.Name = "生产厂商";
+            this.生产厂商.ReadOnly = true;
+            // 
+            // 生产日期
+            // 
+            this.生产日期.HeaderText = "生产日期";
+            this.生产日期.Name = "生产日期";
+            this.生产日期.ReadOnly = true;
             // 
             // cb_query
             // 
@@ -211,6 +272,8 @@
             // 
             // gb_foundrecord
             // 
+            this.gb_foundrecord.Controls.Add(this.la_employee);
+            this.gb_foundrecord.Controls.Add(this.la_intrument);
             this.gb_foundrecord.Controls.Add(this.l_instrument);
             this.gb_foundrecord.Controls.Add(this.label3);
             this.gb_foundrecord.Controls.Add(this.cb_choicetime);
@@ -251,64 +314,23 @@
             this.label3.TabIndex = 27;
             this.label3.Text = "状态记录：";
             // 
-            // 仪器标签ID
+            // la_intrument
             // 
-            this.仪器标签ID.HeaderText = "仪器标签ID";
-            this.仪器标签ID.Name = "仪器标签ID";
-            this.仪器标签ID.ReadOnly = true;
+            this.la_intrument.AutoSize = true;
+            this.la_intrument.Location = new System.Drawing.Point(89, 59);
+            this.la_intrument.Name = "la_intrument";
+            this.la_intrument.Size = new System.Drawing.Size(77, 12);
+            this.la_intrument.TabIndex = 29;
+            this.la_intrument.Text = "............";
             // 
-            // 仪器名
+            // la_employee
             // 
-            this.仪器名.HeaderText = "仪器名";
-            this.仪器名.Name = "仪器名";
-            this.仪器名.ReadOnly = true;
-            // 
-            // 存放位置
-            // 
-            this.存放位置.HeaderText = "存放位置";
-            this.存放位置.Name = "存放位置";
-            this.存放位置.ReadOnly = true;
-            // 
-            // 通过时间
-            // 
-            this.通过时间.HeaderText = "通过时间";
-            this.通过时间.Name = "通过时间";
-            this.通过时间.ReadOnly = true;
-            // 
-            // 通过方向
-            // 
-            this.通过方向.HeaderText = "通过方向";
-            this.通过方向.Name = "通过方向";
-            this.通过方向.ReadOnly = true;
-            // 
-            // 仪器型号
-            // 
-            this.仪器型号.HeaderText = "仪器型号";
-            this.仪器型号.Name = "仪器型号";
-            this.仪器型号.ReadOnly = true;
-            // 
-            // 借用人
-            // 
-            this.借用人.HeaderText = "借用人";
-            this.借用人.Name = "借用人";
-            this.借用人.ReadOnly = true;
-            // 
-            // 责任人
-            // 
-            this.责任人.HeaderText = "责任人";
-            this.责任人.Name = "责任人";
-            // 
-            // 生产厂商
-            // 
-            this.生产厂商.HeaderText = "生产厂商";
-            this.生产厂商.Name = "生产厂商";
-            this.生产厂商.ReadOnly = true;
-            // 
-            // 生产日期
-            // 
-            this.生产日期.HeaderText = "生产日期";
-            this.生产日期.Name = "生产日期";
-            this.生产日期.ReadOnly = true;
+            this.la_employee.AutoSize = true;
+            this.la_employee.Location = new System.Drawing.Point(352, 59);
+            this.la_employee.Name = "la_employee";
+            this.la_employee.Size = new System.Drawing.Size(77, 12);
+            this.la_employee.TabIndex = 30;
+            this.la_employee.Text = "............";
             // 
             // Ins_query
             // 
@@ -356,5 +378,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 责任人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产厂商;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产日期;
+        private System.Windows.Forms.Label la_intrument;
+        private System.Windows.Forms.Label la_employee;
     }
 }

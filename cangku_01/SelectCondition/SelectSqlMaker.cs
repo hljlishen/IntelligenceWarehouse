@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DbLink
+namespace DbLink2
 {
     public class SelectSqlMaker
     {

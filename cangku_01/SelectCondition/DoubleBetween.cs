@@ -1,4 +1,4 @@
-﻿namespace DbLink
+﻿namespace DbLink2
 {
     public class DoubleBetween : SelectCondition
     {

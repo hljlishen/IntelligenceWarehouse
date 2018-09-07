@@ -1,6 +1,7 @@
 ﻿using cangku_01.entity;
 using cangku_01.GateDrive;
 using cangku_01.interfaceImp;
+using DbLink;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,14 +16,15 @@ namespace cangku_01.interfaces
     interface InstrumenBorrowRecord
     {
         //添加仪器出入记录
-        void AddInAndOutRecords(InstrumentInAndOutRecord rec,Employee ee, GateData door);
+        void AddInAndOutRecords(InstrumentInAndOutRecord record, Employee ee, GateData door);
 
         //获取全部仪器出入库信息
         DataTable AllInAndOutRecords();
 
         //仪器出入库信息的搜索
-        DataTable SearchRecords(InstrumentInAndOutRecord rec);
+        DataTable SearchRecords(InstrumentInAndOutRecord record);
 
-
+        //员工id查员工信息
+        DataTable IdQueryEmployee(InstrumentInAndOutRecord record);
     }
 }

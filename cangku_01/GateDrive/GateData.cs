@@ -1,5 +1,5 @@
 ﻿using cangku_01.entity;
-using DbLink;
+using DbLink2;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -159,6 +159,7 @@ namespace cangku_01.view.InstrumentManagement
                 string na = ((DataGridViewRow)row).Cells[1].Value.ToString();
                 string mo = ((DataGridViewRow)row).Cells[2].Value.ToString();
                 string ma = ((DataGridViewRow)row).Cells[3].Value.ToString();
+                ids.Add(id);
                 name.Add(na);
                 name.Add(mo);
                 name.Add(ma);

@@ -235,6 +235,7 @@ namespace cangku_01.view.EmployeesManagement
                 int id = int.Parse(((DataGridViewRow)row).Cells[8].Value.ToString());
                 string na = (((DataGridViewRow)row).Cells[0].Value.ToString());
                 string number = (((DataGridViewRow)row).Cells[1].Value.ToString());
+                ids.Add(id);
                 name.Add(na);
                 name.Add(number);
             }

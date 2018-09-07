@@ -1,4 +1,4 @@
-﻿using DbLink;
+﻿using DbLink2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -137,6 +137,14 @@ namespace cangku_01.entity
         {
             SetupCheckdate();
             maker.AddAndCondition(new StringEqual("ch_instrumentid", TagId));
+            string sql = maker.MakeSelectSql();
+            return sql;
+        }
+
+        //仪器id查仪器信息
+        public string IdQueryInstrumentSql()
+        {
+            SetupInstrument();
             string sql = maker.MakeSelectSql();
             return sql;
         }

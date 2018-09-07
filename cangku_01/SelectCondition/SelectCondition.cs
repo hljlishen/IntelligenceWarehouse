@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DbLink
+namespace DbLink2
 {
     public abstract class SelectCondition
     {
