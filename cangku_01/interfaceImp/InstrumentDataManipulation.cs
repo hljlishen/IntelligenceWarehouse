@@ -61,5 +61,13 @@ namespace cangku_01.interfaceImp
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
         }
+
+        //仪器id查仪器信息
+        public DataTable IdQueryInstrument(Instrument ins)
+        {
+            string sql = ins.IdQueryInstrumentSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
     }
 }

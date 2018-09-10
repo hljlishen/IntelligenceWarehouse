@@ -1,4 +1,5 @@
-﻿using cangku_01.interfaceImp;
+﻿using cangku_01.entity;
+using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.view.EmployeesManagement;
 using cangku_01.view.InstrumentManagement;
@@ -14,7 +15,8 @@ namespace cangku_01.MH
     public partial class Ins_query : Form
     {
         InstrumenBorrowRecord dao = new InsBorrowRecord();
-        InstrumentInAndOutRecord record ;
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+        InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
         InstrumentManagement selectInstrument;
         EmployeeManagement selectEmployees;
 
@@ -32,7 +34,7 @@ namespace cangku_01.MH
             //调用方法固定页面
             Top = 0;
             Left = 0;
-            DataTable dt = dao.AllInAndOutRecords();//将全部员工加载
+            DataTable dt = dao.AllInAndOutRecords(record);
             ShowDataGridView(dt);
         }
 
@@ -44,26 +46,126 @@ namespace cangku_01.MH
             {
                 DataGridViewRow row2 = new DataGridViewRow();
                 int index = dgv_InstrumentInAndOutrecord.Rows.Add(row2);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = dr["in_tagid"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = dr["in_name"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = dr["in_position"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument((int)dr["ins_instrumentid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument((int)dr["ins_instrumentid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectPositionInstrument((int)dr["ins_instrumentid"]);
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = dr["ins_time"];
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = dr["ins_direct"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["in_model"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = dr["em_name"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = dr["in_duty"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = dr["in_manufactor"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[9].Value = dr["in_productiondate"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = SelectModelInstrument((int)dr["ins_instrumentid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = SelectEmployee((int)dr["ins_employeeid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectDutyInstrument((int)dr["ins_instrumentid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = SelectManufactorInstrument((int)dr["ins_instrumentid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[9].Value = SelectProducttimeInstrument((int)dr["ins_instrumentid"]);
             }
+        }
+
+        //仪器信息查询
+        public string SelectTagidInstrument(int id)
+        {
+            string query= "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_tagid"].ToString();
+            return query;
+        }
+
+        public string SelectNameInstrument(int id)
+        {
+            string query = "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_name"].ToString();
+            return query;
+        }
+
+        public string SelectPositionInstrument(int id)
+        {
+            string query = "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_position"].ToString();
+            return query;
+        }
+
+        public string SelectModelInstrument(int id)
+        {
+            string query = "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_model"].ToString();
+            return query;
+        }
+
+        public string SelectDutyInstrument(int id)
+        {
+            string query = "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_duty"].ToString();
+            return query;
+        }
+
+        public string SelectManufactorInstrument(int id)
+        {
+            string query = "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_manufactor"].ToString();
+            return query;
+        }
+
+        public string SelectProducttimeInstrument(int id)
+        {
+            string query = "";
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.Id = id;
+            DataTable dt = dao.IdQueryInstrument(ins);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["in_productiondate"].ToString();
+            return query;
+        }
+
+        //员工信息查询
+        public string SelectEmployee(int id)
+        {
+            string query;
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            em.Id = id;
+            DataTable dt = dao.IdQueryEmployee(em);
+            DataRow myDr = dt.Rows[0];
+            query = myDr["em_name"].ToString();
+            return query;
         }
 
         //搜索仪器出入库信息按钮
         private void Btnquery_Click(object sender, EventArgs e)
         {
             //ISelectSqlMaker maker = DbLinkManager.GetLinkFactory().CreateSelectSqlMaker("t_insinandoutrecords");
-            record.InstrumentId = Convert.ToUInt16(tb_instrument.Text);
-            record.EmployeeId = Convert.ToUInt16(tb_employee.Text);
-            record.Direction = cb_query.Text.Equals("出入库") ? null : cb_query.Text;
+            string ins = Convert.ToString(record.ins_instrumentid);
+            ins = tb_instrument.Text;
+            string em = Convert.ToString(record.ins_employeeid);
+            em = tb_employee.Text;
+            record.ins_direct = cb_query.Text.Equals("出入库") ? null : cb_query.Text;
             ShowDataGridView(dao.SearchRecords(record));
         }
 
@@ -95,12 +197,18 @@ namespace cangku_01.MH
         private void InstrumentSelected(List<int> instrumentIds,List<string> insNameAndModel)
         {
             tb_instrument.Text = "";
+            la_intrument.Text = "";
             foreach (var name in insNameAndModel)
             {
-                tb_instrument.Text += name;
-                tb_instrument.Text += ",";
+                la_intrument.Text += name;
+                la_intrument.Text += ",";
             }
-            tb_instrument.Text = tb_instrument.Text.Substring(0, tb_instrument.Text.Length-1);
+            foreach (var name in instrumentIds)
+            {
+                tb_instrument.Text += name;
+            }
+            la_intrument.Text = la_intrument.Text.Substring(0, la_intrument.Text.Length-1);
+            tb_instrument.Text = tb_instrument.Text.Substring(0, tb_instrument.Text.Length);
         }
 
         //查找员工信息
@@ -116,24 +224,32 @@ namespace cangku_01.MH
         private void EmployeesSelected(List<int> employeesIds, List<string> emNameAndId)
         {
             tb_employee.Text = "";
+            la_employee.Text = "";
             foreach (var name in emNameAndId)
             {
-                tb_employee.Text += name;
-                tb_employee.Text += ",";
+                la_employee.Text += name;
+                la_employee.Text += ",";
             }
-            tb_employee.Text = tb_employee.Text.Substring(0, tb_employee.Text.Length-1);
+            foreach (var name in employeesIds)
+            {
+                tb_employee.Text += name;
+            }
+            tb_employee.Text = tb_employee.Text.Substring(0, tb_employee.Text.Length);
+            la_employee.Text = la_employee.Text.Substring(0, la_employee.Text.Length-1);
         }
 
         //双击清空textbox
         private void tb_employee_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tb_employee.Text = "";
+            la_employee.Text = "............";
         }
 
         //双击清空textbox
         private void tb_instrument_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tb_instrument.Text = "";
+            la_intrument.Text = "............";
         }
     }
 }

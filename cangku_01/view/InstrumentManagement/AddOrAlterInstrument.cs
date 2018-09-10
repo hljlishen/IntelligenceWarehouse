@@ -283,8 +283,8 @@ namespace cangku_01.view.InstrumentManagement
                 else if (Regex.IsMatch(Data[i].ToString(), @"^[a-zA-Z]+$"))
                 {
                     int z = (short)Data[i];
-                    string a = z.ToString("x4");//十进制转十六进制
-                    write = a.ToString();//十六进制转ascii
+                    string a = z.ToString("x4");
+                    write = a.ToString();
                 }
                 else if (Regex.IsMatch(Data[i].ToString(), @"^[/]+$"))
                 {

@@ -149,9 +149,22 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //查指纹信息
+        public string FingerprintSql()
+        {
+            SetupFingerprint();
+            string sql = maker.MakeSelectSql();
+            return sql;
+        }
+
         private void Setup()
         {
             maker = factory.CreateSelectSqlMaker("t_employee");
+        }
+
+        private void SetupFingerprint()
+        {
+            maker = factory.CreateSelectSqlMaker("t_fingerprint");
         }
     }  
 }

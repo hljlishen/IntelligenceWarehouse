@@ -133,6 +133,15 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //仪器id查仪器信息
+        public string IdQueryInstrumentSql()
+        {
+            SetupInstrument();
+            maker.AddAndCondition(new IntEqual("in_id", Id));
+            string sql = maker.MakeSelectSql();
+            return sql;
+        }
+
         private void SetupInstrument()
         {
             maker = factory.CreateSelectSqlMaker("t_instrument");
