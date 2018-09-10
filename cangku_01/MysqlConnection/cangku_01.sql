@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50719
 File Encoding         : 65001
 
-Date: 2018-08-23 10:37:27
+Date: 2018-09-10 10:13:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -62,7 +62,7 @@ INSERT INTO `t_department` VALUES ('12', '人事', '2', '0');
 DROP TABLE IF EXISTS `t_employee`;
 CREATE TABLE `t_employee` (
   `em_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '员工ID',
-  `em_employeenumber` int(11) NOT NULL COMMENT '员工编号',
+  `em_employeenumber` varchar(11) NOT NULL COMMENT '员工编号',
   `em_name` varchar(50) NOT NULL COMMENT '员工名字',
   `em_sex` varchar(50) NOT NULL COMMENT '员工性别',
   `em_company` int(50) NOT NULL COMMENT '所属公司ID',
@@ -76,6 +76,21 @@ CREATE TABLE `t_employee` (
 -- ----------------------------
 INSERT INTO `t_employee` VALUES ('1', '1', '马华', '男', '5', '7', '9');
 INSERT INTO `t_employee` VALUES ('2', '2', '燕廷', '男', '1', '2', '8');
+
+-- ----------------------------
+-- Table structure for `t_fingerprint`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_fingerprint`;
+CREATE TABLE `t_fingerprint` (
+  `fi_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '通过指纹记录id',
+  `fi_employeenumber` varchar(255) NOT NULL COMMENT '员工编号',
+  `fi_passtime` datetime NOT NULL COMMENT '通过时间',
+  PRIMARY KEY (`fi_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_fingerprint
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `t_insborrow`
@@ -95,6 +110,29 @@ CREATE TABLE `t_insborrow` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for `t_insrecords`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_insrecords`;
+CREATE TABLE `t_insrecords` (
+  `ins_recordsid` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `ins_tagid` varchar(50) NOT NULL COMMENT '标签id',
+  `ins_name` varchar(50) NOT NULL COMMENT '仪器名',
+  `ins_location` varchar(50) NOT NULL COMMENT '存放位置',
+  `ins_time` varchar(10) NOT NULL COMMENT '通过时间',
+  `ins_model` varchar(50) NOT NULL COMMENT '仪器型号',
+  `ins_borrow` varchar(50) NOT NULL COMMENT '借用人',
+  `ins_duty` varchar(50) NOT NULL COMMENT '责任人',
+  `ins_direction` varchar(50) NOT NULL COMMENT '方向',
+  `ins_manufactor` varchar(50) NOT NULL COMMENT '生产厂商',
+  `ins_productiondate` varchar(10) NOT NULL COMMENT '生产时间',
+  PRIMARY KEY (`ins_recordsid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_insrecords
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `t_instrument`
 -- ----------------------------
 DROP TABLE IF EXISTS `t_instrument`;
@@ -110,7 +148,7 @@ CREATE TABLE `t_instrument` (
   `in_isinwarehouse` varchar(255) NOT NULL COMMENT '在库状态',
   `in_checkcycle` int(11) NOT NULL COMMENT '鉴定周期（日）',
   `in_lastchecktimes` date NOT NULL COMMENT '上一次检查日期',
-  `in_duty` varchar(255) NOT NULL COMMENT '责任人',
+  `in_duty` int(11) NOT NULL COMMENT '责任人',
   PRIMARY KEY (`in_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -127,8 +165,10 @@ CREATE TABLE `t_warehouselocation` (
   `wa_name` varchar(255) NOT NULL COMMENT '位置名字',
   `wa_tier` int(11) NOT NULL COMMENT '层级',
   `wa_belongid` int(11) NOT NULL COMMENT '父节点id',
-  `wa_instrument` varchar(255) DEFAULT NULL COMMENT '仪器id',
-  `wa_ledid` varchar(255) NOT NULL COMMENT '仓库灯id',
+  `wa_instrumenttagid` varchar(255) DEFAULT NULL COMMENT '仪器id',
+  `wa_ledid` varchar(255) DEFAULT NULL COMMENT '仓库灯id',
+  `wa_synopsis` varchar(255) DEFAULT NULL COMMENT '仓库简介',
+  `wa_temp` varchar(255) DEFAULT NULL COMMENT '仓库所属部门',
   PRIMARY KEY (`wa_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

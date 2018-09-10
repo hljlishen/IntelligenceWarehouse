@@ -88,13 +88,6 @@ namespace cangku_01.entity
             return sql;
         }
 
-        //查询所有的快要到期的仪器的sql语句
-        public string QueryAllExpireInstrumentSql()
-        {
-            string sql = "select * from t_instrument";
-            return sql;
-        }
-
         //修改检查日期的sql语句
         public string UpdateInstrumentLastCheckTimeSql()
         {
@@ -103,7 +96,7 @@ namespace cangku_01.entity
             return sql;
         }
 
-        //员工多条件搜素
+        //仪器多条件搜素
         public string QueryInstrumentSql()
         {
             SetupInstrument();
@@ -112,7 +105,6 @@ namespace cangku_01.entity
             maker.AddAndCondition(new StringLike("in_manufactor", Manufactor));
             maker.AddAndCondition(new StringLike("in_serialNumber", SerialNumber));
             maker.AddAndCondition(new StringEqual("in_isinwarehouse", IsInWareHouse));
-            //maker.AddAndCondition(new IntEqual("in_duty", Duty));
             maker.AddSelectField("in_id");
             maker.AddSelectField("in_tagid");
             maker.AddSelectField("in_name");

@@ -18,7 +18,7 @@ namespace cangku_01.interfaceImp
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //在数据库查询所用快要到期的仪器
-        public DataTable QueryAllExpireInstrument()
+        public DataTable QueryRemindInstrument()
         {
             Instrument ins = new Instrument();
             string sql = ins.QueryAllInstrumentSql();

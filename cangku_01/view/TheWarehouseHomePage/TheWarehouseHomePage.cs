@@ -37,9 +37,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gate.Open();
-            //connectFingerprint.GetIPConnect();
-            //connectFingerprint.AddDisplayer(this);
+            //gate.Open();
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -50,7 +50,7 @@ namespace cangku_01
         private void DueToRemind()
         {
             RemindInterface dao = new CheckTimeQueryAndUpdate();
-            DataTable dt = dao.QueryAllExpireInstrument();
+            DataTable dt = dao.QueryRemindInstrument();
             Instrument ins = new Instrument();
             Dgv_DueToSee.Rows.Clear();
             foreach (DataRow dr in dt.Rows)
