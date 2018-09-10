@@ -14,7 +14,7 @@ namespace cangku_01.interfaces
     interface RemindInterface
     {
         //查询所有快要到期的仪器
-        DataTable QueryAllExpireInstrument();
+        DataTable QueryRemindInstrument();
         //修改最后一次检查时间
         void UpdateInstrumentLastCheckTime(Instrument ins);
         //添加历次检查时间

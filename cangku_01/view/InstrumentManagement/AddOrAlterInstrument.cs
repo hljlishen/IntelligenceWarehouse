@@ -329,7 +329,7 @@ namespace cangku_01.view.InstrumentManagement
         }
 
         //显示责任人信息
-        private void EmployeesSelected(List<int> employeesIds)
+        private void EmployeesSelected(List<int> employeesIds,List<string> emNameAndId)
         {
             EmployeesInterface dao = new EmployeeDataManipulation();
             Employee em = new Employee();

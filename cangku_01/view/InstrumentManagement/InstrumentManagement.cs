@@ -120,7 +120,7 @@ namespace cangku_01.view.InstrumentManagement
             ins.Name = tb_instrumentname.Text;
             ins.Model = tb_model.Text;
             ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
-            //ins.Duty = tb_duty.Text;
+            ins.Manufactor = tb_manufactor.Text;
             ShowDataGridView(dao.QueryInstrument(ins));
         }
 

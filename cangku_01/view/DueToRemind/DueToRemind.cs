@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+
+//到期提醒主页面
 
 namespace cangku_01.view.DueToRemind
 {
@@ -20,7 +18,7 @@ namespace cangku_01.view.DueToRemind
         public DueToRemind()
         {
             InitializeComponent();
-            DataTable dt = dao.QueryAllExpireInstrument();
+            DataTable dt = dao.QueryRemindInstrument();
             ShowDataGridView(dt);
             DataGridViewColorTips();
         }
@@ -44,6 +42,7 @@ namespace cangku_01.view.DueToRemind
                 dgv_duetoremind.Rows[index].Cells[5].Value = ins.NextCheckTimes();
                 dgv_duetoremind.Rows[index].Cells[6].Value = ins.TimeRemaining();
             }
+            dgv_duetoremind.Sort(dgv_duetoremind.Columns[6], ListSortDirection.Descending);
         }
 
         //DataGridView色彩提示
