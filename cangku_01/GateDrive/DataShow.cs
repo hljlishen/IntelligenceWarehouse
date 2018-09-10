@@ -1,4 +1,8 @@
-﻿using cangku_01.MysqlConnection;
+﻿using cangku_01.entity;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
+using cangku_01.MysqlConnection;
+using DbLink;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,6 +20,10 @@ namespace cangku_01.GateDrive
     class DataShow : DataShowInterface
     {
         ListViewItem listView = new ListViewItem();
+        InstrumenBorrowRecord rec = new InsBorrowRecord();
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+        InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
+        Employee ee = new Employee();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //显示仪器图片
@@ -35,7 +43,6 @@ namespace cangku_01.GateDrive
         //仪器通过记录显示在text和ListView列表中
         public void TextAndListViewShow(GateData door, Form1 fr)
         {
-            BorrowInformation(door);
             if (door.ThroughDoorDirection != null)
             {
                 fr.tb_ShowId.Text = door.TagId;
@@ -71,6 +78,8 @@ namespace cangku_01.GateDrive
                 listView.SubItems.Add(door.ThroughDoorTime);
                 ChangeSubItem(listView, 1, door.TagId);
                 door.Name = null;
+                BorrowInformation(door);
+                rec.AddInAndOutRecords(record,ee,door);
             }
         }
         

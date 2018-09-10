@@ -53,10 +53,10 @@
             this.tb_employee = new System.Windows.Forms.TextBox();
             this.btn_selectemployee = new System.Windows.Forms.Button();
             this.gb_foundrecord = new System.Windows.Forms.GroupBox();
+            this.la_employee = new System.Windows.Forms.Label();
+            this.la_intrument = new System.Windows.Forms.Label();
             this.l_instrument = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.la_intrument = new System.Windows.Forms.Label();
-            this.la_employee = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentInAndOutrecord)).BeginInit();
             this.gb_foundrecord.SuspendLayout();
             this.SuspendLayout();
@@ -296,6 +296,24 @@
             this.gb_foundrecord.TabStop = false;
             this.gb_foundrecord.Text = "搜索记录";
             // 
+            // la_employee
+            // 
+            this.la_employee.AutoSize = true;
+            this.la_employee.Location = new System.Drawing.Point(358, 59);
+            this.la_employee.Name = "la_employee";
+            this.la_employee.Size = new System.Drawing.Size(77, 12);
+            this.la_employee.TabIndex = 30;
+            this.la_employee.Text = "............";
+            // 
+            // la_intrument
+            // 
+            this.la_intrument.AutoSize = true;
+            this.la_intrument.Location = new System.Drawing.Point(89, 59);
+            this.la_intrument.Name = "la_intrument";
+            this.la_intrument.Size = new System.Drawing.Size(77, 12);
+            this.la_intrument.TabIndex = 29;
+            this.la_intrument.Text = "............";
+            // 
             // l_instrument
             // 
             this.l_instrument.AutoSize = true;
@@ -313,24 +331,6 @@
             this.label3.Size = new System.Drawing.Size(77, 14);
             this.label3.TabIndex = 27;
             this.label3.Text = "状态记录：";
-            // 
-            // la_intrument
-            // 
-            this.la_intrument.AutoSize = true;
-            this.la_intrument.Location = new System.Drawing.Point(89, 59);
-            this.la_intrument.Name = "la_intrument";
-            this.la_intrument.Size = new System.Drawing.Size(77, 12);
-            this.la_intrument.TabIndex = 29;
-            this.la_intrument.Text = "............";
-            // 
-            // la_employee
-            // 
-            this.la_employee.AutoSize = true;
-            this.la_employee.Location = new System.Drawing.Point(352, 59);
-            this.la_employee.Name = "la_employee";
-            this.la_employee.Size = new System.Drawing.Size(77, 12);
-            this.la_employee.TabIndex = 30;
-            this.la_employee.Text = "............";
             // 
             // Ins_query
             // 

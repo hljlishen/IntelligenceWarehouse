@@ -144,7 +144,7 @@ namespace cangku_01.GateDrive
             switch (InFlag)
             {
                 case 0:
-                    ThroughDoorDirection = " 进  库  ";
+                    ThroughDoorDirection = " 入  库  ";
                     break;
                 case 1:
                     ThroughDoorDirection = " 出  库  ";

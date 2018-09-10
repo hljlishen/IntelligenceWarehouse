@@ -19,12 +19,9 @@ namespace cangku_01.interfaces
         void AddInAndOutRecords(InstrumentInAndOutRecord record, Employee ee, GateData door);
 
         //获取全部仪器出入库信息
-        DataTable AllInAndOutRecords();
+        DataTable AllInAndOutRecords(InstrumentInAndOutRecord record);
 
         //仪器出入库信息的搜索
         DataTable SearchRecords(InstrumentInAndOutRecord record);
-
-        //员工id查员工信息
-        DataTable IdQueryEmployee(InstrumentInAndOutRecord record);
     }
 }

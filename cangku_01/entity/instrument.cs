@@ -1,4 +1,4 @@
-﻿using DbLink2;
+﻿using DbLink;
 using System;
 
 //仪器实体类
@@ -145,6 +145,7 @@ namespace cangku_01.entity
         public string IdQueryInstrumentSql()
         {
             SetupInstrument();
+            maker.AddAndCondition(new IntEqual("in_id", Id));
             string sql = maker.MakeSelectSql();
             return sql;
         }
