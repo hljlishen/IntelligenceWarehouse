@@ -144,10 +144,10 @@ namespace cangku_01.GateDrive
             switch (InFlag)
             {
                 case 0:
-                    ThroughDoorDirection = " 入  库  ";
+                    ThroughDoorDirection = "入库";
                     break;
                 case 1:
-                    ThroughDoorDirection = " 出  库  ";
+                    ThroughDoorDirection = "出库";
                     break;
             }
             door.ThroughDoorDirection = ThroughDoorDirection;

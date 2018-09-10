@@ -176,6 +176,7 @@
             // 
             this.责任人.HeaderText = "责任人";
             this.责任人.Name = "责任人";
+            this.责任人.Visible = false;
             // 
             // 生产厂商
             // 
@@ -301,18 +302,16 @@
             this.la_employee.AutoSize = true;
             this.la_employee.Location = new System.Drawing.Point(358, 59);
             this.la_employee.Name = "la_employee";
-            this.la_employee.Size = new System.Drawing.Size(77, 12);
+            this.la_employee.Size = new System.Drawing.Size(0, 12);
             this.la_employee.TabIndex = 30;
-            this.la_employee.Text = "............";
             // 
             // la_intrument
             // 
             this.la_intrument.AutoSize = true;
             this.la_intrument.Location = new System.Drawing.Point(89, 59);
             this.la_intrument.Name = "la_intrument";
-            this.la_intrument.Size = new System.Drawing.Size(77, 12);
+            this.la_intrument.Size = new System.Drawing.Size(0, 12);
             this.la_intrument.TabIndex = 29;
-            this.la_intrument.Text = "............";
             // 
             // l_instrument
             // 
@@ -368,6 +367,8 @@
         private System.Windows.Forms.GroupBox gb_foundrecord;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label l_instrument;
+        private System.Windows.Forms.Label la_intrument;
+        private System.Windows.Forms.Label la_employee;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器标签ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 存放位置;
@@ -378,7 +379,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 责任人;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产厂商;
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产日期;
-        private System.Windows.Forms.Label la_intrument;
-        private System.Windows.Forms.Label la_employee;
     }
 }

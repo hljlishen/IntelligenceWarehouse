@@ -161,11 +161,21 @@ namespace cangku_01.MH
         private void Btnquery_Click(object sender, EventArgs e)
         {
             //ISelectSqlMaker maker = DbLinkManager.GetLinkFactory().CreateSelectSqlMaker("t_insinandoutrecords");
-            string ins = Convert.ToString(record.ins_instrumentid);
-            ins = tb_instrument.Text;
-            string em = Convert.ToString(record.ins_employeeid);
-            em = tb_employee.Text;
-            record.ins_direct = cb_query.Text.Equals("出入库") ? null : cb_query.Text;
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_insinandoutrecords");
+            maker.AddAndCondition(new IntEqual("ins_instrumentid", tb_instrument.Text));
+            maker.AddAndCondition(new IntEqual("ins_employeeid", tb_employee.Text));
+            maker.AddAndCondition(new StringEqual("ins_direct", cb_query.Text));
+            //maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", ins_time, ins_time, factory.CreateDateTimeFormater()));
+            //maker.AddSelectField("ins_instrumentid");
+            //maker.AddSelectField("ins_employeeid");
+            //maker.AddSelectField("ins_direct");
+            //maker.AddSelectField("ins_time");
+            //InstrumentInAndOutRecord.Select(maker.MakeSelectSql(), factory.CreateDatabaseDrive());
+            //string ins = Convert.ToString(record.ins_instrumentid);
+            //ins = tb_instrument.Text;
+            //string em = Convert.ToString(record.ins_employeeid);
+            //em = tb_employee.Text;
+            //record.ins_direct = cb_query.Text.Equals("出入库") ? null : cb_query.Text;
             ShowDataGridView(dao.SearchRecords(record));
         }
 
@@ -242,14 +252,14 @@ namespace cangku_01.MH
         private void tb_employee_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tb_employee.Text = "";
-            la_employee.Text = "............";
+            la_employee.Text = "";
         }
 
         //双击清空textbox
         private void tb_instrument_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             tb_instrument.Text = "";
-            la_intrument.Text = "............";
+            la_intrument.Text = "";
         }
     }
 }
