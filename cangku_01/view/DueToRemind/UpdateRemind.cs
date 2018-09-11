@@ -52,6 +52,7 @@ namespace cangku_01.view.DueToRemind
                 dao.AddInstrumentAllPreviousCheckDate(ins);
                 AutoClosingMessageBox.Show("检查日期修改成功", "检查日期修", 1000);
                 Close();
+                DialogResult = DialogResult.OK;
             }
             else
             {

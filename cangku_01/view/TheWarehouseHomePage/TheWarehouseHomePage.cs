@@ -8,6 +8,7 @@ using cangku_01.GateDrive;
 using System.IO;
 using System.Drawing;
 using cangku_01.view.TheWarehouseHomePage;
+using System.ComponentModel;
 
 namespace cangku_01
 {
@@ -38,8 +39,8 @@ namespace cangku_01
         private void Form1_Load(object sender, EventArgs e)
         {
             //gate.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -63,6 +64,7 @@ namespace cangku_01
                 Dgv_DueToSee.Rows[index].Cells[1].Value = ins.NextCheckTimes();
                 Dgv_DueToSee.Rows[index].Cells[2].Value = ins.TimeRemaining();
             }
+            Dgv_DueToSee.Sort(Dgv_DueToSee.Columns[2], ListSortDirection.Ascending);
         }
 
         //跳转到登录界面

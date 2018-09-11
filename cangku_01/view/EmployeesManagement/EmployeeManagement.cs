@@ -241,21 +241,26 @@ namespace cangku_01.view.EmployeesManagement
             ShowDataGridView(dt);
         }
 
-        private void dgv_employeeinformation_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        //dgv双击事件
+        private void dgv_employeeinformation_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var selectedRows = dgv_employeeinformation.SelectedRows;
-            List<int> ids = new List<int>();
-            List<string> name = new List<string>();
-            foreach (var row in selectedRows)
+            if (FormBorderStyle == FormBorderStyle.FixedSingle)
             {
-                int id = int.Parse(((DataGridViewRow)row).Cells[8].Value.ToString());
-                string na = (((DataGridViewRow)row).Cells[0].Value.ToString());
-                string number = (((DataGridViewRow)row).Cells[1].Value.ToString());
-                ids.Add(id);
-                name.Add(na);
-                name.Add(number);
+                var selectedRows = dgv_employeeinformation.SelectedRows;
+                List<int> ids = new List<int>();
+                List<string> name = new List<string>();
+                foreach (var row in selectedRows)
+                {
+                    int id = int.Parse(((DataGridViewRow)row).Cells[8].Value.ToString());
+                    string na = (((DataGridViewRow)row).Cells[0].Value.ToString());
+                    string number = (((DataGridViewRow)row).Cells[1].Value.ToString());
+                    ids.Add(id);
+                    name.Add(na);
+                    name.Add(number);
+                }
+                EmployeesSelected?.Invoke(ids, name);
+                Close();
             }
-            EmployeesSelected?.Invoke(ids,name);
         }
     }
 }

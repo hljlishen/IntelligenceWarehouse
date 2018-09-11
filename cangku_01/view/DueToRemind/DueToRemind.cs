@@ -18,14 +18,13 @@ namespace cangku_01.view.DueToRemind
         public DueToRemind()
         {
             InitializeComponent();
-            DataTable dt = dao.QueryRemindInstrument();
-            ShowDataGridView(dt);
-            DataGridViewColorTips();
+            ShowDataGridView();
         }
 
         //DataGridView显示到期数据
-        public void ShowDataGridView(DataTable dt)
+        public void ShowDataGridView()
         {
+            DataTable dt = dao.QueryRemindInstrument();
             Instrument ins = new Instrument();
             dgv_duetoremind.Rows.Clear();
             foreach (DataRow dr in dt.Rows)
@@ -42,7 +41,8 @@ namespace cangku_01.view.DueToRemind
                 dgv_duetoremind.Rows[index].Cells[5].Value = ins.NextCheckTimes();
                 dgv_duetoremind.Rows[index].Cells[6].Value = ins.TimeRemaining();
             }
-            dgv_duetoremind.Sort(dgv_duetoremind.Columns[6], ListSortDirection.Descending);
+            dgv_duetoremind.Sort(dgv_duetoremind.Columns[6], ListSortDirection.Ascending);
+            DataGridViewColorTips();
         }
 
         //DataGridView色彩提示
@@ -98,10 +98,12 @@ namespace cangku_01.view.DueToRemind
                     string Remind_lasttime = dgv_duetoremind.CurrentRow.Cells[3].Value.ToString();                  
                     //跳转到日期修改页面、并将相关数据传入Alter_remind界面
                     UpdateRemind updateremind = new UpdateRemind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime);
-                    updateremind.ShowDialog();
+                    if (updateremind.ShowDialog() == DialogResult.OK)
+                    {
+                        ShowDataGridView();
+                    }
                 }
             }
-
         }
     }
 }

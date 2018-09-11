@@ -55,6 +55,7 @@
             this.la_foundsex = new System.Windows.Forms.Label();
             this.gb_foundemployees = new System.Windows.Forms.GroupBox();
             this.bt_foundall = new System.Windows.Forms.Button();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).BeginInit();
             this.gb_foundemployees.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +99,7 @@
             this.dgv_employeeinformation.RowTemplate.Height = 23;
             this.dgv_employeeinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_employeeinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeinformation_CellContentClick);
-            this.dgv_employeeinformation.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_employeeinformation_CellMouseClick);
+            this.dgv_employeeinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeinformation_CellContentDoubleClick);
             // 
             // ID
             // 
@@ -303,5 +304,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
         private System.Windows.Forms.DataGridViewTextBoxColumn 员工Id;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
