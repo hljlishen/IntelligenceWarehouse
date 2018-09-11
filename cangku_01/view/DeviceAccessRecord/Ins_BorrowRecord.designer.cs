@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.La_TimeQuery = new System.Windows.Forms.Label();
-            this.btn_query = new System.Windows.Forms.Button();
+            this.btn_search = new System.Windows.Forms.Button();
             this.dtp_begin = new System.Windows.Forms.DateTimePicker();
             this.la_to = new System.Windows.Forms.Label();
             this.dtp_end = new System.Windows.Forms.DateTimePicker();
@@ -71,15 +71,15 @@
             this.La_TimeQuery.TabIndex = 4;
             this.La_TimeQuery.Text = "时间查询：";
             // 
-            // btn_query
+            // btn_search
             // 
-            this.btn_query.Location = new System.Drawing.Point(1196, 25);
-            this.btn_query.Name = "btn_query";
-            this.btn_query.Size = new System.Drawing.Size(75, 23);
-            this.btn_query.TabIndex = 6;
-            this.btn_query.Text = "查询";
-            this.btn_query.UseVisualStyleBackColor = true;
-            this.btn_query.Click += new System.EventHandler(this.Btnquery_Click);
+            this.btn_search.Location = new System.Drawing.Point(1196, 25);
+            this.btn_search.Name = "btn_search";
+            this.btn_search.Size = new System.Drawing.Size(75, 23);
+            this.btn_search.TabIndex = 6;
+            this.btn_search.Text = "查询";
+            this.btn_search.UseVisualStyleBackColor = true;
+            this.btn_search.Click += new System.EventHandler(this.Btnsearch_Click);
             // 
             // dtp_begin
             // 
@@ -278,7 +278,7 @@
             this.gb_foundrecord.Controls.Add(this.l_instrument);
             this.gb_foundrecord.Controls.Add(this.label3);
             this.gb_foundrecord.Controls.Add(this.cb_choicetime);
-            this.gb_foundrecord.Controls.Add(this.btn_query);
+            this.gb_foundrecord.Controls.Add(this.btn_search);
             this.gb_foundrecord.Controls.Add(this.label1);
             this.gb_foundrecord.Controls.Add(this.btn_selectemployee);
             this.gb_foundrecord.Controls.Add(this.dtp_end);
@@ -351,7 +351,7 @@
 
         #endregion
         private System.Windows.Forms.Label La_TimeQuery;
-        private System.Windows.Forms.Button btn_query;
+        private System.Windows.Forms.Button btn_search;
         private System.Windows.Forms.DateTimePicker dtp_begin;
         private System.Windows.Forms.Label la_to;
         private System.Windows.Forms.DateTimePicker dtp_end;

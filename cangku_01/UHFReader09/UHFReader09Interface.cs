@@ -24,9 +24,6 @@ namespace cangku_01.UHFReader09CSharp
         //卡片信息写入
         void WriteCardInformation(string writedatas);
 
-        //卡片信息读取
-        void ReadCardInformation();
-
         event TagConnectedHandler TagConnected;
     }
 }

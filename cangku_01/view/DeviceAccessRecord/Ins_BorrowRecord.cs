@@ -46,16 +46,17 @@ namespace cangku_01.MH
             {
                 DataGridViewRow row2 = new DataGridViewRow();
                 int index = dgv_InstrumentInAndOutrecord.Rows.Add(row2);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument((int)dr["ins_instrumentid"]);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument((int)dr["ins_instrumentid"]);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectPositionInstrument((int)dr["ins_instrumentid"]);
+                object o = dr["ins_instrumentid"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectPositionInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = dr["ins_time"];
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = dr["ins_direct"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = SelectModelInstrument((int)dr["ins_instrumentid"]);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = SelectEmployee((int)dr["ins_employeeid"]);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectDutyInstrument((int)dr["ins_instrumentid"]);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = SelectManufactorInstrument((int)dr["ins_instrumentid"]);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[9].Value = SelectProducttimeInstrument((int)dr["ins_instrumentid"]);
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = SelectModelInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = SelectEmployee(int.Parse(dr["ins_employeeid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectDutyInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = SelectManufactorInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[9].Value = SelectProducttimeInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
             }
         }
 
@@ -158,25 +159,22 @@ namespace cangku_01.MH
         }
 
         //搜索仪器出入库信息按钮
-        private void Btnquery_Click(object sender, EventArgs e)
+        private void Btnsearch_Click(object sender, EventArgs e)
         {
-            //ISelectSqlMaker maker = DbLinkManager.GetLinkFactory().CreateSelectSqlMaker("t_insinandoutrecords");
             ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_insinandoutrecords");
             maker.AddAndCondition(new IntEqual("ins_instrumentid", tb_instrument.Text));
             maker.AddAndCondition(new IntEqual("ins_employeeid", tb_employee.Text));
-            maker.AddAndCondition(new StringEqual("ins_direct", cb_directquery.Text));
-            //maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", ins_time, ins_time, factory.CreateDateTimeFormater()));
-            //maker.AddSelectField("ins_instrumentid");
-            //maker.AddSelectField("ins_employeeid");
-            //maker.AddSelectField("ins_direct");
-            //maker.AddSelectField("ins_time");
-            //InstrumentInAndOutRecord.Select(maker.MakeSelectSql(), factory.CreateDatabaseDrive());
-            //string ins = Convert.ToString(record.ins_instrumentid);
-            //ins = tb_instrument.Text;
-            //string em = Convert.ToString(record.ins_employeeid);
-            //em = tb_employee.Text;
-            //record.ins_direct = cb_query.Text.Equals("出入库") ? null : cb_query.Text;
-            ShowDataGridView(dao.SearchRecords(record));
+            if (cb_directquery.Text == "出入库")
+            {
+                maker.AddAndCondition(new StringLike("ins_direct", "库"));
+            }
+            else
+                maker.AddAndCondition(new StringEqual("ins_direct", cb_directquery.Text));
+            if (cb_choicetime.Checked.Equals(true))
+                maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", dtp_begin.Value, dtp_end.Value.AddDays(1), factory.CreateDateTimeFormater()));
+            var sql = maker.MakeSelectSql();
+            var queryResult = InstrumentInAndOutRecord.Select(sql, factory.CreateDatabaseDrive());
+            ShowDataGridView(queryResult);
         }
 
         //点击勾选框选择时间查询

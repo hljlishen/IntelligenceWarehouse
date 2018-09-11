@@ -23,14 +23,6 @@ namespace cangku_01.interfaceImp
             return dt;
         }
 
-        //记录搜索
-        public DataTable SearchRecords(InstrumentInAndOutRecord record)
-        {
-            string sql = record.QueryInAndOutRecordSql();
-            DataTable dt = dbo.ReadDBDataTable(sql);
-            return dt;
-        }
-
         //添加仪器出入记录
         public void AddInAndOutRecords(InstrumentInAndOutRecord record, Employee ee, GateData door)
         {

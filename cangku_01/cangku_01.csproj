@@ -56,8 +56,9 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DbLink">
-      <HintPath>..\..\DbLink\DbLink\DbLink\bin\Debug\DbLink.dll</HintPath>
+    <Reference Include="DbLink, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DbLink.dll</HintPath>
     </Reference>
     <Reference Include="IrisSkin2">
       <HintPath>F:\Visual stadio 2017\Test\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\IrisSkin2.dll</HintPath>
