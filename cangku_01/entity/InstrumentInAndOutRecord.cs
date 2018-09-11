@@ -44,21 +44,5 @@ namespace cangku_01
             return sql;
         }
 
-        //仪器出入库记录的多条件搜索
-        public string QueryInAndOutRecordSql()
-        {
-            SetupInsRecord();
-            maker.AddAndCondition(new IntEqual("ins_instrumentid",Convert.ToInt16(ins_instrumentid)));
-            maker.AddAndCondition(new IntEqual("ins_employeeid", Convert.ToInt16(ins_employeeid)));
-            maker.AddAndCondition(new StringEqual("ins_direct", ins_direct)); 
-            maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", ins_time, ins_time, factory.CreateDateTimeFormater()));
-            maker.AddSelectField("ins_instrumentid");
-            maker.AddSelectField("ins_employeeid");
-            maker.AddSelectField("ins_direct");
-            maker.AddSelectField("ins_time");
-            
-            string sql = maker.MakeSelectSql();
-            return sql;
-        }
     }
 }

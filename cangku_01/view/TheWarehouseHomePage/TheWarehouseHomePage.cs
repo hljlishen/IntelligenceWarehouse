@@ -37,7 +37,7 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //gate.Open();
+            gate.Open();
             connectFingerprint.GetIPConnect();
             connectFingerprint.AddDisplayer(this);
             DueToRemind();

@@ -21,7 +21,5 @@ namespace cangku_01.interfaces
         //获取全部仪器出入库信息
         DataTable AllInAndOutRecords(InstrumentInAndOutRecord record);
 
-        //仪器出入库信息的搜索
-        DataTable SearchRecords(InstrumentInAndOutRecord record);
     }
 }
