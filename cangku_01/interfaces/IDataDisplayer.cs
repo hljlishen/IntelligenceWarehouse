@@ -9,6 +9,6 @@ namespace cangku_01.interfaces
 {
     interface IDataDisplayer
     {
-        void FingerprintUpdate(Employee em);
+        void FingerprintUpdate(Fingerprint fingerprint);
     }
 }

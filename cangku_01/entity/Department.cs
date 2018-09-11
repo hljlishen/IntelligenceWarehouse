@@ -27,14 +27,7 @@ namespace cangku_01.entity
             tier = r;
             belongid = b;
             LowerRank = new List<Department>();
-            string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count != 0)
-            {
-                MessageBox.Show("已存在该节点，无法重复添加！");
-                return;
-            }
-            sql = "insert into t_department (de_name,de_tier,de_belongId) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + ")";
+            string sql = "insert into t_department (de_name,de_tier,de_belongId) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + ")";
             dbo.WriteDB(sql);
         }
 
@@ -47,6 +40,11 @@ namespace cangku_01.entity
             LowerRank = new List<Department>();
             loadLowerRankDepartment();
             getNodeStructure();
+        }
+
+        public Department()
+        {
+           
         }
 
         private void loadLowerRankDepartment()
@@ -121,6 +119,19 @@ namespace cangku_01.entity
             sql = "delete from t_department where de_id = " + id + "";
             dbo.WriteDB(sql);
             return 1;
+        }
+
+        //节点查重
+        public bool NodeDuplicateChecking()
+        {
+            bool duplicatechecking = false;
+            string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
+            DataSet ds = dbo.ReadDB(sql);
+            if (ds.Tables[0].Rows.Count != 0)
+            {
+                duplicatechecking = true;
+            }
+            return duplicatechecking;
         }
     }
 }

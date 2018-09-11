@@ -15,7 +15,7 @@ namespace cangku_01
     {
         GateInterface gate = new GateInterfaceImp();
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
-        delegate void EmployeeDataHandler(Employee employee);
+        delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();
 
         public Form1()
@@ -74,28 +74,30 @@ namespace cangku_01
         }
 
         //线程触发
-        public void FingerprintUpdate(Employee em)
+        public void FingerprintUpdate(Fingerprint fingerprint)
         {
-            Invoke(new EmployeeDataHandler(UpdateEmployee), new object[] { em });
+            Invoke(new EmployeeDataHandler(UpdateEmployee), new object[] { fingerprint });
         }
 
         //展示指纹信息
-        private void UpdateEmployee(Employee em)
+        private void UpdateEmployee(Fingerprint fingerprint)
         {
             EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            em.EmployeeNumber = fingerprint.fi_employeenumber;
             DataTable dt = dao.EmployeeNumberQueryEmployee(em);
             DataRow myDr = dt.Rows[0];
             tb_employeeunmber.Text = em.EmployeeNumber;
             tb_employeename.Text = myDr["em_name"].ToString();
             tb_temp.Text = myDr["em_department"].ToString();
-            tb_employeepassdoor.Text = em.PassDoor.ToString();
+            tb_employeepassdoor.Text = fingerprint.fi_passtime.ToString();
             ShowEmployeePhoto(em);
 
             listView = lv_employeepassdoor.Items.Add((lv_employeepassdoor.Items.Count + 1).ToString());
             listView.SubItems.Add(em.EmployeeNumber);
             listView.SubItems.Add(myDr["em_name"].ToString());
             listView.SubItems.Add(myDr["em_department"].ToString());
-            listView.SubItems.Add(em.PassDoor.ToString());
+            listView.SubItems.Add(fingerprint.fi_passtime.ToString());
         }
 
         //展示员工照片

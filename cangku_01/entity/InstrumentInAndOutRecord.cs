@@ -9,7 +9,7 @@ namespace cangku_01
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
 
         public int? ins_recordsid { get; set; }
-        public int? ins_instrumentid { get; set; }
+        public int? ins_instrumentid { get; set;}
         public int? ins_employeeid { get; set; }
         public string ins_direct { get; set; }
         public DateTime? ins_time { get; set; }
