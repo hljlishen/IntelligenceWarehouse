@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DblinkManager.cs" />
+    <Compile Include="entity\Fingerprint.cs" />
     <Compile Include="entity\WarehouseLocation.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
     <Compile Include="GateDrive\DataShowInterface.cs" />
@@ -96,8 +97,6 @@
     <Compile Include="GateDrive\GateInterface v1.42.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="GateDrive\DataShow.cs" />
-    <Compile Include="interfaceImp\GetFingerprintInformation.cs" />
-    <Compile Include="interfaces\FingerprintInformation.cs" />
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="entity\InstrumentInAndOutRecord.cs" />
@@ -318,6 +317,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MysqlConnection\cangku_01.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="zkemkeeper">
+      <Guid>{FE9DED34-E159-408E-8490-B720A5E632C7}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

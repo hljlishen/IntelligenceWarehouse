@@ -104,10 +104,6 @@ namespace cangku_01.interfaceImp
                     GetInstrumentId(door, record);
                     GetEmployeeId(record, ee);
                 }
-                else
-                {
-                    AutoClosingMessageBox.Show("未找到借用人员过门信息", "提示", 1000);
-                }
             }
         }
     }

@@ -43,7 +43,5 @@ namespace cangku_01.interfaces
         //在全部人员中搜索
         DataTable QueryInTheAllEmployee(Employee em);
 
-        //添加员工过门信息
-        void AddEmployeePassDoorInformation(Employee em);
     }
 }

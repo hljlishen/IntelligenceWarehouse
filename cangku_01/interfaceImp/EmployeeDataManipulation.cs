@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 using cangku_01.entity;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
@@ -100,13 +93,6 @@ namespace cangku_01.interfaceImp
             string sql = em.QueryEmployeeSql(0, 0);
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
-        }
-
-        //添加员工过门信息
-        public void AddEmployeePassDoorInformation(Employee em)
-        {
-            string sql = em.AddEmployeePassDoorInformationSql();
-            dbo.WriteDB(sql);
         }
     }
 }

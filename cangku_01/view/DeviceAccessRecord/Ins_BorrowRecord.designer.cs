@@ -44,7 +44,7 @@
             this.责任人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.生产日期 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cb_query = new System.Windows.Forms.ComboBox();
+            this.cb_directquery = new System.Windows.Forms.ComboBox();
             this.cb_choicetime = new System.Windows.Forms.CheckBox();
             this.btn_selectInstrument = new System.Windows.Forms.Button();
             this.tb_instrument = new System.Windows.Forms.TextBox();
@@ -190,19 +190,19 @@
             this.生产日期.Name = "生产日期";
             this.生产日期.ReadOnly = true;
             // 
-            // cb_query
+            // cb_directquery
             // 
-            this.cb_query.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_query.FormattingEnabled = true;
-            this.cb_query.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_query.Items.AddRange(new object[] {
+            this.cb_directquery.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_directquery.FormattingEnabled = true;
+            this.cb_directquery.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_directquery.Items.AddRange(new object[] {
             "出入库",
             "出库",
             "入库"});
-            this.cb_query.Location = new System.Drawing.Point(642, 29);
-            this.cb_query.Name = "cb_query";
-            this.cb_query.Size = new System.Drawing.Size(121, 20);
-            this.cb_query.TabIndex = 17;
+            this.cb_directquery.Location = new System.Drawing.Point(642, 29);
+            this.cb_directquery.Name = "cb_directquery";
+            this.cb_directquery.Size = new System.Drawing.Size(121, 20);
+            this.cb_directquery.TabIndex = 17;
             // 
             // cb_choicetime
             // 
@@ -282,7 +282,7 @@
             this.gb_foundrecord.Controls.Add(this.label1);
             this.gb_foundrecord.Controls.Add(this.btn_selectemployee);
             this.gb_foundrecord.Controls.Add(this.dtp_end);
-            this.gb_foundrecord.Controls.Add(this.cb_query);
+            this.gb_foundrecord.Controls.Add(this.cb_directquery);
             this.gb_foundrecord.Controls.Add(this.la_to);
             this.gb_foundrecord.Controls.Add(this.dtp_begin);
             this.gb_foundrecord.Controls.Add(this.tb_instrument);
@@ -356,7 +356,7 @@
         private System.Windows.Forms.Label la_to;
         private System.Windows.Forms.DateTimePicker dtp_end;
         private System.Windows.Forms.DataGridView dgv_InstrumentInAndOutrecord;
-        private System.Windows.Forms.ComboBox cb_query;
+        private System.Windows.Forms.ComboBox cb_directquery;
         private System.Windows.Forms.CheckBox cb_choicetime;
         private System.Windows.Forms.Button btn_selectInstrument;
         private System.Windows.Forms.TextBox tb_instrument;

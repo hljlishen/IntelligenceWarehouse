@@ -611,6 +611,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddOrUpdateInstrument";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "编辑仪器信息";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddOrUpdateInstrument_FormClosing);
             this.Load += new System.EventHandler(this.AddOrModifyInstrument_Load);

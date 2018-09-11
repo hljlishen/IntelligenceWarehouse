@@ -59,28 +59,15 @@ namespace cangku_01.GateDrive
         //获取信息
         private void axCZKEM1_OnAttTransactionEx(string sEnrollNumber, int iIsInValid, int iAttState, int iVerifyMethod, int iYear, int iMonth, int iDay, int iHour, int iMinute, int iSecond, int iWorkCode)
         {
-            
-            em.EmployeeNumber = sEnrollNumber;
+            Fingerprint fingerprint = new Fingerprint(DbLinkManager.GetLinkFactory());
+            fingerprint.fi_employeenumber = sEnrollNumber;
             string passtime = iYear.ToString() + "-" + iMonth.ToString() + "-" + iDay.ToString() + " " + iHour.ToString() + ":" + iMinute.ToString() + ":" + iSecond.ToString();
-            em.PassDoor = Convert.ToDateTime(passtime);
-            SavePassDoorInformation();
-            foreach(var From1 in displayers)
-                GetPassDoorInformation(From1);
+            fingerprint.fi_passtime = Convert.ToDateTime(passtime);
+            fingerprint.Insert();
+            foreach (var From1 in displayers)
+                From1.FingerprintUpdate(fingerprint);
         }
         #endregion
-
-        //保存人员过门信息
-        public void SavePassDoorInformation()
-        {
-            EmployeesInterface dao = new EmployeeDataManipulation();
-            dao.AddEmployeePassDoorInformation(em);
-        }
-
-        //将人员信息传出
-        public void GetPassDoorInformation(IDataDisplayer dataDisplayer)
-        {
-            dataDisplayer.FingerprintUpdate(em);
-        }
 
         //关闭连接
         public void CloseConnect()

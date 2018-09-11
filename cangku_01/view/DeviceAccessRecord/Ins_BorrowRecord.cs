@@ -28,7 +28,7 @@ namespace cangku_01.MH
 
         private void InstrumentQuery_Load(object sender, EventArgs e)
         {
-            cb_query.Text = "出入库";
+            cb_directquery.Text = "出入库";
             //选择时间查询
             cb_choicetime.MouseClick += cb_choicetime_MouseClick;
             //调用方法固定页面
@@ -164,7 +164,7 @@ namespace cangku_01.MH
             ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_insinandoutrecords");
             maker.AddAndCondition(new IntEqual("ins_instrumentid", tb_instrument.Text));
             maker.AddAndCondition(new IntEqual("ins_employeeid", tb_employee.Text));
-            maker.AddAndCondition(new StringEqual("ins_direct", cb_query.Text));
+            maker.AddAndCondition(new StringEqual("ins_direct", cb_directquery.Text));
             //maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", ins_time, ins_time, factory.CreateDateTimeFormater()));
             //maker.AddSelectField("ins_instrumentid");
             //maker.AddSelectField("ins_employeeid");

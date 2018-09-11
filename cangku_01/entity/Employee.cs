@@ -97,14 +97,6 @@ namespace cangku_01.entity
             }
         }
 
-        //添加员工过门信息
-        public string AddEmployeePassDoorInformationSql()
-        {
-            string sql = "insert into t_fingerprint (fi_employeenumber,fi_passtime)values('"
-                + EmployeeNumber + "','" + PassDoor + "')";
-            return sql;
-        }
-
         //员工多条件搜素
         public string QueryEmployeeSql(int level,int nondeid)
         {

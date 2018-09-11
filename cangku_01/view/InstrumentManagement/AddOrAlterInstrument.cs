@@ -187,7 +187,7 @@ namespace cangku_01.view.InstrumentManagement
             if (!FormValidation()) return;
             InstrumentInterface dao = new InstrumentDataManipulation();
             DataTable dt = dao.TagIdQueryInstrument(GetInstrumentInformation());
-            if (dt.Rows.Count == 0)
+            if (dt.Rows.Count != 0)
             {
                 AutoClosingMessageBox.Show("已存在该仪器TagId，误重复添加", "仪器信息添加重复", 1000);
                 return;

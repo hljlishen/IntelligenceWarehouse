@@ -75,7 +75,6 @@ namespace cangku_01.view.EmployeesManagement
                     dao.DeleteEmployee(usernumber);
                     AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
                     dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
-
                 }
             }
 
@@ -155,8 +154,17 @@ namespace cangku_01.view.EmployeesManagement
                 MessageBox.Show("请填写要添加的节点名称！");
                 return;
             }
+            Department department = new Department();
+            department.name = tb_nodename.Text;
+            department.tier = 0;
+            department.belongid = 0;
+            if (department.NodeDuplicateChecking())
+            {
+                MessageBox.Show("已存在该节点，无法重复添加！");
+                return;
+            }
             Department d = new Department(tb_nodename.Text,0,0);
-            this.ShowTreeView();
+            ShowTreeView();
             tb_nodename.Text = "";
         }
 
@@ -186,8 +194,17 @@ namespace cangku_01.view.EmployeesManagement
                 MessageBox.Show("无法添加小于组的节点！");
                 return;
             }
-            Department d2 = new Department(tb_nodename.Text, d.tier + 1, d.id);
-            this.ShowTreeView();
+            Department department = new Department();
+            department.name = tb_nodename.Text;
+            department.tier = d.tier + 1;
+            department.belongid = d.id;
+            if (department.NodeDuplicateChecking())
+            {
+                MessageBox.Show("已存在该节点，无法重复添加！");
+                return;
+            }
+            Department de = new Department(tb_nodename.Text, d.tier + 1, d.id);
+            ShowTreeView();
             tb_nodename.Text = "";      
         }
 
@@ -206,11 +223,10 @@ namespace cangku_01.view.EmployeesManagement
                 Department c = (Department)tv_department.SelectedNode.Tag;
                 int i = c.deleteSelf();
                 if(i==1)
-                { AutoClosingMessageBox.Show("节点删除成功", "节点删除", 1000);
+                {
                     tv_department.SelectedNode.Remove();//从TV移除
                     return;
                 }
-                AutoClosingMessageBox.Show("无法删除节点", "节点删除失败", 1000); 
             }
         }
 
