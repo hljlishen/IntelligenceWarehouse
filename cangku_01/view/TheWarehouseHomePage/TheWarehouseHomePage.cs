@@ -9,6 +9,7 @@ using System.IO;
 using System.Drawing;
 using cangku_01.view.TheWarehouseHomePage;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
+using System.ComponentModel;
 
 namespace cangku_01
 {
@@ -64,6 +65,7 @@ namespace cangku_01
                 Dgv_DueToSee.Rows[index].Cells[1].Value = ins.NextCheckTimes();
                 Dgv_DueToSee.Rows[index].Cells[2].Value = ins.TimeRemaining();
             }
+            Dgv_DueToSee.Sort(Dgv_DueToSee.Columns[2], ListSortDirection.Ascending);
         }
 
         //跳转到登录界面

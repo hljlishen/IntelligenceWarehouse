@@ -1,5 +1,6 @@
 ﻿using DbLink;
 using System;
+using System.Windows.Forms;
 
 //仪器实体类
 
@@ -32,10 +33,11 @@ namespace cangku_01.entity
         }
 
         //计算剩余的检查日期
-        public string TimeRemaining()
+        public int TimeRemaining()
         {
             string TimeRemaining = (LastCheckTime.AddDays(CheckCycle) - DateTime.Now).Days.ToString();
-            return TimeRemaining;
+            int timeremaining = int.Parse(TimeRemaining);
+            return timeremaining;
         }
 
         //将日期转化为String年、月、日
@@ -103,6 +105,10 @@ namespace cangku_01.entity
             maker.AddAndCondition(new StringLike("in_name", Name));
             maker.AddAndCondition(new StringLike("in_model", Model));
             maker.AddAndCondition(new StringLike("in_manufactor", Manufactor));
+            if (Duty != 0)
+            {
+                maker.AddAndCondition(new IntEqual("in_duty", Duty));
+            }
             maker.AddAndCondition(new StringLike("in_serialNumber", SerialNumber));
             maker.AddAndCondition(new StringEqual("in_isinwarehouse", IsInWareHouse));
             maker.AddSelectField("in_id");

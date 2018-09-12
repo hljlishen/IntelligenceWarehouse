@@ -8,18 +8,21 @@ using System.Data;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
+using cangku_01.view.EmployeesManagement;
 
 //仪器管理
 
 namespace cangku_01.view.InstrumentManagement
 {
     public partial class InstrumentManagement : Form
-    {   
+    {
+        EmployeeManagement selectEmployees;
         InstrumentInterface dao = new InstrumentDataManipulation();
         Instrument ins = new Instrument();
         private static UHFReader09Interface ReaderDrive = null;
         public delegate void InstrumentSelectedHandler(List<int> instrumentIds,List<string> insNameAndModel);
         public event InstrumentSelectedHandler InstrumentSelected;
+        private int dutyid;
 
         public InstrumentManagement()
         {
@@ -120,7 +123,7 @@ namespace cangku_01.view.InstrumentManagement
             ins.Name = tb_instrumentname.Text;
             ins.Model = tb_model.Text;
             ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
-            ins.Manufactor = tb_manufactor.Text;
+            ins.Duty = dutyid;
             ShowDataGridView(dao.QueryInstrument(ins));
         }
 
@@ -165,6 +168,32 @@ namespace cangku_01.view.InstrumentManagement
                 name.Add(ma);
             }
             InstrumentSelected?.Invoke(ids,name);
+        }
+
+        //选择责任人
+        private void bt_selectduty_Click(object sender, EventArgs e)
+        {
+            selectEmployees = new EmployeeManagement();
+            selectEmployees.FormBorderStyle = FormBorderStyle.FixedSingle;
+            selectEmployees.EmployeesSelected += EmployeesSelected;
+            selectEmployees.ShowDialog();
+            selectEmployees.EmployeesSelected -= EmployeesSelected;
+        }
+
+        //显示责任人信息
+        private void EmployeesSelected(List<int> employeesIds, List<string> emNameAndId)
+        {
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            foreach (var id in employeesIds)
+            {
+                dutyid = id;
+                em.Id = id;
+                DataTable dt = dao.IdQueryEmployee(em);
+                DataRow myDr = dt.Rows[0];
+                tb_duty.Text = myDr["em_name"].ToString();
+            }
+            tb_duty.Text = tb_duty.Text.Substring(0, tb_duty.Text.Length);
         }
     }
 }

@@ -157,6 +157,7 @@
             this.Controls.Add(this.La_DueToRemindTitle);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UpdateRemind";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "到期提醒";
             this.Load += new System.EventHandler(this.UpdateRemind_Load);
             this.ResumeLayout(false);
