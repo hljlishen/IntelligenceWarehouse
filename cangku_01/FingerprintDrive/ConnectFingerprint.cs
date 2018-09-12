@@ -14,7 +14,7 @@ namespace cangku_01.GateDrive
         
         private static ConnectFingerprint connectFingerprint = new ConnectFingerprint();
 
-        public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
+        //public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
         private bool bIsConnected = false;//连接状态
         private int iMachineNumber = 1;//设备连接的序列号
         Employee em = new Employee();
@@ -39,20 +39,20 @@ namespace cangku_01.GateDrive
         //TCP\IP连接
         public void GetIPConnect()
         {
-            bIsConnected = axCZKEM1.Connect_Net("192.168.1.201", 4370);//连接属性IP、端口号
-            if (bIsConnected == true)
-            {
-                iMachineNumber = 1;
-                axCZKEM1.RegEvent(iMachineNumber, 65535);
-                if (axCZKEM1.RegEvent(iMachineNumber, 65535))//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
-                {
-                    axCZKEM1.OnAttTransactionEx += new zkemkeeper._IZKEMEvents_OnAttTransactionExEventHandler(axCZKEM1_OnAttTransactionEx);
-                }
-            }
-            else
-            {
-                MessageBox.Show("无法连接到指纹设备", "错误");
-            }
+            //bIsConnected = axCZKEM1.Connect_Net("192.168.1.201", 4370);//连接属性IP、端口号
+            //if (bIsConnected == true)
+            //{
+            //    iMachineNumber = 1;
+            //    axCZKEM1.RegEvent(iMachineNumber, 65535);
+            //    if (axCZKEM1.RegEvent(iMachineNumber, 65535))//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+            //    {
+            //        axCZKEM1.OnAttTransactionEx += new zkemkeeper._IZKEMEvents_OnAttTransactionExEventHandler(axCZKEM1_OnAttTransactionEx);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("无法连接到指纹设备", "错误");
+            //}
         }
 
         #region RealTime Events
@@ -72,7 +72,7 @@ namespace cangku_01.GateDrive
         //关闭连接
         public void CloseConnect()
         {
-            axCZKEM1.Disconnect();
+            //axCZKEM1.Disconnect();
             bIsConnected = false;
         }
 

@@ -92,7 +92,7 @@ namespace cangku_01
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pb_instrumentphoto = new System.Windows.Forms.PictureBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.bt_instrument = new System.Windows.Forms.Button();
             this.lv_instrumrntinformation = new System.Windows.Forms.ListView();
@@ -118,7 +118,7 @@ namespace cangku_01
             this.tp_allemployeeinformation.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tp_instrumrntinformation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).BeginInit();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -181,14 +181,14 @@ namespace cangku_01
             // 仪器位置查询ToolStripMenuItem
             // 
             this.仪器位置查询ToolStripMenuItem.Name = "仪器位置查询ToolStripMenuItem";
-            this.仪器位置查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.仪器位置查询ToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.仪器位置查询ToolStripMenuItem.Text = "仪器位置查询";
             this.仪器位置查询ToolStripMenuItem.Click += new System.EventHandler(this.仪器位置查询ToolStripMenuItem_Click);
             // 
             // 元器件位置查询ToolStripMenuItem
             // 
             this.元器件位置查询ToolStripMenuItem.Name = "元器件位置查询ToolStripMenuItem";
-            this.元器件位置查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.元器件位置查询ToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
             this.元器件位置查询ToolStripMenuItem.Text = "元器件位置查询";
             // 
             // toolStripMenuItem4
@@ -204,13 +204,13 @@ namespace cangku_01
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(180, 24);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(106, 24);
             this.toolStripMenuItem6.Text = "借用";
             // 
             // 归还ToolStripMenuItem
             // 
             this.归还ToolStripMenuItem.Name = "归还ToolStripMenuItem";
-            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.归还ToolStripMenuItem.Text = "归还";
             // 
             // button1
@@ -607,7 +607,7 @@ namespace cangku_01
             this.tp_instrumrntinformation.Controls.Add(this.label11);
             this.tp_instrumrntinformation.Controls.Add(this.label10);
             this.tp_instrumrntinformation.Controls.Add(this.label9);
-            this.tp_instrumrntinformation.Controls.Add(this.pictureBox4);
+            this.tp_instrumrntinformation.Controls.Add(this.pb_instrumentphoto);
             this.tp_instrumrntinformation.Location = new System.Drawing.Point(4, 22);
             this.tp_instrumrntinformation.Name = "tp_instrumrntinformation";
             this.tp_instrumrntinformation.Padding = new System.Windows.Forms.Padding(3);
@@ -692,17 +692,17 @@ namespace cangku_01
             this.label9.TabIndex = 8;
             this.label9.Text = "通过状态：";
             // 
-            // pictureBox4
+            // pb_instrumentphoto
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox4.Location = new System.Drawing.Point(82, 65);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(123, 140);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 1;
-            this.pictureBox4.TabStop = false;
+            this.pb_instrumentphoto.BackColor = System.Drawing.Color.Transparent;
+            this.pb_instrumentphoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pb_instrumentphoto.BackgroundImage")));
+            this.pb_instrumentphoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pb_instrumentphoto.Location = new System.Drawing.Point(82, 65);
+            this.pb_instrumentphoto.Name = "pb_instrumentphoto";
+            this.pb_instrumentphoto.Size = new System.Drawing.Size(123, 140);
+            this.pb_instrumentphoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_instrumentphoto.TabIndex = 1;
+            this.pb_instrumentphoto.TabStop = false;
             // 
             // tabPage1
             // 
@@ -834,7 +834,7 @@ namespace cangku_01
             this.tabControl2.ResumeLayout(false);
             this.tp_instrumrntinformation.ResumeLayout(false);
             this.tp_instrumrntinformation.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_instrumentphoto)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -896,7 +896,7 @@ namespace cangku_01
         private Label label11;
         private Label label10;
         private Label label9;
-        public PictureBox pictureBox4;
+        public PictureBox pb_instrumentphoto;
         private TabPage tabPage1;
         private ColumnHeader column_Insid;
         private ColumnHeader column_Insname;

@@ -28,7 +28,7 @@ namespace cangku_01.interfaceImp
         {
             MergeInAndOutRecord(ee, door, record);
             record.ins_direct = door.ThroughDoorDirection;
-            record.ins_time = DateTime.Parse(door.ThroughDoorTime);
+            record.ins_time = door.ThroughDoorTime;
             if (record.ins_instrumentid != null && record.ins_employeeid != null && record.ins_direct != null && record.ins_time != null)
             {
                 string sql = record.AddInstrumentRecordSql();
@@ -88,7 +88,7 @@ namespace cangku_01.interfaceImp
                 DataRow myDr = dt.Rows[i];
                 ee.PassDoor = Convert.ToDateTime(myDr["fi_passtime"]);
                 DateTime emPassTime = ee.PassDoor;
-                DateTime insPassTime = DateTime.Parse(door.ThroughDoorTime);
+                DateTime insPassTime = door.ThroughDoorTime;
                 TimeSpan td = emPassTime.Subtract(insPassTime).Duration();
                 double timeInterval = td.TotalSeconds;
                 if (timeInterval <= 12000)
