@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddOrUpdateEmployee));
             this.La_addoralter = new System.Windows.Forms.Label();
-            this.La_userid = new System.Windows.Forms.Label();
+            this.la_number = new System.Windows.Forms.Label();
             this.la_employeesname = new System.Windows.Forms.Label();
             this.la_employeessex = new System.Windows.Forms.Label();
             this.Rb_sexman = new System.Windows.Forms.RadioButton();
             this.Rb_sexwoman = new System.Windows.Forms.RadioButton();
-            this.Tb_name = new System.Windows.Forms.TextBox();
-            this.Tb_employeesid = new System.Windows.Forms.TextBox();
+            this.tb_name = new System.Windows.Forms.TextBox();
+            this.tb_employeesid = new System.Windows.Forms.TextBox();
             this.Bt_addemployee = new System.Windows.Forms.Button();
             this.Gb_sex = new System.Windows.Forms.GroupBox();
             this.la_companyname = new System.Windows.Forms.Label();
@@ -47,6 +47,10 @@
             this.la_group = new System.Windows.Forms.Label();
             this.bt_alteremployee = new System.Windows.Forms.Button();
             this.tv_departmentshow = new System.Windows.Forms.TreeView();
+            this.la_errornumber = new System.Windows.Forms.Label();
+            this.la_errorname = new System.Windows.Forms.Label();
+            this.la_errorgroup = new System.Windows.Forms.Label();
+            this.la_errorexistnumber = new System.Windows.Forms.Label();
             this.Gb_sex.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,15 +64,15 @@
             this.La_addoralter.TabIndex = 0;
             this.La_addoralter.Text = "添加员工";
             // 
-            // La_userid
+            // la_number
             // 
-            this.La_userid.AutoSize = true;
-            this.La_userid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_userid.Location = new System.Drawing.Point(345, 104);
-            this.La_userid.Name = "La_userid";
-            this.La_userid.Size = new System.Drawing.Size(51, 20);
-            this.La_userid.TabIndex = 1;
-            this.La_userid.Text = "编号：";
+            this.la_number.AutoSize = true;
+            this.la_number.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_number.Location = new System.Drawing.Point(345, 104);
+            this.la_number.Name = "la_number";
+            this.la_number.Size = new System.Drawing.Size(51, 20);
+            this.la_number.TabIndex = 1;
+            this.la_number.Text = "编号：";
             // 
             // la_employeesname
             // 
@@ -114,21 +118,21 @@
             this.Rb_sexwoman.Text = "女";
             this.Rb_sexwoman.UseVisualStyleBackColor = true;
             // 
-            // Tb_name
+            // tb_name
             // 
-            this.Tb_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tb_name.Location = new System.Drawing.Point(409, 168);
-            this.Tb_name.Name = "Tb_name";
-            this.Tb_name.Size = new System.Drawing.Size(134, 26);
-            this.Tb_name.TabIndex = 10;
+            this.tb_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_name.Location = new System.Drawing.Point(409, 168);
+            this.tb_name.Name = "tb_name";
+            this.tb_name.Size = new System.Drawing.Size(134, 26);
+            this.tb_name.TabIndex = 10;
             // 
-            // Tb_employeesid
+            // tb_employeesid
             // 
-            this.Tb_employeesid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tb_employeesid.Location = new System.Drawing.Point(409, 101);
-            this.Tb_employeesid.Name = "Tb_employeesid";
-            this.Tb_employeesid.Size = new System.Drawing.Size(134, 26);
-            this.Tb_employeesid.TabIndex = 11;
+            this.tb_employeesid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_employeesid.Location = new System.Drawing.Point(409, 101);
+            this.tb_employeesid.Name = "tb_employeesid";
+            this.tb_employeesid.Size = new System.Drawing.Size(134, 26);
+            this.tb_employeesid.TabIndex = 11;
             // 
             // Bt_addemployee
             // 
@@ -231,11 +235,63 @@
             this.tv_departmentshow.TabIndex = 22;
             this.tv_departmentshow.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_departmentshow_AfterSelect);
             // 
-            // AddOrAlterEmployees
+            // la_errornumber
+            // 
+            this.la_errornumber.AutoSize = true;
+            this.la_errornumber.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_errornumber.ForeColor = System.Drawing.Color.Red;
+            this.la_errornumber.Location = new System.Drawing.Point(406, 130);
+            this.la_errornumber.Name = "la_errornumber";
+            this.la_errornumber.Size = new System.Drawing.Size(109, 17);
+            this.la_errornumber.TabIndex = 80;
+            this.la_errornumber.Text = "*员工编号不能为空";
+            this.la_errornumber.Visible = false;
+            // 
+            // la_errorname
+            // 
+            this.la_errorname.AutoSize = true;
+            this.la_errorname.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_errorname.ForeColor = System.Drawing.Color.Red;
+            this.la_errorname.Location = new System.Drawing.Point(406, 199);
+            this.la_errorname.Name = "la_errorname";
+            this.la_errorname.Size = new System.Drawing.Size(85, 17);
+            this.la_errorname.TabIndex = 81;
+            this.la_errorname.Text = "*姓名不能为空";
+            this.la_errorname.Visible = false;
+            // 
+            // la_errorgroup
+            // 
+            this.la_errorgroup.AutoSize = true;
+            this.la_errorgroup.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_errorgroup.ForeColor = System.Drawing.Color.Red;
+            this.la_errorgroup.Location = new System.Drawing.Point(406, 462);
+            this.la_errorgroup.Name = "la_errorgroup";
+            this.la_errorgroup.Size = new System.Drawing.Size(121, 17);
+            this.la_errorgroup.TabIndex = 82;
+            this.la_errorgroup.Text = "*未选择员工所在小组";
+            this.la_errorgroup.Visible = false;
+            // 
+            // la_errorexistnumber
+            // 
+            this.la_errorexistnumber.AutoSize = true;
+            this.la_errorexistnumber.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_errorexistnumber.ForeColor = System.Drawing.Color.Red;
+            this.la_errorexistnumber.Location = new System.Drawing.Point(406, 130);
+            this.la_errorexistnumber.Name = "la_errorexistnumber";
+            this.la_errorexistnumber.Size = new System.Drawing.Size(97, 17);
+            this.la_errorexistnumber.TabIndex = 83;
+            this.la_errorexistnumber.Text = "*员工编号已存在";
+            this.la_errorexistnumber.Visible = false;
+            // 
+            // AddOrUpdateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 569);
+            this.Controls.Add(this.la_errorexistnumber);
+            this.Controls.Add(this.la_errorgroup);
+            this.Controls.Add(this.la_errorname);
+            this.Controls.Add(this.la_errornumber);
             this.Controls.Add(this.tv_departmentshow);
             this.Controls.Add(this.bt_alteremployee);
             this.Controls.Add(this.la_group);
@@ -246,14 +302,15 @@
             this.Controls.Add(this.la_companyname);
             this.Controls.Add(this.Gb_sex);
             this.Controls.Add(this.Bt_addemployee);
-            this.Controls.Add(this.Tb_employeesid);
-            this.Controls.Add(this.Tb_name);
+            this.Controls.Add(this.tb_employeesid);
+            this.Controls.Add(this.tb_name);
             this.Controls.Add(this.la_employeessex);
             this.Controls.Add(this.la_employeesname);
-            this.Controls.Add(this.La_userid);
+            this.Controls.Add(this.la_number);
             this.Controls.Add(this.La_addoralter);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddOrAlterEmployees";
+            this.Name = "AddOrUpdateEmployee";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "编辑员工信息";
             this.Load += new System.EventHandler(this.AddOrAlterEmployees_Load);
             this.Gb_sex.ResumeLayout(false);
@@ -266,13 +323,13 @@
         #endregion
 
         private System.Windows.Forms.Label La_addoralter;
-        private System.Windows.Forms.Label La_userid;
+        private System.Windows.Forms.Label la_number;
         private System.Windows.Forms.Label la_employeesname;
         private System.Windows.Forms.Label la_employeessex;
         private System.Windows.Forms.RadioButton Rb_sexman;
         private System.Windows.Forms.RadioButton Rb_sexwoman;
-        private System.Windows.Forms.TextBox Tb_name;
-        private System.Windows.Forms.TextBox Tb_employeesid;
+        private System.Windows.Forms.TextBox tb_name;
+        private System.Windows.Forms.TextBox tb_employeesid;
         private System.Windows.Forms.Button Bt_addemployee;
         private System.Windows.Forms.GroupBox Gb_sex;
         private System.Windows.Forms.Label la_companyname;
@@ -283,5 +340,9 @@
         private System.Windows.Forms.Label la_group;
         private System.Windows.Forms.Button bt_alteremployee;
         private System.Windows.Forms.TreeView tv_departmentshow;
+        private System.Windows.Forms.Label la_errornumber;
+        private System.Windows.Forms.Label la_errorname;
+        private System.Windows.Forms.Label la_errorgroup;
+        private System.Windows.Forms.Label la_errorexistnumber;
     }
 }

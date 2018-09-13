@@ -1,5 +1,7 @@
-﻿using DbLink;
+﻿using cangku_01.MysqlConnection;
+using DbLink;
 using System;
+using System.Data;
 
 //员工信息
 
@@ -8,6 +10,7 @@ namespace cangku_01.entity
     public class Employee
     {
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+        DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         public int Id {get;set;}                     //sql员工主键ID
         public string EmployeeNumber { get; set; }   //员工编号
@@ -35,6 +38,23 @@ namespace cangku_01.entity
                       "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
                       "where em_employeenumber = " + EmployeeNumber + "";
             return sql;
+        }
+
+        //员工编号查询员工sql
+        public DataTable EmployeeNumberFindEmployee()
+        {
+            Setup();
+            maker.AddAndCondition(new IntEqual("em_employeenumber", EmployeeNumber));
+            maker.AddSelectField("em_id");
+            maker.AddSelectField("em_employeenumber");
+            maker.AddSelectField("em_name");
+            maker.AddSelectField("em_sex");
+            maker.AddSelectField("em_company");
+            maker.AddSelectField("em_department");
+            maker.AddSelectField("em_group");
+            string sql = maker.MakeSelectSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
 
         //员工id查询员工sql
@@ -103,11 +123,11 @@ namespace cangku_01.entity
             }
             if (!Name.Equals("") && EmployeeNumber.Equals(""))
             {
-                sql += $" em_name='{Name}'";
+                sql += $" em_name like '%{Name}%'";
             }
             if (!Name.Equals("") && !EmployeeNumber.Equals(""))
             {
-                sql += $" and em_name='{Name}'";
+                sql += $" and em_name like '%{Name}%'";
             }
             if (!Sex.Equals("男/女") && !EmployeeNumber.Equals(""))
             {

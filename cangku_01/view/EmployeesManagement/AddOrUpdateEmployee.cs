@@ -3,12 +3,8 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -41,21 +37,21 @@ namespace cangku_01.view.EmployeesManagement
             Bt_addemployee.Visible = false;
             this.fr = fr;
             this.index = index;
-            this.Tb_employeesid.ReadOnly = true;
-            this.La_addoralter.Text = "修改员工";
-            this.Tb_employeesid.Text = em.EmployeeNumber.ToString();
-            this.Tb_name.Text = em.Name;
+            tb_employeesid.ReadOnly = true;
+            La_addoralter.Text = "修改员工";
+            tb_employeesid.Text = em.EmployeeNumber.ToString();
+            tb_name.Text = em.Name;
             if (em.Sex.Equals("男"))
             {
-                this.Rb_sexman.Checked = true;
+                Rb_sexman.Checked = true;
             }
             else
             {
-                this.Rb_sexwoman.Checked = true;
+                Rb_sexwoman.Checked = true;
             }
-            this.la_company.Text = company;
-            this.la_department.Text = department;
-            this.la_group.Text = group;
+            la_company.Text = company;
+            la_department.Text = department;
+            la_group.Text = group;
         }
 
         //加载部门树状图
@@ -70,24 +66,22 @@ namespace cangku_01.view.EmployeesManagement
         //员工信息添加
         private void Bt_addemployee_Click(object sender, EventArgs e)
         {
-            if (Tb_employeesid.Text == "" || Tb_name.Text == "" )
+            if (!FormValidation()) return;
+            if (dao.EmployeesRechecking(tb_employeesid.Text.ToString()) != 0)
             {
-                MessageBox.Show("请填写完整信息！");
+                la_errorexistnumber.Visible = true;
+                la_errorexistnumber.ForeColor = Color.Red;
                 return;
             }
-            if (dao.EmployeesRechecking(Tb_employeesid.Text.ToString()) != 0)
-            {
-                MessageBox.Show("已存在该员工编号！");
-                return;
-            }
-            this.GetEmployeeInformation();
+            else la_errorexistnumber.Visible = false;
+            GetEmployeeInformation();
             companytext = la_company.Text;
             departmenttext = la_department.Text;
             grouptext = la_group.Text;
             dao.AddEmployee(em);
             AutoClosingMessageBox.Show("员工信息添加成功", "员工信息添加", 1000);
             index = fr.dgv_employeeinformation.Rows.Add();
-            this.AddOneEmployeeToTheDataGridView();
+            AddOneEmployeeToTheDataGridView();
             Close();
  
         }
@@ -95,8 +89,8 @@ namespace cangku_01.view.EmployeesManagement
         //获取员工信息
         public void GetEmployeeInformation()
         {
-            em.EmployeeNumber = Tb_employeesid.Text.ToString();
-            em.Name = Tb_name.Text.ToString();
+            em.EmployeeNumber = tb_employeesid.Text.ToString();
+            em.Name = tb_name.Text.ToString();
             if (Rb_sexman.Checked) em.Sex = "男";
             else em.Sex = "女";
         }
@@ -115,19 +109,15 @@ namespace cangku_01.view.EmployeesManagement
         //员工信息修改
         private void bt_alteremployee_Click(object sender, EventArgs e)
         {
-            if (Tb_employeesid.Text == "" || Tb_name.Text == "")
-            {
-                MessageBox.Show("请填写完整信息！");
-                return;
-            }
-            this.GetEmployeeInformation();
+            if (!FormValidation()) return;
+            GetEmployeeInformation();
             if (em.Group == 0)
             {
-                DataTable dt = dao.EmployeeNumberQueryEmployee(em);
+                DataTable dt = em.EmployeeNumberFindEmployee();
                 DataRow myDr = dt.Rows[0];
-                em.Company = int.Parse(myDr["em_company"].ToString());
-                em.Department = int.Parse(myDr["em_department"].ToString());
-                em.Group = int.Parse(myDr["em_group"].ToString());
+                em.Company = (int)myDr["em_company"];
+                em.Department = (int)myDr["em_department"];
+                em.Group = (int)myDr["em_group"];
             }
             companytext = la_company.Text;
             departmenttext = la_department.Text;
@@ -136,7 +126,7 @@ namespace cangku_01.view.EmployeesManagement
             AutoClosingMessageBox.Show("员工信息修改成功", "员工信息修改", 1000);
             fr.dgv_employeeinformation.Rows.RemoveAt(index);
             index = fr.dgv_employeeinformation.Rows.Add();
-            this.AddOneEmployeeToTheDataGridView();
+            AddOneEmployeeToTheDataGridView();
             Close(); 
         }
 
@@ -145,7 +135,7 @@ namespace cangku_01.view.EmployeesManagement
         {
             if (tv_departmentshow.SelectedNode.Level != 2) //确定选中到部门
             {
-                MessageBox.Show("未精确到小组");
+                AutoClosingMessageBox.Show("为精确到小组", "为精确到小组", 500);
                 return;
             }
             Department d1 = tv_departmentshow.SelectedNode.Tag as Department;//获取节点id
@@ -157,6 +147,34 @@ namespace cangku_01.view.EmployeesManagement
             em.Company = d3.id;
             em.Department = d2.id;
             em.Group = d1.id;
+        }
+
+        //表单验证
+        private bool FormValidation()
+        {
+            bool validation = true;
+            if (tb_employeesid.Text.Trim().Equals(""))
+            {
+                la_errornumber.Visible = true;
+                la_errornumber.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_errornumber.Visible = false;
+            if (tb_name.Text.Trim().Equals(""))
+            {
+                la_errorname.Visible = true;
+                la_errorname.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_errorname.Visible = false;
+            if (la_group.Text.Trim().Equals("员工小组"))
+            {
+                la_errorgroup.Visible = true;
+                la_errorgroup.ForeColor = Color.Red;
+                validation = false;
+            }
+            else la_errorgroup.Visible = false;
+            return validation;
         }
     }
 }
