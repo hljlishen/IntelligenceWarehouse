@@ -105,6 +105,7 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.column_postion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_employeephoto)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -737,7 +738,8 @@ namespace cangku_01
             this.column_Insid,
             this.column_Insname,
             this.column_Insstate,
-            this.column_Instime});
+            this.column_Instime,
+            this.column_postion});
             this.lv_instrumrntinformation.FullRowSelect = true;
             this.lv_instrumrntinformation.GridLines = true;
             this.lv_instrumrntinformation.Location = new System.Drawing.Point(8, 6);
@@ -750,26 +752,26 @@ namespace cangku_01
             // column_Insnumber
             // 
             this.column_Insnumber.Text = "序号";
+            this.column_Insnumber.Width = 49;
             // 
             // column_Insid
             // 
             this.column_Insid.Text = "仪器编号";
-            this.column_Insid.Width = 240;
+            this.column_Insid.Width = 203;
             // 
             // column_Insname
             // 
             this.column_Insname.Text = " 仪器名称";
-            this.column_Insname.Width = 100;
+            this.column_Insname.Width = 72;
             // 
             // column_Insstate
             // 
             this.column_Insstate.Text = "通过状态";
-            this.column_Insstate.Width = 80;
             // 
             // column_Instime
             // 
             this.column_Instime.Text = "通过时间";
-            this.column_Instime.Width = 140;
+            this.column_Instime.Width = 141;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -794,6 +796,11 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.HeaderText = "人员编号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // column_postion
+            // 
+            this.column_postion.Text = "货架位置";
+            this.column_postion.Width = 95;
             // 
             // Form1
             // 
@@ -916,6 +923,7 @@ namespace cangku_01
         private ColumnHeader ch_passdoordatetime;
         private ColumnHeader ch_number;
         private Button bt_emptyemployeepassdoor;
+        private ColumnHeader column_postion;
     }
 }
 

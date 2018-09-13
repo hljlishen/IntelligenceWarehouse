@@ -45,6 +45,7 @@
             this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.bt_selectduty = new System.Windows.Forms.Button();
             this.tb_model = new System.Windows.Forms.TextBox();
             this.la_model = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -52,7 +53,6 @@
             this.la_duty = new System.Windows.Forms.Label();
             this.tb_duty = new System.Windows.Forms.TextBox();
             this.la_IsInWareHouse = new System.Windows.Forms.Label();
-            this.bt_selectduty = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -120,8 +120,7 @@
             this.dgv_instrumentinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_instrumentinformation.Size = new System.Drawing.Size(1273, 684);
             this.dgv_instrumentinformation.TabIndex = 4;
-            this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dgv_instrumentinformation.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_instrumentinformation_CellMouseClick);
+            this.dgv_instrumentinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentDoubleClick);
             // 
             // ID
             // 
@@ -227,6 +226,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "仪器搜索";
             // 
+            // bt_selectduty
+            // 
+            this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_selectduty.Location = new System.Drawing.Point(895, 16);
+            this.bt_selectduty.Name = "bt_selectduty";
+            this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
+            this.bt_selectduty.TabIndex = 70;
+            this.bt_selectduty.Text = "...";
+            this.bt_selectduty.UseVisualStyleBackColor = true;
+            this.bt_selectduty.Click += new System.EventHandler(this.bt_selectduty_Click);
+            // 
             // tb_model
             // 
             this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -298,17 +308,6 @@
             this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
             this.la_IsInWareHouse.TabIndex = 6;
             this.la_IsInWareHouse.Text = "在库状态：";
-            // 
-            // bt_selectduty
-            // 
-            this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_selectduty.Location = new System.Drawing.Point(895, 16);
-            this.bt_selectduty.Name = "bt_selectduty";
-            this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
-            this.bt_selectduty.TabIndex = 70;
-            this.bt_selectduty.Text = "...";
-            this.bt_selectduty.UseVisualStyleBackColor = true;
-            this.bt_selectduty.Click += new System.EventHandler(this.bt_selectduty_Click);
             // 
             // InstrumentManagement
             // 

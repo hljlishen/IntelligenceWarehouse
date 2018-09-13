@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace cangku_01.MH
 {
     //仪器出入库查询页面
-    public partial class Ins_query : Form
+    public partial class Ins_InAndOutRecord : Form
     {
         InstrumenBorrowRecord dao = new InsBorrowRecord();
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
@@ -20,7 +20,7 @@ namespace cangku_01.MH
         InstrumentManagement selectInstrument;
         EmployeeManagement selectEmployees;
 
-        public Ins_query()
+        public Ins_InAndOutRecord()
         {
             InitializeComponent();
         }

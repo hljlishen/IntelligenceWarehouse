@@ -2,6 +2,7 @@
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
+using cangku_01.view.TheWarehouseHomePage;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -59,6 +60,7 @@ namespace cangku_01.GateDrive
                     listView.SubItems.Add(myDr["in_name"].ToString());
                     listView.SubItems.Add(door.ThroughDoorDirection);
                     listView.SubItems.Add(door.ThroughDoorTime.ToString());
+                    listView.SubItems.Add(myDr["in_position"].ToString());
                 }
             }
         }

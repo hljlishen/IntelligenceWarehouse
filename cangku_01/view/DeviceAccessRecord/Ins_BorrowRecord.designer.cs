@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.MH
 {
-    partial class Ins_query
+    partial class Ins_InAndOutRecord
     {
         /// <summary>
         /// Required designer variable.
