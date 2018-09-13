@@ -41,10 +41,10 @@ namespace cangku_01.GateDrive
         private string ThroughDoorDirection = "";
         private string productCode = "";
 
+        DataShow dataShow = new DataShow();
+        List<string> list = new List<string>();
         private static GateData door = new GateData();
-        private static DataShowInterface data = new DataShow();
         private static GateInterfaceImp gateInterface = new GateInterfaceImp();
-
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
 
@@ -102,7 +102,7 @@ namespace cangku_01.GateDrive
             fCmdRet = DeviceApi.GetChannelMessage(ref ControllerAdr, Msg, ref MsgLength, ref MsgType, ref IRStatus, PortHandle);
             if ((fCmdRet == 0) && (MsgType == 0))
             {
-                DetectTagId(fr);//获取TagID  
+                DetectTagId();//获取TagID  
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
             {
@@ -112,53 +112,61 @@ namespace cangku_01.GateDrive
         }
 
         //探测的TagId
-        public void DetectTagId(Form1 fr)
+        private void DetectTagId()
         {
             int CardNum = Msg[6];
             if (CardNum == 0) return;
             byte[] daw = new byte[MsgLength - 7];//除去前面6个字节的时间和1个字节的长度
             Array.Copy(Msg, 7, daw, 0, MsgLength - 7);
             string temps = ByteArrayToHexString(daw);
-            string TagId = null;
             int m = 0;
             for (int CardIndex = 0; CardIndex < CardNum; CardIndex++)
             {
                 int TIDlen = daw[m];
-                TagId = temps.Substring(m * 2 + 2, TIDlen * 2);
+                list.Add(temps.Substring(m * 2 + 2, TIDlen * 2));
                 m = m + TIDlen + 1;
-                door.TagId = TagId;
-                data.GetTagIdName(door);
-                if (door.TagId != null && door.Name != null && door.ThroughDoorDirection != null)
+            }
+            for (int n = 0; n < list.Count; n++)//去重
+            {
+                for (int j = list.Count - 1; j > n; j--)
                 {
-                    data.ShowInstrumentPhoto(door, fr);
-                    data.TextAndListViewShow(door,fr);
+                    if (list[n] == list[j])
+                    {
+                        list.RemoveAt(j);
+                    }
                 }
             }
-            door.ThroughDoorDirection = null;
         }
 
         //探测的方向和时间
-        public void DetectDirectionAndTime(Form1 fr)
+        private void DetectDirectionAndTime(Form1 fr)
         {
-            InFlag = Convert.ToByte(Msg[0]);
-            switch (InFlag)
+            for (int i = 0; i<list.Count;i++)
             {
-                case 0:
-                    ThroughDoorDirection = "入库";
-                    break;
-                case 1:
-                    ThroughDoorDirection = "出库";
-                    break;
+                InFlag = Convert.ToByte(Msg[0]);
+                switch (InFlag)
+                {
+                    case 0:
+                        ThroughDoorDirection = "入库";
+                        break;
+                    case 1:
+                        ThroughDoorDirection = "出库";
+                        break;
+                }
+                door.ThroughDoorDirection = ThroughDoorDirection;
+                year = Convert.ToString(Msg[11]).PadLeft(2, '0');
+                month = Convert.ToString(Msg[12]).PadLeft(2, '0');
+                Dates = Convert.ToString(Msg[13]).PadLeft(2, '0');
+                Hour = Convert.ToString(Msg[14]).PadLeft(2, '0');
+                minutes = Convert.ToString(Msg[15]).PadLeft(2, '0');
+                second = Convert.ToString(Msg[16]).PadLeft(2, '0');
+                ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
+                door.TagId = list[i];
+                list[i] = null;
+                door.ThroughDoorTime = DateTime.Parse(ThroughDoorTime);
+                dataShow.TextAndListViewShow(door, fr);
             }
-            door.ThroughDoorDirection = ThroughDoorDirection;
-            year = Convert.ToString(Msg[11]).PadLeft(2, '0');
-            month = Convert.ToString(Msg[12]).PadLeft(2, '0');
-            Dates = Convert.ToString(Msg[13]).PadLeft(2, '0');
-            Hour = Convert.ToString(Msg[14]).PadLeft(2, '0');
-            minutes = Convert.ToString(Msg[15]).PadLeft(2, '0');
-            second = Convert.ToString(Msg[16]).PadLeft(2, '0');
-            ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
-            door.ThroughDoorTime = ThroughDoorTime;
+            list.Clear();
         }
     }
 }

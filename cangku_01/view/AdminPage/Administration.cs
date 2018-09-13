@@ -16,7 +16,7 @@ namespace cangku_01
         private EmployeeManagement index_employees = null;
         private WarehouseManagement warehouseManagement = null;
         private DueToRemind Due_to_remind = null;
-        private Ins_query Ins_query = null;
+        private Ins_InAndOutRecord Ins_InAndOutRecord = null;
         private InstrumentManagement index_instrument = null;
 
         public Administration()
@@ -81,18 +81,18 @@ namespace cangku_01
 
         private void 仪器ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (Ins_query == null)
+            if (Ins_InAndOutRecord == null)
             {
-                Ins_query = new Ins_query();
+                Ins_InAndOutRecord = new Ins_InAndOutRecord();
             }
             else
             {
-                Ins_query.Close();
-                Ins_query = new Ins_query();
+                Ins_InAndOutRecord.Close();
+                Ins_InAndOutRecord = new Ins_InAndOutRecord();
             }
-            Ins_query.MdiParent = this;
-            Ins_query.Show();
-            Ins_query.Activate();
+            Ins_InAndOutRecord.MdiParent = this;
+            Ins_InAndOutRecord.Show();
+            Ins_InAndOutRecord.Activate();
         }
 
         private void 仪器管理ToolStripMenuItem_Click(object sender, EventArgs e)

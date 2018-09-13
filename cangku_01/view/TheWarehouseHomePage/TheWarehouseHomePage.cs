@@ -8,6 +8,7 @@ using cangku_01.GateDrive;
 using System.IO;
 using System.Drawing;
 using cangku_01.view.TheWarehouseHomePage;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using System.ComponentModel;
 
 namespace cangku_01
