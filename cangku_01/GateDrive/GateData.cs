@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace cangku_01.GateDrive
 {
-    class GateData
+    public class GateData
     {
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
 

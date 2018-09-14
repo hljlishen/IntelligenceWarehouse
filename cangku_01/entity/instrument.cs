@@ -102,6 +102,7 @@ namespace cangku_01.entity
         public string QueryInstrumentSql()
         {
             SetupInstrument();
+            maker.AddAndCondition(new StringLike("in_tagid", TagId));
             maker.AddAndCondition(new StringLike("in_name", Name));
             maker.AddAndCondition(new StringLike("in_model", Model));
             maker.AddAndCondition(new StringLike("in_manufactor", Manufactor));

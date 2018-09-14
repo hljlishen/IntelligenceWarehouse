@@ -10,15 +10,17 @@ using System.Drawing;
 using cangku_01.view.TheWarehouseHomePage;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using System.ComponentModel;
+using DbLink;
+using cangku_01.FingerprintDrive;
 
 namespace cangku_01
 {
     public partial class Form1 : Form , IDataDisplayer
     {
-        GateInterface gate = new GateInterfaceImp();
+        private static GateInterface gate = new GateInterfaceImp();
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
-        ListViewItem listView = new ListViewItem();
+        ListViewItem listView = new ListViewItem();        
 
         public Form1()
         {
@@ -73,7 +75,6 @@ namespace cangku_01
         {
             Form login = new login();
             login.Show();
-
         }
 
         //线程触发

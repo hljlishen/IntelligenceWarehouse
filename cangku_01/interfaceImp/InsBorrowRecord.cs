@@ -12,7 +12,6 @@ namespace cangku_01.interfaceImp
 {
     internal class InsBorrowRecord : InstrumenBorrowRecord
     {
-        
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //全部仪器出库和入库记录

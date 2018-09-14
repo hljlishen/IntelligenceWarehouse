@@ -2,6 +2,7 @@
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
+using DbLink;
 using Gate;
 using System;
 using System.Collections;
@@ -41,9 +42,13 @@ namespace cangku_01.GateDrive
         private string ThroughDoorDirection = "";
         private string productCode = "";
 
-        DataShow dataShow = new DataShow();
+        DataShow dataShow;
         List<string> list = new List<string>();
         private static GateData door = new GateData();
+        InstrumenBorrowRecord ibr = new InsBorrowRecord();
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+        InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
+        Employee ee = new Employee();
         private static GateInterfaceImp gateInterface = new GateInterfaceImp();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
@@ -164,9 +169,30 @@ namespace cangku_01.GateDrive
                 door.TagId = list[i];
                 list[i] = null;
                 door.ThroughDoorTime = DateTime.Parse(ThroughDoorTime);
-                dataShow.TextAndListViewShow(door, fr);
+                DetermineCardExistence(fr);
+                BorrowInformation(door);
+                ibr.AddInAndOutRecords(record, ee, door);
             }
             list.Clear();
+        }
+        //将探测到的借用信息存入到数据库
+        private void BorrowInformation(GateData insborrow)
+        {
+            string sql = insborrow.BorrowInformationSql();
+            dbo.WriteDB(sql);
+        }
+
+        //判断是否存在标签
+        private void DetermineCardExistence(Form1 fr)
+        {
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            ins.TagId = door.TagId;
+            DataTable dt = dao.TagIdQueryInstrument(ins);
+            if (dt.Rows.Count > 0)
+            {
+                dataShow.TextAndListViewShow(door,fr);
+            }
         }
     }
 }
