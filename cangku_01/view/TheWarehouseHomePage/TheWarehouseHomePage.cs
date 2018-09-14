@@ -8,20 +8,22 @@ using cangku_01.GateDrive;
 using System.IO;
 using System.Drawing;
 using cangku_01.view.TheWarehouseHomePage;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using System.ComponentModel;
 using DbLink;
+using cangku_01.FingerprintDrive;
 
 namespace cangku_01
 {
     public partial class Form1 : Form , IDataDisplayer
     {
-        GateInterface gate = new GateInterfaceImp();
+        private static GateInterface gate = new GateInterfaceImp();
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
         Employee ee = new Employee();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
-        ListViewItem listView = new ListViewItem();
+        ListViewItem listView = new ListViewItem();        
 
         public Form1()
         {
@@ -43,8 +45,8 @@ namespace cangku_01
         private void Form1_Load(object sender, EventArgs e)
         {
             //gate.Open();
-            //connectFingerprint.GetIPConnect();
-            //connectFingerprint.AddDisplayer(this);
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -76,7 +78,6 @@ namespace cangku_01
         {
             Form login = new login();
             login.Show();
-
         }
 
         //线程触发

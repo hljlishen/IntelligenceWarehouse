@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 //指纹设备连接 --饿汉式
 
-namespace cangku_01.GateDrive
+namespace cangku_01.FingerprintDrive
 {
     class ConnectFingerprint
     {

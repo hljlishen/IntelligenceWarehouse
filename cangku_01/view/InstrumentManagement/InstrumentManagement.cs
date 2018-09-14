@@ -81,6 +81,87 @@ namespace cangku_01.view.InstrumentManagement
         //仪器的修改删除
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
         {
+
+        }
+
+        //搜索按钮
+        private void button2_Click(object sender, EventArgs e)  
+        {
+            UHFReader reader = UHFReader.CreateInstance();
+            TagIdQuery(reader);
+            ins.TagId = tb_tagid.Text;
+            ins.Name = tb_instrumentname.Text;
+            ins.Model = tb_model.Text;
+            ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
+            ins.Duty = dutyid;
+            ShowDataGridView(dao.QueryInstrument(ins));
+        }
+
+        private void TagIdQuery(UHFReader09Interface readerDrive)
+        {
+            ReaderDrive = readerDrive;
+            ReaderDrive.OpenConnectReader();
+            ReaderDrive.TagConnected += ReaderDrive_TagConnected;
+        }
+
+        private void ReaderDrive_TagConnected(string tagId)
+        {
+            tb_tagid.Text = tagId;
+        }
+
+        //选择责任人
+        private void bt_selectduty_Click(object sender, EventArgs e)
+        {
+            selectEmployees = new EmployeeManagement();
+            selectEmployees.FormBorderStyle = FormBorderStyle.FixedSingle;
+            selectEmployees.EmployeesSelected += EmployeesSelected;
+            selectEmployees.ShowDialog();
+            selectEmployees.EmployeesSelected -= EmployeesSelected;
+        }
+
+        //显示责任人信息
+        private void EmployeesSelected(List<int> employeesIds, List<string> emNameAndId)
+        {
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            foreach (var id in employeesIds)
+            {
+                dutyid = id;
+                em.Id = id;
+                DataTable dt = dao.IdQueryEmployee(em);
+                DataRow myDr = dt.Rows[0];
+                tb_duty.Text = myDr["em_name"].ToString();
+            }
+            tb_duty.Text = tb_duty.Text.Substring(0, tb_duty.Text.Length);
+        }
+
+        //双击
+        private void dgv_instrumentinformation_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (FormBorderStyle == FormBorderStyle.FixedSingle)
+            {
+                var selectedRows = dgv_instrumentinformation.SelectedRows;
+                List<int> ids = new List<int>();
+                List<string> name = new List<string>();
+                foreach (var row in selectedRows)
+                {
+                    int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
+                    string na = ((DataGridViewRow)row).Cells[1].Value.ToString();
+                    string mo = ((DataGridViewRow)row).Cells[2].Value.ToString();
+                    string ma = ((DataGridViewRow)row).Cells[3].Value.ToString();
+                    ids.Add(id);
+                    name.Add(na);
+                    name.Add(mo);
+                    name.Add(ma);
+                }
+                InstrumentSelected?.Invoke(ids, name);
+                Close();
+            }
+        }
+
+        //仪器的修改删除
+        private void dgv_instrumentinformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             //删除
             if (e.ColumnIndex == 7)
             {
@@ -117,85 +198,9 @@ namespace cangku_01.view.InstrumentManagement
             }
         }
 
-        //搜索按钮
-        private void button2_Click(object sender, EventArgs e)  
-        {
-            ins.Name = tb_instrumentname.Text;
-            ins.Model = tb_model.Text;
-            ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
-            ins.Duty = dutyid;
-            ShowDataGridView(dao.QueryInstrument(ins));
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            UHFReader reader = UHFReader.CreateInstance();
-            TagIdQuery(reader);
-            ShowDataGridView(dao.TagIdQueryInstrument(ins));
-        }
-
-        private void TagIdQuery(UHFReader09Interface readerDrive)
-        {
-            ReaderDrive = readerDrive;
-            ReaderDrive.OpenConnectReader();
-            ReaderDrive.TagConnected += ReaderDrive_TagConnected;
-        }
-
-        private void ReaderDrive_TagConnected(string tagId)
-        {
-            ins.TagId = tagId;
-        }
-
-        private void button2_KeyPress(object sender, KeyPressEventArgs e)
+        private void bt_queryinstrument_KeyPress(object sender, KeyPressEventArgs e)
         {
             ReaderDrive.TagConnected -= ReaderDrive_TagConnected;
-        }
-
-        //选择责任人
-        private void bt_selectduty_Click(object sender, EventArgs e)
-        {
-            selectEmployees = new EmployeeManagement();
-            selectEmployees.FormBorderStyle = FormBorderStyle.FixedSingle;
-            selectEmployees.EmployeesSelected += EmployeesSelected;
-            selectEmployees.ShowDialog();
-            selectEmployees.EmployeesSelected -= EmployeesSelected;
-        }
-
-        //显示责任人信息
-        private void EmployeesSelected(List<int> employeesIds, List<string> emNameAndId)
-        {
-            EmployeesInterface dao = new EmployeeDataManipulation();
-            Employee em = new Employee();
-            foreach (var id in employeesIds)
-            {
-                dutyid = id;
-                em.Id = id;
-                DataTable dt = dao.IdQueryEmployee(em);
-                DataRow myDr = dt.Rows[0];
-                tb_duty.Text = myDr["em_name"].ToString();
-            }
-            tb_duty.Text = tb_duty.Text.Substring(0, tb_duty.Text.Length);
-        }
-
-        //双击
-        private void dgv_instrumentinformation_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var selectedRows = dgv_instrumentinformation.SelectedRows;
-            List<int> ids = new List<int>();
-            List<string> name = new List<string>();
-            foreach (var row in selectedRows)
-            {
-                int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
-                string na = ((DataGridViewRow)row).Cells[1].Value.ToString();
-                string mo = ((DataGridViewRow)row).Cells[2].Value.ToString();
-                string ma = ((DataGridViewRow)row).Cells[3].Value.ToString();
-                ids.Add(id);
-                name.Add(na);
-                name.Add(mo);
-                name.Add(ma);
-            }
-            InstrumentSelected?.Invoke(ids, name);
-            Close();
         }
     }
 }

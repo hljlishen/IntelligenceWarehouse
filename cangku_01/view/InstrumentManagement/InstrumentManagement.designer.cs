@@ -48,11 +48,12 @@
             this.bt_selectduty = new System.Windows.Forms.Button();
             this.tb_model = new System.Windows.Forms.TextBox();
             this.la_model = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
             this.la_duty = new System.Windows.Forms.Label();
             this.tb_duty = new System.Windows.Forms.TextBox();
             this.la_IsInWareHouse = new System.Windows.Forms.Label();
+            this.la_tagid = new System.Windows.Forms.Label();
+            this.tb_tagid = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             this.la_instrumentname.AutoSize = true;
             this.la_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_instrumentname.Location = new System.Drawing.Point(13, 20);
+            this.la_instrumentname.Location = new System.Drawing.Point(236, 20);
             this.la_instrumentname.Name = "la_instrumentname";
             this.la_instrumentname.Size = new System.Drawing.Size(79, 20);
             this.la_instrumentname.TabIndex = 1;
@@ -81,21 +82,22 @@
             // tb_instrumentname
             // 
             this.tb_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_instrumentname.Location = new System.Drawing.Point(92, 17);
+            this.tb_instrumentname.Location = new System.Drawing.Point(315, 17);
             this.tb_instrumentname.Name = "tb_instrumentname";
-            this.tb_instrumentname.Size = new System.Drawing.Size(150, 26);
+            this.tb_instrumentname.Size = new System.Drawing.Size(120, 26);
             this.tb_instrumentname.TabIndex = 2;
             // 
             // bt_queryinstrument
             // 
             this.bt_queryinstrument.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_queryinstrument.Location = new System.Drawing.Point(966, 16);
+            this.bt_queryinstrument.Location = new System.Drawing.Point(1091, 16);
             this.bt_queryinstrument.Name = "bt_queryinstrument";
             this.bt_queryinstrument.Size = new System.Drawing.Size(79, 30);
             this.bt_queryinstrument.TabIndex = 3;
             this.bt_queryinstrument.Text = "搜索";
             this.bt_queryinstrument.UseVisualStyleBackColor = true;
             this.bt_queryinstrument.Click += new System.EventHandler(this.button2_Click);
+            this.bt_queryinstrument.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.bt_queryinstrument_KeyPress);
             // 
             // dgv_instrumentinformation
             // 
@@ -120,6 +122,7 @@
             this.dgv_instrumentinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_instrumentinformation.Size = new System.Drawing.Size(1273, 684);
             this.dgv_instrumentinformation.TabIndex = 4;
+            this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentClick);
             this.dgv_instrumentinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentDoubleClick);
             // 
             // ID
@@ -208,10 +211,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.la_tagid);
+            this.groupBox1.Controls.Add(this.tb_tagid);
             this.groupBox1.Controls.Add(this.bt_selectduty);
             this.groupBox1.Controls.Add(this.tb_model);
             this.groupBox1.Controls.Add(this.la_model);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.cb_IsInWareHouse);
             this.groupBox1.Controls.Add(this.la_duty);
             this.groupBox1.Controls.Add(this.tb_duty);
@@ -219,9 +223,9 @@
             this.groupBox1.Controls.Add(this.bt_queryinstrument);
             this.groupBox1.Controls.Add(this.la_instrumentname);
             this.groupBox1.Controls.Add(this.tb_instrumentname);
-            this.groupBox1.Location = new System.Drawing.Point(177, 16);
+            this.groupBox1.Location = new System.Drawing.Point(159, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1169, 55);
+            this.groupBox1.Size = new System.Drawing.Size(1187, 55);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "仪器搜索";
@@ -229,7 +233,7 @@
             // bt_selectduty
             // 
             this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_selectduty.Location = new System.Drawing.Point(895, 16);
+            this.bt_selectduty.Location = new System.Drawing.Point(1040, 16);
             this.bt_selectduty.Name = "bt_selectduty";
             this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
             this.bt_selectduty.TabIndex = 70;
@@ -240,32 +244,20 @@
             // tb_model
             // 
             this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_model.Location = new System.Drawing.Point(358, 17);
+            this.tb_model.Location = new System.Drawing.Point(536, 17);
             this.tb_model.Name = "tb_model";
-            this.tb_model.Size = new System.Drawing.Size(150, 26);
+            this.tb_model.Size = new System.Drawing.Size(120, 26);
             this.tb_model.TabIndex = 22;
             // 
             // la_model
             // 
             this.la_model.AutoSize = true;
             this.la_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_model.Location = new System.Drawing.Point(273, 20);
+            this.la_model.Location = new System.Drawing.Point(451, 20);
             this.la_model.Name = "la_model";
             this.la_model.Size = new System.Drawing.Size(79, 20);
             this.la_model.TabIndex = 21;
             this.la_model.Text = "仪器规格：";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(1063, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 30);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "仪器编号搜索";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            this.button2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.button2_KeyPress);
             // 
             // cb_IsInWareHouse
             // 
@@ -276,7 +268,7 @@
             "全部",
             "在库",
             "不在库"});
-            this.cb_IsInWareHouse.Location = new System.Drawing.Point(603, 20);
+            this.cb_IsInWareHouse.Location = new System.Drawing.Point(753, 20);
             this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
             this.cb_IsInWareHouse.Size = new System.Drawing.Size(100, 20);
             this.cb_IsInWareHouse.TabIndex = 19;
@@ -285,7 +277,7 @@
             // 
             this.la_duty.AutoSize = true;
             this.la_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_duty.Location = new System.Drawing.Point(722, 20);
+            this.la_duty.Location = new System.Drawing.Point(867, 20);
             this.la_duty.Name = "la_duty";
             this.la_duty.Size = new System.Drawing.Size(65, 20);
             this.la_duty.TabIndex = 8;
@@ -294,7 +286,7 @@
             // tb_duty
             // 
             this.tb_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_duty.Location = new System.Drawing.Point(793, 17);
+            this.tb_duty.Location = new System.Drawing.Point(938, 17);
             this.tb_duty.Name = "tb_duty";
             this.tb_duty.Size = new System.Drawing.Size(96, 26);
             this.tb_duty.TabIndex = 9;
@@ -303,11 +295,29 @@
             // 
             this.la_IsInWareHouse.AutoSize = true;
             this.la_IsInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_IsInWareHouse.Location = new System.Drawing.Point(523, 20);
+            this.la_IsInWareHouse.Location = new System.Drawing.Point(673, 20);
             this.la_IsInWareHouse.Name = "la_IsInWareHouse";
             this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
             this.la_IsInWareHouse.TabIndex = 6;
             this.la_IsInWareHouse.Text = "在库状态：";
+            // 
+            // la_tagid
+            // 
+            this.la_tagid.AutoSize = true;
+            this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_tagid.Location = new System.Drawing.Point(9, 20);
+            this.la_tagid.Name = "la_tagid";
+            this.la_tagid.Size = new System.Drawing.Size(79, 20);
+            this.la_tagid.TabIndex = 71;
+            this.la_tagid.Text = "仪器编号：";
+            // 
+            // tb_tagid
+            // 
+            this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_tagid.Location = new System.Drawing.Point(88, 17);
+            this.tb_tagid.Name = "tb_tagid";
+            this.tb_tagid.Size = new System.Drawing.Size(140, 26);
+            this.tb_tagid.TabIndex = 72;
             // 
             // InstrumentManagement
             // 
@@ -341,7 +351,6 @@
         private System.Windows.Forms.TextBox tb_duty;
         private System.Windows.Forms.Label la_IsInWareHouse;
         private System.Windows.Forms.ComboBox cb_IsInWareHouse;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn 型号规格;
@@ -356,5 +365,7 @@
         private System.Windows.Forms.Label la_model;
         private System.Windows.Forms.TextBox tb_model;
         private System.Windows.Forms.Button bt_selectduty;
+        private System.Windows.Forms.Label la_tagid;
+        private System.Windows.Forms.TextBox tb_tagid;
     }
 }
