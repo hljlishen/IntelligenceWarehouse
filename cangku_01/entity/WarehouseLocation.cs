@@ -119,27 +119,6 @@ namespace cangku_01.entity
             }
         }
 
-        //生成节点的结构
-        private void getNodeStructure2()
-        {
-            List<TreeNode> ls = new List<TreeNode>();
-            if (LowerRank.Count == 0)
-            {
-                tn = new TreeNode(name + "(" + instrumenttagid + ")");
-                tn.Tag = this;
-            }
-            else
-            {
-                foreach (WarehouseLocation c in LowerRank)
-                {
-                    c.getNodeStructure();
-                    ls.Add(c.tn);
-                }
-                tn = new TreeNode(name + "(" + instrumenttagid + ")", ls.ToArray());
-                tn.Tag = this;
-            }
-        }
-
         public static List<TreeNode> loadDepartmentStructure()
         {
             string sql = "select * from t_warehouselocation where wa_tier = 0";

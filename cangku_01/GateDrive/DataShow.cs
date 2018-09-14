@@ -3,6 +3,7 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
 using cangku_01.view.TheWarehouseHomePage;
+using DbLink;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,6 +21,10 @@ namespace cangku_01.GateDrive
     class DataShow
     {
         ListViewItem listView = new ListViewItem();
+        Employee ee = new Employee();
+        InstrumenBorrowRecord b = new InsBorrowRecord();
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+        InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         //显示仪器图片
@@ -48,6 +53,7 @@ namespace cangku_01.GateDrive
                 if (dt.Rows.Count > 0)
                 {
                     BorrowInformation(door);
+                    b.AddInAndOutRecords(record,ee,door);
                     DataRow myDr = dt.Rows[0];
                     fr.tb_ShowId.Text = door.TagId;
                     fr.tb_ShowName.Text = myDr["in_name"].ToString();

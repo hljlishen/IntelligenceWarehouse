@@ -258,7 +258,7 @@ namespace cangku_01.view.InstrumentManagement
             GetWriteCardInformation();
             fr.dgv_instrumentinformation.Rows.RemoveAt(index);
             index = fr.dgv_instrumentinformation.Rows.Add();
-            this.AddOneEmployeeToTheDataGridView();
+            AddOneEmployeeToTheDataGridView();
             Close();
         }
 

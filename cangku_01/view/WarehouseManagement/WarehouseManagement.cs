@@ -30,31 +30,6 @@ namespace cangku_01.view.WarehouseManagement
             tv_warehouse.HideSelection = false;
         }
 
-        //右键单击仓库树状图事件
-        private void treeView1_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                Point ClickPoint = new Point(e.X, e.Y);
-                int x = e.X;
-                int y = e.Y;
-                TreeNode CurrentNode = tv_warehouse.GetNodeAt(ClickPoint);
-                if (CurrentNode is TreeNode)//判断你点的是不是一个节点
-                {
-                    tv_warehouse.SelectedNode = CurrentNode;
-                    CurrentNode.ContextMenuStrip = cms_warehousetreeview;
-                    cms_warehousetreeview.Show(MousePosition);
-                    tier = tv_warehouse.SelectedNode.Level;
-                    ShowRightClickList();
-                }
-                else
-                {
-                    tier = -1;
-                    ShowRightClickList();
-                }
-            }
-        }
-
         //展示右键列表
         public void ShowRightClickList()
         {
@@ -225,6 +200,31 @@ namespace cangku_01.view.WarehouseManagement
                 tb_name.Text = myDr["wa_name"].ToString();
                 tb_companyanddepartment.Text = myDr["wa_temp"].ToString();
                 tb_synopsis.Text = myDr["wa_synopsis"].ToString();
+            }
+        }
+
+        //右键单击仓库树状图事件
+        private void tv_warehouse_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point ClickPoint = new Point(e.X, e.Y);
+                int x = e.X;
+                int y = e.Y;
+                TreeNode CurrentNode = tv_warehouse.GetNodeAt(ClickPoint);
+                if (CurrentNode is TreeNode)//判断你点的是不是一个节点
+                {
+                    tv_warehouse.SelectedNode = CurrentNode;
+                    CurrentNode.ContextMenuStrip = cms_warehousetreeview;
+                    cms_warehousetreeview.Show(MousePosition);
+                    tier = tv_warehouse.SelectedNode.Level;
+                    ShowRightClickList();
+                }
+                else
+                {
+                    tier = -1;
+                    ShowRightClickList();
+                }
             }
         }
     }

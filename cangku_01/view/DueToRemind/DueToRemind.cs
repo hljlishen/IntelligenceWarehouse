@@ -36,7 +36,7 @@ namespace cangku_01.view.DueToRemind
                 dgv_duetoremind.Rows[index].Cells[0].Value = dr["in_tagid"];
                 dgv_duetoremind.Rows[index].Cells[1].Value = dr["in_name"];
                 dgv_duetoremind.Rows[index].Cells[2].Value = dr["in_manufactor"];
-                dgv_duetoremind.Rows[index].Cells[3].Value = dr["in_lastchecktimes"];
+                dgv_duetoremind.Rows[index].Cells[3].Value = dr["in_lastchecktimes"].ToString().Split(new char[] { ' ' })[0];
                 dgv_duetoremind.Rows[index].Cells[4].Value = dr["in_checkcycle"];
                 dgv_duetoremind.Rows[index].Cells[5].Value = ins.NextCheckTimes();
                 dgv_duetoremind.Rows[index].Cells[6].Value = ins.TimeRemaining();

@@ -7,8 +7,8 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using cangku_01.view.EmployeesManagement;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器管理
 
@@ -81,7 +81,40 @@ namespace cangku_01.view.InstrumentManagement
         //仪器的修改删除
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
         {
-
+            //删除
+            if (e.ColumnIndex == 7)
+            {
+                if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
+                    dao.DeleteInstrument(ins);
+                    AutoClosingMessageBox.Show("仪器信息删除成功", "仪器信息删除", 1000);
+                    dgv_instrumentinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
+                }
+            }
+            //修改
+            if (e.ColumnIndex == 8)
+            {
+                if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    UHFReader reader = UHFReader.CreateInstance();
+                    //获取要修改属性
+                    Instrument ins = new Instrument();
+                    ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
+                    AddOrUpdateInstrument Update = new AddOrUpdateInstrument(this, ins, e.RowIndex, reader);
+                    Update.ShowDialog();
+                }
+            }
+            //查看
+            if (e.ColumnIndex == 9)
+            {
+                //获取要修改属性
+                Instrument ins = new Instrument();
+                UHFReader reader = UHFReader.CreateInstance();
+                ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
+                AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins, reader);
+                add.ShowDialog();
+            }
         }
 
         //搜索按钮
