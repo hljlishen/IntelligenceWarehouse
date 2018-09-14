@@ -1,4 +1,5 @@
-﻿using DbLink;
+﻿using cangku_01.MysqlConnection;
+using DbLink;
 using System;
 using System.Windows.Forms;
 
@@ -9,6 +10,7 @@ namespace cangku_01.entity
     public class Instrument
     {
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+        DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
         public int Id { get; set; }                  //sql仪器主键id
         public string TagId { get; set; }            //仪器标签ID
