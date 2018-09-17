@@ -119,27 +119,6 @@ namespace cangku_01.entity
             }
         }
 
-        //生成节点的结构
-        private void getNodeStructure2()
-        {
-            List<TreeNode> ls = new List<TreeNode>();
-            if (LowerRank.Count == 0)
-            {
-                tn = new TreeNode(name + "(" + instrumenttagid + ")");
-                tn.Tag = this;
-            }
-            else
-            {
-                foreach (WarehouseLocation c in LowerRank)
-                {
-                    c.getNodeStructure();
-                    ls.Add(c.tn);
-                }
-                tn = new TreeNode(name + "(" + instrumenttagid + ")", ls.ToArray());
-                tn.Tag = this;
-            }
-        }
-
         public static List<TreeNode> loadDepartmentStructure()
         {
             string sql = "select * from t_warehouselocation where wa_tier = 0";
@@ -185,6 +164,14 @@ namespace cangku_01.entity
             return dt;
         }
 
+        //SqlId查询仓库位置仪器
+        public DataTable SqlIdQueryWarehouseInstrument()
+        {
+            string sql = "select wa_instrumenttagid from t_warehouselocation where wa_id = " + id + "";
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
         //name查询仓库信息
         public DataSet NameQueryWarehouseInformation()
         {
@@ -201,6 +188,14 @@ namespace cangku_01.entity
             return ds;
         }
 
+        //DataTable belongid查询
+        public DataTable BelongIDQuery()
+        {
+            string sql = "select * from t_warehouselocation where wa_belongId=" + belongid + "";
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
         //tier查询
         public DataTable TierQueryWarehouseInformation()
         {
@@ -213,6 +208,13 @@ namespace cangku_01.entity
         public void AddInstrument()
         {
             string sql = "update t_warehouselocation set wa_instrumenttagid = '" + instrumenttagid + " 'where wa_id = " + id + "";
+            dbo.WriteDB(sql);
+        }
+
+        //给位置去除货物
+        public void AlterInstrument()
+        {
+            string sql = "update t_warehouselocation set wa_instrumenttagid = null where wa_id = " + id + "";
             dbo.WriteDB(sql);
         }
 

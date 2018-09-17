@@ -20,6 +20,7 @@ namespace cangku_01.view.InstrumentManagement
     {
         private int dutyid;
         private string placeidcoding;
+        private string alterplaceidcoding;
         EmployeeManagement selectEmployees;
         private InstrumentManagement fr;
         Instrument ins = new Instrument();
@@ -68,6 +69,7 @@ namespace cangku_01.view.InstrumentManagement
             ReaderDrive.TagConnected += ReaderUpdateDrive_TagConnected;
             tb_tagid.ReadOnly = true;
             this.ins = ins;
+
             bt_addinstrument.Visible = false;
             tb_isInWareHouse.Visible = false;
             tb_productionDate.Visible = false;
@@ -137,7 +139,6 @@ namespace cangku_01.view.InstrumentManagement
         public void InstrumentMessageDataTableShowTextBox()
         {
             InstrumentInterface dao = new InstrumentDataManipulation();
-           
             DataTable dt = dao.TagIdQueryInstrument(ins);
             tb_tagid.Text = ins.TagId;
             DataRow myDr = dt.Rows[0];
@@ -145,9 +146,13 @@ namespace cangku_01.view.InstrumentManagement
             tb_model.Text = myDr["in_model"].ToString();
             tb_manufactor.Text = myDr["in_manufactor"].ToString();
             tb_serialnumber.Text = myDr["in_serialnumber"].ToString();
-            tb_position.Text = myDr["in_position"].ToString();
+            ins.Position = myDr["in_position"].ToString();
+            tb_position.Text = ins.PlaceUnscramble();
+            placeidcoding = ins.Position;
+            alterplaceidcoding = ins.Position;
             tb_checkcycle.Text = myDr["in_checkcycle"].ToString();
             DutyInformation((int)myDr["in_duty"]);
+            dutyid = (int)myDr["in_duty"];
             if (title.Text.Equals("查看仪器基本信息"))
             {
                 tb_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
@@ -238,13 +243,18 @@ namespace cangku_01.view.InstrumentManagement
         //给DataGridView添加一行数据
         public void AddOneEmployeeToTheDataGridView()
         {
+            EmployeesInterface dao = new EmployeeDataManipulation();
+            Employee em = new Employee();
+            em.Id = ins.Duty;
+            DataTable dt = dao.IdQueryEmployee(em);
+            DataRow myDr = dt.Rows[0];
             fr.dgv_instrumentinformation.Rows[index].Cells[0].Value = ins.TagId;
             fr.dgv_instrumentinformation.Rows[index].Cells[1].Value = ins.Name;
             fr.dgv_instrumentinformation.Rows[index].Cells[2].Value = ins.Model;
             fr.dgv_instrumentinformation.Rows[index].Cells[3].Value = ins.Manufactor;
-            fr.dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.Position;
+            fr.dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.PlaceUnscramble();
             fr.dgv_instrumentinformation.Rows[index].Cells[5].Value = ins.IsInWareHouse;
-            fr.dgv_instrumentinformation.Rows[index].Cells[6].Value = ins.Duty;
+            fr.dgv_instrumentinformation.Rows[index].Cells[6].Value = myDr["em_name"].ToString();
         }
 
         //仪器信息修改
@@ -252,12 +262,23 @@ namespace cangku_01.view.InstrumentManagement
         {
             if (!FormValidation()) return;
             InstrumentInterface dao = new InstrumentDataManipulation();
+            WarehouseLocation wa1 = new WarehouseLocation();
+            string[] sArray1 = alterplaceidcoding.Split(new char[1] { '-' });
+            int alterplaceid = int.Parse(sArray1[3]);
+            wa1.id = alterplaceid;
+            wa1.AlterInstrument();
+            WarehouseLocation wa2 = new WarehouseLocation();
+            string[] sArray2 = placeidcoding.Split(new char[1] { '-' });
+            int placeid = int.Parse(sArray2[3]);
+            wa1.id = placeid;
+            wa1.instrumenttagid = tb_tagid.Text;
+            wa1.AddInstrument();
             dao.UpdateInstrument(GetInstrumentInformation());
             AutoClosingMessageBox.Show("仪器信息修改成功", "仪器信息修改", 1000);
             GetWriteCardInformation();
             fr.dgv_instrumentinformation.Rows.RemoveAt(index);
             index = fr.dgv_instrumentinformation.Rows.Add();
-            this.AddOneEmployeeToTheDataGridView();
+            AddOneEmployeeToTheDataGridView();
             Close();
         }
 

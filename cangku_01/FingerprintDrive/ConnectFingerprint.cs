@@ -13,6 +13,7 @@ namespace cangku_01.FingerprintDrive
     {
         
         private static ConnectFingerprint connectFingerprint = new ConnectFingerprint();
+
         public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
         private bool bIsConnected = false;//连接状态
         private int iMachineNumber = 1;//设备连接的序列号

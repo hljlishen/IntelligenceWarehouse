@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeeManagement));
             this.tb_foundemployeeid = new System.Windows.Forms.TextBox();
             this.bt_foundnowgroup = new System.Windows.Forms.Button();
@@ -55,9 +56,15 @@
             this.la_foundsex = new System.Windows.Forms.Label();
             this.gb_foundemployees = new System.Windows.Forms.GroupBox();
             this.bt_foundall = new System.Windows.Forms.Button();
-            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.cms_employeetreeview = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsm_newcompany = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_newdepartment = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_newgroup = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_rename = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).BeginInit();
             this.gb_foundemployees.SuspendLayout();
+            this.cms_employeetreeview.SuspendLayout();
             this.SuspendLayout();
             // 
             // tb_foundemployeeid
@@ -169,6 +176,7 @@
             resources.ApplyResources(this.tv_department, "tv_department");
             this.tv_department.Name = "tv_department";
             this.tv_department.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_department_AfterSelect);
+            this.tv_department.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_department_NodeMouseClick);
             // 
             // btn_addrootnode
             // 
@@ -253,6 +261,47 @@
             this.bt_foundall.UseVisualStyleBackColor = true;
             this.bt_foundall.Click += new System.EventHandler(this.bt_foundall_Click);
             // 
+            // cms_employeetreeview
+            // 
+            this.cms_employeetreeview.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsm_newcompany,
+            this.tsm_newdepartment,
+            this.tsm_newgroup,
+            this.tsm_delete,
+            this.tsm_rename});
+            this.cms_employeetreeview.Name = "cms_employeetreeview";
+            resources.ApplyResources(this.cms_employeetreeview, "cms_employeetreeview");
+            // 
+            // tsm_newcompany
+            // 
+            this.tsm_newcompany.Name = "tsm_newcompany";
+            resources.ApplyResources(this.tsm_newcompany, "tsm_newcompany");
+            this.tsm_newcompany.Click += new System.EventHandler(this.tsm_newcompany_Click);
+            // 
+            // tsm_newdepartment
+            // 
+            this.tsm_newdepartment.Name = "tsm_newdepartment";
+            resources.ApplyResources(this.tsm_newdepartment, "tsm_newdepartment");
+            this.tsm_newdepartment.Click += new System.EventHandler(this.tsm_newdepartment_Click);
+            // 
+            // tsm_newgroup
+            // 
+            this.tsm_newgroup.Name = "tsm_newgroup";
+            resources.ApplyResources(this.tsm_newgroup, "tsm_newgroup");
+            this.tsm_newgroup.Click += new System.EventHandler(this.tsm_newgroup_Click);
+            // 
+            // tsm_delete
+            // 
+            this.tsm_delete.Name = "tsm_delete";
+            resources.ApplyResources(this.tsm_delete, "tsm_delete");
+            this.tsm_delete.Click += new System.EventHandler(this.tsm_delete_Click);
+            // 
+            // tsm_rename
+            // 
+            this.tsm_rename.Name = "tsm_rename";
+            resources.ApplyResources(this.tsm_rename, "tsm_rename");
+            this.tsm_rename.Click += new System.EventHandler(this.tsm_rename_Click);
+            // 
             // EmployeeManagement
             // 
             resources.ApplyResources(this, "$this");
@@ -272,6 +321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).EndInit();
             this.gb_foundemployees.ResumeLayout(false);
             this.gb_foundemployees.PerformLayout();
+            this.cms_employeetreeview.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,6 +354,11 @@
         private System.Windows.Forms.DataGridViewButtonColumn del;
         private System.Windows.Forms.DataGridViewButtonColumn update_;
         private System.Windows.Forms.DataGridViewTextBoxColumn 员工Id;
-        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ContextMenuStrip cms_employeetreeview;
+        private System.Windows.Forms.ToolStripMenuItem tsm_newcompany;
+        private System.Windows.Forms.ToolStripMenuItem tsm_newdepartment;
+        private System.Windows.Forms.ToolStripMenuItem tsm_newgroup;
+        private System.Windows.Forms.ToolStripMenuItem tsm_delete;
+        private System.Windows.Forms.ToolStripMenuItem tsm_rename;
     }
 }

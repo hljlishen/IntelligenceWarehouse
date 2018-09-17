@@ -18,7 +18,7 @@ namespace cangku_01
     public partial class Form1 : Form , IDataDisplayer
     {
         private static GateInterface gate = new GateInterfaceImp();
-        //ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
+        ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();        
 
@@ -42,8 +42,8 @@ namespace cangku_01
         private void Form1_Load(object sender, EventArgs e)
         {
             gate.Open();
-            //connectFingerprint.GetIPConnect();
-            //connectFingerprint.AddDisplayer(this);
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);

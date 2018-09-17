@@ -35,6 +35,7 @@
             this.tsm_newwarehouse = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_newshelves = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_newtier = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsm_newplace = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_rename = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_alterinformation = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,7 +47,6 @@
             this.la_companyanddepartment = new System.Windows.Forms.Label();
             this.la_name = new System.Windows.Forms.Label();
             this.la_id = new System.Windows.Forms.Label();
-            this.tsm_newplace = new System.Windows.Forms.ToolStripMenuItem();
             this.cms_warehousetreeview.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             this.tv_warehouse.Size = new System.Drawing.Size(698, 694);
             this.tv_warehouse.TabIndex = 0;
             this.tv_warehouse.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_warehouse_AfterSelect);
-            this.tv_warehouse.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView1_MouseDown);
+            this.tv_warehouse.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_warehouse_NodeMouseClick);
             // 
             // la_warehouseinformation
             // 
@@ -84,47 +84,54 @@
             this.tsm_rename,
             this.tsm_alterinformation});
             this.cms_warehousetreeview.Name = "contextMenuStrip1";
-            this.cms_warehousetreeview.Size = new System.Drawing.Size(181, 194);
+            this.cms_warehousetreeview.Size = new System.Drawing.Size(177, 172);
             // 
             // tsm_newwarehouse
             // 
             this.tsm_newwarehouse.Name = "tsm_newwarehouse";
-            this.tsm_newwarehouse.Size = new System.Drawing.Size(180, 24);
+            this.tsm_newwarehouse.Size = new System.Drawing.Size(176, 24);
             this.tsm_newwarehouse.Text = "创建仓库编码";
             this.tsm_newwarehouse.Click += new System.EventHandler(this.tsm_newwarehouse_Click);
             // 
             // tsm_newshelves
             // 
             this.tsm_newshelves.Name = "tsm_newshelves";
-            this.tsm_newshelves.Size = new System.Drawing.Size(180, 24);
+            this.tsm_newshelves.Size = new System.Drawing.Size(176, 24);
             this.tsm_newshelves.Text = "创建货架编码";
             this.tsm_newshelves.Click += new System.EventHandler(this.tsm_newshelves_Click);
             // 
             // tsm_newtier
             // 
             this.tsm_newtier.Name = "tsm_newtier";
-            this.tsm_newtier.Size = new System.Drawing.Size(180, 24);
+            this.tsm_newtier.Size = new System.Drawing.Size(176, 24);
             this.tsm_newtier.Text = "创建货架层编码";
             this.tsm_newtier.Click += new System.EventHandler(this.tsm_newrowandcolumn_Click);
+            // 
+            // tsm_newplace
+            // 
+            this.tsm_newplace.Name = "tsm_newplace";
+            this.tsm_newplace.Size = new System.Drawing.Size(176, 24);
+            this.tsm_newplace.Text = "创建货架位编码";
+            this.tsm_newplace.Click += new System.EventHandler(this.创建货架位编码ToolStripMenuItem_Click);
             // 
             // tsm_delete
             // 
             this.tsm_delete.Name = "tsm_delete";
-            this.tsm_delete.Size = new System.Drawing.Size(180, 24);
+            this.tsm_delete.Size = new System.Drawing.Size(176, 24);
             this.tsm_delete.Text = "删除";
             this.tsm_delete.Click += new System.EventHandler(this.tsm_delete_Click);
             // 
             // tsm_rename
             // 
             this.tsm_rename.Name = "tsm_rename";
-            this.tsm_rename.Size = new System.Drawing.Size(180, 24);
+            this.tsm_rename.Size = new System.Drawing.Size(176, 24);
             this.tsm_rename.Text = "重命名";
             this.tsm_rename.Click += new System.EventHandler(this.tsm_rename_Click);
             // 
             // tsm_alterinformation
             // 
             this.tsm_alterinformation.Name = "tsm_alterinformation";
-            this.tsm_alterinformation.Size = new System.Drawing.Size(180, 24);
+            this.tsm_alterinformation.Size = new System.Drawing.Size(176, 24);
             this.tsm_alterinformation.Text = "修改信息";
             this.tsm_alterinformation.Click += new System.EventHandler(this.tsm_alterinformation_Click);
             // 
@@ -205,17 +212,11 @@
             this.la_id.TabIndex = 42;
             this.la_id.Text = "仓库id：";
             // 
-            // tsm_newplace
-            // 
-            this.tsm_newplace.Name = "tsm_newplace";
-            this.tsm_newplace.Size = new System.Drawing.Size(180, 24);
-            this.tsm_newplace.Text = "创建货架位编码";
-            this.tsm_newplace.Click += new System.EventHandler(this.创建货架位编码ToolStripMenuItem_Click);
-            // 
             // WarehouseManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1420, 840);
             this.Controls.Add(this.tb_synopsis);
             this.Controls.Add(this.tb_companyanddepartment);

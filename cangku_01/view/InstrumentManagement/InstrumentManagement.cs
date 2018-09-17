@@ -7,8 +7,8 @@ using System;
 using System.Data;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using cangku_01.view.EmployeesManagement;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器管理
 
@@ -50,7 +50,8 @@ namespace cangku_01.view.InstrumentManagement
                 dgv_instrumentinformation.Rows[index].Cells[1].Value = dr["in_name"];
                 dgv_instrumentinformation.Rows[index].Cells[2].Value = dr["in_model"];
                 dgv_instrumentinformation.Rows[index].Cells[3].Value = dr["in_manufactor"];
-                dgv_instrumentinformation.Rows[index].Cells[4].Value = dr["in_position"];
+                ins.Position = dr["in_position"].ToString();
+                dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.PlaceUnscramble();
                 dgv_instrumentinformation.Rows[index].Cells[5].Value = dr["in_isinwarehouse"];
                 dgv_instrumentinformation.Rows[index].Cells[6].Value = SelectDuty((int)dr["in_duty"]);
                 dgv_instrumentinformation.Rows[index].Cells[10].Value = dr["in_id"];

@@ -141,7 +141,7 @@ namespace cangku_01.MH
             ins.Id = id;
             DataTable dt = dao.IdQueryInstrument(ins);
             DataRow myDr = dt.Rows[0];
-            query = myDr["in_productiondate"].ToString();
+            query = myDr["in_productiondate"].ToString().Split(new char[] { ' ' })[0];
             return query;
         }
 
