@@ -8,7 +8,7 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.WarehouseManagement
 {
-    public partial class GetNodeName : Form
+    public partial class GetWarehouseLocationNodeName : Form
     {
         private string parentnodename;
         private int parenttier;
@@ -17,17 +17,17 @@ namespace cangku_01.view.WarehouseManagement
         private string nodename;
 
         //添加节点
-        public GetNodeName(string parentnodename, int parenttier, int parentid)
+        public GetWarehouseLocationNodeName(string parentnodename, int parenttier, int parentid)
         {
             InitializeComponent();
             this.parentnodename = parentnodename;
             this.parenttier = parenttier;
-            this.parentnodeid = parentid;
+            parentnodeid = parentid;
             bt_alter.Visible = false;
         }
 
         //重命名
-        public GetNodeName(string parentnodename, int parentnodeid, string nodename, int id)
+        public GetWarehouseLocationNodeName(string parentnodename, int parentnodeid, string nodename, int id)
         {
             InitializeComponent();
             this.parentnodename = parentnodename;
@@ -97,26 +97,7 @@ namespace cangku_01.view.WarehouseManagement
         //修改
         private void bt_alter_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tb_nodename.Text.Trim()))
-            {
-                AutoClosingMessageBox.Show("请填写节点名称！", "节点名为空", 1000);
-                return;
-            }
-            string textname = tb_nodename.Text.ToString();
-            if (parentnodename.Equals(textname))
-            {
-                AutoClosingMessageBox.Show("不能与父节点重名！", "节点与父节点重名", 1000);
-                return;
-            }
-            WarehouseLocation warehuoselocation = new WarehouseLocation();
-            warehuoselocation.belongid = parentnodeid;
-            warehuoselocation.name = tb_nodename.Text;
-            DataSet ds = warehuoselocation.BelongIDQueryWarehouseInformation();
-            if (ds.Tables[0].Rows.Count != 0)
-            {
-                AutoClosingMessageBox.Show("已存在该货架名！", "货架重名", 1000);
-                return;
-            }
+            if (!FormValidation()) return;
             WarehouseLocation warehouselocation = new WarehouseLocation();
             warehouselocation.name = tb_nodename.Text;
             warehouselocation.id = id;

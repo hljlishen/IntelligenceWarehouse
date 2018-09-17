@@ -1,6 +1,7 @@
 ﻿using cangku_01.MysqlConnection;
 using DbLink;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 //仪器实体类
@@ -47,6 +48,23 @@ namespace cangku_01.entity
         {
             string StringData = data.ToString("yyyy-MM-dd");
             return StringData;
+        }
+
+        //位置编码解读
+        public string PlaceUnscramble()
+        {
+            string place = "";
+            WarehouseLocation wa = new WarehouseLocation();
+            string[] sArray = Position.Split(new char[1] { '-' });
+            for (int i = 0; i <= 3; i++)
+            {
+                wa.id = int.Parse(sArray[i]);
+                DataTable dt = wa.SqlIdQueryWarehouseInformation();
+                DataRow myDr = dt.Rows[0];
+                place += myDr["wa_name"].ToString() + "-";
+            }
+            place = place.Substring(0, place.Length - 1);
+            return place;
         }
 
         //获取全部仪器信息sql

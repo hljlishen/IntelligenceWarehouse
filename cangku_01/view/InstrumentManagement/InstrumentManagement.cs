@@ -50,7 +50,8 @@ namespace cangku_01.view.InstrumentManagement
                 dgv_instrumentinformation.Rows[index].Cells[1].Value = dr["in_name"];
                 dgv_instrumentinformation.Rows[index].Cells[2].Value = dr["in_model"];
                 dgv_instrumentinformation.Rows[index].Cells[3].Value = dr["in_manufactor"];
-                dgv_instrumentinformation.Rows[index].Cells[4].Value = dr["in_position"];
+                ins.Position = dr["in_position"].ToString();
+                dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.PlaceUnscramble();
                 dgv_instrumentinformation.Rows[index].Cells[5].Value = dr["in_isinwarehouse"];
                 dgv_instrumentinformation.Rows[index].Cells[6].Value = SelectDuty((int)dr["in_duty"]);
                 dgv_instrumentinformation.Rows[index].Cells[10].Value = dr["in_id"];
@@ -76,12 +77,6 @@ namespace cangku_01.view.InstrumentManagement
             UHFReader reader = UHFReader.CreateInstance();
             AddOrUpdateInstrument add = new AddOrUpdateInstrument(this, reader);
             add.ShowDialog();
-        }
-
-        //仪器的修改删除
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) 
-        {
-
         }
 
         //搜索按钮

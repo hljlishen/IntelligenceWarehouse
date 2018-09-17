@@ -7,6 +7,7 @@ using cangku_01.entity;
 using cangku_01.view.AdminPage;
 using cangku_01.interfaces;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
+using System.Drawing;
 
 //员工信息管理页面
 
@@ -17,6 +18,7 @@ namespace cangku_01.view.EmployeesManagement
         EmployeesInterface dao = new EmployeeDataManipulation();
         private int nodeid;
         private int level;
+        private int tier;
         public delegate void EmployeesSelectedHandler(List<int> employeesIds,List<string> emNameAndId);
         public event EmployeesSelectedHandler EmployeesSelected;
 
@@ -261,6 +263,141 @@ namespace cangku_01.view.EmployeesManagement
                 EmployeesSelected?.Invoke(ids, name);
                 Close();
             }
+        }
+
+        //鼠标点击在节点上时
+        private void tv_department_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point ClickPoint = new Point(e.X, e.Y);
+                int x = e.X;
+                int y = e.Y;
+                TreeNode CurrentNode = tv_department.GetNodeAt(ClickPoint);
+                if (CurrentNode is TreeNode)//判断你点的是不是一个节点
+                {
+                    tv_department.SelectedNode = CurrentNode;
+                    CurrentNode.ContextMenuStrip = cms_employeetreeview;
+                    cms_employeetreeview.Show(MousePosition);
+                    tier = tv_department.SelectedNode.Level;
+                    ShowRightClickList();
+                }
+                else
+                {
+                    tier = -1;
+                    ShowRightClickList();
+                }
+            }
+        }
+
+        //展示右键列表
+        public void ShowRightClickList()
+        {
+            switch (tier)
+            {
+                case 0:
+                    tsm_newcompany.Visible = false;
+                    tsm_newdepartment.Visible = true;
+                    tsm_newgroup.Visible = false;
+                    tsm_delete.Visible = true;
+                    tsm_rename.Visible = true;
+                    break;
+                case 1:
+                    tsm_newcompany.Visible = false;
+                    tsm_newdepartment.Visible = false;
+                    tsm_newgroup.Visible = true;
+                    tsm_delete.Visible = true;
+                    tsm_rename.Visible = true;
+                    break;
+                case 2:
+                    tsm_newcompany.Visible = false;
+                    tsm_newdepartment.Visible = false;
+                    tsm_newgroup.Visible = false;
+                    tsm_delete.Visible = true;
+                    tsm_rename.Visible = true;
+                    break;
+                case -1:
+                    tv_department.ContextMenuStrip = cms_employeetreeview;
+                    tsm_newcompany.Visible = true;
+                    tsm_newdepartment.Visible = false;
+                    tsm_newgroup.Visible = false;
+                    tsm_delete.Visible = true;
+                    tsm_rename.Visible = true;
+                    cms_employeetreeview.Show(MousePosition);
+                    break;
+            }
+        }
+
+        //新建公司
+        private void tsm_newcompany_Click(object sender, EventArgs e)
+        {
+            GetDepartmentNodeName getDepartmentNodeName = new GetDepartmentNodeName("",0,0);
+            if (getDepartmentNodeName.ShowDialog() == DialogResult.OK)
+            {
+                tv_department.Nodes.Add(getDepartmentNodeName.nodeName);
+                ShowTreeView();
+            }
+        }
+
+        //新建部门
+        private void tsm_newdepartment_Click(object sender, EventArgs e)
+        {
+            AddChildNodes();
+        }
+
+        //新建小组
+        private void tsm_newgroup_Click(object sender, EventArgs e)
+        {
+            AddChildNodes();
+        }
+
+        //添加子节点
+        private void AddChildNodes()
+        {
+            string parentnodename = tv_department.SelectedNode.Text;
+            Department node = tv_department.SelectedNode.Tag as Department;
+            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(parentnodename, node.tier, node.id);
+            if (getnodename.ShowDialog() == DialogResult.OK)
+            {
+                ShowTreeView();
+            }
+            tv_department.ExpandAll();
+        }
+
+        //删除
+        private void tsm_delete_Click(object sender, EventArgs e)
+        {
+            Confirm cf = new Confirm("确定删除该节点？");
+            cf.ShowDialog();
+            if (cf.DialogResult == DialogResult.OK)
+            {
+                Department c = (Department)tv_department.SelectedNode.Tag;
+                int i = c.deleteSelf();
+                if (i == 1)
+                {
+                    tv_department.SelectedNode.Remove();//从TV移除
+                    return;
+                }
+            }
+        }
+
+        //重命名
+        private void tsm_rename_Click(object sender, EventArgs e)
+        {
+            if (tv_department.SelectedNode.Level == 0)
+            {
+
+            }
+            string parentnodename = tv_department.SelectedNode.Parent.Text;
+            string nodename = tv_department.SelectedNode.Text;
+            Department parentnode = tv_department.SelectedNode.Parent.Tag as Department;
+            Department node = tv_department.SelectedNode.Tag as Department;
+            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(parentnodename, parentnode.id, nodename, node.id);
+            if (getnodename.ShowDialog() == DialogResult.OK)
+            {
+                tv_department.SelectedNode.Text = getnodename.nodeName;
+            }
+            tv_department.ExpandAll();
         }
     }
 }

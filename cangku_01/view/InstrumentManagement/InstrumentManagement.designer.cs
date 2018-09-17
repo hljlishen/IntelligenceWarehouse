@@ -45,6 +45,8 @@
             this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.la_tagid = new System.Windows.Forms.Label();
+            this.tb_tagid = new System.Windows.Forms.TextBox();
             this.bt_selectduty = new System.Windows.Forms.Button();
             this.tb_model = new System.Windows.Forms.TextBox();
             this.la_model = new System.Windows.Forms.Label();
@@ -52,8 +54,6 @@
             this.la_duty = new System.Windows.Forms.Label();
             this.tb_duty = new System.Windows.Forms.TextBox();
             this.la_IsInWareHouse = new System.Windows.Forms.Label();
-            this.la_tagid = new System.Windows.Forms.Label();
-            this.tb_tagid = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -230,6 +230,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "仪器搜索";
             // 
+            // la_tagid
+            // 
+            this.la_tagid.AutoSize = true;
+            this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_tagid.Location = new System.Drawing.Point(9, 20);
+            this.la_tagid.Name = "la_tagid";
+            this.la_tagid.Size = new System.Drawing.Size(79, 20);
+            this.la_tagid.TabIndex = 71;
+            this.la_tagid.Text = "仪器编号：";
+            // 
+            // tb_tagid
+            // 
+            this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_tagid.Location = new System.Drawing.Point(88, 17);
+            this.tb_tagid.Name = "tb_tagid";
+            this.tb_tagid.ReadOnly = true;
+            this.tb_tagid.Size = new System.Drawing.Size(140, 26);
+            this.tb_tagid.TabIndex = 72;
+            // 
             // bt_selectduty
             // 
             this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -288,6 +307,7 @@
             this.tb_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_duty.Location = new System.Drawing.Point(938, 17);
             this.tb_duty.Name = "tb_duty";
+            this.tb_duty.ReadOnly = true;
             this.tb_duty.Size = new System.Drawing.Size(96, 26);
             this.tb_duty.TabIndex = 9;
             // 
@@ -300,24 +320,6 @@
             this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
             this.la_IsInWareHouse.TabIndex = 6;
             this.la_IsInWareHouse.Text = "在库状态：";
-            // 
-            // la_tagid
-            // 
-            this.la_tagid.AutoSize = true;
-            this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_tagid.Location = new System.Drawing.Point(9, 20);
-            this.la_tagid.Name = "la_tagid";
-            this.la_tagid.Size = new System.Drawing.Size(79, 20);
-            this.la_tagid.TabIndex = 71;
-            this.la_tagid.Text = "仪器编号：";
-            // 
-            // tb_tagid
-            // 
-            this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_tagid.Location = new System.Drawing.Point(88, 17);
-            this.tb_tagid.Name = "tb_tagid";
-            this.tb_tagid.Size = new System.Drawing.Size(140, 26);
-            this.tb_tagid.TabIndex = 72;
             // 
             // InstrumentManagement
             // 

@@ -12,6 +12,7 @@ namespace cangku_01.view.TheWarehouseHomePage
 {
     public partial class Find_Items : Form
     {
+        Instrument ins = new Instrument();
         public Find_Items()
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace cangku_01.view.TheWarehouseHomePage
         private void bt_findinstrument_Click(object sender, EventArgs e)
         {
             if (!FormValidation()) return;
-            Instrument ins = new Instrument();
             InstrumentInterface dao = new InstrumentDataManipulation();
             ins.Name = tb_name.Text;
             ins.Model = tb_model.Text;
@@ -46,7 +46,8 @@ namespace cangku_01.view.TheWarehouseHomePage
                 int index = dgv_instrumentplace.Rows.Add(row);
                 dgv_instrumentplace.Rows[index].Cells[0].Value = dr["in_name"];
                 dgv_instrumentplace.Rows[index].Cells[1].Value = dr["in_model"];
-                dgv_instrumentplace.Rows[index].Cells[2].Value = PlaceUnscramble(dr["in_position"].ToString());
+                ins.Position = dr["in_position"].ToString();
+                dgv_instrumentplace.Rows[index].Cells[2].Value = ins.PlaceUnscramble();
             }
         }
 
@@ -60,23 +61,6 @@ namespace cangku_01.view.TheWarehouseHomePage
                 validation = false;
             }
             return validation;
-        }
-
-        //位置编码解读
-        private string PlaceUnscramble(string position)
-        {
-            string place = "";
-            WarehouseLocation wa = new WarehouseLocation();
-            string[] sArray = position.Split(new char[1] { '-' });
-            for (int i = 0; i <= 3; i++)
-            {
-                wa.id = int.Parse(sArray[i]);
-                DataTable dt = wa.SqlIdQueryWarehouseInformation();
-                DataRow myDr = dt.Rows[0];
-                place += myDr["wa_name"].ToString()+"-";
-            }
-            place = place.Substring(0, place.Length - 1);
-            return place;
         }
     }
 }

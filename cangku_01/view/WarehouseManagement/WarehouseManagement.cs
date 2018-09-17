@@ -94,7 +94,6 @@ namespace cangku_01.view.WarehouseManagement
                 tv_warehouse.Nodes.Add(addWarehouse.WarehouseName);
                 ShowTreeView();
             }
-
         }
 
         //修改仓库
@@ -131,7 +130,7 @@ namespace cangku_01.view.WarehouseManagement
         {
             string parentnodename = tv_warehouse.SelectedNode.Text;
             WarehouseLocation node = tv_warehouse.SelectedNode.Tag as WarehouseLocation;//获取节点id
-            GetNodeName getnodename = new GetNodeName(parentnodename, node.tier, node.id);
+            GetWarehouseLocationNodeName getnodename = new GetWarehouseLocationNodeName(parentnodename, node.tier, node.id);
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 ShowTreeView();
@@ -164,7 +163,7 @@ namespace cangku_01.view.WarehouseManagement
             string nodename = tv_warehouse.SelectedNode.Text;
             WarehouseLocation parentnode = tv_warehouse.SelectedNode.Parent.Tag as WarehouseLocation;//获取节点id
             WarehouseLocation node = tv_warehouse.SelectedNode.Tag as WarehouseLocation;
-            GetNodeName getnodename = new GetNodeName(parentnodename, parentnode.id, nodename, node.id);
+            GetWarehouseLocationNodeName getnodename = new GetWarehouseLocationNodeName(parentnodename, parentnode.id, nodename, node.id);
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 tv_warehouse.SelectedNode.Text = getnodename.nodeName;

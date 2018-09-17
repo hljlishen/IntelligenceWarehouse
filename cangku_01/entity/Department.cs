@@ -133,5 +133,20 @@ namespace cangku_01.entity
             }
             return duplicatechecking;
         }
+
+        //belongid查询
+        public DataSet BelongIDQueryDepartmentInformation()
+        {
+            string sql = "select * from t_department where de_belongId=" + belongid + " and de_name='" + name + "'";
+            DataSet ds = dbo.ReadDB(sql);
+            return ds;
+        }
+
+        //修改子节点
+        public void AlterChildNodes()
+        {
+            string sql = "update t_department set de_name = '" + name + " 'where de_id = " + id + "";
+            dbo.WriteDB(sql);
+        }
     }
 }

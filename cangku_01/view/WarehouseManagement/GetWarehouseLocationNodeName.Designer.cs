@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.view.WarehouseManagement
 {
-    partial class GetNodeName
+    partial class GetWarehouseLocationNodeName
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GetWarehouseLocationNodeName));
             this.la_nodenametext = new System.Windows.Forms.Label();
             this.bt_sure = new System.Windows.Forms.Button();
             this.bt_cancel = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@
             // 
             this.la_nodenametext.AutoSize = true;
             this.la_nodenametext.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_nodenametext.Location = new System.Drawing.Point(93, 46);
+            this.la_nodenametext.Location = new System.Drawing.Point(101, 42);
             this.la_nodenametext.Name = "la_nodenametext";
             this.la_nodenametext.Size = new System.Drawing.Size(107, 20);
             this.la_nodenametext.TabIndex = 0;
@@ -48,7 +49,7 @@
             // bt_sure
             // 
             this.bt_sure.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_sure.Location = new System.Drawing.Point(125, 98);
+            this.bt_sure.Location = new System.Drawing.Point(133, 94);
             this.bt_sure.Name = "bt_sure";
             this.bt_sure.Size = new System.Drawing.Size(75, 30);
             this.bt_sure.TabIndex = 1;
@@ -59,7 +60,7 @@
             // bt_cancel
             // 
             this.bt_cancel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_cancel.Location = new System.Drawing.Point(260, 98);
+            this.bt_cancel.Location = new System.Drawing.Point(268, 94);
             this.bt_cancel.Name = "bt_cancel";
             this.bt_cancel.Size = new System.Drawing.Size(75, 30);
             this.bt_cancel.TabIndex = 2;
@@ -70,7 +71,7 @@
             // tb_nodename
             // 
             this.tb_nodename.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_nodename.Location = new System.Drawing.Point(206, 43);
+            this.tb_nodename.Location = new System.Drawing.Point(214, 39);
             this.tb_nodename.Name = "tb_nodename";
             this.tb_nodename.Size = new System.Drawing.Size(170, 26);
             this.tb_nodename.TabIndex = 3;
@@ -78,7 +79,7 @@
             // bt_alter
             // 
             this.bt_alter.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_alter.Location = new System.Drawing.Point(125, 98);
+            this.bt_alter.Location = new System.Drawing.Point(133, 94);
             this.bt_alter.Name = "bt_alter";
             this.bt_alter.Size = new System.Drawing.Size(75, 30);
             this.bt_alter.TabIndex = 5;
@@ -86,21 +87,22 @@
             this.bt_alter.UseVisualStyleBackColor = true;
             this.bt_alter.Click += new System.EventHandler(this.bt_alter_Click);
             // 
-            // GetNodeName
+            // GetWarehouseLocationNodeName
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(480, 160);
+            this.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.ClientSize = new System.Drawing.Size(484, 162);
             this.Controls.Add(this.bt_alter);
             this.Controls.Add(this.tb_nodename);
             this.Controls.Add(this.bt_cancel);
             this.Controls.Add(this.bt_sure);
             this.Controls.Add(this.la_nodenametext);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "GetNodeName";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "GetWarehouseLocationNodeName";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "GetNodeName";
+            this.Text = "输入节点名称";
             this.Load += new System.EventHandler(this.GetNodeName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
