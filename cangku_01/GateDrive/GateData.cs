@@ -13,15 +13,21 @@ namespace cangku_01.GateDrive
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
 
         public string TagId  { get; set; }  //仪器标签Id
-        public DateTime ThroughDoorTime { get; set; }//通过门的时间
-        public string ThroughDoorDirection { get; set; }//仪器过门的操作
+        public DateTime Time { get; set; }//通过门的时间
+        public string Direction { get; set; }//仪器过门的操作
 
         //添加借用信息sql 
         public string BorrowInformationSql()
         {
             string sql = "insert into t_insborrow (ins_tagid,ins_throughtime,ins_throughstate)values('"
-                + TagId + "','" + ThroughDoorTime + "','" + ThroughDoorDirection + "')";
+                + TagId + "','" + Time + "','" + Direction + "')";
             return sql;
+        }
+
+        public bool IsValid()
+        {
+            bool ret = !string.IsNullOrEmpty(TagId) && !string.IsNullOrEmpty(Direction);
+            return ret;
         }
     }
 }

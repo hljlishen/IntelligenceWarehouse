@@ -91,6 +91,7 @@
     <Compile Include="entity\Fingerprint.cs" />
     <Compile Include="entity\WarehouseLocation.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
+    <Compile Include="GateDataProcessor.cs" />
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />

@@ -18,7 +18,7 @@ namespace cangku_01
     public partial class Form1 : Form , IDataDisplayer
     {
         private static GateInterface gate = new GateInterfaceImp();
-        ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
+        //ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();        
 
@@ -42,8 +42,8 @@ namespace cangku_01
         private void Form1_Load(object sender, EventArgs e)
         {
             gate.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -176,7 +176,7 @@ namespace cangku_01
         //仪器通过记录显示在text和ListView列表中
         public void TextAndListViewShow(GateData door)
         {
-            if (door.TagId != null && door.ThroughDoorDirection != null && door.ThroughDoorTime != null)
+            if (door.TagId != null && door.Direction != null && door.Time != null)
             {
                 InstrumentInterface dao = new InstrumentDataManipulation();
                 Instrument ins = new Instrument();
@@ -185,16 +185,18 @@ namespace cangku_01
                 DataRow myDr = dt.Rows[0];
                 tb_ShowId.Text = door.TagId;
                 tb_ShowName.Text = myDr["in_name"].ToString();
-                tb_ShowState.Text = door.ThroughDoorDirection;
-                tb_ShowTime.Text = door.ThroughDoorTime.ToString();
+                tb_ShowState.Text = door.Direction;
+                tb_ShowTime.Text = door.Time.ToString();
                 ShowInstrumentPhoto(door);
 
                 listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
                 listView.SubItems.Add(door.TagId);
                 listView.SubItems.Add(myDr["in_name"].ToString());
-                listView.SubItems.Add(door.ThroughDoorDirection);
-                listView.SubItems.Add(door.ThroughDoorTime.ToString());
+                listView.SubItems.Add(door.Direction);
+                listView.SubItems.Add(door.Time.ToString());
                 listView.SubItems.Add(myDr["in_position"].ToString());
+
+                lv_instrumrntinformation.EnsureVisible(lv_instrumrntinformation.Items.Count - 1);
             }
         }
     }

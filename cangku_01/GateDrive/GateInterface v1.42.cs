@@ -41,6 +41,7 @@ namespace cangku_01.GateDrive
         private string ThroughDoorTime = "";
         private string ThroughDoorDirection = "";
         private string productCode = "";
+        private List<GateData> gateData = new List<GateData>();
 
         List<string> list = new List<string>();
         InstrumenBorrowRecord ibr = new InsBorrowRecord();
@@ -75,6 +76,7 @@ namespace cangku_01.GateDrive
             {
                 MessageBox.Show("连接失败");    
             }
+            int ret = DeviceApi.ClearControllerBuffer(ref ControllerAdr, ref IRStatus, PortHandle);
         }
 
         private void GetDeviceInfo()
@@ -102,49 +104,91 @@ namespace cangku_01.GateDrive
         public void StartDetect(Form1 fr)
         {
             GateData door = new GateData();
+            if (IsGetting) return;
             IsGetting = true;
+            Msg = new byte[300];
             fCmdRet = DeviceApi.GetChannelMessage(ref ControllerAdr, Msg, ref MsgLength, ref MsgType, ref IRStatus, PortHandle);
-            if ((fCmdRet == 0) && (MsgType == 0))
+            if (fCmdRet == 0)
             {
-                DetectTagId();//获取TagID 
-            }
-            else if ((fCmdRet == 0) && (MsgType == 1))
-            { 
-                DetectDirectionAndTime(door,fr);//获取方向和时间
-                list.Clear();
+                if (MsgType == 0)
+                {
+                    DetectTagId();//获取TagID 
+                }
+                if (MsgType == 1)
+                {
+                    DetectDirectionAndTime();//获取方向和时间
+                }
+                RecordTimeAndDirection();
+
+                if (IsGateDataReady())
+                {
+                    foreach (GateData data in gateData)
+                    {
+                        DetermineCardExistence(data, fr);
+                    }
+                    
+                    gateData.Clear();
+                    ThroughDoorDirection = "";
+                    ThroughDoorTime = "";
+                }
             }
             DeviceApi.Acknowledge(ref ControllerAdr, PortHandle);
+            IsGetting = false;
+        }
+
+        private bool IsGateDataReady()
+        {
+            if (!gateData.Any()) return false;
+            foreach(GateData data in gateData)
+            {
+                if (!data.IsValid()) return false;
+            }
+
+            return true;
+        }
+
+        private void RecordTimeAndDirection()
+        {
+            if (string.IsNullOrEmpty(ThroughDoorDirection)) return;
+            foreach (GateData data in gateData)
+            {
+                data.Direction = ThroughDoorDirection;
+                data.Time = DateTime.Parse(ThroughDoorTime);
+            }
         }
 
         //探测的TagId
         private void DetectTagId()
         {
             int CardNum = Msg[6];
-            if (CardNum == 0) return;
+            if (CardNum == 0)
+                return;
             byte[] daw = new byte[MsgLength - 7];//除去前面6个字节的时间和1个字节的长度
             Array.Copy(Msg, 7, daw, 0, MsgLength - 7);
             string temps = ByteArrayToHexString(daw);
             int m = 0;
+            list = new List<string>();
             for (int CardIndex = 0; CardIndex < CardNum; CardIndex++)
             {
                 int TIDlen = daw[m];
-                list.Add(temps.Substring(m * 2 + 2, TIDlen * 2));
+                string tagId = temps.Substring(m * 2 + 2, TIDlen * 2);
+                if (!list.Contains(tagId))
+                    list.Add(tagId);
                 m = m + TIDlen + 1;
             }
-            for (int n = 0; n < list.Count; n++)//去重
+            foreach (string id in list)
             {
-                for (int j = list.Count - 1; j > n; j--)
-                {
-                    if (list[n] == list[j])
-                    {
-                        list.RemoveAt(j);
-                    }
-                }
+                Console.WriteLine(id + $"   CardNum = {CardNum}");
+
+                GateData gateData = new GateData();
+                gateData.TagId = id;
+                this.gateData.Add(gateData);
             }
+            Console.WriteLine("-------------------------------------------");
         }
 
         //探测的方向和时间
-        private void DetectDirectionAndTime(GateData door,Form1 fr)
+        private void DetectDirectionAndTime()
         {
             for (int i = 0; i<list.Count;i++)
             {
@@ -165,11 +209,11 @@ namespace cangku_01.GateDrive
                 minutes = Convert.ToString(Msg[15]).PadLeft(2, '0');
                 second = Convert.ToString(Msg[16]).PadLeft(2, '0');
                 ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
-                door.TagId = list[i];
-                Console.WriteLine(list[i]);
-                door.ThroughDoorDirection = ThroughDoorDirection;
-                door.ThroughDoorTime = DateTime.Parse(ThroughDoorTime);
-                DetermineCardExistence(door,fr);
+                Console.WriteLine(ThroughDoorTime);
+                if(gateData.Count == 0)
+                {
+
+                }
             }
         }
 
@@ -199,12 +243,12 @@ namespace cangku_01.GateDrive
         private void UpdateInwarehouseState(GateData door)
         {
             InstrumentDataManipulation dao = new InstrumentDataManipulation();
-            if (door.ThroughDoorDirection == "出库")
+            if (door.Direction == "出库")
             {
                 ins.IsInWareHouse = "不在库";
                 dao.UpdateInstrumentInwarehouseState(ins);
             }
-            else if (door.ThroughDoorDirection == "入库")
+            else if (door.Direction == "入库")
             {
                 ins.IsInWareHouse = "在库";
                 dao.UpdateInstrumentInwarehouseState(ins);
