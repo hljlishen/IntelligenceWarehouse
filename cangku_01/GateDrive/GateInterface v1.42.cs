@@ -42,14 +42,12 @@ namespace cangku_01.GateDrive
         private string ThroughDoorDirection = "";
         private string productCode = "";
 
-        DataShow dataShow;
         List<string> list = new List<string>();
-        private static GateData door = new GateData();
         InstrumenBorrowRecord ibr = new InsBorrowRecord();
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
+        Instrument ins = new Instrument();
         Employee ee = new Employee();
-        private static GateInterfaceImp gateInterface = new GateInterfaceImp();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
 
@@ -103,15 +101,17 @@ namespace cangku_01.GateDrive
         //开始探测
         public void StartDetect(Form1 fr)
         {
+            GateData door = new GateData();
             IsGetting = true;
             fCmdRet = DeviceApi.GetChannelMessage(ref ControllerAdr, Msg, ref MsgLength, ref MsgType, ref IRStatus, PortHandle);
             if ((fCmdRet == 0) && (MsgType == 0))
             {
-                DetectTagId();//获取TagID  
+                DetectTagId();//获取TagID 
             }
             else if ((fCmdRet == 0) && (MsgType == 1))
-            {
-                DetectDirectionAndTime(fr);//获取方向和时间
+            { 
+                DetectDirectionAndTime(door,fr);//获取方向和时间
+                list.Clear();
             }
             DeviceApi.Acknowledge(ref ControllerAdr, PortHandle);
         }
@@ -144,7 +144,7 @@ namespace cangku_01.GateDrive
         }
 
         //探测的方向和时间
-        private void DetectDirectionAndTime(Form1 fr)
+        private void DetectDirectionAndTime(GateData door,Form1 fr)
         {
             for (int i = 0; i<list.Count;i++)
             {
@@ -158,7 +158,6 @@ namespace cangku_01.GateDrive
                         ThroughDoorDirection = "出库";
                         break;
                 }
-                door.ThroughDoorDirection = ThroughDoorDirection;
                 year = Convert.ToString(Msg[11]).PadLeft(2, '0');
                 month = Convert.ToString(Msg[12]).PadLeft(2, '0');
                 Dates = Convert.ToString(Msg[13]).PadLeft(2, '0');
@@ -167,14 +166,13 @@ namespace cangku_01.GateDrive
                 second = Convert.ToString(Msg[16]).PadLeft(2, '0');
                 ThroughDoorTime = "20" + year + "-" + month + "-" + Dates + " " + Hour + ":" + minutes + ":" + second;
                 door.TagId = list[i];
-                list[i] = null;
+                Console.WriteLine(list[i]);
+                door.ThroughDoorDirection = ThroughDoorDirection;
                 door.ThroughDoorTime = DateTime.Parse(ThroughDoorTime);
-                DetermineCardExistence(fr);
-                BorrowInformation(door);
-                ibr.AddInAndOutRecords(record, ee, door);
+                DetermineCardExistence(door,fr);
             }
-            list.Clear();
         }
+
         //将探测到的借用信息存入到数据库
         private void BorrowInformation(GateData insborrow)
         {
@@ -183,15 +181,33 @@ namespace cangku_01.GateDrive
         }
 
         //判断是否存在标签
-        private void DetermineCardExistence(Form1 fr)
+        private void DetermineCardExistence(GateData door,Form1 fr)
         {
             InstrumentInterface dao = new InstrumentDataManipulation();
-            Instrument ins = new Instrument();
             ins.TagId = door.TagId;
             DataTable dt = dao.TagIdQueryInstrument(ins);
             if (dt.Rows.Count > 0)
             {
-                dataShow.TextAndListViewShow(door,fr);
+                BorrowInformation(door);
+                ibr.AddInAndOutRecords(record, ee, door);
+                UpdateInwarehouseState(door);
+                fr.TextAndListViewShow(door);
+            }
+        }
+
+        //更新仪器在库状态
+        private void UpdateInwarehouseState(GateData door)
+        {
+            InstrumentDataManipulation dao = new InstrumentDataManipulation();
+            if (door.ThroughDoorDirection == "出库")
+            {
+                ins.IsInWareHouse = "不在库";
+                dao.UpdateInstrumentInwarehouseState(ins);
+            }
+            else if (door.ThroughDoorDirection == "入库")
+            {
+                ins.IsInWareHouse = "在库";
+                dao.UpdateInstrumentInwarehouseState(ins);
             }
         }
     }

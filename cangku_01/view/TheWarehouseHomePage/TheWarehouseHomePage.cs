@@ -18,7 +18,7 @@ namespace cangku_01
     public partial class Form1 : Form , IDataDisplayer
     {
         private static GateInterface gate = new GateInterfaceImp();
-        ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
+        //ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();        
 
@@ -41,9 +41,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //gate.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            gate.Open();
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -157,6 +157,45 @@ namespace cangku_01
         {
             Find_Items queryinstrument = new Find_Items();
             queryinstrument.ShowDialog();
+        }
+
+        //显示仪器图片
+        private void ShowInstrumentPhoto(GateData door)
+        {
+            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + door.TagId + ".png");
+            if (f.Exists)
+            {
+                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + door.TagId + ".png");
+            }
+            else
+            {
+                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+            }
+        }
+
+        //仪器通过记录显示在text和ListView列表中
+        public void TextAndListViewShow(GateData door)
+        {
+            if (door.TagId != null && door.ThroughDoorDirection != null && door.ThroughDoorTime != null)
+            {
+                InstrumentInterface dao = new InstrumentDataManipulation();
+                Instrument ins = new Instrument();
+                ins.TagId = door.TagId;
+                DataTable dt = dao.TagIdQueryInstrument(ins);
+                DataRow myDr = dt.Rows[0];
+                tb_ShowId.Text = door.TagId;
+                tb_ShowName.Text = myDr["in_name"].ToString();
+                tb_ShowState.Text = door.ThroughDoorDirection;
+                tb_ShowTime.Text = door.ThroughDoorTime.ToString();
+                ShowInstrumentPhoto(door);
+
+                listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
+                listView.SubItems.Add(door.TagId);
+                listView.SubItems.Add(myDr["in_name"].ToString());
+                listView.SubItems.Add(door.ThroughDoorDirection);
+                listView.SubItems.Add(door.ThroughDoorTime.ToString());
+                listView.SubItems.Add(myDr["in_position"].ToString());
+            }
         }
     }
 }

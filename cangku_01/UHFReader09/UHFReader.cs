@@ -116,7 +116,7 @@ namespace cangku_01.UHFReader09
                 _ComOpen = true;
             }
             if ((fOpenComIndex == -1) && (openresult == 0x30))
-                MessageBox.Show("连接失败");
+                MessageBox.Show("读卡器连接失败");
         }
 
         //获取TagId
