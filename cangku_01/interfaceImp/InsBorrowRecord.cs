@@ -4,8 +4,6 @@ using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
 using System;
 using System.Data;
-using System.Data.SqlClient;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器出入库接口实现
 namespace cangku_01.interfaceImp

@@ -14,7 +14,6 @@ namespace cangku_01.MH
     //仪器出入库查询页面
     public partial class Ins_InAndOutRecord : Form
     {
-        InstrumenBorrowRecord dao = new InsBorrowRecord();
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
         InstrumentManagement selectInstrument;
@@ -25,9 +24,9 @@ namespace cangku_01.MH
             InitializeComponent();
         }
 
-
         private void InstrumentQuery_Load(object sender, EventArgs e)
         {
+            InstrumenBorrowRecord dao = new InsBorrowRecord();
             cb_directquery.Text = "出入库";
             //选择时间查询
             cb_choicetime.MouseClick += cb_choicetime_MouseClick;
@@ -46,7 +45,6 @@ namespace cangku_01.MH
             {
                 DataGridViewRow row2 = new DataGridViewRow();
                 int index = dgv_InstrumentInAndOutrecord.Rows.Add(row2);
-                object o = dr["ins_instrumentid"];
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectPositionInstrument(int.Parse(dr["ins_instrumentid"].ToString()));

@@ -1,10 +1,5 @@
-﻿using cangku_01.entity;
-using DbLink;
+﻿using DbLink;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cangku_01.GateDrive
 {
@@ -14,7 +9,19 @@ namespace cangku_01.GateDrive
 
         public string TagId  { get; set; }  //仪器标签Id
         public DateTime Time { get; set; }//通过门的时间
-        public string Direction { get; set; }//仪器过门的操作
+        public string Direction { get; set; }//仪器过门的方向
+
+        public GateData()
+        {
+
+        }
+
+        public GateData(string tagId, string direction, DateTime time)
+        {
+            TagId = tagId;
+            Direction = direction;
+            Time = time;
+        }
 
         //添加借用信息sql 
         public string BorrowInformationSql()

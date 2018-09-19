@@ -91,11 +91,11 @@
     <Compile Include="entity\Fingerprint.cs" />
     <Compile Include="entity\WarehouseLocation.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
-    <Compile Include="GateDataProcessor.cs" />
+    <Compile Include="GateDrive\GateDataProcessor.cs" />
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />
-    <Compile Include="GateDrive\GateInterface v1.42.cs" />
+    <Compile Include="GateDrive\GateUHFv1.4.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />

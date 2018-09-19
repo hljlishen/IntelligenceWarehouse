@@ -43,6 +43,5 @@ namespace cangku_01
             string sql = maker.MakeSelectSql();
             return sql;
         }
-
     }
 }

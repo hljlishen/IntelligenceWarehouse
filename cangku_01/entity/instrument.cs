@@ -106,7 +106,7 @@ namespace cangku_01.entity
         //仪器在库状态的修改sql
         public string UpdateInstrumentInwarehouseStateSql()
         {
-            string sql = "update t_instrument set in_isinwarehouse='"+ IsInWareHouse +"' where in_tagid ='"+ TagId +"'";
+            string sql = "update t_instrument set in_isinwarehouse='" + IsInWareHouse + "' where in_tagid ='" + TagId + "'";
             return sql;
         }
 

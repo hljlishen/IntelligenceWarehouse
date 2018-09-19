@@ -1,13 +1,6 @@
 ﻿using cangku_01.entity;
 using cangku_01.GateDrive;
-using cangku_01.interfaceImp;
-using DbLink;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 //仪器出入库接口
 
