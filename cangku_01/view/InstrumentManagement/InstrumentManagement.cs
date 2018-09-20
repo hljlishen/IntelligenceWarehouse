@@ -89,6 +89,9 @@ namespace cangku_01.view.InstrumentManagement
             ins.IsInWareHouse = cb_IsInWareHouse.Text.Equals("全部") ?  null : cb_IsInWareHouse.Text;
             ins.Duty = dutyid;
             ShowDataGridView(dao.QueryInstrument(ins));
+            tb_duty.Text = "";
+            dutyid = 0;
+
         }
 
         private void TagIdQuery(UHFReader09Interface readerDrive)
@@ -163,6 +166,9 @@ namespace cangku_01.view.InstrumentManagement
                 {
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
                     dao.DeleteInstrument(ins);
+                    WarehouseLocation warehouseLocation = new WarehouseLocation();
+                    warehouseLocation.instrumenttagid = ins.TagId;
+                    warehouseLocation.AlterInstrument();
                     AutoClosingMessageBox.Show("仪器信息删除成功", "仪器信息删除", 1000);
                     dgv_instrumentinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
                 }

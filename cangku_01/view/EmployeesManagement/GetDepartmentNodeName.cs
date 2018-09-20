@@ -1,12 +1,6 @@
 ﻿using cangku_01.entity;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -92,17 +86,16 @@ namespace cangku_01.view.EmployeesManagement
         //表单验证
         private bool FormValidation()
         {
-            bool validation = true;
             if (string.IsNullOrEmpty(tb_nodename.Text.Trim()))
             {
                 AutoClosingMessageBox.Show("请填写节点名称！", "节点名为空", 1000);
-                validation = false;
+                return false;
             }
             string textname = tb_nodename.Text.ToString();
             if (parentnodename.Equals(textname))
             {
                 AutoClosingMessageBox.Show("不能与父节点重名！", "节点与父节点重名", 1000);
-                validation = false;
+                return false;
             }
             Department department = new Department();
             department.belongid = parentnodeid;
@@ -111,15 +104,20 @@ namespace cangku_01.view.EmployeesManagement
             if (ds.Tables[0].Rows.Count != 0)
             {
                 AutoClosingMessageBox.Show("已存在该节点名！", "节点重名", 1000);
-                validation = false;
+                return false;
             }
-            return validation;
+            return true;
         }
 
         //取消
         private void bt_cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void GetDepartmentNodeName_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

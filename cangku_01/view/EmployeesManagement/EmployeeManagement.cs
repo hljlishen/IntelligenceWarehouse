@@ -142,101 +142,17 @@ namespace cangku_01.view.EmployeesManagement
             em.Sex = cb_foundsex.Text;
             if (em.EmployeeNumber.Equals("") && em.Name.Equals("") && em.Sex.Equals("男/女"))
             {
-                this.ShowDataGridView(dao.QueryAllEmployee());
+                ShowDataGridView(dao.QueryAllEmployee());
                 return;
             }
-            this.ShowDataGridView(dao.QueryInTheAllEmployee(em));
-        }
-
-        //添加根节点
-        private void Btn_addrootnode_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(tb_nodename.Text.Trim()))
-            {
-                MessageBox.Show("请填写要添加的节点名称！");
-                return;
-            }
-            Department department = new Department();
-            department.name = tb_nodename.Text;
-            department.tier = 0;
-            department.belongid = 0;
-            if (department.NodeDuplicateChecking())
-            {
-                MessageBox.Show("已存在该节点，无法重复添加！");
-                return;
-            }
-            Department d = new Department(tb_nodename.Text,0,0);
-            ShowTreeView();
-            tb_nodename.Text = "";
-        }
-
-        //添加子节点
-        private void Btn_addchildnode_Click(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(tb_nodename.Text.Trim()))
-            {
-                MessageBox.Show("请填写要添加的节点名称！");
-                return;
-            }
-            if (tv_department.SelectedNode == null)
-            {
-                MessageBox.Show("请选择父节点！");
-                return;
-            }
-            string treename = tv_department.SelectedNode.FullPath.ToString().Replace("\\", ".");
-            string textname = tb_nodename.Text.ToString();
-            if (treename.Equals(textname))
-            {
-                MessageBox.Show("不能与父节点有相同的名字！");
-                return;
-            }
-            Department d = tv_department.SelectedNode.Tag as Department;//获取节点id
-            if (d.tier+1 >= 3)
-            {
-                MessageBox.Show("无法添加小于组的节点！");
-                return;
-            }
-            Department department = new Department();
-            department.name = tb_nodename.Text;
-            department.tier = d.tier + 1;
-            department.belongid = d.id;
-            if (department.NodeDuplicateChecking())
-            {
-                MessageBox.Show("已存在该节点，无法重复添加！");
-                return;
-            }
-            Department de = new Department(tb_nodename.Text, d.tier + 1, d.id);
-            ShowTreeView();
-            tb_nodename.Text = "";      
-        }
-
-        //删除节点
-        private void Btn_removenodes_Click(object sender, EventArgs e)
-        {
-            if (tv_department.SelectedNode == null)
-            {
-                MessageBox.Show("请选择一个节点");
-                return;
-            }
-            Confirm cf = new Confirm("确定删除该节点？");
-            cf.ShowDialog();
-            if (cf.DialogResult == DialogResult.OK)
-            {
-                Department c = (Department)tv_department.SelectedNode.Tag;
-                int i = c.deleteSelf();
-                if(i==1)
-                {
-                    tv_department.SelectedNode.Remove();//从TV移除
-                    return;
-                }
-            }
+            ShowDataGridView(dao.QueryInTheAllEmployee(em));
         }
 
         //选取部门树状图刷新员工信息
         private void tv_department_AfterSelect(object sender, TreeViewEventArgs e)
         {
             DataTable dt = new DataTable();
-            Department d = tv_department.SelectedNode.Tag as Department;//获取节点id
+            Department d = tv_department.SelectedNode.Tag as Department;
             nodeid = d.id;
             level = tv_department.SelectedNode.Level;
             dt = dao.TreeQueryEmployee(level,nodeid);
@@ -266,7 +182,7 @@ namespace cangku_01.view.EmployeesManagement
         }
 
         //鼠标点击在节点上时
-        private void tv_department_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void tv_department_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -289,7 +205,7 @@ namespace cangku_01.view.EmployeesManagement
                 }
             }
         }
-
+ 
         //展示右键列表
         public void ShowRightClickList()
         {
@@ -321,8 +237,8 @@ namespace cangku_01.view.EmployeesManagement
                     tsm_newcompany.Visible = true;
                     tsm_newdepartment.Visible = false;
                     tsm_newgroup.Visible = false;
-                    tsm_delete.Visible = true;
-                    tsm_rename.Visible = true;
+                    tsm_delete.Visible = false;
+                    tsm_rename.Visible = false;
                     cms_employeetreeview.Show(MousePosition);
                     break;
             }
@@ -384,15 +300,17 @@ namespace cangku_01.view.EmployeesManagement
         //重命名
         private void tsm_rename_Click(object sender, EventArgs e)
         {
-            if (tv_department.SelectedNode.Level == 0)
+            string parentnodename = "";
+            int parentnodeid = 0;
+            if (tv_department.SelectedNode.Level != 0)
             {
-
+                parentnodename = tv_department.SelectedNode.Parent.Text;
+                Department parentnode = tv_department.SelectedNode.Parent.Tag as Department;
+                parentnodeid = parentnode.id;
             }
-            string parentnodename = tv_department.SelectedNode.Parent.Text;
             string nodename = tv_department.SelectedNode.Text;
-            Department parentnode = tv_department.SelectedNode.Parent.Tag as Department;
             Department node = tv_department.SelectedNode.Tag as Department;
-            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(parentnodename, parentnode.id, nodename, node.id);
+            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(parentnodename, parentnodeid, nodename, node.id);
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 tv_department.SelectedNode.Text = getnodename.nodeName;
