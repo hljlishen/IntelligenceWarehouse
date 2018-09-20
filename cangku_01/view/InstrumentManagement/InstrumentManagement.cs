@@ -23,6 +23,7 @@ namespace cangku_01.view.InstrumentManagement
         public delegate void InstrumentSelectedHandler(List<int> instrumentIds,List<string> insNameAndModel);
         public event InstrumentSelectedHandler InstrumentSelected;
         private int dutyid;
+        UHFReader reader = UHFReader.CreateInstance();
 
         public InstrumentManagement()
         {
@@ -34,6 +35,7 @@ namespace cangku_01.view.InstrumentManagement
             cb_IsInWareHouse.Text = "全部";
             Left = 0;
             Top = 0;
+            TagIdQuery(reader);
             DataTable dt = dao.QueryAllInstrument();//将全部员工加载
             ShowDataGridView(dt);
         }
@@ -74,7 +76,6 @@ namespace cangku_01.view.InstrumentManagement
         //仪器添加
         private void button1_Click(object sender, EventArgs e)  
         {
-            UHFReader reader = UHFReader.CreateInstance();
             AddOrUpdateInstrument add = new AddOrUpdateInstrument(this, reader);
             add.ShowDialog();
         }
@@ -82,8 +83,6 @@ namespace cangku_01.view.InstrumentManagement
         //搜索按钮
         private void button2_Click(object sender, EventArgs e)  
         {
-            UHFReader reader = UHFReader.CreateInstance();
-            TagIdQuery(reader);
             ins.TagId = tb_tagid.Text;
             ins.Name = tb_instrumentname.Text;
             ins.Model = tb_model.Text;
@@ -173,7 +172,6 @@ namespace cangku_01.view.InstrumentManagement
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    UHFReader reader = UHFReader.CreateInstance();
                     //获取要修改属性
                     Instrument ins = new Instrument();
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
