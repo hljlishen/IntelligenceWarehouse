@@ -1,12 +1,4 @@
-﻿using cangku_01.entity;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace cangku_01.GateDrive
+﻿namespace cangku_01.GateDrive
 {
 
     interface GateInterface
@@ -16,6 +8,6 @@ namespace cangku_01.GateDrive
         //关闭门的网口
         void Close();
         //开始探测
-        void StartDetect(Form1 fr);
+        void StartDetect();
     }
 }

@@ -18,9 +18,6 @@ namespace cangku_01.UHFReader09CSharp
         //关闭读写器
         void CloseConnectReader();
 
-        //开始读取卡片TagId
-        string StartReadTagId();
-
         //卡片信息写入
         void WriteCardInformation(string writedatas);
 

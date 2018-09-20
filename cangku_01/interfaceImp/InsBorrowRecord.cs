@@ -4,8 +4,6 @@ using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
 using System;
 using System.Data;
-using System.Data.SqlClient;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器出入库接口实现
 namespace cangku_01.interfaceImp
@@ -26,8 +24,8 @@ namespace cangku_01.interfaceImp
         public void AddInAndOutRecords(InstrumentInAndOutRecord record, Employee ee, GateData door)
         {
             MergeInAndOutRecord(ee, door, record);
-            record.ins_direct = door.ThroughDoorDirection;
-            record.ins_time = door.ThroughDoorTime;
+            record.ins_direct = door.Direction;
+            record.ins_time = door.Time;
             if (record.ins_instrumentid != null && record.ins_employeeid != null && record.ins_direct != null && record.ins_time != null)
             {
                 string sql = record.AddInstrumentRecordSql();
@@ -81,13 +79,12 @@ namespace cangku_01.interfaceImp
         public void MergeInAndOutRecord(Employee ee,GateData door, InstrumentInAndOutRecord record)
         {
             DataTable dt = Fingerprint(ee);
-            int count = dt.Rows.Count;///得到你数据源的行数 
-            for (int i=0; i < count; i++)
+            for (int i=0; i < dt.Rows.Count; i++)
             {
                 DataRow myDr = dt.Rows[i];
                 ee.PassDoor = Convert.ToDateTime(myDr["fi_passtime"]);
                 DateTime emPassTime = ee.PassDoor;
-                DateTime insPassTime = door.ThroughDoorTime;
+                DateTime insPassTime = door.Time;
                 TimeSpan td = emPassTime.Subtract(insPassTime).Duration();
                 double timeInterval = td.TotalSeconds;
                 if (timeInterval <= 12000)
