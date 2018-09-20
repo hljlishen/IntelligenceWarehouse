@@ -44,11 +44,6 @@
             this.update_ = new System.Windows.Forms.DataGridViewButtonColumn();
             this.员工Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tv_department = new System.Windows.Forms.TreeView();
-            this.btn_addrootnode = new System.Windows.Forms.Button();
-            this.btn_addchildnode = new System.Windows.Forms.Button();
-            this.btn_removenodes = new System.Windows.Forms.Button();
-            this.tb_nodename = new System.Windows.Forms.TextBox();
-            this.la_nodename = new System.Windows.Forms.Label();
             this.tb_foundname = new System.Windows.Forms.TextBox();
             this.cb_foundsex = new System.Windows.Forms.ComboBox();
             this.la_foundemployeeid = new System.Windows.Forms.Label();
@@ -176,38 +171,7 @@
             resources.ApplyResources(this.tv_department, "tv_department");
             this.tv_department.Name = "tv_department";
             this.tv_department.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_department_AfterSelect);
-            this.tv_department.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_department_NodeMouseClick);
-            // 
-            // btn_addrootnode
-            // 
-            resources.ApplyResources(this.btn_addrootnode, "btn_addrootnode");
-            this.btn_addrootnode.Name = "btn_addrootnode";
-            this.btn_addrootnode.UseVisualStyleBackColor = true;
-            this.btn_addrootnode.Click += new System.EventHandler(this.Btn_addrootnode_Click);
-            // 
-            // btn_addchildnode
-            // 
-            resources.ApplyResources(this.btn_addchildnode, "btn_addchildnode");
-            this.btn_addchildnode.Name = "btn_addchildnode";
-            this.btn_addchildnode.UseVisualStyleBackColor = true;
-            this.btn_addchildnode.Click += new System.EventHandler(this.Btn_addchildnode_Click);
-            // 
-            // btn_removenodes
-            // 
-            resources.ApplyResources(this.btn_removenodes, "btn_removenodes");
-            this.btn_removenodes.Name = "btn_removenodes";
-            this.btn_removenodes.UseVisualStyleBackColor = true;
-            this.btn_removenodes.Click += new System.EventHandler(this.Btn_removenodes_Click);
-            // 
-            // tb_nodename
-            // 
-            resources.ApplyResources(this.tb_nodename, "tb_nodename");
-            this.tb_nodename.Name = "tb_nodename";
-            // 
-            // la_nodename
-            // 
-            resources.ApplyResources(this.la_nodename, "la_nodename");
-            this.la_nodename.Name = "la_nodename";
+            this.tv_department.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tv_department_MouseDown);
             // 
             // tb_foundname
             // 
@@ -307,11 +271,6 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gb_foundemployees);
-            this.Controls.Add(this.la_nodename);
-            this.Controls.Add(this.tb_nodename);
-            this.Controls.Add(this.btn_removenodes);
-            this.Controls.Add(this.btn_addchildnode);
-            this.Controls.Add(this.btn_addrootnode);
             this.Controls.Add(this.tv_department);
             this.Controls.Add(this.bt_addemployee);
             this.Controls.Add(this.dgv_employeeinformation);
@@ -323,7 +282,6 @@
             this.gb_foundemployees.PerformLayout();
             this.cms_employeetreeview.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -332,11 +290,6 @@
         private System.Windows.Forms.Button bt_foundnowgroup;
         private System.Windows.Forms.Button bt_addemployee;
         private System.Windows.Forms.TreeView tv_department;
-        private System.Windows.Forms.Button btn_addrootnode;
-        private System.Windows.Forms.Button btn_addchildnode;
-        private System.Windows.Forms.Button btn_removenodes;
-        private System.Windows.Forms.TextBox tb_nodename;
-        private System.Windows.Forms.Label la_nodename;
         public System.Windows.Forms.DataGridView dgv_employeeinformation;
         private System.Windows.Forms.TextBox tb_foundname;
         private System.Windows.Forms.ComboBox cb_foundsex;

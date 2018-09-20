@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using cangku_01.MysqlConnection;
@@ -27,7 +23,7 @@ namespace cangku_01.entity
             tier = r;
             belongid = b;
             LowerRank = new List<Department>();
-            string sql = "insert into t_department (de_name,de_tier,de_belongId) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + ")";
+            string sql = "insert into t_department (de_name,de_belongId) values ('" + name + "'," + belongid.ToString() + ")";
             dbo.WriteDB(sql);
         }
 
@@ -35,7 +31,6 @@ namespace cangku_01.entity
         {
             id = int.Parse(r["de_id"].ToString());
             name = r["de_name"].ToString();
-            tier = int.Parse(r["de_tier"].ToString());
             belongid = int.Parse(r["de_belongId"].ToString());
             LowerRank = new List<Department>();
             loadLowerRankDepartment();
@@ -87,7 +82,7 @@ namespace cangku_01.entity
 
         public static List<TreeNode> loadDepartmentStructure()
         {
-            string sql = "select * from t_department where de_tier = 0";
+            string sql = "select * from t_department where de_belongId = 0";
             DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
             DataSet ds = dbo.ReadDB(sql);
             List<TreeNode> ret = new List<TreeNode>();
@@ -125,7 +120,7 @@ namespace cangku_01.entity
         public bool NodeDuplicateChecking()
         {
             bool duplicatechecking = false;
-            string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
+            string sql = "select * from t_department where de_name='" + name + "' and de_belongId=" + belongid + "";
             DataSet ds = dbo.ReadDB(sql);
             if (ds.Tables[0].Rows.Count != 0)
             {

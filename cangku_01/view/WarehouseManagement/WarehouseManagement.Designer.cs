@@ -59,7 +59,7 @@
             this.tv_warehouse.Size = new System.Drawing.Size(698, 694);
             this.tv_warehouse.TabIndex = 0;
             this.tv_warehouse.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_warehouse_AfterSelect);
-            this.tv_warehouse.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_warehouse_NodeMouseClick);
+            this.tv_warehouse.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tv_warehouse_MouseDown);
             // 
             // la_warehouseinformation
             // 

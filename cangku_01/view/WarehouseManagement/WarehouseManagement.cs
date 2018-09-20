@@ -203,7 +203,7 @@ namespace cangku_01.view.WarehouseManagement
         }
 
         //右键单击仓库树状图事件
-        private void tv_warehouse_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void tv_warehouse_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
