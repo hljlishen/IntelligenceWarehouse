@@ -95,7 +95,7 @@
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />
-    <Compile Include="GateDrive\GateUHFv1.4.cs" />
+    <Compile Include="GateDrive\GateUHFv014.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />

@@ -1,4 +1,5 @@
 ﻿using cangku_01.entity;
+using cangku_01.FingerprintDrive;
 using cangku_01.GateDrive;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
@@ -16,7 +17,7 @@ namespace cangku_01
     public partial class Form1 : Form, IDataDisplayer
     {
         private static GateInterface gateDrive;
-        //ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
+        ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();
         IGateDataProcessor gateDataProcessor;
@@ -93,8 +94,8 @@ namespace cangku_01
         private void Form1_Load(object sender, EventArgs e)
         {
             gateDrive.Open();
-            //connectFingerprint.GetIPConnect();
-            //connectFingerprint.AddDisplayer(this);
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);

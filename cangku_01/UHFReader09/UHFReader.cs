@@ -10,7 +10,7 @@ namespace cangku_01.UHFReader09
     class UHFReader : UHFReader09Interface
     {
         private byte fComAdr = 0xff; //当前操作的ComAdr
-        byte fBaud;
+        private byte fBaud;
         private int frmcomportindex;
         private int fOpenComIndex; //打开的串口索引号
         private int fCmdRet = 30; 

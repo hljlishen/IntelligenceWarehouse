@@ -176,7 +176,6 @@
             // 
             this.责任人.HeaderText = "责任人";
             this.责任人.Name = "责任人";
-            this.责任人.Visible = false;
             // 
             // 生产厂商
             // 
@@ -290,9 +289,9 @@
             this.gb_foundrecord.Controls.Add(this.tb_employee);
             this.gb_foundrecord.Controls.Add(this.btn_selectInstrument);
             this.gb_foundrecord.Controls.Add(this.label2);
-            this.gb_foundrecord.Location = new System.Drawing.Point(69, 12);
+            this.gb_foundrecord.Location = new System.Drawing.Point(69, 15);
             this.gb_foundrecord.Name = "gb_foundrecord";
-            this.gb_foundrecord.Size = new System.Drawing.Size(1279, 77);
+            this.gb_foundrecord.Size = new System.Drawing.Size(1279, 76);
             this.gb_foundrecord.TabIndex = 27;
             this.gb_foundrecord.TabStop = false;
             this.gb_foundrecord.Text = "搜索记录";

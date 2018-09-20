@@ -79,8 +79,7 @@ namespace cangku_01.interfaceImp
         public void MergeInAndOutRecord(Employee ee,GateData door, InstrumentInAndOutRecord record)
         {
             DataTable dt = Fingerprint(ee);
-            int count = dt.Rows.Count;///得到你数据源的行数 
-            for (int i=0; i < count; i++)
+            for (int i=0; i < dt.Rows.Count; i++)
             {
                 DataRow myDr = dt.Rows[i];
                 ee.PassDoor = Convert.ToDateTime(myDr["fi_passtime"]);

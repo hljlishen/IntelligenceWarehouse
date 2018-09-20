@@ -61,7 +61,7 @@ namespace cangku_01.MH
         //仪器信息查询
         public string SelectTagidInstrument(int id)
         {
-            string query= "";
+            string query;
             InstrumentInterface dao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
             ins.Id = id;
@@ -73,7 +73,7 @@ namespace cangku_01.MH
 
         public string SelectNameInstrument(int id)
         {
-            string query = "";
+            string query;
             InstrumentInterface dao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
             ins.Id = id;
@@ -85,7 +85,7 @@ namespace cangku_01.MH
 
         public string SelectPositionInstrument(int id)
         {
-            string query = "";
+            string query;
             InstrumentInterface dao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
             ins.Id = id;
@@ -97,7 +97,7 @@ namespace cangku_01.MH
 
         public string SelectModelInstrument(int id)
         {
-            string query = "";
+            string query;
             InstrumentInterface dao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
             ins.Id = id;
@@ -109,19 +109,26 @@ namespace cangku_01.MH
 
         public string SelectDutyInstrument(int id)
         {
-            string query = "";
-            InstrumentInterface dao = new InstrumentDataManipulation();
+            int dutyid;
+            string query;
+            InstrumentInterface insdao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
+            EmployeesInterface emdao = new EmployeeDataManipulation();
+            Employee em = new Employee();
             ins.Id = id;
-            DataTable dt = dao.IdQueryInstrument(ins);
-            DataRow myDr = dt.Rows[0];
-            query = myDr["in_duty"].ToString();
+            DataTable insdt = insdao.IdQueryInstrument(ins);
+            DataRow insmyDr = insdt.Rows[0];
+            dutyid = Int16.Parse(insmyDr["in_duty"].ToString());
+            em.Id = dutyid;
+            DataTable emdt = emdao.IdQueryEmployee(em);
+            DataRow emmyDr = emdt.Rows[0];
+            query = emmyDr["em_name"].ToString();
             return query;
         }
 
         public string SelectManufactorInstrument(int id)
         {
-            string query = "";
+            string query;
             InstrumentInterface dao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
             ins.Id = id;
@@ -133,7 +140,7 @@ namespace cangku_01.MH
 
         public string SelectProducttimeInstrument(int id)
         {
-            string query = "";
+            string query;
             InstrumentInterface dao = new InstrumentDataManipulation();
             Instrument ins = new Instrument();
             ins.Id = id;
