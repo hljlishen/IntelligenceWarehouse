@@ -13,9 +13,6 @@ namespace cangku_01.interfaces
 {
     interface EmployeesInterface
     {
-        //查询全部用户
-        DataTable QueryAllEmployee();
-
         //员工添加查重
         int EmployeesRechecking(string employeesid);
 
@@ -25,20 +22,10 @@ namespace cangku_01.interfaces
         //修改用户
         void UpdateEmployee(Employee em);
 
-        //树状图查询员工
-        DataTable TreeQueryEmployee(int level, int nodeid);
-
         //编号查询员工
         DataTable EmployeeNumberQueryEmployee(Employee em);
 
         //Id查询员工
         DataTable IdQueryEmployee(Employee em);
-
-        //在组中搜素员工
-        DataTable QueryInTheGroupEmployee(Employee em, int level, int nodeid);
-
-        //在全部人员中搜索
-        DataTable QueryInTheAllEmployee(Employee em);
-
     }
 }

@@ -1,6 +1,13 @@
 ﻿using cangku_01.entity;
+using DbLink;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -8,31 +15,25 @@ namespace cangku_01.view.EmployeesManagement
 {
     public partial class GetDepartmentNodeName : Form
     {
-        private string parentnodename;
-        private int parenttier;
-        private int parentnodeid;
-        private int id;
-        private string nodename;
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
+
+        private int _parentnodeid;
+        private int _id;
 
         //添加节点
-        public GetDepartmentNodeName(string nodename, int tier, int id)
+        public GetDepartmentNodeName(int id)
         {
             InitializeComponent();
-            parentnodename = nodename;
-            parenttier = tier;
-            parentnodeid = id;
+            _parentnodeid = id;
             bt_alter.Visible = false;
         }
 
         //重命名
-        public GetDepartmentNodeName(string parentnodename, int parentnodeid, string nodename, int id)
+        public GetDepartmentNodeName(int parentnodeid, int id)
         {
             InitializeComponent();
-            this.parentnodename = parentnodename;
-            tb_nodename.Text = nodename;
-            this.parentnodeid = parentnodeid;
-            this.nodename = nodename;
-            this.id = id;
+            this._parentnodeid = parentnodeid;
+            this._id = id;
             bt_sure.Visible = false;
         }
 
@@ -44,24 +45,18 @@ namespace cangku_01.view.EmployeesManagement
         //确认
         private void bt_sure_Click(object sender, EventArgs e)
         {
-            if (!FormValidation()) return;
-            Department department = new Department();
-            department.name = tb_nodename.Text;
-            department.tier = parenttier;
-            department.belongid = parentnodeid;
+            Department department = new Department(factory);
+            department.de_name = tb_nodename.Text;
+            department.de_belongid = _parentnodeid;
+            if (!department.DepartmentFormValidation()) return;
             if (department.NodeDuplicateChecking())
             {
-                AutoClosingMessageBox.Show("已存在该节点！", "已存在该节点", 1000);
+                AutoClosingMessageBox.Show("已存在该节点！", "存在节点", 1000);
                 return;
             }
-            if (parentnodename.Equals(""))
-            {
-                Department d = new Department(tb_nodename.Text, 0, 0);
-            } 
-
             else
             {
-                Department d = new Department(tb_nodename.Text, parenttier+1, parentnodeid);
+                department.AddDepartmentNode();
             }
             DialogResult = DialogResult.OK;
         }
@@ -69,11 +64,12 @@ namespace cangku_01.view.EmployeesManagement
         //修改
         private void bt_alter_Click(object sender, EventArgs e)
         {
-            if (!FormValidation()) return;
-            Department department = new Department();
-            department.name = tb_nodename.Text;
-            department.id = id;
-            department.AlterChildNodes();
+            Department department = new Department(factory);
+            department.de_name = tb_nodename.Text;
+            department.de_id = _id;
+            department.de_belongid = _parentnodeid;
+            if (!department.DepartmentFormValidation()) return;
+            department.RenameNodes();
             DialogResult = DialogResult.OK;
         }
 
@@ -83,41 +79,10 @@ namespace cangku_01.view.EmployeesManagement
             get { return tb_nodename.Text.Trim(); }
         }
 
-        //表单验证
-        private bool FormValidation()
-        {
-            if (string.IsNullOrEmpty(tb_nodename.Text.Trim()))
-            {
-                AutoClosingMessageBox.Show("请填写节点名称！", "节点名为空", 1000);
-                return false;
-            }
-            string textname = tb_nodename.Text.ToString();
-            if (parentnodename.Equals(textname))
-            {
-                AutoClosingMessageBox.Show("不能与父节点重名！", "节点与父节点重名", 1000);
-                return false;
-            }
-            Department department = new Department();
-            department.belongid = parentnodeid;
-            department.name = tb_nodename.Text;
-            DataSet ds = department.BelongIDQueryDepartmentInformation();
-            if (ds.Tables[0].Rows.Count != 0)
-            {
-                AutoClosingMessageBox.Show("已存在该节点名！", "节点重名", 1000);
-                return false;
-            }
-            return true;
-        }
-
         //取消
         private void bt_cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }
-
-        private void GetDepartmentNodeName_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

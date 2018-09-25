@@ -59,7 +59,7 @@
             this.la_tageidtxt.Name = "la_tageidtxt";
             this.la_tageidtxt.Size = new System.Drawing.Size(68, 20);
             this.la_tageidtxt.TabIndex = 1;
-            this.la_tageidtxt.Text = "仪器 id：";
+            this.la_tageidtxt.Text = "仪器 _nodeid：";
             // 
             // la_nametxt
             // 
@@ -99,7 +99,7 @@
             this.la_tageid.Name = "la_tageid";
             this.la_tageid.Size = new System.Drawing.Size(22, 20);
             this.la_tageid.TabIndex = 6;
-            this.la_tageid.Text = "id";
+            this.la_tageid.Text = "_nodeid";
             // 
             // la_name
             // 

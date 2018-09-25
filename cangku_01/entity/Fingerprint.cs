@@ -17,6 +17,12 @@ namespace cangku_01.entity
 
         ISelectSqlMaker maker;
 
+        //private int thisIsNotAProperty;
+        //public int Get() => thisIsNotAProperty;
+        //public void Set(int value) => thisIsNotAProperty = value;
+
+        //public int ThisIsAproperty { get; set; }
+
         public Fingerprint(DbLinkFactory factory) : base("t_fingerprint", "fi_id", factory)
         {
 

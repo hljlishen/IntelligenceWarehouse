@@ -1,4 +1,5 @@
 ﻿using cangku_01.entity;
+using DbLink;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,6 +13,7 @@ namespace cangku_01.view.WarehouseManagement
 {
     public partial class AlterAndAddWarehouse : Form
     {
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         private int _id;
         private string _oldname;
 
@@ -47,9 +49,9 @@ namespace cangku_01.view.WarehouseManagement
         //加载部门树状图
         private void AlterAndAddWarehouse_Load(object sender, EventArgs e)
         {
-            List<TreeNode> ls = Department.loadDepartmentStructure();
             tv_temp.Nodes.Clear();
-            tv_temp.Nodes.AddRange(ls.ToArray());
+            Department department = new Department(factory);
+            department.GetTreeView(tv_temp, 0);
             tv_temp.ExpandAll();
         }
 

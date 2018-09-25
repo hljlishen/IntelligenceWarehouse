@@ -1,6 +1,7 @@
 ﻿using cangku_01.MysqlConnection;
 using DbLink;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -20,16 +21,18 @@ namespace cangku_01.entity
         public int Company { get; set; }             //公司
         public int Department { get; set; }          //部门
         public int Group { get; set; }               //组名 
+        public int DepartmentId { get; set; }        //部门ID
         public DateTime PassDoor { get; set; }       //过门时间
 
         ISelectSqlMaker maker;
 
         //查询全部员工sql
-        public string QueryAllEmployeeSql()
+        public DataTable QueryAllEmployee()
         {
-            string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
-                        "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id";
-            return sql;
+            Setup();
+            string sql = maker.MakeSelectSql();
+            DataTable dataTable = dbo.ReadDBDataTable(sql);
+            return dataTable;
         }
 
         //员工编号查询员工sql
@@ -46,13 +49,6 @@ namespace cangku_01.entity
         {
             Setup();
             maker.AddAndCondition(new IntEqual("em_employeenumber", EmployeeNumber));
-            maker.AddSelectField("em_id");
-            maker.AddSelectField("em_employeenumber");
-            maker.AddSelectField("em_name");
-            maker.AddSelectField("em_sex");
-            maker.AddSelectField("em_company");
-            maker.AddSelectField("em_department");
-            maker.AddSelectField("em_group");
             string sql = maker.MakeSelectSql();
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
@@ -67,11 +63,21 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //员工id查询员工sql
+        public DataTable IdQueryEmployee()
+        {
+            Setup();
+            maker.AddAndCondition(new IntEqual("em_id", Id));
+            string sql = maker.MakeSelectSql();
+            DataTable dataTable = dbo.ReadDBDataTable(sql);
+            return dataTable;
+        }
+
         //添加员工sql
         public string AddEmployeeSql()
         {
-            string sql = "insert into t_employee (em_employeenumber,em_name,em_sex,em_company,em_department,em_group)values('"
-                + EmployeeNumber+ "','" + Name + "','" + Sex + "'," + Company + "," + Department + "," + Group + ")";
+            string sql = "insert into t_employee (em_employeenumber,em_name,em_sex,em_departmentid)values('"
+                + EmployeeNumber+ "','" + Name + "','" + Sex + "'," + DepartmentId + ")";
             return sql;
         }
  
@@ -83,7 +89,7 @@ namespace cangku_01.entity
             DataTable datatable = instrument.EmployeeIdQueryInstrument();
             if (datatable.Rows.Count != 0)
             {
-                AutoClosingMessageBox.Show("该员工有负责仪器", "存在负责仪器", 1000);
+                AutoClosingMessageBox.Show("该员工用负责仪器！", "存在负责仪器", 1000);
                 return false;
             }
             string sql = "delete from t_employee where em_id = " + Id + "";
@@ -94,39 +100,16 @@ namespace cangku_01.entity
         //更新员工sql
         public string UpdateEmployeeSql()
         {
-            string sql = "update t_employee set em_name='"+ Name + "',em_sex='" 
-                + Sex + "',em_company=" + Company + ",em_department=" + Department + ",em_group="
-                + Group + " where em_employeenumber = " + EmployeeNumber + "";
+            string sql = "update t_employee set em_name='"+ Name + "',em_sex ='" 
+                + Sex + "',em_departmentid = " + DepartmentId + "" +
+                " where em_employeenumber = " + EmployeeNumber + "";
             return sql;
         }
 
-        //树状图查询员工sql
-        public string TreeFindEmployeeSql(int level, int nodeid)
-        {
-            string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
-                       "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id ";
-            if (level == 0) //选中到公司
-            {
-                sql += $" where em_company ={nodeid}";
-                return sql;
-            }
-            if (level == 1) //选中到部门
-            {
-                sql += $" where em_department ={nodeid}";
-                return sql;
-            }
-            else  //选中到小组
-            {
-                sql += $" where em_group ={nodeid}";
-                return sql;
-            }
-        }
-
         //员工多条件搜素
-        public string QueryEmployeeSql(int level,int nondeid)
+        public DataTable QueryEmployee()
         {
-            string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
-                        "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id where ";
+            string sql = "select * from t_employee where";
             if(!EmployeeNumber.Equals(""))
             {
                 sql += $" em_employeenumber={EmployeeNumber}";
@@ -151,19 +134,55 @@ namespace cangku_01.entity
             {
                 sql += $" em_sex='{Sex}'";
             }
-            if (nondeid != 0 && level == 0)
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
+        //员工多条件搜素
+        public DataTable QueryEmployee(List<int> departmentidlist)
+        {
+            string sql = "select * from t_employee where";
+            if (!EmployeeNumber.Equals(""))
             {
-                sql += $" and B.de_id={nondeid}";
+                sql += $" em_employeenumber={EmployeeNumber}";
             }
-            if (nondeid != 0 && level == 1)
+            if (!Name.Equals("") && EmployeeNumber.Equals(""))
             {
-                sql += $" and C.de_id={nondeid}";
+                sql += $" em_name like '%{Name}%'";
             }
-            if (nondeid != 0 && level == 2)
+            if (!Name.Equals("") && !EmployeeNumber.Equals(""))
             {
-                sql += $" and D.de_id={nondeid}";
+                sql += $" and em_name like '%{Name}%'";
             }
-            return sql;
+            if (!Sex.Equals("男/女") && !EmployeeNumber.Equals(""))
+            {
+                sql += $" and em_sex='{Sex}'";
+            }
+            if (!Sex.Equals("男/女") && !Name.Equals(""))
+            {
+                sql += $" and em_sex='{Sex}'";
+            }
+            if (!Sex.Equals("男/女") && EmployeeNumber.Equals("") && Name.Equals(""))
+            {
+                sql += $" em_sex='{Sex}'";
+            }
+            string sql2 = " or em_departmentid =";
+            for (int i = 0; i < departmentidlist.Count; i++)
+            {
+                if (i == 0)
+                {
+                    sql += " and (em_departmentid =" + departmentidlist[i];
+                    continue;
+                }
+                if (i == departmentidlist.Count-1)
+                {
+                    sql += sql2 + departmentidlist[i] + ")" ;
+                    continue;
+                }
+                sql += sql2 + departmentidlist[i];
+            }
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
 
         //查指纹信息

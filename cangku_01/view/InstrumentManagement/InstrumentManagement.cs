@@ -35,6 +35,7 @@ namespace cangku_01.view.InstrumentManagement
             cb_IsInWareHouse.Text = "全部";
             Left = 0;
             Top = 0;
+            DataTable dt = dao.QueryAllInstrument();
             TagIdQuery(reader);
             DataTable dt = dao.QueryAllInstrument();//将全部员工加载
             ShowDataGridView(dt);
@@ -46,8 +47,8 @@ namespace cangku_01.view.InstrumentManagement
             dgv_instrumentinformation.Rows.Clear();
             foreach (DataRow dr in dt.Rows)
             {
-                DataGridViewRow row2 = new DataGridViewRow();
-                int index = dgv_instrumentinformation.Rows.Add(row2);
+                DataGridViewRow row = new DataGridViewRow();
+                int index = dgv_instrumentinformation.Rows.Add(row);
                 dgv_instrumentinformation.Rows[index].Cells[0].Value = dr["in_tagid"];
                 dgv_instrumentinformation.Rows[index].Cells[1].Value = dr["in_name"];
                 dgv_instrumentinformation.Rows[index].Cells[2].Value = dr["in_model"];
@@ -61,13 +62,12 @@ namespace cangku_01.view.InstrumentManagement
         }
 
         //责任人查询
-        public string SelectDuty(int id)
+        public string SelectDuty(int employeeId)
         {
             string dutyname;
-            EmployeesInterface dao = new EmployeeDataManipulation();
-            Employee em = new Employee();
-            em.Id = id;
-            DataTable dt = dao.IdQueryEmployee(em);
+            Employee employee = new Employee();
+            employee.Id = employeeId;
+            DataTable dt = employee.IdQueryEmployee();
             DataRow myDr = dt.Rows[0];
             dutyname = myDr["em_name"].ToString();
             return dutyname;
@@ -91,7 +91,6 @@ namespace cangku_01.view.InstrumentManagement
             ShowDataGridView(dao.QueryInstrument(ins));
             tb_duty.Text = "";
             dutyid = 0;
-
         }
 
         private void TagIdQuery(UHFReader09Interface readerDrive)
@@ -119,13 +118,12 @@ namespace cangku_01.view.InstrumentManagement
         //显示责任人信息
         private void EmployeesSelected(List<int> employeesIds, List<string> emNameAndId)
         {
-            EmployeesInterface dao = new EmployeeDataManipulation();
-            Employee em = new Employee();
+            Employee employee = new Employee();
             foreach (var id in employeesIds)
             {
                 dutyid = id;
-                em.Id = id;
-                DataTable dt = dao.IdQueryEmployee(em);
+                employee.Id = id;
+                DataTable dt = employee.IdQueryEmployee();
                 DataRow myDr = dt.Rows[0];
                 tb_duty.Text = myDr["em_name"].ToString();
             }
@@ -166,9 +164,6 @@ namespace cangku_01.view.InstrumentManagement
                 {
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
                     dao.DeleteInstrument(ins);
-                    WarehouseLocation warehouseLocation = new WarehouseLocation();
-                    warehouseLocation.instrumenttagid = ins.TagId;
-                    warehouseLocation.AlterInstrument();
                     AutoClosingMessageBox.Show("仪器信息删除成功", "仪器信息删除", 1000);
                     dgv_instrumentinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
                 }

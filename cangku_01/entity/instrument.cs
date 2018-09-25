@@ -176,6 +176,16 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //仪器id查仪器信息
+        public DataTable EmployeeIdQueryInstrument()
+        {
+            SetupInstrument();
+            maker.AddAndCondition(new IntEqual("in_duty", Duty));
+            string sql = maker.MakeSelectSql();
+            DataTable datatable = dbo.ReadDBDataTable(sql);
+            return datatable;
+        }
+
         private void SetupInstrument()
         {
             maker = factory.CreateSelectSqlMaker("t_instrument");

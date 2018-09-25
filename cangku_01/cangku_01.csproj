@@ -56,10 +56,6 @@
     </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DbLink, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\DbLink.dll</HintPath>
-    </Reference>
     <Reference Include="IrisSkin2">
       <HintPath>F:\Visual stadio 2017\Test\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\IrisSkin2.dll</HintPath>
     </Reference>
@@ -88,6 +84,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DblinkManager.cs" />
+    <Compile Include="DbLink\AccessDrive.cs" />
+    <Compile Include="DbLink\ActiveRecord.cs" />
+    <Compile Include="DbLink\DatabaseDrive.cs" />
+    <Compile Include="DbLink\DbLink.cs" />
+    <Compile Include="DbLink\DbLinkFactory.cs" />
+    <Compile Include="DbLink\IDatabaseDrive.cs" />
+    <Compile Include="DbLink\IDateTimeFormater.cs" />
+    <Compile Include="DbLink\ISelectSqlMaker.cs" />
+    <Compile Include="DbLink\MySqlDrive.cs" />
+    <Compile Include="DbLink\SelectConditions\DateBetweenOpenInterval.cs" />
+    <Compile Include="DbLink\SelectConditions\DateDiffLessThanMinutesCondition.cs" />
+    <Compile Include="DbLink\SelectConditions\DateEqual.cs" />
+    <Compile Include="DbLink\SelectConditions\DateTimeBetweenCloseInterval.cs" />
+    <Compile Include="DbLink\SelectConditions\DoubleBetween.cs" />
+    <Compile Include="DbLink\SelectConditions\IntBetweenCloseInterval.cs" />
+    <Compile Include="DbLink\SelectConditions\IntBetweenOpenInterval.cs" />
+    <Compile Include="DbLink\SelectConditions\IntEqual.cs" />
+    <Compile Include="DbLink\SelectConditions\SelectCondition.cs" />
+    <Compile Include="DbLink\SelectConditions\StringEqual.cs" />
+    <Compile Include="DbLink\SelectConditions\StringLike.cs" />
+    <Compile Include="DbLink\SelectSqlMaker.cs" />
+    <Compile Include="DbLink\SqlServerDrive.cs" />
+    <Compile Include="DbLink\SqlSyntaxPrinter.cs" />
+    <Compile Include="DbLink\TableField.cs" />
+    <Compile Include="DbLink\TableFieldManager.cs" />
+    <Compile Include="DbLink\User.cs" />
     <Compile Include="entity\Fingerprint.cs" />
     <Compile Include="entity\WarehouseLocation.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
@@ -338,5 +360,6 @@
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

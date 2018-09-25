@@ -122,7 +122,7 @@
     <value>微软雅黑, 10.5pt</value>
   </data>
   <data name="tb_foundemployeeid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 20</value>
+    <value>73, 20</value>
   </data>
   <data name="tb_foundemployeeid.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 26</value>
@@ -141,7 +141,7 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;tb_foundemployeeid.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="bt_foundnowgroup.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
@@ -151,16 +151,16 @@
     <value>NoControl</value>
   </data>
   <data name="bt_foundnowgroup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>505, 18</value>
+    <value>699, 19</value>
   </data>
   <data name="bt_foundnowgroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 26</value>
+    <value>60, 26</value>
   </data>
   <data name="bt_foundnowgroup.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="bt_foundnowgroup.Text" xml:space="preserve">
-    <value>搜索当前分组</value>
+    <value>搜索</value>
   </data>
   <data name="&gt;&gt;bt_foundnowgroup.Name" xml:space="preserve">
     <value>bt_foundnowgroup</value>
@@ -172,7 +172,7 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;bt_foundnowgroup.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="bt_addemployee.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 9pt</value>
@@ -203,54 +203,6 @@
   </data>
   <data name="&gt;&gt;bt_addemployee.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="姓名.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="性别.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="公司.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="部门.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="小组.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="del.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="update_.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="员工Id.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="dgv_employeeinformation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>440, 103</value>
-  </data>
-  <data name="dgv_employeeinformation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>913, 686</value>
-  </data>
-  <data name="dgv_employeeinformation.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dgv_employeeinformation.Name" xml:space="preserve">
-    <value>dgv_employeeinformation</value>
-  </data>
-  <data name="&gt;&gt;dgv_employeeinformation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgv_employeeinformation.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dgv_employeeinformation.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -330,14 +282,35 @@
   <data name="员工Id.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="dgv_employeeinformation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>440, 103</value>
+  </data>
+  <data name="dgv_employeeinformation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>913, 686</value>
+  </data>
+  <data name="dgv_employeeinformation.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dgv_employeeinformation.Name" xml:space="preserve">
+    <value>dgv_employeeinformation</value>
+  </data>
+  <data name="&gt;&gt;dgv_employeeinformation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgv_employeeinformation.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;dgv_employeeinformation.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="tv_department.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 18pt</value>
   </data>
   <data name="tv_department.Location" type="System.Drawing.Point, System.Drawing">
-    <value>59, 39</value>
+    <value>59, 22</value>
   </data>
   <data name="tv_department.Size" type="System.Drawing.Size, System.Drawing">
-    <value>346, 750</value>
+    <value>346, 767</value>
   </data>
   <data name="tv_department.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -352,13 +325,148 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tv_department.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btn_addrootnode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="btn_addrootnode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 39</value>
+  </data>
+  <data name="btn_addrootnode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="btn_addrootnode.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btn_addrootnode.Text" xml:space="preserve">
+    <value>添加根节点</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.Name" xml:space="preserve">
+    <value>btn_addrootnode</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btn_addchildnode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="btn_addchildnode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 39</value>
+  </data>
+  <data name="btn_addchildnode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="btn_addchildnode.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btn_addchildnode.Text" xml:space="preserve">
+    <value>添加子节点</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.Name" xml:space="preserve">
+    <value>btn_addchildnode</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btn_removenodes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="btn_removenodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 39</value>
+  </data>
+  <data name="btn_removenodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="btn_removenodes.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btn_removenodes.Text" xml:space="preserve">
+    <value>删除选中节点</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.Name" xml:space="preserve">
+    <value>btn_removenodes</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tb_nodename.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="tb_nodename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 103</value>
+  </data>
+  <data name="tb_nodename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 26</value>
+  </data>
+  <data name="tb_nodename.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.Name" xml:space="preserve">
+    <value>tb_nodename</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="la_nodename.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="la_nodename.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="la_nodename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 106</value>
+  </data>
+  <data name="la_nodename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 20</value>
+  </data>
+  <data name="la_nodename.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="la_nodename.Text" xml:space="preserve">
+    <value>输入节点名称:</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.Name" xml:space="preserve">
+    <value>la_nodename</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="tb_foundname.Font" type="System.Drawing.Font, System.Drawing">
     <value>微软雅黑, 10.5pt</value>
   </data>
   <data name="tb_foundname.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 20</value>
+    <value>251, 20</value>
   </data>
   <data name="tb_foundname.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 26</value>
@@ -376,7 +484,7 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;tb_foundname.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="cb_foundsex.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -391,7 +499,7 @@
     <value>女</value>
   </data>
   <data name="cb_foundsex.Location" type="System.Drawing.Point, System.Drawing">
-    <value>406, 23</value>
+    <value>441, 23</value>
   </data>
   <data name="cb_foundsex.Size" type="System.Drawing.Size, System.Drawing">
     <value>70, 20</value>
@@ -409,7 +517,7 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;cb_foundsex.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="la_foundemployeeid.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -421,7 +529,7 @@
     <value>NoControl</value>
   </data>
   <data name="la_foundemployeeid.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 23</value>
+    <value>16, 23</value>
   </data>
   <data name="la_foundemployeeid.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 20</value>
@@ -442,7 +550,7 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;la_foundemployeeid.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="la_foundname.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -454,7 +562,7 @@
     <value>NoControl</value>
   </data>
   <data name="la_foundname.Location" type="System.Drawing.Point, System.Drawing">
-    <value>186, 23</value>
+    <value>194, 23</value>
   </data>
   <data name="la_foundname.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 20</value>
@@ -475,7 +583,7 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;la_foundname.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="la_foundsex.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -487,7 +595,7 @@
     <value>NoControl</value>
   </data>
   <data name="la_foundsex.Location" type="System.Drawing.Point, System.Drawing">
-    <value>349, 23</value>
+    <value>384, 23</value>
   </data>
   <data name="la_foundsex.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 20</value>
@@ -508,19 +616,61 @@
     <value>gb_foundemployees</value>
   </data>
   <data name="&gt;&gt;la_foundsex.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
-  <data name="&gt;&gt;bt_foundall.Name" xml:space="preserve">
-    <value>bt_foundall</value>
+  <data name="cb_querydepartment.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;bt_foundall.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="cb_querydepartment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>558, 28</value>
   </data>
-  <data name="&gt;&gt;bt_foundall.Parent" xml:space="preserve">
+  <data name="cb_querydepartment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>15, 14</value>
+  </data>
+  <data name="cb_querydepartment.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;cb_querydepartment.Name" xml:space="preserve">
+    <value>cb_querydepartment</value>
+  </data>
+  <data name="&gt;&gt;cb_querydepartment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cb_querydepartment.Parent" xml:space="preserve">
     <value>gb_foundemployees</value>
   </data>
-  <data name="&gt;&gt;bt_foundall.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cb_querydepartment.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="la_querydepartment.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="la_querydepartment.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="la_querydepartment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>578, 23</value>
+  </data>
+  <data name="la_querydepartment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 20</value>
+  </data>
+  <data name="la_querydepartment.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="la_querydepartment.Text" xml:space="preserve">
+    <value>当前分组下</value>
+  </data>
+  <data name="&gt;&gt;la_querydepartment.Name" xml:space="preserve">
+    <value>la_querydepartment</value>
+  </data>
+  <data name="&gt;&gt;la_querydepartment.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;la_querydepartment.Parent" xml:space="preserve">
+    <value>gb_foundemployees</value>
+  </data>
+  <data name="&gt;&gt;la_querydepartment.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="gb_foundemployees.Location" type="System.Drawing.Point, System.Drawing">
     <value>563, 22</value>
@@ -546,36 +696,39 @@
   <data name="&gt;&gt;gb_foundemployees.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="bt_foundall.Font" type="System.Drawing.Font, System.Drawing">
-    <value>微软雅黑, 9pt</value>
-  </data>
-  <data name="bt_foundall.Location" type="System.Drawing.Point, System.Drawing">
-    <value>649, 17</value>
-  </data>
-  <data name="bt_foundall.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 26</value>
-  </data>
-  <data name="bt_foundall.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="bt_foundall.Text" xml:space="preserve">
-    <value>搜索全部</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.Name" xml:space="preserve">
-    <value>bt_foundall</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.Parent" xml:space="preserve">
-    <value>gb_foundemployees</value>
-  </data>
-  <data name="&gt;&gt;bt_foundall.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="cms_employeetreeview.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>32, 16</value>
   </metadata>
+  <data name="tsm_newcompany.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsm_newcompany.Text" xml:space="preserve">
+    <value>新建公司</value>
+  </data>
+  <data name="tsm_newdepartment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsm_newdepartment.Text" xml:space="preserve">
+    <value>新建部门</value>
+  </data>
+  <data name="tsm_newgroup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsm_newgroup.Text" xml:space="preserve">
+    <value>新建小组</value>
+  </data>
+  <data name="tsm_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsm_delete.Text" xml:space="preserve">
+    <value>删除</value>
+  </data>
+  <data name="tsm_rename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="tsm_rename.Text" xml:space="preserve">
+    <value>重命名</value>
+  </data>
   <data name="cms_employeetreeview.Size" type="System.Drawing.Size, System.Drawing">
     <value>125, 114</value>
   </data>
@@ -584,36 +737,6 @@
   </data>
   <data name="&gt;&gt;cms_employeetreeview.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tsm_newcompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="tsm_newcompany.Text" xml:space="preserve">
-    <value>新建公司</value>
-  </data>
-  <data name="tsm_newdepartment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="tsm_newdepartment.Text" xml:space="preserve">
-    <value>新建部门</value>
-  </data>
-  <data name="tsm_newgroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="tsm_newgroup.Text" xml:space="preserve">
-    <value>新建小组</value>
-  </data>
-  <data name="tsm_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="tsm_delete.Text" xml:space="preserve">
-    <value>删除</value>
-  </data>
-  <data name="tsm_rename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="tsm_rename.Text" xml:space="preserve">
-    <value>重命名</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
