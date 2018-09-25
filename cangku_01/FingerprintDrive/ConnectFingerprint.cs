@@ -3,6 +3,7 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 //指纹设备连接 --饿汉式
@@ -63,6 +64,11 @@ namespace cangku_01.FingerprintDrive
             fingerprint.fi_employeenumber = sEnrollNumber;
             string passtime = iYear.ToString() + "-" + iMonth.ToString() + "-" + iDay.ToString() + " " + iHour.ToString() + ":" + iMinute.ToString() + ":" + iSecond.ToString();
             fingerprint.fi_passtime = Convert.ToDateTime(passtime);
+            Employee employee = new Employee();
+            employee.EmployeeNumber = sEnrollNumber;
+            DataTable datatable = employee.EmployeeNumberFindEmployee();
+            DataRow myDr = datatable.Rows[0];
+            fingerprint.fi_name = myDr["em_name"].ToString();
             fingerprint.Insert();
             foreach (var From1 in displayers)
                 From1.FingerprintUpdate(fingerprint);

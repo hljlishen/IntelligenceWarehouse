@@ -2,6 +2,7 @@
 using DbLink;
 using System;
 using System.Data;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //员工信息
 
@@ -75,10 +76,19 @@ namespace cangku_01.entity
         }
  
         //删除员工sql
-        public string EmployeeNumberDeleteEmployeeSql()
+        public bool EmployeeIdDeleteEmployee()
         {
-            string sql = "delete from t_employee where em_employeenumber = " + EmployeeNumber + "";
-            return sql;
+            Instrument instrument = new Instrument();
+            instrument.Duty = Id;
+            DataTable datatable = instrument.EmployeeIdQueryInstrument();
+            if (datatable.Rows.Count != 0)
+            {
+                AutoClosingMessageBox.Show("该员工有负责仪器", "存在负责仪器", 1000);
+                return false;
+            }
+            string sql = "delete from t_employee where em_id = " + Id + "";
+            dbo.WriteDB(sql);
+            return true;
         }
 
         //更新员工sql

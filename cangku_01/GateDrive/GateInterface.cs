@@ -8,6 +8,6 @@
         //关闭门的网口
         void Close();
         //开始探测
-        void StartDetect();
+        void Detect();
     }
 }

@@ -127,6 +127,8 @@ namespace cangku_01.view.EmployeesManagement
             fr.dgv_employeeinformation.Rows.RemoveAt(index);
             index = fr.dgv_employeeinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
+            DataTable dataTable = dao.QueryAllEmployee();//将全部员工加载
+            fr.ShowDataGridView(dataTable);
             Close(); 
         }
 

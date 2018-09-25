@@ -93,7 +93,7 @@ namespace cangku_01.view.InstrumentManagement
                         string instrumenttagid = myDr["wa_instrumenttagid"].ToString();
                         if (!instrumenttagid.Equals(""))
                         {
-                            treeNode.BackColor = Color.Red;
+                            treeNode.ForeColor = Color.Red;
                             InstrumentInterface dao = new InstrumentDataManipulation();
                             Instrument ins = new Instrument();
                             ins.TagId = instrumenttagid;
@@ -102,7 +102,7 @@ namespace cangku_01.view.InstrumentManagement
                             treeNode.Text = treeNode.Text + "(" + dataTableDr["in_name"].ToString() + ")";
                         }
                         
-                        else treeNode.BackColor = Color.Green;
+                        else treeNode.ForeColor = Color.Green;
                     } 
                     return;
                 }

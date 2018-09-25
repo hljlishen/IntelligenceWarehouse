@@ -1,15 +1,15 @@
-﻿using System;
+﻿using cangku_01.entity;
+using cangku_01.interfaceImp;
+using cangku_01.interfaces;
+using cangku_01.UHFReader09CSharp;
+using cangku_01.view.EmployeesManagement;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using cangku_01.entity;
-using cangku_01.interfaceImp;
-using cangku_01.interfaces;
-using cangku_01.UHFReader09CSharp;
-using cangku_01.view.EmployeesManagement;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //添加仪器  观察者模式
@@ -266,7 +266,7 @@ namespace cangku_01.view.InstrumentManagement
             string[] sArray1 = alterplaceidcoding.Split(new char[1] { '-' });
             int alterplaceid = int.Parse(sArray1[3]);
             wa1.id = alterplaceid;
-            wa1.AlterInstrument();
+            wa1.IdAlterInstrument();
             WarehouseLocation wa2 = new WarehouseLocation();
             string[] sArray2 = placeidcoding.Split(new char[1] { '-' });
             int placeid = int.Parse(sArray2[3]);

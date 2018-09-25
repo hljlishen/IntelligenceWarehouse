@@ -33,7 +33,7 @@ namespace cangku_01
             SetStyle(ControlStyles.DoubleBuffer, true);
             gateDataProcessor = new JointProcessor();
             gateDataProcessor.NewGateDataEvent += NewGateDataHandler;
-            gateDrive = new GateUHFv014(gateDataProcessor);
+            gateDrive = new GateUhfv014(gateDataProcessor);
         }
 
         public void NewGateDataHandler(List<GateData> gateDatas)
@@ -88,7 +88,7 @@ namespace cangku_01
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.ToString();
-            gateDrive.StartDetect();
+            gateDrive.Detect();
         }
 
         private void Form1_Load(object sender, EventArgs e)

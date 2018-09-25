@@ -37,15 +37,6 @@ namespace cangku_01.interfaceImp
             dbo.WriteDB(sql);
         }
 
-        //删除员工
-        public void DeleteEmployee(string employeenumber)
-        {
-            Employee e = new Employee();
-            e.EmployeeNumber = employeenumber;
-            string sql = e.EmployeeNumberDeleteEmployeeSql();
-            dbo.WriteDB(sql);
-        }
-
         //更新员工
         public void UpdateEmployee(Employee em)
         {

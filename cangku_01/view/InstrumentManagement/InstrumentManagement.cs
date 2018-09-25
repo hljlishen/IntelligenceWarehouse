@@ -3,11 +3,11 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.UHFReader09;
 using cangku_01.UHFReader09CSharp;
-using System;
-using System.Data;
-using System.Collections.Generic;
-using System.Windows.Forms;
 using cangku_01.view.EmployeesManagement;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器管理
@@ -139,19 +139,19 @@ namespace cangku_01.view.InstrumentManagement
             {
                 var selectedRows = dgv_instrumentinformation.SelectedRows;
                 List<int> ids = new List<int>();
-                List<string> name = new List<string>();
+                List<string> names = new List<string>();
                 foreach (var row in selectedRows)
                 {
                     int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
-                    string na = ((DataGridViewRow)row).Cells[1].Value.ToString();
-                    string mo = ((DataGridViewRow)row).Cells[2].Value.ToString();
-                    string ma = ((DataGridViewRow)row).Cells[3].Value.ToString();
+                    string name = ((DataGridViewRow)row).Cells[1].Value.ToString();
+                    string model = ((DataGridViewRow)row).Cells[2].Value.ToString();
+                    string manufactor = ((DataGridViewRow)row).Cells[3].Value.ToString();
                     ids.Add(id);
-                    name.Add(na);
-                    name.Add(mo);
-                    name.Add(ma);
+                    names.Add(name);
+                    names.Add(model);
+                    names.Add(manufactor);
                 }
-                InstrumentSelected?.Invoke(ids, name);
+                InstrumentSelected?.Invoke(ids, names);
                 Close();
             }
         }
@@ -190,7 +190,6 @@ namespace cangku_01.view.InstrumentManagement
             {
                 //获取要修改属性
                 Instrument ins = new Instrument();
-                UHFReader reader = UHFReader.CreateInstance();
                 ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
                 AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins, reader);
                 add.ShowDialog();

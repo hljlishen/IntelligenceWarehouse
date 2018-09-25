@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using cangku_01.entity;
-using MySql.Data.MySqlClient;
 
 //数据库连接（懒汉模式）
 

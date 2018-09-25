@@ -72,11 +72,17 @@ namespace cangku_01.view.EmployeesManagement
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {  
-                    string currentIndex = dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString();
-                    string usernumber = currentIndex;
-                    dao.DeleteEmployee(usernumber);
-                    AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
-                    dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
+                    int employeeid = (int)dgv_employeeinformation.CurrentRow.Cells[8].Value;
+                    Employee employee = new Employee();
+                    employee.Id = employeeid;
+                    if (employee.EmployeeIdDeleteEmployee())
+                    {
+                        AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
+                        dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
+                        DataTable dt = dao.QueryAllEmployee();//将全部员工加载
+                        ShowDataGridView(dt);
+                    }
+
                 }
             }
 

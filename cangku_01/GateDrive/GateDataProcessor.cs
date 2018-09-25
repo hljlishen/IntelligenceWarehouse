@@ -17,6 +17,7 @@ namespace cangku_01
     interface IGateDataProcessor
     {
         void ReceiveMsg(byte[] Msg, int MsgType,byte MsgLength);
+        DataTable IdQueryInstrumentBorrow(GateData door);
         event NewGateDataHandler NewGateDataEvent;
     }
 
@@ -24,7 +25,6 @@ namespace cangku_01
     {
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
-        bool iscardexist;
         private List<string> _tagIds = new List<string>();
         private string _direction = null;
         private DateTime? _time = null;
@@ -54,11 +54,7 @@ namespace cangku_01
 
             InsertDatabase(gateDatas);
 
-            IsInstrumentCardExist(gateDatas);
-
-            ModifyInstrumentState(gateDatas);
-
-            InformInsertInAndOutRecords(gateDatas);
+            InstrumentCardExist(gateDatas);
 
             Initialiaze();
 
@@ -80,38 +76,53 @@ namespace cangku_01
         {
             for (int i = 0;i<gateDatas.Count;i++)
             {
+                InstrumentInterface dao = new InstrumentDataManipulation();
+                Instrument ins = new Instrument();
+                ins.TagId = gateDatas[i].TagId;
+                DataTable dt = dao.TagIdQueryInstrument(ins);
+                if (dt.Rows.Count > 0)
+                {
+                    DataTable datatable = ins.InstrumentTagidFindInstrument();
+                    DataRow myDr = datatable.Rows[0];
+                    Employee em = new Employee();
+                    EmployeesInterface employee = new EmployeeDataManipulation();
+                    int dutyid = int.Parse(myDr["in_duty"].ToString());
+                    em.Id = dutyid;
+                    DataTable emdatatable = employee.IdQueryEmployee(em);
+                    DataRow emmyDr = emdatatable.Rows[0];
+                    gateDatas[i].Name = myDr["in_name"].ToString();
+                    gateDatas[i].Model = myDr["in_model"].ToString();
+                    gateDatas[i].Manufactor = myDr["in_manufactor"].ToString();
+                    gateDatas[i].Position = myDr["in_position"].ToString();
+                    gateDatas[i].Duty = emmyDr["em_name"].ToString();
+                }
                 string sql = gateDatas[i].BorrowInformationSql();
                 dbo.WriteDB(sql);
+                InformInsertInAndOutRecords(gateDatas, i);
             }
         }
 
         //修改仪器状态
-        private void ModifyInstrumentState(List<GateData> gateDatas)
+        private void ModifyInstrumentState(List<GateData> gateDatas, int i)
         {
-            if (iscardexist  == true)
+            Instrument ins = new Instrument();
+            InstrumentDataManipulation dao = new InstrumentDataManipulation();
+            if (gateDatas[i].Direction == "出库")
             {
-                for (int i = 0; i < gateDatas.Count; i++)
-                {
-                    Instrument ins = new Instrument();
-                    InstrumentDataManipulation dao = new InstrumentDataManipulation();
-                    if (gateDatas[i].Direction == "出库")
-                    {
-                        ins.IsInWareHouse = "不在库";
-                        ins.TagId = gateDatas[i].TagId;
-                        dao.UpdateInstrumentInwarehouseState(ins);
-                    }
-                    else if (gateDatas[i].Direction == "入库")
-                    {
-                        ins.IsInWareHouse = "在库";
-                        ins.TagId = gateDatas[i].TagId;
-                        dao.UpdateInstrumentInwarehouseState(ins);
-                    }
-                }
+                ins.IsInWareHouse = "不在库";
+                ins.TagId = gateDatas[i].TagId;
+                dao.UpdateInstrumentInwarehouseState(ins);
+            }
+            else if (gateDatas[i].Direction == "入库")
+            {
+                ins.IsInWareHouse = "在库";
+                ins.TagId = gateDatas[i].TagId;
+                dao.UpdateInstrumentInwarehouseState(ins);
             }
         }
 
-        //判断是否卡号存在
-        private bool IsInstrumentCardExist(List<GateData> gateDatas)
+        //当卡号存在仪器表
+        private void InstrumentCardExist(List<GateData> gateDatas)
         {
             for (int i = 0;i<gateDatas.Count;i++)
             {
@@ -119,32 +130,20 @@ namespace cangku_01
                 Instrument ins = new Instrument();
                 ins.TagId = gateDatas[i].TagId;
                 DataTable dt = dao.TagIdQueryInstrument(ins);
-                if (dt.Rows.Count <= 0)
+                if (dt.Rows.Count > 0)
                 {
-                    iscardexist = false;
-                }
-                else
-                {
-                    iscardexist = true;
+                    ModifyInstrumentState(gateDatas,i);
                 }
             }
-            return iscardexist;
         }
 
         //通知添加仪器出入库记录信息
-        private void InformInsertInAndOutRecords(List<GateData> gateDatas)
+        private void InformInsertInAndOutRecords(List<GateData> gateDatas,int i)
         {
             InstrumenBorrowRecord ibr = new InsBorrowRecord();
             InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
-            Employee ee = new Employee();
-            if (iscardexist == true)
-            {
-                for (int i = 0;i<gateDatas.Count;i++)
-                {
-
-                    ibr.AddInAndOutRecords(record, ee, gateDatas[i]);
-                }
-            }
+            Fingerprint fingerprint = new Fingerprint(factory);
+            ibr.AddInAndOutRecords(record, fingerprint, gateDatas[i]);
         }
 
         private void Initialiaze()
@@ -218,6 +217,14 @@ namespace cangku_01
             {
                 throw new Exception($"错误的MsgType:{MsgType}");
             }
+        }
+
+        //id查仪器借用表的信息
+        public DataTable IdQueryInstrumentBorrow(GateData door)
+        {
+            string sql = door.IdQueryInstrumentBorrowSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
     }
 }

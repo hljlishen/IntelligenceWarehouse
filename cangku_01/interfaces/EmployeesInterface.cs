@@ -22,9 +22,6 @@ namespace cangku_01.interfaces
         //添加用户
         void AddEmployee(Employee em);
 
-        //删除员工信息
-        void DeleteEmployee(string employeesid);
-
         //修改用户
         void UpdateEmployee(Employee em);
 
