@@ -219,7 +219,7 @@ namespace cangku_01.view.EmployeesManagement
                 }
             }
         }
-
+ 
         //展示右键列表
         private void ShowRightClickList()
         {
@@ -251,8 +251,8 @@ namespace cangku_01.view.EmployeesManagement
                     tsm_newcompany.Visible = true;
                     tsm_newdepartment.Visible = false;
                     tsm_newgroup.Visible = false;
-                    tsm_delete.Visible = false;
-                    tsm_rename.Visible = false;
+                    tsm_delete.Visible = true;
+                    tsm_rename.Visible = true;
                     cms_employeetreeview.Show(MousePosition);
                     break;
             }

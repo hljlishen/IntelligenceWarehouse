@@ -103,6 +103,13 @@ namespace cangku_01.entity
             return sql;
         }
 
+        //仪器在库状态的修改sql
+        public string UpdateInstrumentInwarehouseStateSql()
+        {
+            string sql = "update t_instrument set in_isinwarehouse='" + IsInWareHouse + "' where in_tagid ='" + TagId + "'";
+            return sql;
+        }
+
         //仪器信息删除sql
         public string TagidDeleteInstrumentSql()
         {

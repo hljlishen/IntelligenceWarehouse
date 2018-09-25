@@ -325,6 +325,141 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;tv_department.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btn_addrootnode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="btn_addrootnode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>59, 39</value>
+  </data>
+  <data name="btn_addrootnode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="btn_addrootnode.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btn_addrootnode.Text" xml:space="preserve">
+    <value>添加根节点</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.Name" xml:space="preserve">
+    <value>btn_addrootnode</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_addrootnode.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btn_addchildnode.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="btn_addchildnode.Location" type="System.Drawing.Point, System.Drawing">
+    <value>180, 39</value>
+  </data>
+  <data name="btn_addchildnode.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 30</value>
+  </data>
+  <data name="btn_addchildnode.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btn_addchildnode.Text" xml:space="preserve">
+    <value>添加子节点</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.Name" xml:space="preserve">
+    <value>btn_addchildnode</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_addchildnode.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btn_removenodes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 9pt</value>
+  </data>
+  <data name="btn_removenodes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>305, 39</value>
+  </data>
+  <data name="btn_removenodes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 30</value>
+  </data>
+  <data name="btn_removenodes.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btn_removenodes.Text" xml:space="preserve">
+    <value>删除选中节点</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.Name" xml:space="preserve">
+    <value>btn_removenodes</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_removenodes.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tb_nodename.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="tb_nodename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>157, 103</value>
+  </data>
+  <data name="tb_nodename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>248, 26</value>
+  </data>
+  <data name="tb_nodename.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.Name" xml:space="preserve">
+    <value>tb_nodename</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tb_nodename.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="la_nodename.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="la_nodename.Font" type="System.Drawing.Font, System.Drawing">
+    <value>微软雅黑, 10.5pt</value>
+  </data>
+  <data name="la_nodename.Location" type="System.Drawing.Point, System.Drawing">
+    <value>55, 106</value>
+  </data>
+  <data name="la_nodename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 20</value>
+  </data>
+  <data name="la_nodename.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="la_nodename.Text" xml:space="preserve">
+    <value>输入节点名称:</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.Name" xml:space="preserve">
+    <value>la_nodename</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;la_nodename.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="tb_foundname.Font" type="System.Drawing.Font, System.Drawing">
@@ -565,31 +700,31 @@
     <value>32, 16</value>
   </metadata>
   <data name="tsm_newcompany.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsm_newcompany.Text" xml:space="preserve">
     <value>新建公司</value>
   </data>
   <data name="tsm_newdepartment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsm_newdepartment.Text" xml:space="preserve">
     <value>新建部门</value>
   </data>
   <data name="tsm_newgroup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsm_newgroup.Text" xml:space="preserve">
     <value>新建小组</value>
   </data>
   <data name="tsm_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsm_delete.Text" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="tsm_rename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="tsm_rename.Text" xml:space="preserve">
     <value>重命名</value>

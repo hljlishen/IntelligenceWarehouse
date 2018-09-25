@@ -84,10 +84,5 @@ namespace cangku_01.view.EmployeesManagement
         {
             DialogResult = DialogResult.Cancel;
         }
-
-        private void GetDepartmentNodeName_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

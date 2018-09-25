@@ -65,7 +65,7 @@
             // 
             this.La_TimeQuery.AutoSize = true;
             this.La_TimeQuery.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.La_TimeQuery.Location = new System.Drawing.Point(853, 31);
+            this.La_TimeQuery.Location = new System.Drawing.Point(853, 34);
             this.La_TimeQuery.Name = "La_TimeQuery";
             this.La_TimeQuery.Size = new System.Drawing.Size(77, 14);
             this.La_TimeQuery.TabIndex = 4;
@@ -73,7 +73,7 @@
             // 
             // btn_search
             // 
-            this.btn_search.Location = new System.Drawing.Point(1196, 25);
+            this.btn_search.Location = new System.Drawing.Point(1196, 28);
             this.btn_search.Name = "btn_search";
             this.btn_search.Size = new System.Drawing.Size(75, 23);
             this.btn_search.TabIndex = 6;
@@ -84,7 +84,7 @@
             // dtp_begin
             // 
             this.dtp_begin.Enabled = false;
-            this.dtp_begin.Location = new System.Drawing.Point(936, 27);
+            this.dtp_begin.Location = new System.Drawing.Point(936, 30);
             this.dtp_begin.Name = "dtp_begin";
             this.dtp_begin.Size = new System.Drawing.Size(103, 21);
             this.dtp_begin.TabIndex = 7;
@@ -93,7 +93,7 @@
             // 
             this.la_to.AutoSize = true;
             this.la_to.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_to.Location = new System.Drawing.Point(1045, 30);
+            this.la_to.Location = new System.Drawing.Point(1045, 33);
             this.la_to.Name = "la_to";
             this.la_to.Size = new System.Drawing.Size(21, 14);
             this.la_to.TabIndex = 8;
@@ -102,7 +102,7 @@
             // dtp_end
             // 
             this.dtp_end.Enabled = false;
-            this.dtp_end.Location = new System.Drawing.Point(1072, 27);
+            this.dtp_end.Location = new System.Drawing.Point(1072, 30);
             this.dtp_end.Name = "dtp_end";
             this.dtp_end.Size = new System.Drawing.Size(103, 21);
             this.dtp_end.TabIndex = 9;
@@ -176,7 +176,6 @@
             // 
             this.责任人.HeaderText = "责任人";
             this.责任人.Name = "责任人";
-            this.责任人.Visible = false;
             // 
             // 生产厂商
             // 
@@ -199,7 +198,7 @@
             "出入库",
             "出库",
             "入库"});
-            this.cb_directquery.Location = new System.Drawing.Point(642, 29);
+            this.cb_directquery.Location = new System.Drawing.Point(642, 30);
             this.cb_directquery.Name = "cb_directquery";
             this.cb_directquery.Size = new System.Drawing.Size(121, 20);
             this.cb_directquery.TabIndex = 17;
@@ -207,7 +206,7 @@
             // cb_choicetime
             // 
             this.cb_choicetime.AutoSize = true;
-            this.cb_choicetime.Location = new System.Drawing.Point(835, 31);
+            this.cb_choicetime.Location = new System.Drawing.Point(835, 34);
             this.cb_choicetime.Name = "cb_choicetime";
             this.cb_choicetime.Size = new System.Drawing.Size(15, 14);
             this.cb_choicetime.TabIndex = 21;
@@ -290,9 +289,9 @@
             this.gb_foundrecord.Controls.Add(this.tb_employee);
             this.gb_foundrecord.Controls.Add(this.btn_selectInstrument);
             this.gb_foundrecord.Controls.Add(this.label2);
-            this.gb_foundrecord.Location = new System.Drawing.Point(69, 12);
+            this.gb_foundrecord.Location = new System.Drawing.Point(69, 15);
             this.gb_foundrecord.Name = "gb_foundrecord";
-            this.gb_foundrecord.Size = new System.Drawing.Size(1279, 77);
+            this.gb_foundrecord.Size = new System.Drawing.Size(1279, 76);
             this.gb_foundrecord.TabIndex = 27;
             this.gb_foundrecord.TabStop = false;
             this.gb_foundrecord.Text = "搜索记录";
@@ -325,13 +324,13 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(559, 32);
+            this.label3.Location = new System.Drawing.Point(559, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 14);
             this.label3.TabIndex = 27;
             this.label3.Text = "状态记录：";
             // 
-            // Ins_query
+            // Ins_InAndOutRecord
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -339,7 +338,7 @@
             this.Controls.Add(this.gb_foundrecord);
             this.Controls.Add(this.dgv_InstrumentInAndOutrecord);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Ins_query";
+            this.Name = "Ins_InAndOutRecord";
             this.Text = "InstrumentQuery";
             this.Load += new System.EventHandler(this.InstrumentQuery_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_InstrumentInAndOutrecord)).EndInit();

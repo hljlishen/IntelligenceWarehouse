@@ -109,7 +109,6 @@ namespace cangku_01.view.InstrumentManagement
             bt_selectduty.Enabled = false;
             this.ins = ins;
             ReaderDrive = readerDrive;
-            ReaderDrive.OpenConnectReader();
             ReaderDrive.TagConnected += ReadercheckDrive_TagConnected;
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataSet ds = dao.QueryInstrumentAllCheckDate(ins);
@@ -290,7 +289,7 @@ namespace cangku_01.view.InstrumentManagement
         {
             string write = "";
             string writedata = "";
-            string Data = ins.Name +"/"+ ins.Model + "/"+ins.Position ;
+            string Data = ins.Name +";"+ ins.Model + ";"+ins.Position ;
             for (int i=0; i < Data.Length; i++)
             {
                 if (Regex.IsMatch(Data[i].ToString(), @"^[0-9]+$"))
@@ -316,6 +315,26 @@ namespace cangku_01.view.InstrumentManagement
                 else if (Regex.IsMatch(Data[i].ToString(), @"^[-]+$"))
                 {
                     write = "002D";
+                }
+                else if (Regex.IsMatch(Data[i].ToString(), @"^[~]+$"))
+                {
+                    write = "007E";
+                }
+                else if (Regex.IsMatch(Data[i].ToString(), @"^[(（]+$"))
+                {
+                    write = "0028";
+                }
+                else if (Regex.IsMatch(Data[i].ToString(), @"^[)）]+$"))
+                {
+                    write = "0029";
+                }
+                else if (Regex.IsMatch(Data[i].ToString(), @"^[ ]+$"))
+                {
+                    write = "0020";
+                }
+                else if (Regex.IsMatch(Data[i].ToString(), @"^[;]+$"))
+                {
+                    write = "003B";
                 }
                 writedata += write;
             }

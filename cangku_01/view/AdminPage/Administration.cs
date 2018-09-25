@@ -97,7 +97,6 @@ namespace cangku_01
 
         private void 仪器管理ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UHFReader reader = UHFReader.CreateInstance();
             if (index_instrument == null)
             {
                 index_instrument = new InstrumentManagement();

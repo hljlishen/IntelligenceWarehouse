@@ -1,29 +1,26 @@
-﻿using System;
-using System.Data;
-using System.Windows.Forms;
-using cangku_01.entity;
+﻿using cangku_01.entity;
+using cangku_01.FingerprintDrive;
+using cangku_01.GateDrive;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
-using cangku_01.GateDrive;
-using System.IO;
-using System.Drawing;
 using cangku_01.view.TheWarehouseHomePage;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using DbLink;
-using cangku_01.FingerprintDrive;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace cangku_01
 {
-    public partial class Form1 : Form , IDataDisplayer
+    public partial class Form1 : Form, IDataDisplayer
     {
-        private static GateInterface gate = new GateInterfaceImp();
+        private static GateInterface gateDrive;
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
-        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
-        InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
-        Employee ee = new Employee();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
-        ListViewItem listView = new ListViewItem();        
+        ListViewItem listView = new ListViewItem();
+        IGateDataProcessor gateDataProcessor;
 
         public Form1()
         {
@@ -34,19 +31,71 @@ namespace cangku_01
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.DoubleBuffer, true);
+            gateDataProcessor = new JointProcessor();
+            gateDataProcessor.NewGateDataEvent += NewGateDataHandler;
+            gateDrive = new GateUHFv014(gateDataProcessor);
+        }
+
+        public void NewGateDataHandler(List<GateData> gateDatas)
+        {
+            for (int i = 0; i<gateDatas.Count; i++)
+            {
+                InstrumentInterface dao = new InstrumentDataManipulation();
+                Instrument ins = new Instrument();
+                ins.TagId = gateDatas[i].TagId;
+                DataTable dt = dao.TagIdQueryInstrument(ins);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow myDr = dt.Rows[0];
+                    tb_ShowId.Text = gateDatas[i].TagId;
+                    tb_ShowName.Text = myDr["in_name"].ToString();
+                    tb_ShowState.Text = gateDatas[i].Direction;
+                    tb_ShowTime.Text = gateDatas[i].Time.ToString();
+                    //展示仪器照片
+                    FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
+                    if (f.Exists)
+                    {
+                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
+                    }
+                    else
+                    {
+                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                    }
+
+                    listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
+                    listView.SubItems.Add(gateDatas[i].TagId);
+                    listView.SubItems.Add(myDr["in_name"].ToString());
+                    listView.SubItems.Add(gateDatas[i].Direction);
+                    listView.SubItems.Add(gateDatas[i].Time.ToString());
+                    listView.SubItems.Add(myDr["in_position"].ToString());
+                }
+                else
+                {
+                    tb_ShowId.Text = gateDatas[i].TagId;
+                    tb_ShowState.Text = gateDatas[i].Direction;
+                    tb_ShowTime.Text = gateDatas[i].Time.ToString();
+
+                    listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
+                    listView.SubItems.Add(gateDatas[i].TagId);
+                    listView.SubItems.Add("");
+                    listView.SubItems.Add(gateDatas[i].Direction);
+                    listView.SubItems.Add(gateDatas[i].Time.ToString());
+                }
+                lv_instrumrntinformation.EnsureVisible(lv_instrumrntinformation.Items.Count - 1);
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.ToString();
-            gate.StartDetect(this);
+            gateDrive.StartDetect();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //gate.Open();
-            //connectFingerprint.GetIPConnect();
-            //connectFingerprint.AddDisplayer(this);
+            gateDrive.Open();
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -105,6 +154,7 @@ namespace cangku_01
             listView.SubItems.Add(myDr["em_name"].ToString());
             listView.SubItems.Add(myDr["em_department"].ToString());
             listView.SubItems.Add(fingerprint.fi_passtime.ToString());
+            lv_employeepassdoor.EnsureVisible(lv_employeepassdoor.Items.Count - 1);
         }
 
         //展示员工照片
@@ -134,7 +184,7 @@ namespace cangku_01
         //点击查询按钮
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)

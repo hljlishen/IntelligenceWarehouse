@@ -1,7 +1,7 @@
-﻿using System.Data;
-using cangku_01.entity;
+﻿using cangku_01.entity;
 using cangku_01.interfaces;
 using cangku_01.MysqlConnection;
+using System.Data;
 
 //仪器信息接口实现
 
@@ -46,6 +46,13 @@ namespace cangku_01.interfaceImp
         public void UpdateInstrument(Instrument ins)     
         {
             string sql = ins.UpdateInstrumentSql();
+            dbo.WriteDB(sql);
+        }
+
+        //仪器在库状态修改
+        public void UpdateInstrumentInwarehouseState(Instrument ins)
+        {
+            string sql = ins.UpdateInstrumentInwarehouseStateSql();
             dbo.WriteDB(sql);
         }
 

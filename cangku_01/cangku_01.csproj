@@ -113,11 +113,11 @@
     <Compile Include="entity\Fingerprint.cs" />
     <Compile Include="entity\WarehouseLocation.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
-    <Compile Include="GateDrive\DataShow.cs" />
+    <Compile Include="GateDrive\GateDataProcessor.cs" />
     <Compile Include="GateDrive\GateData.cs" />
     <Compile Include="GateDrive\GateInterface.cs" />
     <Compile Include="entity\Department.cs" />
-    <Compile Include="GateDrive\GateInterface v1.42.cs" />
+    <Compile Include="GateDrive\GateUHFv014.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
@@ -192,11 +192,11 @@
     <Compile Include="interfaces\InstrumentInterface.cs" />
     <Compile Include="interfaceImp\InsBorrowRecord.cs" />
     <Compile Include="interfaces\InstrumenBorrowRecord.cs" />
-    <Compile Include="view\DeviceAccessRecord\Ins_BorrowRecord.cs">
+    <Compile Include="view\DeviceAccessRecord\InstrumentBorrowRecord.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\DeviceAccessRecord\Ins_BorrowRecord.designer.cs">
-      <DependentUpon>Ins_BorrowRecord.cs</DependentUpon>
+    <Compile Include="view\DeviceAccessRecord\InstrumentBorrowRecord.designer.cs">
+      <DependentUpon>InstrumentBorrowRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="view\InstrumentManagement\InstrumentManagement.cs">
       <SubType>Form</SubType>
@@ -274,8 +274,8 @@
     <EmbeddedResource Include="view\InstrumentManagement\AddOrAlterInstrument.resx">
       <DependentUpon>AddOrAlterInstrument.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\DeviceAccessRecord\Ins_BorrowRecord.resx">
-      <DependentUpon>Ins_BorrowRecord.cs</DependentUpon>
+    <EmbeddedResource Include="view\DeviceAccessRecord\InstrumentBorrowRecord.resx">
+      <DependentUpon>InstrumentBorrowRecord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\InstrumentManagement\InstrumentManagement.resx">
       <DependentUpon>InstrumentManagement.cs</DependentUpon>
