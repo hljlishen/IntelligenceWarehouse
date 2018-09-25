@@ -211,16 +211,6 @@ namespace cangku_01.entity
             return dt;
         }
 
-        //employeeid查询
-        public DataTable EmployeeIdQueryInstrument()
-        {
-            Setup();
-            maker.AddAndCondition(new IntEqual("in_duty", Duty));
-            string sql = maker.MakeSelectSql();
-            DataTable datatable = dbo.ReadDBDataTable(sql);
-            return datatable;
-        }
-
         private void Setup()
         {
             maker = factory.CreateSelectSqlMaker("t_instrument");

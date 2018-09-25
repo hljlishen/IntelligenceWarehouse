@@ -37,7 +37,6 @@ namespace cangku_01.view.InstrumentManagement
             Top = 0;
             DataTable dt = dao.QueryAllInstrument();
             TagIdQuery(reader);
-            DataTable dt = dao.QueryAllInstrument();//将全部员工加载
             ShowDataGridView(dt);
         }
 
@@ -142,12 +141,8 @@ namespace cangku_01.view.InstrumentManagement
                 {
                     int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
                     string name = ((DataGridViewRow)row).Cells[1].Value.ToString();
-                    string model = ((DataGridViewRow)row).Cells[2].Value.ToString();
-                    string manufactor = ((DataGridViewRow)row).Cells[3].Value.ToString();
                     ids.Add(id);
                     names.Add(name);
-                    names.Add(model);
-                    names.Add(manufactor);
                 }
                 InstrumentSelected?.Invoke(ids, names);
                 Close();

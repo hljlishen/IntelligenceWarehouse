@@ -21,7 +21,7 @@ namespace cangku_01.view.EmployeesManagement
 
         private TreeNode _treenode;
         private int _level;
-        public delegate void EmployeesSelectedHandler(List<int> employeesIds,List<string> emNameAndId);
+        public delegate void EmployeesSelectedHandler(List<int> employeesIds,List<string> emName);
         public event EmployeesSelectedHandler EmployeesSelected;
 
         public EmployeeManagement()
@@ -337,17 +337,15 @@ namespace cangku_01.view.EmployeesManagement
             {
                 var selectedRows = dgv_employeeinformation.SelectedRows;
                 List<int> ids = new List<int>();
-                List<string> name = new List<string>();
+                List<string> names = new List<string>();
                 foreach (var row in selectedRows)
                 {
                     int id = int.Parse(((DataGridViewRow)row).Cells[8].Value.ToString());
-                    string na = (((DataGridViewRow)row).Cells[0].Value.ToString());
-                    string number = (((DataGridViewRow)row).Cells[1].Value.ToString());
+                    string name = (((DataGridViewRow)row).Cells[1].Value.ToString());
                     ids.Add(id);
-                    name.Add(na);
-                    name.Add(number);
+                    names.Add(name);
                 }
-                EmployeesSelected?.Invoke(ids, name);
+                EmployeesSelected?.Invoke(ids, names);
                 Close();
             }
         }
