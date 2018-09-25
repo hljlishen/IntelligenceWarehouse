@@ -10,6 +10,7 @@ using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.UHFReader09CSharp;
 using cangku_01.view.EmployeesManagement;
+using DbLink;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //添加仪器  观察者模式
@@ -18,6 +19,7 @@ namespace cangku_01.view.InstrumentManagement
 {
     public partial class AddOrUpdateInstrument : Form 
     {
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         private int dutyid;
         private string placeidcoding;
         private string alterplaceidcoding;
@@ -352,34 +354,27 @@ namespace cangku_01.view.InstrumentManagement
         //显示责任人信息
         private void EmployeesSelected(List<int> employeesIds,List<string> emNameAndId)
         {
-            EmployeesInterface dao = new EmployeeDataManipulation();
-            Employee em = new Employee();
             foreach (var id in employeesIds)
             {
-                dutyid = id;
-                em.Id = id;
-                DataTable dt = dao.IdQueryEmployee(em);
-                DataRow myDr = dt.Rows[0];
-                tb_duty.Text = myDr["em_name"].ToString();
-                tb_company.Text = myDr["em_company"].ToString();
-                tb_department.Text = myDr["em_department"].ToString();
-                tb_group.Text = myDr["em_group"].ToString();
+                DutyInformation(id);
             }
             tb_duty.Text = tb_duty.Text.Substring(0, tb_duty.Text.Length);
         }
 
         //获取责任人信息
-        public void DutyInformation(int id)
+        private void DutyInformation(int dutyId)
         {
-            EmployeesInterface dao = new EmployeeDataManipulation();
             Employee em = new Employee();
-            em.Id = id;
-            DataTable dt = dao.IdQueryEmployee(em);
+            em.Id = dutyId;
+            DataTable dt = em.IdQueryEmployee();
             DataRow myDr = dt.Rows[0];
             tb_duty.Text = myDr["em_name"].ToString();
-            tb_company.Text = myDr["em_company"].ToString();
-            tb_department.Text = myDr["em_department"].ToString();
-            tb_group.Text = myDr["em_group"].ToString();
+            Department department = new Department(factory);
+            department.de_id = (int)myDr["em_departmentid"];
+            List<string> mList = department.DepartmentName();
+            tb_company.Text = mList[2];
+            tb_department.Text = mList[1];
+            tb_group.Text = mList[0];
         }
 
         //表单验证

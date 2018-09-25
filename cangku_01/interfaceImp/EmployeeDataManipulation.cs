@@ -11,15 +11,6 @@ namespace cangku_01.interfaceImp
     {
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
-        //查询全部的员工
-        public DataTable QueryAllEmployee()
-        {
-            Employee e = new Employee();
-            string sql = e.QueryAllEmployeeSql();
-            DataTable dt = dbo.ReadDBDataTable(sql);       
-            return dt;
-        }
-
         //员工查重
         public int EmployeesRechecking(string employeenumber)
         {
@@ -37,29 +28,11 @@ namespace cangku_01.interfaceImp
             dbo.WriteDB(sql);
         }
 
-        //删除员工
-        public void DeleteEmployee(string employeenumber)
-        {
-            Employee e = new Employee();
-            e.EmployeeNumber = employeenumber;
-            string sql = e.EmployeeNumberDeleteEmployeeSql();
-            dbo.WriteDB(sql);
-        }
-
         //更新员工
         public void UpdateEmployee(Employee em)
         {
             string sql = em.UpdateEmployeeSql();
             dbo.WriteDB(sql);
-        }
-
-        //树状图查询员工
-        public DataTable TreeQueryEmployee(int level, int nodeid)
-        {
-            Employee e = new Employee();
-            string sql = e.TreeFindEmployeeSql(level, nodeid);
-            DataTable dt = dbo.ReadDBDataTable(sql);
-            return dt;
         }
 
         //编号查询员工
@@ -75,22 +48,6 @@ namespace cangku_01.interfaceImp
         public DataTable IdQueryEmployee(Employee em)
         {
             string sql = em.IdFindEmployeeSql();
-            DataTable dt = dbo.ReadDBDataTable(sql);
-            return dt;
-        }
-
-        //在当前分组中搜索
-        public DataTable QueryInTheGroupEmployee(Employee em , int level, int nodeid)
-        {
-            string sql = em.QueryEmployeeSql(level,nodeid);
-            DataTable dt = dbo.ReadDBDataTable(sql);
-            return dt;
-        }
-
-        //在全部人员中搜索
-        public DataTable QueryInTheAllEmployee(Employee em)
-        {
-            string sql = em.QueryEmployeeSql(0, 0);
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
         }

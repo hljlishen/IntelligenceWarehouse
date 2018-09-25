@@ -1,8 +1,8 @@
 ﻿using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using DbLink;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -14,34 +14,35 @@ namespace cangku_01.view.EmployeesManagement
 {
     public partial class AddOrUpdateEmployee : Form
     {
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         EmployeesInterface dao = new EmployeeDataManipulation();
-        Employee em = new Employee();
-        private EmployeeManagement fr;
-        private string companytext;
-        private string departmenttext;
-        private string grouptext;
-        private int index;
+        private Employee _employee = new Employee();
+        private EmployeeManagement _employeefrom;
+        private string _companyname;
+        private string _departmentname;
+        private string _groupname;
+        private int _index;
 
         //无参构造方法为添加状态
-        public AddOrUpdateEmployee(EmployeeManagement fr)
+        public AddOrUpdateEmployee(EmployeeManagement form)
         {
             InitializeComponent();
             bt_alteremployee.Visible = false;
-            this.fr = fr;
+            _employeefrom = form;
         }
 
         //重写有参构造方法为修改状态
-        public AddOrUpdateEmployee(EmployeeManagement fr , Employee em, string company, string department, string group ,int index)
+        public AddOrUpdateEmployee(EmployeeManagement from , Employee employee, string company, string department, string group ,int index)
         {
             InitializeComponent();
             Bt_addemployee.Visible = false;
-            this.fr = fr;
-            this.index = index;
+            _employeefrom = from;
+            _index = index;
             tb_employeesid.ReadOnly = true;
             La_addoralter.Text = "修改员工";
-            tb_employeesid.Text = em.EmployeeNumber.ToString();
-            tb_name.Text = em.Name;
-            if (em.Sex.Equals("男"))
+            tb_employeesid.Text = employee.EmployeeNumber.ToString();
+            tb_name.Text = employee.Name;
+            if (employee.Sex.Equals("男"))
             {
                 Rb_sexman.Checked = true;
             }
@@ -57,9 +58,9 @@ namespace cangku_01.view.EmployeesManagement
         //加载部门树状图
         private void AddOrAlterEmployees_Load(object sender, EventArgs e)
         {
-            List<TreeNode> ls = Department.loadDepartmentStructure();
             tv_departmentshow.Nodes.Clear();
-            tv_departmentshow.Nodes.AddRange(ls.ToArray());
+            Department department = new Department(factory);
+            department.GetTreeView(tv_departmentshow,0);
             tv_departmentshow.ExpandAll();
         }
 
@@ -67,7 +68,8 @@ namespace cangku_01.view.EmployeesManagement
         private void Bt_addemployee_Click(object sender, EventArgs e)
         {
             if (!FormValidation()) return;
-            if (dao.EmployeesRechecking(tb_employeesid.Text.ToString()) != 0)
+            _employee.EmployeeNumber = tb_employeesid.Text;
+            if (_employee.EmployeeNumberFindEmployee().Rows.Count != 0)
             {
                 la_errorexistnumber.Visible = true;
                 la_errorexistnumber.ForeColor = Color.Red;
@@ -75,12 +77,12 @@ namespace cangku_01.view.EmployeesManagement
             }
             else la_errorexistnumber.Visible = false;
             GetEmployeeInformation();
-            companytext = la_company.Text;
-            departmenttext = la_department.Text;
-            grouptext = la_group.Text;
-            dao.AddEmployee(em);
+            _companyname = la_company.Text;
+            _departmentname = la_department.Text;
+            _groupname = la_group.Text;
+            dao.AddEmployee(_employee);
             AutoClosingMessageBox.Show("员工信息添加成功", "员工信息添加", 1000);
-            index = fr.dgv_employeeinformation.Rows.Add();
+            _index = _employeefrom.dgv_employeeinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
             Close();
  
@@ -89,21 +91,21 @@ namespace cangku_01.view.EmployeesManagement
         //获取员工信息
         public void GetEmployeeInformation()
         {
-            em.EmployeeNumber = tb_employeesid.Text.ToString();
-            em.Name = tb_name.Text.ToString();
-            if (Rb_sexman.Checked) em.Sex = "男";
-            else em.Sex = "女";
+            _employee.EmployeeNumber = tb_employeesid.Text.ToString();
+            _employee.Name = tb_name.Text.ToString();
+            if (Rb_sexman.Checked) _employee.Sex = "男";
+            else _employee.Sex = "女";
         }
 
         //给DataGridView添加一行数据
         public void AddOneEmployeeToTheDataGridView()
         {
-            fr.dgv_employeeinformation.Rows[index].Cells[0].Value = em.EmployeeNumber;
-            fr.dgv_employeeinformation.Rows[index].Cells[1].Value = em.Name;
-            fr.dgv_employeeinformation.Rows[index].Cells[2].Value = em.Sex;
-            fr.dgv_employeeinformation.Rows[index].Cells[3].Value = companytext;
-            fr.dgv_employeeinformation.Rows[index].Cells[4].Value = departmenttext;
-            fr.dgv_employeeinformation.Rows[index].Cells[5].Value = grouptext;
+            _employeefrom.dgv_employeeinformation.Rows[_index].Cells[0].Value = _employee.EmployeeNumber;
+            _employeefrom.dgv_employeeinformation.Rows[_index].Cells[1].Value = _employee.Name;
+            _employeefrom.dgv_employeeinformation.Rows[_index].Cells[2].Value = _employee.Sex;
+            _employeefrom.dgv_employeeinformation.Rows[_index].Cells[3].Value = _companyname;
+            _employeefrom.dgv_employeeinformation.Rows[_index].Cells[4].Value = _departmentname;
+            _employeefrom.dgv_employeeinformation.Rows[_index].Cells[5].Value = _groupname;
         }
 
         //员工信息修改
@@ -111,22 +113,20 @@ namespace cangku_01.view.EmployeesManagement
         {
             if (!FormValidation()) return;
             GetEmployeeInformation();
-            if (em.Group == 0)
+            if (_employee.Group == 0)
             {
-                DataTable dt = em.EmployeeNumberFindEmployee();
+                DataTable dt = _employee.EmployeeNumberFindEmployee();
                 DataRow myDr = dt.Rows[0];
-                em.Company = (int)myDr["em_company"];
-                em.Department = (int)myDr["em_department"];
-                em.Group = (int)myDr["em_group"];
+                _employee.DepartmentId = (int)myDr["em_departmentid"];
             }
-            companytext = la_company.Text;
-            departmenttext = la_department.Text;
-            grouptext = la_group.Text;
-            dao.UpdateEmployee(em);
+            _companyname = la_company.Text;
+            _departmentname = la_department.Text;
+            _groupname = la_group.Text;
+            dao.UpdateEmployee(_employee);
             AutoClosingMessageBox.Show("员工信息修改成功", "员工信息修改", 1000);
-            fr.dgv_employeeinformation.Rows.RemoveAt(index);
-            index = fr.dgv_employeeinformation.Rows.Add();
-            AddOneEmployeeToTheDataGridView();
+            Employee employee = new Employee();
+            DataTable datatable = employee.QueryAllEmployee();//将全部员工加载
+            _employeefrom.ShowDataGridView(datatable);
             Close(); 
         }
 
@@ -138,15 +138,10 @@ namespace cangku_01.view.EmployeesManagement
                 AutoClosingMessageBox.Show("为精确到小组", "为精确到小组", 500);
                 return;
             }
-            Department d1 = tv_departmentshow.SelectedNode.Tag as Department;//获取节点id
-            Department d2 = tv_departmentshow.SelectedNode.Parent.Tag as Department;
-            Department d3 = tv_departmentshow.SelectedNode.Parent.Parent.Tag as Department;
             la_group.Text = tv_departmentshow.SelectedNode.Text;
             la_department.Text = tv_departmentshow.SelectedNode.Parent.Text;
             la_company.Text = tv_departmentshow.SelectedNode.Parent.Parent.Text;
-            em.Company = d3.id;
-            em.Department = d2.id;
-            em.Group = d1.id;
+            _employee.DepartmentId = (int)tv_departmentshow.SelectedNode.Tag;
         }
 
         //表单验证

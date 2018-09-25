@@ -1,152 +1,234 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using cangku_01.MysqlConnection;
+using DbLink;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.entity
 {
-    public class Department 
+    public class Department : ActiveRecord
     {
-        public int id;
-        public string name;
-        public int tier;
-        public int belongid;
-        public TreeNode tn;
-        public List<Department> LowerRank;
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
 
-        //添加节点
-        public Department(string n, int r, int b)
-        {    
-            id = -1;
-            name = n;
-            tier = r;
-            belongid = b;
-            LowerRank = new List<Department>();
-            string sql = "insert into t_department (de_name,de_tier,de_belongId) values ('" + name + "'," +tier.ToString() + "," + belongid.ToString() + ")";
-            dbo.WriteDB(sql);
+        public int? de_id { get; set; }
+        public string de_name { get; set; }
+        public int? de_belongid { get; set; }
+        public List<int> DepartmentId = new List<int>();
+       
+        public Department(DbLinkFactory factory) : base("t_department", "de_id", factory)
+        {
+
         }
 
-        public Department(DataRow r)
+        //树状图生成 --Tag中只存入节点id
+        public void GetTreeView(TreeView treeView, int parentId)
         {
-            id = int.Parse(r["de_id"].ToString());
-            name = r["de_name"].ToString();
-            tier = int.Parse(r["de_tier"].ToString());
-            belongid = int.Parse(r["de_belongId"].ToString());
-            LowerRank = new List<Department>();
-            loadLowerRankDepartment();
-            getNodeStructure();
-        }
-
-        public Department()
-        {
-           
-        }
-
-        private void loadLowerRankDepartment()
-        {
-            List<Department> ret = new List<Department>();
-            string sql = "select * from t_department where de_belongId="
-                + id.ToString() + "";
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count == 0)
-                return;
-            foreach (DataRow r in ds.Tables[0].Rows)
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_department");
+            maker.AddAndCondition(new IntEqual("de_belongid", parentId));
+            DataTable dt = Select(maker.MakeSelectSql());
+            if (dt.Rows.Count > 0)
             {
-                Department c = new Department(r);
-                LowerRank.Add(c);
-            }
-            return;
-        }
-
-        //生成节点的结构
-        private void getNodeStructure()  
-        {
-            List<TreeNode> ls = new List<TreeNode>();
-            if (LowerRank.Count == 0)
-            {
-                tn = new TreeNode(name);
-
-                tn.Tag = this;
-            }
-            else
-            {
-                foreach (Department c in LowerRank)
+                int pId = -1;
+                foreach (DataRow row in dt.Rows)
                 {
-                    c.getNodeStructure();
-                    ls.Add(c.tn);
+                    TreeNode node = new TreeNode();
+                    node.Text = row["de_name"].ToString();
+                    node.Tag = (int)row["de_id"];
+                    pId = (int)row["de_belongid"];
+                    if (pId == 0)
+                    {
+                        treeView.Nodes.Add(node);//添加根节点
+                    }
+                    else
+                    {
+                        RefreshChildNode(treeView, node, pId);//添加根节点之外的其他节点
+                    }
+                    GetTreeView(treeView, (int)node.Tag);//查找以node为父节点的子节点
                 }
-                tn = new TreeNode(name,ls.ToArray());
-                tn.Tag = this;
             }
         }
 
-        public static List<TreeNode> loadDepartmentStructure()
+        //处理根节点的子节点
+        private void RefreshChildNode(TreeView treeView, TreeNode treeNode, int parentId)
         {
-            string sql = "select * from t_department where de_tier = 0";
-            DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
-            DataSet ds = dbo.ReadDB(sql);
-            List<TreeNode> ret = new List<TreeNode>();
-            foreach (DataRow r in ds.Tables[0].Rows)
+            foreach (TreeNode node in treeView.Nodes)
             {
-                Department c = new Department(r);
-                ret.Add(c.tn);
+                if ((int)node.Tag == parentId)
+                {
+                    node.Nodes.Add(treeNode);
+                    return;
+                }
+                else if (node.Nodes.Count > 0)
+                {
+                    FindChildNode(node, treeNode, parentId);
+                }
             }
-            return ret;
+        }
+
+        //处理根节点的子节点的子节点
+        private void FindChildNode(TreeNode tNode, TreeNode treeNode, int parentId)
+        {
+            foreach (TreeNode node in tNode.Nodes)
+            {
+                if ((int)node.Tag == parentId)
+                {
+                    node.Nodes.Add(treeNode);
+                    return;
+                }
+                else if (node.Nodes.Count > 0)
+                {
+                    FindChildNode(node, treeNode, parentId);
+                }
+            }
+        }
+
+        //添加节点
+        public void AddDepartmentNode()
+        {
+            Insert();
         }
 
         //删除选中的节点
-        public int deleteSelf()
+        public bool DeleteNode()
         {
-            string sql = "select * from t_department where de_belongId = " + id + "";
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count != 0)//存在子节点
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_department");
+            maker.AddAndCondition(new IntEqual("de_belongid", de_id.Value));
+            DataTable departmentDataTable = Select(maker.MakeSelectSql());
+            if (departmentDataTable.Rows.Count != 0)
             {
-                MessageBox.Show("该部门之下还有子部门，不能删除");
-                return 0;
+                AutoClosingMessageBox.Show("该部门之下还有子部门，不能删除", "存在子部门", 1000);
+                return false;
             }
-            sql = "select * from t_employee where em_group = " + id + "";
-            DataSet ds2 = dbo.ReadDB(sql);
-            if (ds2.Tables[0].Rows.Count != 0)//节点下存在联系人
+            maker = factory.CreateSelectSqlMaker("t_employee");
+            maker.AddAndCondition(new IntEqual("em_departmentid", de_id.Value));
+            DataTable employeeDataTable = Select(maker.MakeSelectSql());
+            if (employeeDataTable.Rows.Count != 0)
             {
-                MessageBox.Show("该部门之下还有员工，不能删除");
-                return 0;
+                AutoClosingMessageBox.Show("该部门之下还有员工，不能删除", "存在员工", 1000);
+                return false;
             }
-            sql = "delete from t_department where de_id = " + id + "";
-            dbo.WriteDB(sql);
-            return 1;
+            Delete();
+            return true;
         }
 
         //节点查重
         public bool NodeDuplicateChecking()
         {
-            bool duplicatechecking = false;
-            string sql = "select * from t_department where de_name='" + name + "' and de_tier=" + tier + " and de_belongId=" + belongid + "";
-            DataSet ds = dbo.ReadDB(sql);
-            if (ds.Tables[0].Rows.Count != 0)
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_department");
+            maker.AddAndCondition(new StringEqual("de_name", de_name));
+            maker.AddAndCondition(new IntEqual("de_belongid",de_belongid.Value));
+            DataTable departmentDataTable = Select(maker.MakeSelectSql());
+            if (departmentDataTable.Rows.Count != 0)
             {
-                duplicatechecking = true;
+                return true;
             }
-            return duplicatechecking;
+            return false;
+        }
+
+        //表单验证
+        public bool DepartmentFormValidation()
+        {
+            if (string.IsNullOrEmpty(de_name.Trim()))
+            {
+                AutoClosingMessageBox.Show("请填写节点名称！", "节点名为空", 1000);
+                return false;
+            }
+            DataTable departmentDataTable = BelongIDQueryDepartmentInformation();
+            if (departmentDataTable.Rows.Count != 0)
+            {
+                AutoClosingMessageBox.Show("已存在该节点名！", "节点重名", 1000);
+                return false;
+            }
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_department");
+            maker.AddAndCondition(new IntEqual("de_id", de_belongid.Value));
+            DataTable departmentname = Select(maker.MakeSelectSql());
+            if (departmentname.Rows.Count == 0)
+            {
+                return true;
+            }
+            DataRow myDr = departmentname.Rows[0];
+            if (myDr["de_name"].ToString().Equals(de_name))
+            {
+                AutoClosingMessageBox.Show("不能与父节点重名！", "节点与父节点重名", 1000);
+                return false;
+            }
+            return true;
         }
 
         //belongid查询
-        public DataSet BelongIDQueryDepartmentInformation()
+        public DataTable BelongIDQueryDepartmentInformation()
         {
-            string sql = "select * from t_department where de_belongId=" + belongid + " and de_name='" + name + "'";
-            DataSet ds = dbo.ReadDB(sql);
-            return ds;
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_department");
+            maker.AddAndCondition(new StringEqual("de_name", de_name));
+            maker.AddAndCondition(new IntEqual("de_belongid",de_belongid.Value));
+            DataTable departmentDataTable = Select(maker.MakeSelectSql());
+            return departmentDataTable;
         }
 
-        //修改子节点
-        public void AlterChildNodes()
+        //节点重命名
+        public void RenameNodes()
         {
-            string sql = "update t_department set de_name = '" + name + " 'where de_id = " + id + "";
-            dbo.WriteDB(sql);
+            Update();
         }
+
+        //查询节点名字，以及父节点名
+        public List<string> DepartmentName()
+        {
+            List<string> mList = new List<string>();
+            while (true)
+            {  
+                ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_department");
+                maker.AddAndCondition(new IntEqual("de_id", de_id.Value));
+                DataTable departmentDataTable = Select(maker.MakeSelectSql());
+                DataRow myDr = departmentDataTable.Rows[0];
+                mList.Add(myDr["de_name"].ToString());
+                if ((int)myDr["de_belongid"] == 0) break;
+                de_id = (int)myDr["de_belongid"];
+            }
+            return mList;
+        }
+
+        //查找树状图下的员工
+        public DataTable FindAllEmployeeOf(TreeNode treeNode)
+        {
+            readNode(treeNode);
+            DataTable datatable = new DataTable();
+            string sql1 = "select * from t_employee where em_departmentid =";
+            string sql2 = " or em_departmentid =";
+            string sql = "";
+            for (int i=0; i< DepartmentId.Count; i++)
+            {
+                if (i == 0)
+                {
+                    sql = sql1 + DepartmentId[i];
+                }
+                sql += sql2 + DepartmentId[i];
+            }
+            datatable = Select(sql);
+            return datatable;
+        }
+
+        //读取节点的叶子节点ID
+        public void readNode(TreeNode treeNode)
+        {
+            if (treeNode.Nodes.Count == 0)
+            {
+                DepartmentId.Add((int)treeNode.Tag);
+                return;
+            }
+            foreach (TreeNode children in treeNode.Nodes)
+            {
+                
+                if (children.Nodes.Count == 0)
+                {
+                    DepartmentId.Add((int)children.Tag);
+                    readNode(children);
+                }
+                readNode(children);
+            }
+        }
+
     }
 }

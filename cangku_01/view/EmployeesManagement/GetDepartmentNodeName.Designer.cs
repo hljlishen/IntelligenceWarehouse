@@ -100,7 +100,9 @@
             this.Controls.Add(this.la_nodenametext);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GetDepartmentNodeName";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "输入节点名称";
+            this.Load += new System.EventHandler(this.GetDepartmentNodeName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

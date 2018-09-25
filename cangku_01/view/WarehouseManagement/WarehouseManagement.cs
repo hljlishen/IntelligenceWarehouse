@@ -30,6 +30,31 @@ namespace cangku_01.view.WarehouseManagement
             tv_warehouse.HideSelection = false;
         }
 
+        //右键单击仓库树状图事件
+        private void tv_warehouse_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Point ClickPoint = new Point(e.X, e.Y);
+                int x = e.X;
+                int y = e.Y;
+                TreeNode CurrentNode = tv_warehouse.GetNodeAt(ClickPoint);
+                if (CurrentNode is TreeNode)//判断你点的是不是一个节点
+                {
+                    tv_warehouse.SelectedNode = CurrentNode;
+                    CurrentNode.ContextMenuStrip = cms_warehousetreeview;
+                    cms_warehousetreeview.Show(MousePosition);
+                    tier = tv_warehouse.SelectedNode.Level;
+                    ShowRightClickList();
+                }
+                else
+                {
+                    tier = -1;
+                    ShowRightClickList();
+                }
+            }
+        }
+
         //展示右键列表
         public void ShowRightClickList()
         {
@@ -159,11 +184,17 @@ namespace cangku_01.view.WarehouseManagement
         //重命名
         private void tsm_rename_Click(object sender, EventArgs e)
         {
-            string parentnodename = tv_warehouse.SelectedNode.Parent.Text;
+            string parentnodename = "";
+            int id = 0;
+            if (tv_warehouse.SelectedNode.Level != 0)
+            {
+                parentnodename = tv_warehouse.SelectedNode.Parent.Text;
+                WarehouseLocation parentnode = tv_warehouse.SelectedNode.Parent.Tag as WarehouseLocation;
+                id = parentnode.id;
+            }
             string nodename = tv_warehouse.SelectedNode.Text;
-            WarehouseLocation parentnode = tv_warehouse.SelectedNode.Parent.Tag as WarehouseLocation;//获取节点id
             WarehouseLocation node = tv_warehouse.SelectedNode.Tag as WarehouseLocation;
-            GetWarehouseLocationNodeName getnodename = new GetWarehouseLocationNodeName(parentnodename, parentnode.id, nodename, node.id);
+            GetWarehouseLocationNodeName getnodename = new GetWarehouseLocationNodeName(parentnodename, id, nodename, node.id);
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 tv_warehouse.SelectedNode.Text = getnodename.nodeName;
@@ -202,29 +233,5 @@ namespace cangku_01.view.WarehouseManagement
             }
         }
 
-        //右键单击仓库树状图事件
-        private void tv_warehouse_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                Point ClickPoint = new Point(e.X, e.Y);
-                int x = e.X;
-                int y = e.Y;
-                TreeNode CurrentNode = tv_warehouse.GetNodeAt(ClickPoint);
-                if (CurrentNode is TreeNode)//判断你点的是不是一个节点
-                {
-                    tv_warehouse.SelectedNode = CurrentNode;
-                    CurrentNode.ContextMenuStrip = cms_warehousetreeview;
-                    cms_warehousetreeview.Show(MousePosition);
-                    tier = tv_warehouse.SelectedNode.Level;
-                    ShowRightClickList();
-                }
-                else
-                {
-                    tier = -1;
-                    ShowRightClickList();
-                }
-            }
-        }
     }
 }
