@@ -4,6 +4,7 @@ using cangku_01.GateDrive;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using cangku_01.view.TheWarehouseHomePage;
+using DbLink;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +18,7 @@ namespace cangku_01
     public partial class Form1 : Form, IDataDisplayer
     {
         private static GateInterface gateDrive;
+        static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();
@@ -139,18 +141,25 @@ namespace cangku_01
         private void UpdateEmployee(Fingerprint fingerprint)
         {
             EmployeesInterface dao = new EmployeeDataManipulation();
-            Employee em = new Employee();
-            em.EmployeeNumber = fingerprint.fi_employeenumber;
-            DataTable dt = dao.EmployeeNumberQueryEmployee(em);
+            Employee employee = new Employee();
+            employee.EmployeeNumber = fingerprint.fi_employeenumber;
+            DataTable dt = employee.EmployeeNumberFindEmployee();
             DataRow myDr = dt.Rows[0];
-            tb_employeeunmber.Text = em.EmployeeNumber;
+            tb_employeeunmber.Text = employee.EmployeeNumber;
             tb_employeename.Text = myDr["em_name"].ToString();
-            tb_temp.Text = myDr["em_department"].ToString();
+            Department department = new Department(factory);
+            department.de_id = (int)myDr["em_departmentid"];
+            string departmentname = "";
+            for (int i = department.DepartmentName().Count-1; i >= 0; i--)
+            {
+                departmentname += department.DepartmentName()[i];
+            }
+            tb_temp.Text = departmentname;
             tb_employeepassdoor.Text = fingerprint.fi_passtime.ToString();
-            ShowEmployeePhoto(em);
+            ShowEmployeePhoto(employee);
 
             listView = lv_employeepassdoor.Items.Add((lv_employeepassdoor.Items.Count + 1).ToString());
-            listView.SubItems.Add(em.EmployeeNumber);
+            listView.SubItems.Add(employee.EmployeeNumber);
             listView.SubItems.Add(myDr["em_name"].ToString());
             listView.SubItems.Add(myDr["em_department"].ToString());
             listView.SubItems.Add(fingerprint.fi_passtime.ToString());
