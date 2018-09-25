@@ -385,6 +385,7 @@ namespace cangku_01.view.InstrumentManagement
         {
             Employee em = new Employee();
             em.Id = dutyId;
+            dutyId = dutyid;
             DataTable dt = em.IdQueryEmployee();
             DataRow myDr = dt.Rows[0];
             tb_duty.Text = myDr["em_name"].ToString();

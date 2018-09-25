@@ -167,6 +167,11 @@ namespace cangku_01.entity
             string sql2 = " or em_departmentid =";
             for (int i = 0; i < departmentidlist.Count; i++)
             {
+                if (departmentidlist.Count==1)
+                {
+                    sql += sql2 + departmentidlist[i];
+                    continue;
+                }
                 if (i == 0)
                 {
                     sql += " and (em_departmentid =" + departmentidlist[i];

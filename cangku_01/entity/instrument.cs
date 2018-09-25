@@ -195,5 +195,25 @@ namespace cangku_01.entity
         {
             maker = factory.CreateSelectSqlMaker("t_checkdate");
         }
+
+        //tagid查询仪器sql
+        public DataTable InstrumentTagidFindInstrument()
+        {
+            Setup();
+            maker.AddAndCondition(new StringEqual("in_tagid", TagId));
+            maker.AddSelectField("in_name");
+            maker.AddSelectField("in_model");
+            maker.AddSelectField("in_manufactor");
+            maker.AddSelectField("in_position");
+            maker.AddSelectField("in_duty");
+            string sql = maker.MakeSelectSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
+        }
+
+        private void Setup()
+        {
+            maker = factory.CreateSelectSqlMaker("t_instrument");
+        }
     }
 }

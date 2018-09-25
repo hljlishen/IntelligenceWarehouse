@@ -21,9 +21,9 @@ namespace cangku_01.interfaceImp
         }
 
         //添加仪器出入记录
-        public void AddInAndOutRecords(InstrumentInAndOutRecord record, Employee ee, GateData door)
+        public void AddInAndOutRecords(InstrumentInAndOutRecord record, Fingerprint fingerprint, GateData door)
         {
-            MergeInAndOutRecord(ee, door, record);
+            MergeInAndOutRecord(fingerprint, door, record);
             record.ins_direct = door.Direction;
             record.ins_time = door.Time;
             if (record.ins_instrumentid != null && record.ins_employeeid != null && record.ins_direct != null && record.ins_time != null)
@@ -33,66 +33,44 @@ namespace cangku_01.interfaceImp
             }
         }
 
-        //通过tagid查询仪器id
-        public void GetInstrumentId(GateData door,InstrumentInAndOutRecord record)
+        private void MergeInAndOutRecord(Fingerprint fingerprint, GateData door, InstrumentInAndOutRecord record)
         {
-            DataTable dt = GetInstrumentDbId(door);
-            DataRow myDr = dt.Rows[0];
-            record.ins_instrumentid = Convert.ToInt16(myDr["in_id"]);
-        }
-
-        public DataTable GetInstrumentDbId(GateData door)
-        {
-            Instrument ins = new Instrument();
-            ins.TagId = door.TagId;
-            string sql = ins.TagIDQueryInstrumentSql();
-            DataTable dt = dbo.ReadDBDataTable(sql);
-            return dt;
-        }
-
-        //通过员工编号查询员工id
-        public void GetEmployeeId(InstrumentInAndOutRecord record,Employee ee)
-        {
-            DataTable dt = GetEmployeeDbId(ee); 
-            DataRow myDr = dt.Rows[0];
-            record.ins_employeeid = Convert.ToInt16(myDr["em_id"]);
-        }
-
-        public DataTable GetEmployeeDbId(Employee ee)
-        {
-            DataTable dt1 = Fingerprint(ee);
-            DataRow myDr = dt1.Rows[0];
-            ee.EmployeeNumber = myDr["fi_employeenumber"].ToString();
-            string sql = ee.EmployeeNumberFindEmployeeSql();
-            DataTable dt2 = dbo.ReadDBDataTable(sql);
-            return dt2;
+            DataTable findt = Fingerprint(fingerprint);
+            DataTable insdt = InsBorrow(door);
+            for (int i = 0; i < findt.Rows.Count; i++)
+            {
+                for (int j = 0;j<insdt.Rows.Count;j++)
+                {
+                    DataRow finmyDr = findt.Rows[i];
+                    DataRow insmyDr = insdt.Rows[j];
+                    DateTime emPassTime = Convert.ToDateTime(finmyDr["fi_passtime"]);
+                    DateTime insPassTime = door.Time;
+                    TimeSpan td = emPassTime.Subtract(insPassTime).Duration();
+                    double timeInterval = td.TotalSeconds;
+                    if (timeInterval <= 12000)
+                    {
+                        record.ins_instrumentid = int.Parse(insmyDr["ins_borrowid"].ToString());
+                        record.ins_employeeid = int.Parse(finmyDr["fi_id"].ToString());
+                    }
+                }
+                
+            }
         }
 
         //查fingerprint表
-        public DataTable Fingerprint(Employee ee)
+        private DataTable Fingerprint(Fingerprint fingerprint)
         {
-            string sql = ee.FingerprintSql();
+            string sql = fingerprint.FingerprintSql();
             DataTable dt = dbo.ReadDBDataTable(sql);
             return dt;
         }
 
-        public void MergeInAndOutRecord(Employee ee,GateData door, InstrumentInAndOutRecord record)
+        //查insborrow表
+        private DataTable InsBorrow(GateData gateData)
         {
-            DataTable dt = Fingerprint(ee);
-            for (int i=0; i < dt.Rows.Count; i++)
-            {
-                DataRow myDr = dt.Rows[i];
-                ee.PassDoor = Convert.ToDateTime(myDr["fi_passtime"]);
-                DateTime emPassTime = ee.PassDoor;
-                DateTime insPassTime = door.Time;
-                TimeSpan td = emPassTime.Subtract(insPassTime).Duration();
-                double timeInterval = td.TotalSeconds;
-                if (timeInterval <= 12000)
-                {
-                    GetInstrumentId(door, record);
-                    GetEmployeeId(record, ee);
-                }
-            }
+            string sql = gateData.InsBorrowSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace cangku_01.GateDrive
 {
-    class GateUHFv014 : GateInterface
+    class GateUhfv014 : GateInterface
     {
         private int fCmdRet = 30;
         private byte ControllerAdr = 0xff;
@@ -12,8 +12,9 @@ namespace cangku_01.GateDrive
         private byte IRStatus; 
         private bool IsGetting;
         private IGateDataProcessor processor;
+        private static GateUhfv014 gate = null;
 
-        public GateUHFv014(IGateDataProcessor processor)
+        public GateUhfv014(IGateDataProcessor processor)
         {
             this.processor = processor;
         }
@@ -65,7 +66,7 @@ namespace cangku_01.GateDrive
         }
 
         //开始探测
-        public void StartDetect()
+        public void Detect()
         {
             byte[] Msg = new byte[300];
             byte MsgLength = 0;
