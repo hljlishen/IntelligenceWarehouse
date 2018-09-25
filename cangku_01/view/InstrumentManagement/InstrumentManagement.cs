@@ -37,7 +37,6 @@ namespace cangku_01.view.InstrumentManagement
             Top = 0;
             DataTable dt = dao.QueryAllInstrument();
             TagIdQuery(reader);
-            DataTable dt = dao.QueryAllInstrument();//将全部员工加载
             ShowDataGridView(dt);
         }
 
@@ -163,6 +162,9 @@ namespace cangku_01.view.InstrumentManagement
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
+                    WarehouseLocation wa = new WarehouseLocation();
+                    wa.instrumenttagid = ins.TagId;
+                    wa.TagidAlterInstrument();
                     dao.DeleteInstrument(ins);
                     AutoClosingMessageBox.Show("仪器信息删除成功", "仪器信息删除", 1000);
                     dgv_instrumentinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除

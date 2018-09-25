@@ -205,7 +205,6 @@ namespace cangku_01.view.InstrumentManagement
             wa.instrumenttagid = tb_tagid.Text;
             wa.AddInstrument();
             dao.AddInstrument(GetInstrumentInformation());
-            GetWriteCardInformation();
             AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
             index = fr.dgv_instrumentinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
@@ -268,7 +267,7 @@ namespace cangku_01.view.InstrumentManagement
             string[] sArray1 = alterplaceidcoding.Split(new char[1] { '-' });
             int alterplaceid = int.Parse(sArray1[3]);
             wa1.id = alterplaceid;
-            wa1.AlterInstrument();
+            wa1.IdAlterInstrument();
             WarehouseLocation wa2 = new WarehouseLocation();
             string[] sArray2 = placeidcoding.Split(new char[1] { '-' });
             int placeid = int.Parse(sArray2[3]);
@@ -376,6 +375,7 @@ namespace cangku_01.view.InstrumentManagement
             foreach (var id in employeesIds)
             {
                 DutyInformation(id);
+                dutyid = id;
             }
             tb_duty.Text = tb_duty.Text.Substring(0, tb_duty.Text.Length);
         }
