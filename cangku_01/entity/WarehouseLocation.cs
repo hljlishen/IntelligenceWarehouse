@@ -214,13 +214,6 @@ namespace cangku_01.entity
         //给位置去除货物
         public void IdAlterInstrument()
         {
-            string sql = "update t_warehouselocation set wa_instrumenttagid = null where wa_instrumenttagid = '" + instrumenttagid + "'";
-            dbo.WriteDB(sql);
-        }
-
-        //给位置去除货物
-        public void IdAlterInstrument()
-        {
             string sql = "update t_warehouselocation set wa_instrumenttagid = null where wa_id = " + id + "";
             dbo.WriteDB(sql);
         }
