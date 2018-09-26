@@ -150,9 +150,15 @@ namespace cangku_01
             Department department = new Department(factory);
             department.de_id = (int)myDr["em_departmentid"];
             string departmentname = "";
-            for (int i = department.DepartmentName().Count-1; i >= 0; i--)
+            List<string> list = department.DepartmentName();
+            for (int i = list.Count-1; i >= 0; i--)
             {
-                departmentname += department.DepartmentName()[i];
+                if (i == list.Count - 1)
+                {
+                    departmentname = list[i];
+                    continue;
+                }
+                departmentname += "-" + list[i];
             }
             tb_temp.Text = departmentname;
             tb_employeepassdoor.Text = fingerprint.fi_passtime.ToString();
@@ -161,7 +167,7 @@ namespace cangku_01
             listView = lv_employeepassdoor.Items.Add((lv_employeepassdoor.Items.Count + 1).ToString());
             listView.SubItems.Add(employee.EmployeeNumber);
             listView.SubItems.Add(myDr["em_name"].ToString());
-            listView.SubItems.Add(myDr["em_department"].ToString());
+            listView.SubItems.Add(departmentname);
             listView.SubItems.Add(fingerprint.fi_passtime.ToString());
             lv_employeepassdoor.EnsureVisible(lv_employeepassdoor.Items.Count - 1);
         }

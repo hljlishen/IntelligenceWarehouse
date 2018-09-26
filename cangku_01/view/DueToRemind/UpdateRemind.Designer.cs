@@ -57,9 +57,9 @@
             this.la_tageidtxt.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.la_tageidtxt.Location = new System.Drawing.Point(80, 57);
             this.la_tageidtxt.Name = "la_tageidtxt";
-            this.la_tageidtxt.Size = new System.Drawing.Size(68, 20);
+            this.la_tageidtxt.Size = new System.Drawing.Size(79, 20);
             this.la_tageidtxt.TabIndex = 1;
-            this.la_tageidtxt.Text = "仪器 _nodeid：";
+            this.la_tageidtxt.Text = "仪器编号：";
             // 
             // la_nametxt
             // 
@@ -97,7 +97,7 @@
             this.la_tageid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.la_tageid.Location = new System.Drawing.Point(167, 57);
             this.la_tageid.Name = "la_tageid";
-            this.la_tageid.Size = new System.Drawing.Size(22, 20);
+            this.la_tageid.Size = new System.Drawing.Size(63, 20);
             this.la_tageid.TabIndex = 6;
             this.la_tageid.Text = "_nodeid";
             // 

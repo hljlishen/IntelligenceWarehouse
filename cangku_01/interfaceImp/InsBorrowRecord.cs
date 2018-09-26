@@ -26,6 +26,7 @@ namespace cangku_01.interfaceImp
             MergeInAndOutRecord(fingerprint, door, record);
             record.ins_direct = door.Direction;
             record.ins_time = door.Time;
+            record.ins_tagid = door.TagId;
             if (record.ins_instrumentid != null && record.ins_employeeid != null && record.ins_direct != null && record.ins_time != null)
             {
                 string sql = record.AddInstrumentRecordSql();
@@ -51,9 +52,9 @@ namespace cangku_01.interfaceImp
                     {
                         record.ins_instrumentid = int.Parse(insmyDr["ins_borrowid"].ToString());
                         record.ins_employeeid = int.Parse(finmyDr["fi_id"].ToString());
+                        record.ins_emnumber = finmyDr["fi_employeenumber"].ToString();
                     }
                 }
-                
             }
         }
 

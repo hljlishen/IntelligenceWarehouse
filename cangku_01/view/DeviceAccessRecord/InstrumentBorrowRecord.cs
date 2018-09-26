@@ -131,15 +131,15 @@ namespace cangku_01.MH
         //搜索仪器出入库信息按钮
         private void Btnsearch_Click(object sender, EventArgs e)
         {
-            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_insborrow");
-            maker.AddAndCondition(new StringEqual("ins_name", tb_instrument.Text));
-            maker.AddAndCondition(new StringEqual("ins_duty", tb_employee.Text));
+            ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_insinandoutrecords");
+            maker.AddAndCondition(new StringEqual("ins_tagid", tb_instrument.Text));
+            maker.AddAndCondition(new StringEqual("ins_emnumber", tb_employee.Text));
             if (cb_directquery.Text == "出入库")
-                maker.AddAndCondition(new StringLike("ins_throughstate", "库"));
+                maker.AddAndCondition(new StringLike("ins_direct", "库"));
             else
-                maker.AddAndCondition(new StringEqual("ins_throughstate", cb_directquery.Text));
+                maker.AddAndCondition(new StringEqual("ins_direct", cb_directquery.Text));
             if (cb_choicetime.Checked.Equals(true))
-                maker.AddAndCondition(new DateBetweenOpenInterval("ins_throughtime", dtp_begin.Value, dtp_end.Value.AddDays(1), factory.CreateDateTimeFormater()));
+                maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", dtp_begin.Value, dtp_end.Value.AddDays(1), factory.CreateDateTimeFormater()));
             var sql = maker.MakeSelectSql();
             var queryResult = InstrumentInAndOutRecord.Select(sql, factory.CreateDatabaseDrive());
             tb_instrument.Text = "";
@@ -172,10 +172,10 @@ namespace cangku_01.MH
             selectInstrument.InstrumentSelected -= InstrumentSelected;
         }
 
-        private void InstrumentSelected(List<int> instrumentIds,List<string> insName)
+        private void InstrumentSelected(List<int> instrumentIds,List<string> insTagids)
         {
             tb_instrument.Text = "";
-            foreach (var name in insName)
+            foreach (var name in insTagids)
             {
                 tb_instrument.Text += name;
             }
@@ -192,10 +192,10 @@ namespace cangku_01.MH
             selectEmployees.EmployeesSelected -= EmployeesSelected;
         }
 
-        private void EmployeesSelected(List<int> employeesIds, List<string> emName)
+        private void EmployeesSelected(List<int> employeesIds, List<string> emNumbers)
         {
             tb_employee.Text = "";
-            foreach (var name in emName)
+            foreach (var name in emNumbers)
             {
                 tb_employee.Text += name;
             }

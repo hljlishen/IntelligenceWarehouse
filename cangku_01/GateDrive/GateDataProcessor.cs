@@ -98,7 +98,8 @@ namespace cangku_01
                 }
                 string sql = gateDatas[i].BorrowInformationSql();
                 dbo.WriteDB(sql);
-                InformInsertInAndOutRecords(gateDatas, i);
+                if (dt.Rows.Count > 0)
+                    InformInsertInAndOutRecords(gateDatas, i);
             }
         }
 
@@ -132,7 +133,7 @@ namespace cangku_01
                 DataTable dt = dao.TagIdQueryInstrument(ins);
                 if (dt.Rows.Count > 0)
                 {
-                    ModifyInstrumentState(gateDatas,i);
+                    ModifyInstrumentState(gateDatas,i);  
                 }
             }
         }

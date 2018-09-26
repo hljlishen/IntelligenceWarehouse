@@ -20,7 +20,7 @@ namespace cangku_01.view.InstrumentManagement
         InstrumentInterface dao = new InstrumentDataManipulation();
         Instrument ins = new Instrument();
         private static UHFReader09Interface ReaderDrive = null;
-        public delegate void InstrumentSelectedHandler(List<int> instrumentIds,List<string> insNameAndModel);
+        public delegate void InstrumentSelectedHandler(List<int> instrumentIds,List<string> insTagids);
         public event InstrumentSelectedHandler InstrumentSelected;
         private int dutyid;
         UHFReader reader = UHFReader.CreateInstance();
@@ -136,15 +136,18 @@ namespace cangku_01.view.InstrumentManagement
             {
                 var selectedRows = dgv_instrumentinformation.SelectedRows;
                 List<int> ids = new List<int>();
+                List<string> tagids = new List<string>();
                 List<string> names = new List<string>();
                 foreach (var row in selectedRows)
                 {
                     int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
+                    string tagid = ((DataGridViewRow)row).Cells[0].Value.ToString();
                     string name = ((DataGridViewRow)row).Cells[1].Value.ToString();
                     ids.Add(id);
+                    tagids.Add(tagid);
                     names.Add(name);
                 }
-                InstrumentSelected?.Invoke(ids, names);
+                InstrumentSelected?.Invoke(ids, tagids);
                 Close();
             }
         }
