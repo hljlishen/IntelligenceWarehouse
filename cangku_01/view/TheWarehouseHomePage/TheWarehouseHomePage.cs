@@ -12,6 +12,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01
 {
@@ -95,9 +96,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gateDrive.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //gateDrive.Open();
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -143,8 +144,13 @@ namespace cangku_01
             EmployeesInterface dao = new EmployeeDataManipulation();
             Employee employee = new Employee();
             employee.EmployeeNumber = fingerprint.fi_employeenumber;
-            DataTable dt = employee.EmployeeNumberFindEmployee();
-            DataRow myDr = dt.Rows[0];
+            DataTable datatable = employee.EmployeeNumberFindEmployee();
+            if (datatable.Rows.Count ==0)
+            {
+                AutoClosingMessageBox.Show("无该员工记录", "无员工信息", 1000);
+                return;
+            }
+            DataRow myDr = datatable.Rows[0];
             tb_employeeunmber.Text = employee.EmployeeNumber;
             tb_employeename.Text = myDr["em_name"].ToString();
             Department department = new Department(factory);

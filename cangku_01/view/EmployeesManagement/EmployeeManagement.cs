@@ -157,6 +157,7 @@ namespace cangku_01.view.EmployeesManagement
         private void CheckBoxIsTrun()
         {
             Employee employee = new Employee();
+            Department department = new Department(factory);
             if (tb_foundemployeeid.Text.ToString().Equals(""))
             {
                 employee.EmployeeNumber = "";
@@ -167,13 +168,12 @@ namespace cangku_01.view.EmployeesManagement
             }
             employee.Name = tb_foundname.Text;
             employee.Sex = cb_foundsex.Text;
-            if (employee.EmployeeNumber.Equals("") && employee.Name.Equals("") && employee.Sex.Equals("男/女")&& _treenode==null)
+            if (employee.EmployeeNumber.Equals("") && employee.Name.Equals("") && employee.Sex.Equals("男/女")&& _treenode!=null)
             {
-                DataTable datatable = employee.QueryAllEmployee();
-                ShowDataGridView(datatable);
+                DataTable dataTable = department.FindAllEmployeeOf(_treenode);
+                ShowDataGridView(dataTable);
                 return;
             }
-            Department department = new Department(factory);
             if (_treenode == null)
             {
                 CheckBoxIsFalse();

@@ -113,7 +113,7 @@ namespace cangku_01.view.EmployeesManagement
         {
             if (!FormValidation()) return;
             GetEmployeeInformation();
-            if (_employee.Group == 0)
+            if (_employee.DepartmentId == 0)
             {
                 DataTable dt = _employee.EmployeeNumberFindEmployee();
                 DataRow myDr = dt.Rows[0];

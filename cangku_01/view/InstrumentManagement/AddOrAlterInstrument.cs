@@ -41,6 +41,7 @@ namespace cangku_01.view.InstrumentManagement
             this.fr = fr;
             title.Text = "添加仪器基本信息";
             cb_isInWareHouse.Text = "在库";
+            cb_state.Text = "启用";
             ReaderDrive = readerDrive;
             ReaderDrive.OpenConnectReader();
             ReaderDrive.TagConnected += ReaderAddDrive_TagConnected;
@@ -51,6 +52,7 @@ namespace cangku_01.view.InstrumentManagement
             tb_lastCheckTimes.Visible = false;
             cb_allcheckdate.Visible = false;
             la_allcheckdate.Visible = false;
+            tb_state.Visible = false;
             pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
         }
 
@@ -78,6 +80,7 @@ namespace cangku_01.view.InstrumentManagement
             tb_lastCheckTimes.Visible = false;
             cb_allcheckdate.Visible = false;
             la_allcheckdate.Visible = false;
+            tb_state.Visible = false;
             ShowInstrumentPhoto();
             InstrumentMessageDataTableShowTextBox();
         }
@@ -107,6 +110,7 @@ namespace cangku_01.view.InstrumentManagement
             cb_isInWareHouse.Visible = false;
             bt_showshelves.Enabled = false;
             bt_selectduty.Enabled = false;
+            cb_state.Visible = false;
             this.ins = ins;
             ReaderDrive = readerDrive;
             ReaderDrive.TagConnected += ReadercheckDrive_TagConnected;
@@ -155,6 +159,9 @@ namespace cangku_01.view.InstrumentManagement
             tb_checkcycle.Text = myDr["in_checkcycle"].ToString();
             DutyInformation((int)myDr["in_duty"]);
             dutyid = (int)myDr["in_duty"];
+            tb_state.Text = myDr["in_state"].ToString();
+            tb_usedmode.Text = myDr["in_usedmode"].ToString();
+            tb_remarks.Text = myDr["in_remarks"].ToString();
             if (title.Text.Equals("查看仪器基本信息"))
             {
                 tb_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
@@ -238,6 +245,9 @@ namespace cangku_01.view.InstrumentManagement
             ins.CheckCycle = int.Parse(tb_checkcycle.Text);
             ins.LastCheckTime = Convert.ToDateTime(time_lastCheckTimes.Text);
             ins.Duty = dutyid;
+            ins.UsedMode = tb_usedmode.Text;
+            ins.State = cb_state.Text;
+            ins.Remarks = tb_remarks.Text;
             return ins;
         }
 
@@ -391,10 +401,18 @@ namespace cangku_01.view.InstrumentManagement
             tb_duty.Text = myDr["em_name"].ToString();
             Department department = new Department(factory);
             department.de_id = (int)myDr["em_departmentid"];
-            List<string> mList = department.DepartmentName();
-            tb_company.Text = mList[2];
-            tb_department.Text = mList[1];
-            tb_group.Text = mList[0];
+            string departmentname = "";
+            List<string> list = department.DepartmentName();
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (i == list.Count - 1)
+                {
+                    departmentname = list[i];
+                    continue;
+                }
+                departmentname += "-" + list[i];
+            }
+            tb_department.Text = departmentname;
         }
 
         //表单验证
