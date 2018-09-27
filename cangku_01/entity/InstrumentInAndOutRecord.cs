@@ -8,15 +8,15 @@ namespace cangku_01
         private ISelectSqlMaker maker;
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
 
-        public int? ins_recordsid { get; set; }
-        public int? ins_instrumentid { get; set;}
-        public int? ins_employeeid { get; set; }
-        public string ins_direct { get; set; }
-        public DateTime? ins_time { get; set; }
-        public string ins_tagid { get; set; }
-        public string ins_emnumber { get; set; }
+        public int? insr_recordsid { get; set; }
+        public int? insr_insborrowid { get; set;}
+        public int? insr_fingerprintid { get; set; }
+        public string insr_direct { get; set; }
+        public DateTime? insr_time { get; set; }
+        public string insr_tagid { get; set; }
+        public string insr_emnumber { get; set; }
 
-        public InstrumentInAndOutRecord(DbLinkFactory factory) : base("t_insinandoutrecords", "ins_recordsid", factory)
+        public InstrumentInAndOutRecord(DbLinkFactory factory) : base("t_insinandoutrecords", "insr_recordsid", factory)
         {
         }
 
@@ -30,12 +30,12 @@ namespace cangku_01
         {
             InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
             SetupInsRecord();
-            record.ins_instrumentid = ins_instrumentid;
-            record.ins_employeeid = ins_employeeid;
-            record.ins_direct = ins_direct;
-            record.ins_time = ins_time;
-            record.ins_tagid = ins_tagid;
-            record.ins_emnumber = ins_emnumber;
+            record.insr_insborrowid = insr_insborrowid;
+            record.insr_fingerprintid = insr_fingerprintid;
+            record.insr_direct = insr_direct;
+            record.insr_time = insr_time;
+            record.insr_tagid = insr_tagid;
+            record.insr_emnumber = insr_emnumber;
             string sql = record.MakeInsertSqlCommand();
             return sql;
         }

@@ -101,11 +101,11 @@ namespace cangku_01
             this.column_Insname = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Insstate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.column_Instime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.column_postion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.column_postion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_employeephoto)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -473,7 +473,7 @@ namespace cangku_01
             this.tabControl1.Controls.Add(this.tp_employeeinformation);
             this.tabControl1.Controls.Add(this.tp_allemployeeinformation);
             this.tabControl1.ItemSize = new System.Drawing.Size(321, 18);
-            this.tabControl1.Location = new System.Drawing.Point(161, 89);
+            this.tabControl1.Location = new System.Drawing.Point(161, 107);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -773,6 +773,11 @@ namespace cangku_01
             this.column_Instime.Text = "通过时间";
             this.column_Instime.Width = 141;
             // 
+            // column_postion
+            // 
+            this.column_postion.Text = "货架位置";
+            this.column_postion.Width = 95;
+            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "通行时间";
@@ -796,11 +801,6 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.HeaderText = "人员编号";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // column_postion
-            // 
-            this.column_postion.Text = "货架位置";
-            this.column_postion.Width = 95;
             // 
             // Form1
             // 

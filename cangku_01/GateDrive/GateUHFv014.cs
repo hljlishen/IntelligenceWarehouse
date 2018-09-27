@@ -43,7 +43,7 @@ namespace cangku_01.GateDrive
             }
             else
             {
-                MessageBox.Show("连接失败");
+                MessageBox.Show("电子标签通道设备连接失败");
             }
             int ret = DeviceApi.ClearControllerBuffer(ref ControllerAdr, ref IRStatus, PortHandle);
         }
