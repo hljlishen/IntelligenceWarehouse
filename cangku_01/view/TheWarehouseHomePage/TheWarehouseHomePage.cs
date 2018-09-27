@@ -70,14 +70,11 @@ namespace cangku_01
                     listView.SubItems.Add(myDr["in_name"].ToString());
                     listView.SubItems.Add(gateDatas[i].Direction);
                     listView.SubItems.Add(gateDatas[i].Time.ToString());
-                    listView.SubItems.Add(myDr["in_position"].ToString());
+                    ins.Position = myDr["in_position"].ToString();
+                    listView.SubItems.Add(ins.PlaceUnscramble());
                 }
                 else
                 {
-                    tb_ShowId.Text = gateDatas[i].TagId;
-                    tb_ShowState.Text = gateDatas[i].Direction;
-                    tb_ShowTime.Text = gateDatas[i].Time.ToString();
-
                     listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
                     listView.SubItems.Add(gateDatas[i].TagId);
                     listView.SubItems.Add("");
@@ -96,9 +93,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //gateDrive.Open();
-            //connectFingerprint.GetIPConnect();
-            //connectFingerprint.AddDisplayer(this);
+            gateDrive.Open();
+            connectFingerprint.GetIPConnect();
+            connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -145,11 +142,6 @@ namespace cangku_01
             Employee employee = new Employee();
             employee.EmployeeNumber = fingerprint.fi_employeenumber;
             DataTable datatable = employee.EmployeeNumberFindEmployee();
-            if (datatable.Rows.Count ==0)
-            {
-                AutoClosingMessageBox.Show("无该员工记录", "无员工信息", 1000);
-                return;
-            }
             DataRow myDr = datatable.Rows[0];
             tb_employeeunmber.Text = employee.EmployeeNumber;
             tb_employeename.Text = myDr["em_name"].ToString();

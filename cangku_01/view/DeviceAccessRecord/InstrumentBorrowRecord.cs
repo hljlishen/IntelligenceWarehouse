@@ -18,6 +18,7 @@ namespace cangku_01.MH
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         IGateDataProcessor insdao = new JointProcessor();
         GateData door = new GateData();
+        Instrument ins = new Instrument();
         InstrumentManagement selectInstrument;
         EmployeeManagement selectEmployees;
 
@@ -53,7 +54,8 @@ namespace cangku_01.MH
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectModelInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = SelectPositionInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                ins.Position = SelectPositionInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = ins.PlaceUnscramble();
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = SelectManufactorInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["insr_time"];
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = dr["insr_direct"]; 

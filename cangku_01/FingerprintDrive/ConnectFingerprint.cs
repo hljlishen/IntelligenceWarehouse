@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //指纹设备连接 --饿汉式
 
@@ -67,6 +68,11 @@ namespace cangku_01.FingerprintDrive
             Employee employee = new Employee();
             employee.EmployeeNumber = sEnrollNumber;
             DataTable datatable = employee.EmployeeNumberFindEmployee();
+            if (datatable.Rows.Count == 0)
+            {
+                AutoClosingMessageBox.Show("无该员工记录", "无员工信息", 1000);
+                return;
+            }
             DataRow myDr = datatable.Rows[0];
             fingerprint.fi_name = myDr["em_name"].ToString();
             fingerprint.Insert();
