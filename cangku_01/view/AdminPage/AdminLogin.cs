@@ -26,10 +26,8 @@ namespace cangku_01
         private void button1_Click(object sender, EventArgs e)
         {
             //获取用户名和密码
-            //String name = textBox1.Text;
-            //String password = textBox2.Text;
-            String name = "admin";
-            String password = "admin";
+            String name = textBox1.Text;
+            String password = textBox2.Text;
             if (name.Equals("admin") && password.Equals("admin"))
             {
                 Close();

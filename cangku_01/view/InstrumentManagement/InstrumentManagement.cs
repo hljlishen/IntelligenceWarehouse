@@ -55,8 +55,10 @@ namespace cangku_01.view.InstrumentManagement
                 ins.Position = dr["in_position"].ToString();
                 dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.PlaceUnscramble();
                 dgv_instrumentinformation.Rows[index].Cells[5].Value = dr["in_isinwarehouse"];
-                dgv_instrumentinformation.Rows[index].Cells[6].Value = SelectDuty((int)dr["in_duty"]);
-                dgv_instrumentinformation.Rows[index].Cells[10].Value = dr["in_id"];
+                dgv_instrumentinformation.Rows[index].Cells[6].Value = dr["in_state"];
+                dgv_instrumentinformation.Rows[index].Cells[7].Value = dr["in_usedmode"];
+                dgv_instrumentinformation.Rows[index].Cells[8].Value = SelectDuty((int)dr["in_duty"]);
+                dgv_instrumentinformation.Rows[index].Cells[12].Value = dr["in_id"];
             }
         }
 
@@ -140,7 +142,7 @@ namespace cangku_01.view.InstrumentManagement
                 List<string> names = new List<string>();
                 foreach (var row in selectedRows)
                 {
-                    int id = int.Parse(((DataGridViewRow)row).Cells[10].Value.ToString());
+                    int id = int.Parse(((DataGridViewRow)row).Cells[12].Value.ToString());
                     string tagid = ((DataGridViewRow)row).Cells[0].Value.ToString();
                     string name = ((DataGridViewRow)row).Cells[1].Value.ToString();
                     ids.Add(id);
@@ -156,7 +158,7 @@ namespace cangku_01.view.InstrumentManagement
         private void dgv_instrumentinformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //删除
-            if (e.ColumnIndex == 7)
+            if (e.ColumnIndex == 9)
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -170,7 +172,7 @@ namespace cangku_01.view.InstrumentManagement
                 }
             }
             //修改
-            if (e.ColumnIndex == 8)
+            if (e.ColumnIndex == 10)
             {
                 if (MessageBox.Show("是否确认修改？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
@@ -182,7 +184,7 @@ namespace cangku_01.view.InstrumentManagement
                 }
             }
             //查看
-            if (e.ColumnIndex == 9)
+            if (e.ColumnIndex == 11)
             {
                 //获取要修改属性
                 Instrument ins = new Instrument();

@@ -145,11 +145,6 @@ namespace cangku_01
             Employee employee = new Employee();
             employee.EmployeeNumber = fingerprint.fi_employeenumber;
             DataTable datatable = employee.EmployeeNumberFindEmployee();
-            if (datatable.Rows.Count ==0)
-            {
-                AutoClosingMessageBox.Show("无该员工记录", "无员工信息", 1000);
-                return;
-            }
             DataRow myDr = datatable.Rows[0];
             tb_employeeunmber.Text = employee.EmployeeNumber;
             tb_employeename.Text = myDr["em_name"].ToString();

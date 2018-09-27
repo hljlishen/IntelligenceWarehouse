@@ -49,6 +49,8 @@
             this.生产厂商 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.货架位置 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.在库状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.用于型号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.负责人 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -73,7 +75,7 @@
             // 
             this.la_instrumentname.AutoSize = true;
             this.la_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_instrumentname.Location = new System.Drawing.Point(236, 20);
+            this.la_instrumentname.Location = new System.Drawing.Point(277, 20);
             this.la_instrumentname.Name = "la_instrumentname";
             this.la_instrumentname.Size = new System.Drawing.Size(79, 20);
             this.la_instrumentname.TabIndex = 1;
@@ -82,7 +84,7 @@
             // tb_instrumentname
             // 
             this.tb_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_instrumentname.Location = new System.Drawing.Point(315, 17);
+            this.tb_instrumentname.Location = new System.Drawing.Point(356, 17);
             this.tb_instrumentname.Name = "tb_instrumentname";
             this.tb_instrumentname.Size = new System.Drawing.Size(120, 26);
             this.tb_instrumentname.TabIndex = 2;
@@ -110,6 +112,8 @@
             this.生产厂商,
             this.货架位置,
             this.在库状态,
+            this.仪器状态,
+            this.用于型号,
             this.负责人,
             this.Column1,
             this.Column2,
@@ -162,7 +166,7 @@
             this.tb_tagid.Location = new System.Drawing.Point(88, 17);
             this.tb_tagid.Name = "tb_tagid";
             this.tb_tagid.ReadOnly = true;
-            this.tb_tagid.Size = new System.Drawing.Size(140, 26);
+            this.tb_tagid.Size = new System.Drawing.Size(183, 26);
             this.tb_tagid.TabIndex = 72;
             // 
             // bt_selectduty
@@ -179,7 +183,7 @@
             // tb_model
             // 
             this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_model.Location = new System.Drawing.Point(536, 17);
+            this.tb_model.Location = new System.Drawing.Point(577, 17);
             this.tb_model.Name = "tb_model";
             this.tb_model.Size = new System.Drawing.Size(120, 26);
             this.tb_model.TabIndex = 22;
@@ -188,7 +192,7 @@
             // 
             this.la_model.AutoSize = true;
             this.la_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_model.Location = new System.Drawing.Point(451, 20);
+            this.la_model.Location = new System.Drawing.Point(492, 20);
             this.la_model.Name = "la_model";
             this.la_model.Size = new System.Drawing.Size(79, 20);
             this.la_model.TabIndex = 21;
@@ -203,9 +207,9 @@
             "全部",
             "在库",
             "不在库"});
-            this.cb_IsInWareHouse.Location = new System.Drawing.Point(753, 20);
+            this.cb_IsInWareHouse.Location = new System.Drawing.Point(794, 20);
             this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
-            this.cb_IsInWareHouse.Size = new System.Drawing.Size(100, 20);
+            this.cb_IsInWareHouse.Size = new System.Drawing.Size(66, 20);
             this.cb_IsInWareHouse.TabIndex = 19;
             // 
             // la_duty
@@ -231,7 +235,7 @@
             // 
             this.la_IsInWareHouse.AutoSize = true;
             this.la_IsInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_IsInWareHouse.Location = new System.Drawing.Point(673, 20);
+            this.la_IsInWareHouse.Location = new System.Drawing.Point(714, 20);
             this.la_IsInWareHouse.Name = "la_IsInWareHouse";
             this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
             this.la_IsInWareHouse.TabIndex = 6;
@@ -250,42 +254,52 @@
             this.name.HeaderText = "仪器名称";
             this.name.Name = "name";
             this.name.ReadOnly = true;
-            this.name.Width = 145;
+            this.name.Width = 130;
             // 
             // 型号规格
             // 
             this.型号规格.HeaderText = "型号规格";
             this.型号规格.Name = "型号规格";
             this.型号规格.ReadOnly = true;
-            this.型号规格.Width = 145;
+            this.型号规格.Width = 130;
             // 
             // 生产厂商
             // 
             this.生产厂商.HeaderText = "生产厂商";
             this.生产厂商.Name = "生产厂商";
             this.生产厂商.ReadOnly = true;
-            this.生产厂商.Width = 145;
+            this.生产厂商.Width = 130;
             // 
             // 货架位置
             // 
             this.货架位置.HeaderText = "货架位置";
             this.货架位置.Name = "货架位置";
             this.货架位置.ReadOnly = true;
-            this.货架位置.Width = 145;
+            this.货架位置.Width = 130;
             // 
             // 在库状态
             // 
             this.在库状态.HeaderText = "在库状态";
             this.在库状态.Name = "在库状态";
             this.在库状态.ReadOnly = true;
-            this.在库状态.Width = 145;
+            this.在库状态.Width = 90;
+            // 
+            // 仪器状态
+            // 
+            this.仪器状态.HeaderText = "仪器状态";
+            this.仪器状态.Name = "仪器状态";
+            // 
+            // 用于型号
+            // 
+            this.用于型号.HeaderText = "用于型号";
+            this.用于型号.Name = "用于型号";
+            this.用于型号.Width = 145;
             // 
             // 负责人
             // 
             this.负责人.HeaderText = "负责人";
             this.负责人.Name = "负责人";
             this.负责人.ReadOnly = true;
-            this.负责人.Width = 145;
             // 
             // Column1
             // 
@@ -294,7 +308,7 @@
             this.Column1.ReadOnly = true;
             this.Column1.Text = "删除";
             this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 120;
+            this.Column1.Width = 90;
             // 
             // Column2
             // 
@@ -303,7 +317,7 @@
             this.Column2.ReadOnly = true;
             this.Column2.Text = "修改";
             this.Column2.UseColumnTextForButtonValue = true;
-            this.Column2.Width = 120;
+            this.Column2.Width = 90;
             // 
             // 查看详情
             // 
@@ -313,7 +327,6 @@
             this.查看详情.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.查看详情.Text = "查看详情";
             this.查看详情.UseColumnTextForButtonValue = true;
-            this.查看详情.Width = 120;
             // 
             // 仪器id
             // 
@@ -364,6 +377,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 生产厂商;
         private System.Windows.Forms.DataGridViewTextBoxColumn 货架位置;
         private System.Windows.Forms.DataGridViewTextBoxColumn 在库状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器状态;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 用于型号;
         private System.Windows.Forms.DataGridViewTextBoxColumn 负责人;
         private System.Windows.Forms.DataGridViewButtonColumn Column1;
         private System.Windows.Forms.DataGridViewButtonColumn Column2;

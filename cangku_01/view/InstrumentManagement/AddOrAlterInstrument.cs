@@ -159,7 +159,6 @@ namespace cangku_01.view.InstrumentManagement
             tb_checkcycle.Text = myDr["in_checkcycle"].ToString();
             DutyInformation((int)myDr["in_duty"]);
             dutyid = (int)myDr["in_duty"];
-            tb_state.Text = myDr["in_state"].ToString();
             tb_usedmode.Text = myDr["in_usedmode"].ToString();
             tb_remarks.Text = myDr["in_remarks"].ToString();
             if (title.Text.Equals("查看仪器基本信息"))
@@ -167,11 +166,13 @@ namespace cangku_01.view.InstrumentManagement
                 tb_productionDate.Text = ins.DateFormatConversion((DateTime)myDr["in_productiondate"]);
                 tb_lastCheckTimes.Text = ins.DateFormatConversion((DateTime)myDr["in_lastchecktimes"]);
                 tb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
+                tb_state.Text = myDr["in_state"].ToString();
                 return;
             }
             time_productionDate.Text = myDr["in_productiondate"].ToString();
             time_lastCheckTimes.Text = myDr["in_lastchecktimes"].ToString();
             cb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
+            cb_state.Text = myDr["in_state"].ToString(); 
         }
 
         //获取仪器照片地址
