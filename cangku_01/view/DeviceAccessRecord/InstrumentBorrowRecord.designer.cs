@@ -310,12 +310,13 @@
             // btn_exceloperator
             // 
             this.btn_exceloperator.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btn_exceloperator.Location = new System.Drawing.Point(1261, 772);
+            this.btn_exceloperator.Location = new System.Drawing.Point(1263, 772);
             this.btn_exceloperator.Name = "btn_exceloperator";
             this.btn_exceloperator.Size = new System.Drawing.Size(75, 23);
             this.btn_exceloperator.TabIndex = 28;
-            this.btn_exceloperator.Text = "导出Excel表";
+            this.btn_exceloperator.Text = "导出Excel";
             this.btn_exceloperator.UseVisualStyleBackColor = true;
+            this.btn_exceloperator.Click += new System.EventHandler(this.btn_exceloperator_Click);
             // 
             // Ins_InAndOutRecord
             // 

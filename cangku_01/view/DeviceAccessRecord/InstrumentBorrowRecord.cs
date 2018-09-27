@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using USBReader;
 
 namespace cangku_01.MH
 {
@@ -202,6 +203,12 @@ namespace cangku_01.MH
                 tb_employee.Text += name;
             }
             tb_employee.Text = tb_employee.Text.Substring(0, tb_employee.Text.Length);
+        }
+
+        //导出Excel表
+        private void btn_exceloperator_Click(object sender, EventArgs e)
+        {
+            ExcelOperator.DataGridViewToExcel(dgv_InstrumentInAndOutrecord, true);
         }
     }
 }
