@@ -757,12 +757,12 @@ namespace cangku_01
             // column_Insid
             // 
             this.column_Insid.Text = "仪器编号";
-            this.column_Insid.Width = 203;
+            this.column_Insid.Width = 183;
             // 
             // column_Insname
             // 
             this.column_Insname.Text = " 仪器名称";
-            this.column_Insname.Width = 72;
+            this.column_Insname.Width = 82;
             // 
             // column_Insstate
             // 
@@ -771,12 +771,12 @@ namespace cangku_01
             // column_Instime
             // 
             this.column_Instime.Text = "通过时间";
-            this.column_Instime.Width = 141;
+            this.column_Instime.Width = 121;
             // 
             // column_postion
             // 
             this.column_postion.Text = "货架位置";
-            this.column_postion.Width = 95;
+            this.column_postion.Width = 155;
             // 
             // dataGridViewTextBoxColumn4
             // 
