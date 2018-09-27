@@ -25,8 +25,11 @@ namespace cangku_01.entity
         public int CheckCycle { get; set; }          //检定周期
         public DateTime LastCheckTime { get; set; }  //上一次检查时间
         public int Duty { get; set; }                //责任人
+        public string UsedMode { get; set; }         //用于型号
+        public string State { get; set; }            //状态
+        public string Remarks { get; set; }          //备注
 
-        ISelectSqlMaker maker;
+      ISelectSqlMaker maker;
 
         //计算下一次检查日期
         public string NextCheckTimes()
@@ -87,9 +90,9 @@ namespace cangku_01.entity
         //仪器信息添加sql
         public string AddInstrumentSql()
         {
-            string sql = "insert into t_instrument (in_tagid,in_name,in_model,in_manufactor,in_serialnumber,in_productiondate,in_position,in_isinwarehouse,in_checkcycle,in_lastchecktimes,in_duty)" +
+            string sql = "insert into t_instrument (in_tagid,in_name,in_model,in_manufactor,in_serialnumber,in_productiondate,in_position,in_isinwarehouse,in_checkcycle,in_lastchecktimes,in_duty,in_usedmode,in_state,in_remarks)" +
                 "values('"+ TagId + "','" + Name + "','" + Model + "','" + Manufactor + "','" + SerialNumber + "','" + ProductionDate + "','" 
-                + Position + "','" + IsInWareHouse + "','" + CheckCycle + "','" + LastCheckTime + "','" + Duty + "')";
+                + Position + "','" + IsInWareHouse + "','" + CheckCycle + "','" + LastCheckTime + "','" + Duty + "','" + UsedMode + "','" + State + "','" + Remarks + "')";
             return sql;
         }
 
@@ -99,7 +102,8 @@ namespace cangku_01.entity
             string sql = "update t_instrument set in_name='" + Name + "',in_model='"
                 + Model + "',in_manufactor='" + Manufactor + "',in_serialnumber='" + SerialNumber + "',in_productiondate='" 
                 + ProductionDate + "',in_position='" + Position + "',in_isinwarehouse='" + IsInWareHouse + "',in_checkcycle='"
-                + CheckCycle + "',in_lastchecktimes='" + LastCheckTime + "',in_duty='" + Duty + "' where in_tagid = '" + TagId + "'";
+                + CheckCycle + "',in_lastchecktimes='" + LastCheckTime + "',in_duty='" + Duty + "',in_usedmode='" + UsedMode + "',in_state='" + State + "',in_remarks='" + Remarks + "'" +
+                "where in_tagid = '" + TagId + "'";
             return sql;
         }
 
@@ -139,14 +143,6 @@ namespace cangku_01.entity
             }
             maker.AddAndCondition(new StringLike("in_serialNumber", SerialNumber));
             maker.AddAndCondition(new StringEqual("in_isinwarehouse", IsInWareHouse));
-            maker.AddSelectField("in_id");
-            maker.AddSelectField("in_tagid");
-            maker.AddSelectField("in_name");
-            maker.AddSelectField("in_model");
-            maker.AddSelectField("in_manufactor");
-            maker.AddSelectField("in_position");
-            maker.AddSelectField("in_isinwarehouse");
-            maker.AddSelectField("in_duty");
             string sql = maker.MakeSelectSql();
             return sql;
         }
@@ -176,7 +172,7 @@ namespace cangku_01.entity
             return sql;
         }
 
-        //仪器id查仪器信息
+        //责任人查仪器信息
         public DataTable EmployeeIdQueryInstrument()
         {
             SetupInstrument();
@@ -184,6 +180,16 @@ namespace cangku_01.entity
             string sql = maker.MakeSelectSql();
             DataTable datatable = dbo.ReadDBDataTable(sql);
             return datatable;
+        }
+
+        //tagid查询仪器sql
+        public DataTable InstrumentTagidFindInstrument()
+        {
+            SetupInstrument();
+            maker.AddAndCondition(new StringEqual("in_tagid", TagId));
+            string sql = maker.MakeSelectSql();
+            DataTable dt = dbo.ReadDBDataTable(sql);
+            return dt;
         }
 
         private void SetupInstrument()
@@ -194,26 +200,6 @@ namespace cangku_01.entity
         private void SetupCheckdate()
         {
             maker = factory.CreateSelectSqlMaker("t_checkdate");
-        }
-
-        //tagid查询仪器sql
-        public DataTable InstrumentTagidFindInstrument()
-        {
-            Setup();
-            maker.AddAndCondition(new StringEqual("in_tagid", TagId));
-            maker.AddSelectField("in_name");
-            maker.AddSelectField("in_model");
-            maker.AddSelectField("in_manufactor");
-            maker.AddSelectField("in_position");
-            maker.AddSelectField("in_duty");
-            string sql = maker.MakeSelectSql();
-            DataTable dt = dbo.ReadDBDataTable(sql);
-            return dt;
-        }
-
-        private void Setup()
-        {
-            maker = factory.CreateSelectSqlMaker("t_instrument");
         }
     }
 }

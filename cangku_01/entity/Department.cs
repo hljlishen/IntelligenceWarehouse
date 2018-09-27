@@ -203,6 +203,7 @@ namespace cangku_01.entity
                 if (i == 0)
                 {
                     sql = sql1 + DepartmentId[i];
+                    continue;
                 }
                 sql += sql2 + DepartmentId[i];
             }
@@ -220,11 +221,9 @@ namespace cangku_01.entity
             }
             foreach (TreeNode children in treeNode.Nodes)
             {
-                
                 if (children.Nodes.Count == 0)
                 {
                     DepartmentId.Add((int)children.Tag);
-                    readNode(children);
                 }
                 readNode(children);
             }

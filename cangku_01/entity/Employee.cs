@@ -18,9 +18,6 @@ namespace cangku_01.entity
         public string EmployeeNumber { get; set; }   //员工编号
         public string Name { get; set; }             //名字
         public string Sex { get; set; }              //性别
-        public int Company { get; set; }             //公司
-        public int Department { get; set; }          //部门
-        public int Group { get; set; }               //组名 
         public int DepartmentId { get; set; }        //部门ID
         public DateTime PassDoor { get; set; }       //过门时间
 
@@ -40,7 +37,7 @@ namespace cangku_01.entity
         {
             string sql = "select A.em_id,A.em_employeenumber,A.em_name,A.em_sex,B.de_name AS em_company,C.de_name AS em_department,D.de_name AS em_group " +
                       "from t_employee A left join t_department B on A.em_company = B.de_id left join t_department C on A.em_department = C.de_id left join t_department D on A.em_group = D.de_id " +
-                      "where em_employeenumber = " + EmployeeNumber + "";
+                      "where em_employeenumber = '" + EmployeeNumber + "'";
             return sql;
         }
 
@@ -87,7 +84,7 @@ namespace cangku_01.entity
             DataTable datatable = instrument.EmployeeIdQueryInstrument();
             if (datatable.Rows.Count != 0)
             {
-                AutoClosingMessageBox.Show("该员工用负责仪器！", "存在负责仪器", 1000);
+                AutoClosingMessageBox.Show("该员工有负责仪器！", "存在负责仪器", 1000);
                 return false;
             }
             string sql = "delete from t_employee where em_id = " + Id + "";
@@ -110,7 +107,7 @@ namespace cangku_01.entity
             string sql = "select * from t_employee where";
             if(!EmployeeNumber.Equals(""))
             {
-                sql += $" em_employeenumber={EmployeeNumber}";
+                sql += $" em_employeenumber='{EmployeeNumber}'";
             }
             if (!Name.Equals("") && EmployeeNumber.Equals(""))
             {
@@ -142,7 +139,7 @@ namespace cangku_01.entity
             string sql = "select * from t_employee where";
             if (!EmployeeNumber.Equals(""))
             {
-                sql += $" em_employeenumber={EmployeeNumber}";
+                sql += $" em_employeenumber='{EmployeeNumber}'";
             }
             if (!Name.Equals("") && EmployeeNumber.Equals(""))
             {
@@ -169,7 +166,7 @@ namespace cangku_01.entity
             {
                 if (departmentidlist.Count==1)
                 {
-                    sql += sql2 + departmentidlist[i];
+                    sql += "and em_departmentid =" + departmentidlist[i];
                     continue;
                 }
                 if (i == 0)
