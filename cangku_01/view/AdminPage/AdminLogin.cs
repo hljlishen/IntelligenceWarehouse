@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
@@ -30,10 +23,9 @@ namespace cangku_01
             String password = textBox2.Text;
             if (name.Equals("admin") && password.Equals("admin"))
             {
-                Close();
-                //AutoClosingMessageBox.Show("登陆成功", "登陆成功", 1000);
                 Form administration = new Administration();
                 administration.ShowDialog();
+                Close();
             }
             else
             {

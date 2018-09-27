@@ -58,7 +58,7 @@
     <Reference Include="IrisSkin2">
       <HintPath>F:\Visual stadio 2017\Test\WindowsFormsApp2\WindowsFormsApp2\bin\Debug\IrisSkin2.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataGridViewChangeExcel\ExcelOperator.cs" />
     <Compile Include="DblinkManager.cs" />
     <Compile Include="DbLink\AccessDrive.cs" />
     <Compile Include="DbLink\ActiveRecord.cs" />

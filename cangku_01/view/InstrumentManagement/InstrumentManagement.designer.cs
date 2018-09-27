@@ -33,16 +33,6 @@
             this.tb_instrumentname = new System.Windows.Forms.TextBox();
             this.bt_queryinstrument = new System.Windows.Forms.Button();
             this.dgv_instrumentinformation = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.la_tagid = new System.Windows.Forms.Label();
-            this.tb_tagid = new System.Windows.Forms.TextBox();
-            this.bt_selectduty = new System.Windows.Forms.Button();
-            this.tb_model = new System.Windows.Forms.TextBox();
-            this.la_model = new System.Windows.Forms.Label();
-            this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
-            this.la_duty = new System.Windows.Forms.Label();
-            this.tb_duty = new System.Windows.Forms.TextBox();
-            this.la_IsInWareHouse = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.型号规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +46,17 @@
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.la_tagid = new System.Windows.Forms.Label();
+            this.tb_tagid = new System.Windows.Forms.TextBox();
+            this.bt_selectduty = new System.Windows.Forms.Button();
+            this.tb_model = new System.Windows.Forms.TextBox();
+            this.la_model = new System.Windows.Forms.Label();
+            this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
+            this.la_duty = new System.Windows.Forms.Label();
+            this.tb_duty = new System.Windows.Forms.TextBox();
+            this.la_IsInWareHouse = new System.Windows.Forms.Label();
+            this.bt_dgvchangeexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -63,9 +64,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(73, 32);
+            this.button1.Location = new System.Drawing.Point(1266, 24);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 30);
+            this.button1.Size = new System.Drawing.Size(80, 25);
             this.button1.TabIndex = 0;
             this.button1.Text = "添加仪器";
             this.button1.UseVisualStyleBackColor = true;
@@ -129,6 +130,99 @@
             this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentClick);
             this.dgv_instrumentinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentDoubleClick);
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "标签ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 165;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "仪器名称";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 130;
+            // 
+            // 型号规格
+            // 
+            this.型号规格.HeaderText = "型号规格";
+            this.型号规格.Name = "型号规格";
+            this.型号规格.ReadOnly = true;
+            this.型号规格.Width = 130;
+            // 
+            // 生产厂商
+            // 
+            this.生产厂商.HeaderText = "生产厂商";
+            this.生产厂商.Name = "生产厂商";
+            this.生产厂商.ReadOnly = true;
+            this.生产厂商.Width = 130;
+            // 
+            // 货架位置
+            // 
+            this.货架位置.HeaderText = "货架位置";
+            this.货架位置.Name = "货架位置";
+            this.货架位置.ReadOnly = true;
+            this.货架位置.Width = 130;
+            // 
+            // 在库状态
+            // 
+            this.在库状态.HeaderText = "在库状态";
+            this.在库状态.Name = "在库状态";
+            this.在库状态.ReadOnly = true;
+            this.在库状态.Width = 90;
+            // 
+            // 仪器状态
+            // 
+            this.仪器状态.HeaderText = "仪器状态";
+            this.仪器状态.Name = "仪器状态";
+            // 
+            // 用于型号
+            // 
+            this.用于型号.HeaderText = "用于型号";
+            this.用于型号.Name = "用于型号";
+            this.用于型号.Width = 145;
+            // 
+            // 负责人
+            // 
+            this.负责人.HeaderText = "负责人";
+            this.负责人.Name = "负责人";
+            this.负责人.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "删除";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Text = "删除";
+            this.Column1.UseColumnTextForButtonValue = true;
+            this.Column1.Width = 90;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "修改";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Text = "修改";
+            this.Column2.UseColumnTextForButtonValue = true;
+            this.Column2.Width = 90;
+            // 
+            // 查看详情
+            // 
+            this.查看详情.HeaderText = "查看详情";
+            this.查看详情.Name = "查看详情";
+            this.查看详情.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.查看详情.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.查看详情.Text = "查看详情";
+            this.查看详情.UseColumnTextForButtonValue = true;
+            // 
+            // 仪器id
+            // 
+            this.仪器id.HeaderText = "仪器id";
+            this.仪器id.Name = "仪器id";
+            this.仪器id.Visible = false;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.la_tagid);
@@ -143,7 +237,7 @@
             this.groupBox1.Controls.Add(this.bt_queryinstrument);
             this.groupBox1.Controls.Add(this.la_instrumentname);
             this.groupBox1.Controls.Add(this.tb_instrumentname);
-            this.groupBox1.Location = new System.Drawing.Point(159, 16);
+            this.groupBox1.Location = new System.Drawing.Point(73, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1187, 55);
             this.groupBox1.TabIndex = 5;
@@ -241,104 +335,23 @@
             this.la_IsInWareHouse.TabIndex = 6;
             this.la_IsInWareHouse.Text = "在库状态：";
             // 
-            // ID
+            // bt_dgvchangeexcel
             // 
-            this.ID.HeaderText = "标签ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 165;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "仪器名称";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 130;
-            // 
-            // 型号规格
-            // 
-            this.型号规格.HeaderText = "型号规格";
-            this.型号规格.Name = "型号规格";
-            this.型号规格.ReadOnly = true;
-            this.型号规格.Width = 130;
-            // 
-            // 生产厂商
-            // 
-            this.生产厂商.HeaderText = "生产厂商";
-            this.生产厂商.Name = "生产厂商";
-            this.生产厂商.ReadOnly = true;
-            this.生产厂商.Width = 130;
-            // 
-            // 货架位置
-            // 
-            this.货架位置.HeaderText = "货架位置";
-            this.货架位置.Name = "货架位置";
-            this.货架位置.ReadOnly = true;
-            this.货架位置.Width = 130;
-            // 
-            // 在库状态
-            // 
-            this.在库状态.HeaderText = "在库状态";
-            this.在库状态.Name = "在库状态";
-            this.在库状态.ReadOnly = true;
-            this.在库状态.Width = 90;
-            // 
-            // 仪器状态
-            // 
-            this.仪器状态.HeaderText = "仪器状态";
-            this.仪器状态.Name = "仪器状态";
-            // 
-            // 用于型号
-            // 
-            this.用于型号.HeaderText = "用于型号";
-            this.用于型号.Name = "用于型号";
-            this.用于型号.Width = 145;
-            // 
-            // 负责人
-            // 
-            this.负责人.HeaderText = "负责人";
-            this.负责人.Name = "负责人";
-            this.负责人.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "删除";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Text = "删除";
-            this.Column1.UseColumnTextForButtonValue = true;
-            this.Column1.Width = 90;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "修改";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Text = "修改";
-            this.Column2.UseColumnTextForButtonValue = true;
-            this.Column2.Width = 90;
-            // 
-            // 查看详情
-            // 
-            this.查看详情.HeaderText = "查看详情";
-            this.查看详情.Name = "查看详情";
-            this.查看详情.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.查看详情.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.查看详情.Text = "查看详情";
-            this.查看详情.UseColumnTextForButtonValue = true;
-            // 
-            // 仪器id
-            // 
-            this.仪器id.HeaderText = "仪器id";
-            this.仪器id.Name = "仪器id";
-            this.仪器id.Visible = false;
+            this.bt_dgvchangeexcel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_dgvchangeexcel.Location = new System.Drawing.Point(1266, 54);
+            this.bt_dgvchangeexcel.Name = "bt_dgvchangeexcel";
+            this.bt_dgvchangeexcel.Size = new System.Drawing.Size(80, 25);
+            this.bt_dgvchangeexcel.TabIndex = 6;
+            this.bt_dgvchangeexcel.Text = "导出Excel";
+            this.bt_dgvchangeexcel.UseVisualStyleBackColor = true;
+            this.bt_dgvchangeexcel.Click += new System.EventHandler(this.bt_dgvchangeexcel_Click);
             // 
             // InstrumentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1420, 840);
+            this.Controls.Add(this.bt_dgvchangeexcel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dgv_instrumentinformation);
             this.Controls.Add(this.button1);
@@ -384,5 +397,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn 查看详情;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器id;
+        private System.Windows.Forms.Button bt_dgvchangeexcel;
     }
 }

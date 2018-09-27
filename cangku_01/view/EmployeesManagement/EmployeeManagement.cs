@@ -9,6 +9,7 @@ using cangku_01.interfaces;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using System.Drawing;
 using DbLink;
+using USBReader;
 
 //员工信息管理页面
 
@@ -351,6 +352,14 @@ namespace cangku_01.view.EmployeesManagement
                 EmployeesSelected?.Invoke(ids, numbers);
                 Close();
             }
+        }
+        #endregion
+
+        #region dgv导出Excel
+        //dgv导出Excel
+        private void bt_dgvchangexcel_Click(object sender, EventArgs e)
+        {
+            ExcelOperator.DataGridViewToExcel(dgv_employeeinformation, true);
         }
         #endregion
     }

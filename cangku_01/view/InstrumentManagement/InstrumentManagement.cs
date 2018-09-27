@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
+using USBReader;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器管理
@@ -198,5 +199,13 @@ namespace cangku_01.view.InstrumentManagement
         {
             ReaderDrive.TagConnected -= ReaderDrive_TagConnected;
         }
+
+        #region dgv导出Excel
+        //dgv导出Excel
+        private void bt_dgvchangeexcel_Click(object sender, EventArgs e)
+        {
+            ExcelOperator.DataGridViewToExcel(dgv_instrumentinformation, true);
+        }
+        #endregion
     }
 }

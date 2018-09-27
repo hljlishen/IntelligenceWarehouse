@@ -50,14 +50,15 @@
             this.la_foundname = new System.Windows.Forms.Label();
             this.la_foundsex = new System.Windows.Forms.Label();
             this.gb_foundemployees = new System.Windows.Forms.GroupBox();
+            this.cb_querydepartment = new System.Windows.Forms.CheckBox();
+            this.la_querydepartment = new System.Windows.Forms.Label();
             this.cms_employeetreeview = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsm_newcompany = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_newdepartment = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_newgroup = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.tsm_rename = new System.Windows.Forms.ToolStripMenuItem();
-            this.cb_querydepartment = new System.Windows.Forms.CheckBox();
-            this.la_querydepartment = new System.Windows.Forms.Label();
+            this.bt_dgvchangexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_employeeinformation)).BeginInit();
             this.gb_foundemployees.SuspendLayout();
             this.cms_employeetreeview.SuspendLayout();
@@ -220,6 +221,17 @@
             this.gb_foundemployees.Name = "gb_foundemployees";
             this.gb_foundemployees.TabStop = false;
             // 
+            // cb_querydepartment
+            // 
+            resources.ApplyResources(this.cb_querydepartment, "cb_querydepartment");
+            this.cb_querydepartment.Name = "cb_querydepartment";
+            this.cb_querydepartment.UseVisualStyleBackColor = true;
+            // 
+            // la_querydepartment
+            // 
+            resources.ApplyResources(this.la_querydepartment, "la_querydepartment");
+            this.la_querydepartment.Name = "la_querydepartment";
+            // 
             // cms_employeetreeview
             // 
             this.cms_employeetreeview.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -261,21 +273,18 @@
             resources.ApplyResources(this.tsm_rename, "tsm_rename");
             this.tsm_rename.Click += new System.EventHandler(this.tsm_rename_Click);
             // 
-            // cb_querydepartment
+            // bt_dgvchangexcel
             // 
-            resources.ApplyResources(this.cb_querydepartment, "cb_querydepartment");
-            this.cb_querydepartment.Name = "cb_querydepartment";
-            this.cb_querydepartment.UseVisualStyleBackColor = true;
-            // 
-            // la_querydepartment
-            // 
-            resources.ApplyResources(this.la_querydepartment, "la_querydepartment");
-            this.la_querydepartment.Name = "la_querydepartment";
+            resources.ApplyResources(this.bt_dgvchangexcel, "bt_dgvchangexcel");
+            this.bt_dgvchangexcel.Name = "bt_dgvchangexcel";
+            this.bt_dgvchangexcel.UseVisualStyleBackColor = true;
+            this.bt_dgvchangexcel.Click += new System.EventHandler(this.bt_dgvchangexcel_Click);
             // 
             // EmployeeManagement
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.bt_dgvchangexcel);
             this.Controls.Add(this.gb_foundemployees);
             this.Controls.Add(this.tv_department);
             this.Controls.Add(this.bt_addemployee);
@@ -320,5 +329,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsm_rename;
         private System.Windows.Forms.CheckBox cb_querydepartment;
         private System.Windows.Forms.Label la_querydepartment;
+        private System.Windows.Forms.Button bt_dgvchangexcel;
     }
 }
