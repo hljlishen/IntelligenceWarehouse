@@ -70,14 +70,11 @@ namespace cangku_01
                     listView.SubItems.Add(myDr["in_name"].ToString());
                     listView.SubItems.Add(gateDatas[i].Direction);
                     listView.SubItems.Add(gateDatas[i].Time.ToString());
-                    listView.SubItems.Add(myDr["in_position"].ToString());
+                    ins.Position = myDr["in_position"].ToString();
+                    listView.SubItems.Add(ins.PlaceUnscramble());
                 }
                 else
                 {
-                    tb_ShowId.Text = gateDatas[i].TagId;
-                    tb_ShowState.Text = gateDatas[i].Direction;
-                    tb_ShowTime.Text = gateDatas[i].Time.ToString();
-
                     listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
                     listView.SubItems.Add(gateDatas[i].TagId);
                     listView.SubItems.Add("");
