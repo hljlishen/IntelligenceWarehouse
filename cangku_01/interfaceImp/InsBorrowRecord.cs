@@ -24,10 +24,10 @@ namespace cangku_01.interfaceImp
         public void AddInAndOutRecords(InstrumentInAndOutRecord record, Fingerprint fingerprint, GateData door)
         {
             MergeInAndOutRecord(fingerprint, door, record);
-            record.ins_direct = door.Direction;
-            record.ins_time = door.Time;
-            record.ins_tagid = door.TagId;
-            if (record.ins_instrumentid != null && record.ins_employeeid != null && record.ins_direct != null && record.ins_time != null)
+            record.insr_direct = door.Direction;
+            record.insr_time = door.Time;
+            record.insr_tagid = door.TagId;
+            if (record.insr_insborrowid != null && record.insr_fingerprintid != null && record.insr_direct != null && record.insr_time != null)
             {
                 string sql = record.AddInstrumentRecordSql();
                 dbo.WriteDB(sql);
@@ -50,9 +50,9 @@ namespace cangku_01.interfaceImp
                     double timeInterval = td.TotalSeconds;
                     if (timeInterval <= 12000)
                     {
-                        record.ins_instrumentid = int.Parse(insmyDr["ins_borrowid"].ToString());
-                        record.ins_employeeid = int.Parse(finmyDr["fi_id"].ToString());
-                        record.ins_emnumber = finmyDr["fi_employeenumber"].ToString();
+                        record.insr_insborrowid = int.Parse(insmyDr["ins_borrowid"].ToString());
+                        record.insr_fingerprintid = int.Parse(finmyDr["fi_id"].ToString());
+                        record.insr_emnumber = finmyDr["fi_employeenumber"].ToString();
                     }
                 }
             }

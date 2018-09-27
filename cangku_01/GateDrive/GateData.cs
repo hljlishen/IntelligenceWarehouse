@@ -11,7 +11,6 @@ namespace cangku_01.GateDrive
         public string TagId  { get; set; }  //仪器标签Id
         public DateTime Time { get; set; }//通过门的时间
         public string Direction { get; set; }//仪器过门的方向
-
         public string Name { get; set; }             //仪器名称
         public string Model { get; set; }            //型号规格
         public string Manufactor { get; set; }       //生产厂商

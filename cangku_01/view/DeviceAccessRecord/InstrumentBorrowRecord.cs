@@ -50,15 +50,15 @@ namespace cangku_01.MH
             {
                 DataGridViewRow row2 = new DataGridViewRow();
                 int index = dgv_InstrumentInAndOutrecord.Rows.Add(row2);
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectPositionInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = dr["ins_time"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = dr["ins_direct"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = SelectModelInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = SelectEmployee(int.Parse(dr["ins_employeeid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectDutyInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = SelectManufactorInstrument(int.Parse(dr["ins_instrumentid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectModelInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = SelectPositionInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = SelectManufactorInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["insr_time"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = dr["insr_direct"]; 
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectEmployee(int.Parse(dr["insr_fingerprintid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = SelectDutyInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
             }
         }
             
@@ -132,14 +132,14 @@ namespace cangku_01.MH
         private void Btnsearch_Click(object sender, EventArgs e)
         {
             ISelectSqlMaker maker = factory.CreateSelectSqlMaker("t_insinandoutrecords");
-            maker.AddAndCondition(new StringEqual("ins_tagid", tb_instrument.Text));
-            maker.AddAndCondition(new StringEqual("ins_emnumber", tb_employee.Text));
+            maker.AddAndCondition(new StringEqual("insr_tagid", tb_instrument.Text));
+            maker.AddAndCondition(new StringEqual("insr_emnumber", tb_employee.Text));
             if (cb_directquery.Text == "出入库")
-                maker.AddAndCondition(new StringLike("ins_direct", "库"));
+                maker.AddAndCondition(new StringLike("insr_direct", "库"));
             else
-                maker.AddAndCondition(new StringEqual("ins_direct", cb_directquery.Text));
+                maker.AddAndCondition(new StringEqual("insr_direct", cb_directquery.Text));
             if (cb_choicetime.Checked.Equals(true))
-                maker.AddAndCondition(new DateBetweenOpenInterval("ins_time", dtp_begin.Value, dtp_end.Value.AddDays(1), factory.CreateDateTimeFormater()));
+                maker.AddAndCondition(new DateBetweenOpenInterval("insr_time", dtp_begin.Value, dtp_end.Value.AddDays(1), factory.CreateDateTimeFormater()));
             var sql = maker.MakeSelectSql();
             var queryResult = InstrumentInAndOutRecord.Select(sql, factory.CreateDatabaseDrive());
             tb_instrument.Text = "";
