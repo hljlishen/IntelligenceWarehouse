@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.UHFReader09;
 using cangku_01.UHFReader09CSharp;
 using cangku_01.view.EmployeesManagement;
 using DbLink;
@@ -99,9 +100,10 @@ namespace cangku_01.view.InstrumentManagement
         }
 
         //仪器信息详情构造方法
-        public AddOrUpdateInstrument(Instrument ins, UHFReader09Interface readerDrive)
+        public AddOrUpdateInstrument(Instrument ins)
         {
             InitializeComponent();
+            UHFReader reader = UHFReader.CreateInstance();
             title.Text = "查看仪器基本信息";
             bt_addinstrument.Visible = false;
             bt_alterinstrument.Visible = false;
@@ -112,7 +114,7 @@ namespace cangku_01.view.InstrumentManagement
             bt_selectduty.Enabled = false;
             cb_state.Visible = false;
             this.ins = ins;
-            ReaderDrive = readerDrive;
+            ReaderDrive = reader;
             ReaderDrive.TagConnected += ReadercheckDrive_TagConnected;
             RemindInterface dao = new CheckTimeQueryAndUpdate();
             DataSet ds = dao.QueryInstrumentAllCheckDate(ins);
@@ -178,14 +180,14 @@ namespace cangku_01.view.InstrumentManagement
         //获取仪器照片地址
         public void ShowInstrumentPhoto()
         {
-            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
+            FileInfo f = new FileInfo(Application.StartupPath + @"\image\InstrumentPhoto\" + ins.TagId + ".png");
             if (f.Exists)
             {
-                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + ins.TagId + ".png");
+                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + ins.TagId + ".png");
             }
             else
             {
-                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + "仪器" + ".png");
             }
         }
 
@@ -266,7 +268,9 @@ namespace cangku_01.view.InstrumentManagement
             fr.dgv_instrumentinformation.Rows[index].Cells[3].Value = ins.Manufactor;
             fr.dgv_instrumentinformation.Rows[index].Cells[4].Value = ins.PlaceUnscramble();
             fr.dgv_instrumentinformation.Rows[index].Cells[5].Value = ins.IsInWareHouse;
-            fr.dgv_instrumentinformation.Rows[index].Cells[6].Value = myDr["em_name"].ToString();
+            fr.dgv_instrumentinformation.Rows[index].Cells[6].Value = ins.State;
+            fr.dgv_instrumentinformation.Rows[index].Cells[7].Value = ins.UsedMode;
+            fr.dgv_instrumentinformation.Rows[index].Cells[8].Value = myDr["em_name"].ToString();
         }
 
         //仪器信息修改

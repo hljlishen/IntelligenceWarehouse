@@ -55,14 +55,14 @@ namespace cangku_01
                     tb_ShowState.Text = gateDatas[i].Direction;
                     tb_ShowTime.Text = gateDatas[i].Time.ToString();
                     //展示仪器照片
-                    FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
+                    FileInfo f = new FileInfo(Application.StartupPath + @"\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
                     if (f.Exists)
                     {
-                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
+                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
                     }
                     else
                     {
-                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + "仪器" + ".png");
                     }
 
                     listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
@@ -93,9 +93,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gateDrive.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //gateDrive.Open();
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -173,14 +173,14 @@ namespace cangku_01
         //展示员工照片
         private void ShowEmployeePhoto(Employee em)
         {
-            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
+            FileInfo f = new FileInfo(Application.StartupPath + @"\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
             if (f.Exists)
             {
-                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
+                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
             }
             else
             {
-                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + "人员相片" + ".png");
+                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\image\EmployeePhoto\" + "人员相片" + ".png");
             }
         }
 

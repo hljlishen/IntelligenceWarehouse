@@ -55,13 +55,11 @@ namespace cangku_01.MH
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[0].Value = SelectTagidInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[1].Value = SelectNameInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[2].Value = SelectModelInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
-                ins.Position = SelectPositionInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = ins.PlaceUnscramble();
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = SelectManufactorInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["insr_time"];
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = dr["insr_direct"]; 
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectEmployee(int.Parse(dr["insr_fingerprintid"].ToString()));
-                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = SelectDutyInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[3].Value = SelectManufactorInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[4].Value = dr["insr_time"];
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["insr_direct"]; 
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = SelectEmployee(int.Parse(dr["insr_fingerprintid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectDutyInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
             }
         }
             
@@ -81,15 +79,6 @@ namespace cangku_01.MH
             DataTable dt = insdao.IdQueryInstrumentBorrow(door);
             DataRow myDr = dt.Rows[0];
             query = myDr["ins_name"].ToString();
-            return query;
-        }
-
-        private string SelectPositionInstrument(int id)
-        {
-            door.Id = id;
-            DataTable dt = insdao.IdQueryInstrumentBorrow(door);
-            DataRow myDr = dt.Rows[0];
-            query = myDr["ins_position"].ToString();
             return query;
         }
 

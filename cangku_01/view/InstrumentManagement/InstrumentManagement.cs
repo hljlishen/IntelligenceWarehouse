@@ -190,7 +190,7 @@ namespace cangku_01.view.InstrumentManagement
                 //获取要修改属性
                 Instrument ins = new Instrument();
                 ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
-                AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins, reader);
+                AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
                 add.ShowDialog();
             }
         }

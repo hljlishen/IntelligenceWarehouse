@@ -192,6 +192,8 @@ namespace cangku_01.view.EmployeesManagement
             DataTable dataTable = department.FindAllEmployeeOf(e.Node);
             _treenode = e.Node;
             ShowDataGridView(dataTable);
+
+            
         }
         #endregion
 
