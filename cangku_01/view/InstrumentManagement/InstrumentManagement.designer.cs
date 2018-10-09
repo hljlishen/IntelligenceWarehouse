@@ -33,6 +33,17 @@
             this.tb_instrumentname = new System.Windows.Forms.TextBox();
             this.bt_queryinstrument = new System.Windows.Forms.Button();
             this.dgv_instrumentinformation = new System.Windows.Forms.DataGridView();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.la_tagid = new System.Windows.Forms.Label();
+            this.tb_tagid = new System.Windows.Forms.TextBox();
+            this.bt_selectduty = new System.Windows.Forms.Button();
+            this.tb_model = new System.Windows.Forms.TextBox();
+            this.la_model = new System.Windows.Forms.Label();
+            this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
+            this.la_duty = new System.Windows.Forms.Label();
+            this.tb_duty = new System.Windows.Forms.TextBox();
+            this.la_IsInWareHouse = new System.Windows.Forms.Label();
+            this.bt_dgvchangeexcel = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.型号规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,17 +57,6 @@
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.la_tagid = new System.Windows.Forms.Label();
-            this.tb_tagid = new System.Windows.Forms.TextBox();
-            this.bt_selectduty = new System.Windows.Forms.Button();
-            this.tb_model = new System.Windows.Forms.TextBox();
-            this.la_model = new System.Windows.Forms.Label();
-            this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
-            this.la_duty = new System.Windows.Forms.Label();
-            this.tb_duty = new System.Windows.Forms.TextBox();
-            this.la_IsInWareHouse = new System.Windows.Forms.Label();
-            this.bt_dgvchangeexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -251,7 +251,7 @@
             // 
             this.la_tagid.AutoSize = true;
             this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_tagid.Location = new System.Drawing.Point(8, 20);
+            this.la_tagid.Location = new System.Drawing.Point(9, 20);
             this.la_tagid.Name = "la_tagid";
             this.la_tagid.Size = new System.Drawing.Size(79, 20);
             this.la_tagid.TabIndex = 71;
@@ -260,10 +260,10 @@
             // tb_tagid
             // 
             this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_tagid.Location = new System.Drawing.Point(87, 17);
+            this.tb_tagid.Location = new System.Drawing.Point(88, 17);
             this.tb_tagid.Name = "tb_tagid";
             this.tb_tagid.ReadOnly = true;
-            this.tb_tagid.Size = new System.Drawing.Size(218, 26);
+            this.tb_tagid.Size = new System.Drawing.Size(183, 26);
             this.tb_tagid.TabIndex = 72;
             // 
             // bt_selectduty
@@ -280,7 +280,7 @@
             // tb_model
             // 
             this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_model.Location = new System.Drawing.Point(593, 17);
+            this.tb_model.Location = new System.Drawing.Point(577, 17);
             this.tb_model.Name = "tb_model";
             this.tb_model.Size = new System.Drawing.Size(120, 26);
             this.tb_model.TabIndex = 22;
@@ -289,7 +289,7 @@
             // 
             this.la_model.AutoSize = true;
             this.la_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_model.Location = new System.Drawing.Point(517, 20);
+            this.la_model.Location = new System.Drawing.Point(492, 20);
             this.la_model.Name = "la_model";
             this.la_model.Size = new System.Drawing.Size(79, 20);
             this.la_model.TabIndex = 21;
@@ -304,7 +304,7 @@
             "全部",
             "在库",
             "不在库"});
-            this.cb_IsInWareHouse.Location = new System.Drawing.Point(797, 20);
+            this.cb_IsInWareHouse.Location = new System.Drawing.Point(794, 20);
             this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
             this.cb_IsInWareHouse.Size = new System.Drawing.Size(66, 20);
             this.cb_IsInWareHouse.TabIndex = 19;
@@ -313,7 +313,7 @@
             // 
             this.la_duty.AutoSize = true;
             this.la_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_duty.Location = new System.Drawing.Point(872, 20);
+            this.la_duty.Location = new System.Drawing.Point(867, 20);
             this.la_duty.Name = "la_duty";
             this.la_duty.Size = new System.Drawing.Size(65, 20);
             this.la_duty.TabIndex = 8;
@@ -332,7 +332,7 @@
             // 
             this.la_IsInWareHouse.AutoSize = true;
             this.la_IsInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_IsInWareHouse.Location = new System.Drawing.Point(721, 20);
+            this.la_IsInWareHouse.Location = new System.Drawing.Point(714, 20);
             this.la_IsInWareHouse.Name = "la_IsInWareHouse";
             this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
             this.la_IsInWareHouse.TabIndex = 6;

@@ -27,7 +27,7 @@ namespace cangku_01
 
         private void Administration_Load(object sender, EventArgs e)
         {
-            员工管理ToolStripMenuItem_Click(sender, e);
+            仓库管理ToolStripMenuItem_Click(sender,e);
         }
 
         private void 员工管理ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace cangku_01
             index_employees.MdiParent = this;
             index_employees.Show();
             index_employees.Activate();
-            
+
         }
 
         private void 仓库管理ToolStripMenuItem_Click(object sender, EventArgs e)
