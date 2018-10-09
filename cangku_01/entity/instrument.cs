@@ -105,7 +105,6 @@ namespace cangku_01.entity
                 + CheckCycle + "',in_lastchecktimes='" + LastCheckTime + "',in_duty='" + Duty + "',in_usedmode='" + UsedMode + "',in_state='" + State + "',in_remarks='" + Remarks + "'" +
                 "where in_id = '" + Id + "'";
             dbo.WriteDB(sql);
-
         }
 
         //仪器在库状态的修改sql

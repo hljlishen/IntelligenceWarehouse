@@ -14,7 +14,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01
 {
@@ -95,9 +94,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gateDrive.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //gateDrive.Open();
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
