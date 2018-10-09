@@ -155,7 +155,7 @@ namespace cangku_01.view.InstrumentManagement
             }
         }
 
-        //仪器的修改删除
+        //仪器的修改、删除、查看
         private void dgv_instrumentinformation_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //删除
@@ -187,9 +187,9 @@ namespace cangku_01.view.InstrumentManagement
             //查看
             if (e.ColumnIndex == 11)
             {
-                //获取要修改属性
                 Instrument ins = new Instrument();
                 ins.TagId = dgv_instrumentinformation.CurrentRow.Cells[0].Value.ToString();
+                ins.Id = (int)dgv_instrumentinformation.CurrentRow.Cells[12].Value;
                 AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
                 add.ShowDialog();
             }

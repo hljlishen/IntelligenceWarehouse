@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.view.InstrumentManagement;
 
 //到期提醒主页面
 
@@ -40,6 +41,7 @@ namespace cangku_01.view.DueToRemind
                 dgv_duetoremind.Rows[index].Cells[4].Value = dr["in_checkcycle"];
                 dgv_duetoremind.Rows[index].Cells[5].Value = ins.NextCheckTimes();
                 dgv_duetoremind.Rows[index].Cells[6].Value = ins.TimeRemaining();
+                dgv_duetoremind.Rows[index].Cells[8].Value = dr["in_id"];
             }
             dgv_duetoremind.Sort(dgv_duetoremind.Columns[6], ListSortDirection.Ascending);
             DataGridViewColorTips();
@@ -95,15 +97,26 @@ namespace cangku_01.view.DueToRemind
                     string Remind_id = dgv_duetoremind.CurrentRow.Cells[0].Value.ToString();
                     string Remind_name = dgv_duetoremind.CurrentRow.Cells[1].Value.ToString();
                     string Remind_manufacturer = dgv_duetoremind.CurrentRow.Cells[2].Value.ToString();
-                    string Remind_lasttime = dgv_duetoremind.CurrentRow.Cells[3].Value.ToString();                  
+                    string Remind_lasttime = dgv_duetoremind.CurrentRow.Cells[3].Value.ToString(); 
+                    int Remind_Id = (int)dgv_duetoremind.CurrentRow.Cells[8].Value;
                     //跳转到日期修改页面、并将相关数据传入Alter_remind界面
-                    UpdateRemind updateremind = new UpdateRemind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime);
+                    UpdateRemind updateremind = new UpdateRemind(Remind_id, Remind_name, Remind_manufacturer, Remind_lasttime, Remind_Id);
                     if (updateremind.ShowDialog() == DialogResult.OK)
                     {
                         ShowDataGridView();
                     }
                 }
             }
+        }
+
+        //双击查看仪器详情
+        private void dgv_duetoremind_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Instrument ins = new Instrument();
+            ins.TagId = dgv_duetoremind.CurrentRow.Cells[0].Value.ToString();
+            ins.Id = (int)dgv_duetoremind.CurrentRow.Cells[8].Value;
+            AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
+            add.ShowDialog();
         }
     }
 }

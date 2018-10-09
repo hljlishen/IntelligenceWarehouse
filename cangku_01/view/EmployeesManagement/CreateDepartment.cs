@@ -1,19 +1,12 @@
 ﻿using cangku_01.entity;
 using DbLink;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.view.EmployeesManagement
 {
-    public partial class GetDepartmentNodeName : Form
+    public partial class CreateDepartment : Form
     {
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
 
@@ -21,23 +14,24 @@ namespace cangku_01.view.EmployeesManagement
         private int _id;
 
         //添加节点
-        public GetDepartmentNodeName(int id)
+        public CreateDepartment(int id,string nodeType)
         {
             InitializeComponent();
             _parentnodeid = id;
+            la_nodenametext.Text = nodeType;
             bt_alter.Visible = false;
         }
 
         //重命名
-        public GetDepartmentNodeName(int parentnodeid, int id)
+        public CreateDepartment(int parentnodeid, int id)
         {
             InitializeComponent();
-            this._parentnodeid = parentnodeid;
-            this._id = id;
+            _parentnodeid = parentnodeid;
+            _id = id;
             bt_sure.Visible = false;
         }
 
-        public GetDepartmentNodeName()
+        public CreateDepartment()
         {
             InitializeComponent();
         }
@@ -83,6 +77,11 @@ namespace cangku_01.view.EmployeesManagement
         private void bt_cancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void GetDepartmentNodeName_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

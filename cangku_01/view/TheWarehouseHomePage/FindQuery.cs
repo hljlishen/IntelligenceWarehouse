@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.view.InstrumentManagement;
 using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 //仪器查询
@@ -48,6 +49,8 @@ namespace cangku_01.view.TheWarehouseHomePage
                 dgv_instrumentplace.Rows[index].Cells[1].Value = dr["in_model"];
                 ins.Position = dr["in_position"].ToString();
                 dgv_instrumentplace.Rows[index].Cells[2].Value = ins.PlaceUnscramble();
+                dgv_instrumentplace.Rows[index].Cells[3].Value = dr["in_tagid"];
+                dgv_instrumentplace.Rows[index].Cells[4].Value = dr["in_id"];
             }
         }
 
@@ -61,6 +64,15 @@ namespace cangku_01.view.TheWarehouseHomePage
                 validation = false;
             }
             return validation;
+        }
+
+        //双击单元格查看仪器详细信息
+        private void dgv_instrumentplace_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            ins.TagId = dgv_instrumentplace.CurrentRow.Cells[3].Value.ToString();
+            ins.Id = (int)dgv_instrumentplace.CurrentRow.Cells[4].Value;
+            AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
+            add.ShowDialog();
         }
     }
 }

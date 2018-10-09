@@ -10,6 +10,7 @@ using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 using System.Drawing;
 using DbLink;
 using USBReader;
+using cangku_01.ImageManagement;
 
 //员工信息管理页面
 
@@ -89,11 +90,12 @@ namespace cangku_01.view.EmployeesManagement
             {
                 if (MessageBox.Show("是否确认删除？", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {  
-                    int employeeid = (int)dgv_employeeinformation.CurrentRow.Cells[8].Value;
                     Employee employee = new Employee();
-                    employee.Id = employeeid;
+                    employee.EmployeeNumber = dgv_employeeinformation.CurrentRow.Cells[0].Value.ToString();
                     if (employee.EmployeeIdDeleteEmployee())
                     {
+                        ImageManager getSetImagePath = new ImageManager();
+                        getSetImagePath.DeleteEmployeeImage(employee.EmployeeNumber);
                         AutoClosingMessageBox.Show("员工信息删除成功", "员工信息删除", 1000);
                         dgv_employeeinformation.Rows.RemoveAt(e.RowIndex);//从DGV移除
                     }
@@ -264,7 +266,7 @@ namespace cangku_01.view.EmployeesManagement
         //新建公司
         private void tsm_newcompany_Click(object sender, EventArgs e)
         {
-            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(0);
+            CreateDepartment getnodename = new CreateDepartment(0,"请输入公司名称：");
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 tv_department.Nodes.Add(getnodename.nodeName);
@@ -275,21 +277,21 @@ namespace cangku_01.view.EmployeesManagement
         //新建部门
         private void tsm_newdepartment_Click(object sender, EventArgs e)
         {
-            AddChildNodes();
+            AddChildNodes("请输入部门名称：");
         }
 
         //新建小组
         private void tsm_newgroup_Click(object sender, EventArgs e)
         {
-            AddChildNodes();
+            AddChildNodes("请输入小组名称：");
         }
 
         //添加子节点
-        private void AddChildNodes()
+        private void AddChildNodes(string nodeType)
         {
             string parentnodename = tv_department.SelectedNode.Text;
             int nodeid = (int)tv_department.SelectedNode.Tag;
-            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(nodeid);
+            CreateDepartment getnodename = new CreateDepartment(nodeid, nodeType);
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 ShowTreeView();
@@ -323,7 +325,7 @@ namespace cangku_01.view.EmployeesManagement
             }
             string nodename = tv_department.SelectedNode.Text;
             int nodeid = (int)tv_department.SelectedNode.Tag;
-            GetDepartmentNodeName getnodename = new GetDepartmentNodeName(parentnodeid, nodeid);
+            CreateDepartment getnodename = new CreateDepartment(parentnodeid, nodeid);
             if (getnodename.ShowDialog() == DialogResult.OK)
             {
                 tv_department.SelectedNode.Text = getnodename.nodeName;
@@ -334,7 +336,7 @@ namespace cangku_01.view.EmployeesManagement
 
         #region 员工信息双击获取
         //dgv双击获取员工id
-        private void dgv_employeeinformation_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_employeeinformation_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (FormBorderStyle == FormBorderStyle.FixedSingle)
             {
@@ -364,5 +366,6 @@ namespace cangku_01.view.EmployeesManagement
             ExcelOperator.DataGridViewToExcel(dgv_employeeinformation, true);
         }
         #endregion
+
     }
 }

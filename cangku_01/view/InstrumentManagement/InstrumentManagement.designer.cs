@@ -64,9 +64,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1266, 24);
+            this.button1.Location = new System.Drawing.Point(1266, 33);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 25);
+            this.button1.Size = new System.Drawing.Size(80, 45);
             this.button1.TabIndex = 0;
             this.button1.Text = "添加仪器";
             this.button1.UseVisualStyleBackColor = true;
@@ -125,133 +125,10 @@
             this.dgv_instrumentinformation.Name = "dgv_instrumentinformation";
             this.dgv_instrumentinformation.RowTemplate.Height = 23;
             this.dgv_instrumentinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_instrumentinformation.Size = new System.Drawing.Size(1273, 684);
+            this.dgv_instrumentinformation.Size = new System.Drawing.Size(1273, 659);
             this.dgv_instrumentinformation.TabIndex = 4;
             this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentClick);
             this.dgv_instrumentinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentDoubleClick);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.la_tagid);
-            this.groupBox1.Controls.Add(this.tb_tagid);
-            this.groupBox1.Controls.Add(this.bt_selectduty);
-            this.groupBox1.Controls.Add(this.tb_model);
-            this.groupBox1.Controls.Add(this.la_model);
-            this.groupBox1.Controls.Add(this.cb_IsInWareHouse);
-            this.groupBox1.Controls.Add(this.la_duty);
-            this.groupBox1.Controls.Add(this.tb_duty);
-            this.groupBox1.Controls.Add(this.la_IsInWareHouse);
-            this.groupBox1.Controls.Add(this.bt_queryinstrument);
-            this.groupBox1.Controls.Add(this.la_instrumentname);
-            this.groupBox1.Controls.Add(this.tb_instrumentname);
-            this.groupBox1.Location = new System.Drawing.Point(73, 24);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1187, 55);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "仪器搜索";
-            // 
-            // la_tagid
-            // 
-            this.la_tagid.AutoSize = true;
-            this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_tagid.Location = new System.Drawing.Point(8, 20);
-            this.la_tagid.Name = "la_tagid";
-            this.la_tagid.Size = new System.Drawing.Size(79, 20);
-            this.la_tagid.TabIndex = 71;
-            this.la_tagid.Text = "仪器编号：";
-            // 
-            // tb_tagid
-            // 
-            this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_tagid.Location = new System.Drawing.Point(87, 17);
-            this.tb_tagid.Name = "tb_tagid";
-            this.tb_tagid.ReadOnly = true;
-            this.tb_tagid.Size = new System.Drawing.Size(218, 26);
-            this.tb_tagid.TabIndex = 72;
-            // 
-            // bt_selectduty
-            // 
-            this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_selectduty.Location = new System.Drawing.Point(1040, 16);
-            this.bt_selectduty.Name = "bt_selectduty";
-            this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
-            this.bt_selectduty.TabIndex = 70;
-            this.bt_selectduty.Text = "...";
-            this.bt_selectduty.UseVisualStyleBackColor = true;
-            this.bt_selectduty.Click += new System.EventHandler(this.bt_selectduty_Click);
-            // 
-            // tb_model
-            // 
-            this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_model.Location = new System.Drawing.Point(593, 17);
-            this.tb_model.Name = "tb_model";
-            this.tb_model.Size = new System.Drawing.Size(120, 26);
-            this.tb_model.TabIndex = 22;
-            // 
-            // la_model
-            // 
-            this.la_model.AutoSize = true;
-            this.la_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_model.Location = new System.Drawing.Point(517, 20);
-            this.la_model.Name = "la_model";
-            this.la_model.Size = new System.Drawing.Size(79, 20);
-            this.la_model.TabIndex = 21;
-            this.la_model.Text = "仪器规格：";
-            // 
-            // cb_IsInWareHouse
-            // 
-            this.cb_IsInWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cb_IsInWareHouse.FormattingEnabled = true;
-            this.cb_IsInWareHouse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_IsInWareHouse.Items.AddRange(new object[] {
-            "全部",
-            "在库",
-            "不在库"});
-            this.cb_IsInWareHouse.Location = new System.Drawing.Point(797, 20);
-            this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
-            this.cb_IsInWareHouse.Size = new System.Drawing.Size(66, 20);
-            this.cb_IsInWareHouse.TabIndex = 19;
-            // 
-            // la_duty
-            // 
-            this.la_duty.AutoSize = true;
-            this.la_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_duty.Location = new System.Drawing.Point(872, 20);
-            this.la_duty.Name = "la_duty";
-            this.la_duty.Size = new System.Drawing.Size(65, 20);
-            this.la_duty.TabIndex = 8;
-            this.la_duty.Text = "负责人：";
-            // 
-            // tb_duty
-            // 
-            this.tb_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_duty.Location = new System.Drawing.Point(938, 17);
-            this.tb_duty.Name = "tb_duty";
-            this.tb_duty.ReadOnly = true;
-            this.tb_duty.Size = new System.Drawing.Size(96, 26);
-            this.tb_duty.TabIndex = 9;
-            // 
-            // la_IsInWareHouse
-            // 
-            this.la_IsInWareHouse.AutoSize = true;
-            this.la_IsInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_IsInWareHouse.Location = new System.Drawing.Point(721, 20);
-            this.la_IsInWareHouse.Name = "la_IsInWareHouse";
-            this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
-            this.la_IsInWareHouse.TabIndex = 6;
-            this.la_IsInWareHouse.Text = "在库状态：";
-            // 
-            // bt_dgvchangeexcel
-            // 
-            this.bt_dgvchangeexcel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_dgvchangeexcel.Location = new System.Drawing.Point(1266, 54);
-            this.bt_dgvchangeexcel.Name = "bt_dgvchangeexcel";
-            this.bt_dgvchangeexcel.Size = new System.Drawing.Size(80, 25);
-            this.bt_dgvchangeexcel.TabIndex = 6;
-            this.bt_dgvchangeexcel.Text = "导出Excel";
-            this.bt_dgvchangeexcel.UseVisualStyleBackColor = true;
-            this.bt_dgvchangeexcel.Click += new System.EventHandler(this.bt_dgvchangeexcel_Click);
             // 
             // ID
             // 
@@ -348,6 +225,129 @@
             this.仪器id.HeaderText = "仪器id";
             this.仪器id.Name = "仪器id";
             this.仪器id.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.la_tagid);
+            this.groupBox1.Controls.Add(this.tb_tagid);
+            this.groupBox1.Controls.Add(this.bt_selectduty);
+            this.groupBox1.Controls.Add(this.tb_model);
+            this.groupBox1.Controls.Add(this.la_model);
+            this.groupBox1.Controls.Add(this.cb_IsInWareHouse);
+            this.groupBox1.Controls.Add(this.la_duty);
+            this.groupBox1.Controls.Add(this.tb_duty);
+            this.groupBox1.Controls.Add(this.la_IsInWareHouse);
+            this.groupBox1.Controls.Add(this.bt_queryinstrument);
+            this.groupBox1.Controls.Add(this.la_instrumentname);
+            this.groupBox1.Controls.Add(this.tb_instrumentname);
+            this.groupBox1.Location = new System.Drawing.Point(73, 24);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1187, 55);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "仪器搜索";
+            // 
+            // la_tagid
+            // 
+            this.la_tagid.AutoSize = true;
+            this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_tagid.Location = new System.Drawing.Point(9, 20);
+            this.la_tagid.Name = "la_tagid";
+            this.la_tagid.Size = new System.Drawing.Size(79, 20);
+            this.la_tagid.TabIndex = 71;
+            this.la_tagid.Text = "仪器编号：";
+            // 
+            // tb_tagid
+            // 
+            this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_tagid.Location = new System.Drawing.Point(88, 17);
+            this.tb_tagid.Name = "tb_tagid";
+            this.tb_tagid.ReadOnly = true;
+            this.tb_tagid.Size = new System.Drawing.Size(183, 26);
+            this.tb_tagid.TabIndex = 72;
+            // 
+            // bt_selectduty
+            // 
+            this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_selectduty.Location = new System.Drawing.Point(1040, 16);
+            this.bt_selectduty.Name = "bt_selectduty";
+            this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
+            this.bt_selectduty.TabIndex = 70;
+            this.bt_selectduty.Text = "...";
+            this.bt_selectduty.UseVisualStyleBackColor = true;
+            this.bt_selectduty.Click += new System.EventHandler(this.bt_selectduty_Click);
+            // 
+            // tb_model
+            // 
+            this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_model.Location = new System.Drawing.Point(577, 17);
+            this.tb_model.Name = "tb_model";
+            this.tb_model.Size = new System.Drawing.Size(120, 26);
+            this.tb_model.TabIndex = 22;
+            // 
+            // la_model
+            // 
+            this.la_model.AutoSize = true;
+            this.la_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_model.Location = new System.Drawing.Point(492, 20);
+            this.la_model.Name = "la_model";
+            this.la_model.Size = new System.Drawing.Size(79, 20);
+            this.la_model.TabIndex = 21;
+            this.la_model.Text = "仪器规格：";
+            // 
+            // cb_IsInWareHouse
+            // 
+            this.cb_IsInWareHouse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_IsInWareHouse.FormattingEnabled = true;
+            this.cb_IsInWareHouse.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_IsInWareHouse.Items.AddRange(new object[] {
+            "全部",
+            "在库",
+            "不在库"});
+            this.cb_IsInWareHouse.Location = new System.Drawing.Point(794, 20);
+            this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
+            this.cb_IsInWareHouse.Size = new System.Drawing.Size(66, 20);
+            this.cb_IsInWareHouse.TabIndex = 19;
+            // 
+            // la_duty
+            // 
+            this.la_duty.AutoSize = true;
+            this.la_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_duty.Location = new System.Drawing.Point(867, 20);
+            this.la_duty.Name = "la_duty";
+            this.la_duty.Size = new System.Drawing.Size(65, 20);
+            this.la_duty.TabIndex = 8;
+            this.la_duty.Text = "负责人：";
+            // 
+            // tb_duty
+            // 
+            this.tb_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.tb_duty.Location = new System.Drawing.Point(938, 17);
+            this.tb_duty.Name = "tb_duty";
+            this.tb_duty.ReadOnly = true;
+            this.tb_duty.Size = new System.Drawing.Size(96, 26);
+            this.tb_duty.TabIndex = 9;
+            // 
+            // la_IsInWareHouse
+            // 
+            this.la_IsInWareHouse.AutoSize = true;
+            this.la_IsInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.la_IsInWareHouse.Location = new System.Drawing.Point(714, 20);
+            this.la_IsInWareHouse.Name = "la_IsInWareHouse";
+            this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
+            this.la_IsInWareHouse.TabIndex = 6;
+            this.la_IsInWareHouse.Text = "在库状态：";
+            // 
+            // bt_dgvchangeexcel
+            // 
+            this.bt_dgvchangeexcel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.bt_dgvchangeexcel.Location = new System.Drawing.Point(1266, 760);
+            this.bt_dgvchangeexcel.Name = "bt_dgvchangeexcel";
+            this.bt_dgvchangeexcel.Size = new System.Drawing.Size(80, 25);
+            this.bt_dgvchangeexcel.TabIndex = 6;
+            this.bt_dgvchangeexcel.Text = "导出Excel";
+            this.bt_dgvchangeexcel.UseVisualStyleBackColor = true;
+            this.bt_dgvchangeexcel.Click += new System.EventHandler(this.bt_dgvchangeexcel_Click);
             // 
             // InstrumentManagement
             // 

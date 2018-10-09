@@ -46,6 +46,7 @@
             this.Co_nexttime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Co_surplustimr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Co_operation = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_duetoremind)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,8 @@
             this.Co_cycle,
             this.Co_nexttime,
             this.Co_surplustimr,
-            this.Co_operation});
+            this.Co_operation,
+            this.仪器id});
             this.dgv_duetoremind.Location = new System.Drawing.Point(59, 89);
             this.dgv_duetoremind.Name = "dgv_duetoremind";
             this.dgv_duetoremind.ReadOnly = true;
@@ -70,6 +72,7 @@
             this.dgv_duetoremind.Size = new System.Drawing.Size(1290, 700);
             this.dgv_duetoremind.TabIndex = 0;
             this.dgv_duetoremind.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgv_duetoremind.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_duetoremind_CellMouseDoubleClick);
             // 
             // tr_nowtime
             // 
@@ -208,6 +211,7 @@
             // 
             // Co_operation
             // 
+            this.Co_operation.Frozen = true;
             this.Co_operation.HeaderText = "操作";
             this.Co_operation.Name = "Co_operation";
             this.Co_operation.ReadOnly = true;
@@ -216,6 +220,14 @@
             this.Co_operation.Text = "修改检查时间";
             this.Co_operation.UseColumnTextForButtonValue = true;
             this.Co_operation.Width = 110;
+            // 
+            // 仪器id
+            // 
+            this.仪器id.Frozen = true;
+            this.仪器id.HeaderText = "仪器id";
+            this.仪器id.Name = "仪器id";
+            this.仪器id.ReadOnly = true;
+            this.仪器id.Visible = false;
             // 
             // DueToRemind
             // 
@@ -259,5 +271,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Co_nexttime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Co_surplustimr;
         private System.Windows.Forms.DataGridViewButtonColumn Co_operation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器id;
     }
 }

@@ -42,13 +42,6 @@ namespace cangku_01.interfaceImp
             dbo.WriteDB(sql);
         }
 
-        //仪器信息修改
-        public void UpdateInstrument(Instrument ins)     
-        {
-            string sql = ins.UpdateInstrumentSql();
-            dbo.WriteDB(sql);
-        }
-
         //仪器在库状态修改
         public void UpdateInstrumentInwarehouseState(Instrument ins)
         {

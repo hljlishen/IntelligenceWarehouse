@@ -86,7 +86,7 @@
             // time_lastCheckTimes
             // 
             this.time_lastCheckTimes.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.time_lastCheckTimes.Location = new System.Drawing.Point(623, 286);
+            this.time_lastCheckTimes.Location = new System.Drawing.Point(656, 286);
             this.time_lastCheckTimes.Name = "time_lastCheckTimes";
             this.time_lastCheckTimes.Size = new System.Drawing.Size(128, 26);
             this.time_lastCheckTimes.TabIndex = 57;
@@ -94,7 +94,7 @@
             // time_productionDate
             // 
             this.time_productionDate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.time_productionDate.Location = new System.Drawing.Point(608, 151);
+            this.time_productionDate.Location = new System.Drawing.Point(641, 151);
             this.time_productionDate.Name = "time_productionDate";
             this.time_productionDate.Size = new System.Drawing.Size(143, 26);
             this.time_productionDate.TabIndex = 54;
@@ -137,24 +137,24 @@
             this.tb_duty.Location = new System.Drawing.Point(354, 354);
             this.tb_duty.Name = "tb_duty";
             this.tb_duty.ReadOnly = true;
-            this.tb_duty.Size = new System.Drawing.Size(87, 26);
+            this.tb_duty.Size = new System.Drawing.Size(135, 26);
             this.tb_duty.TabIndex = 50;
             // 
             // tb_checkcycle
             // 
             this.tb_checkcycle.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_checkcycle.Location = new System.Drawing.Point(168, 288);
+            this.tb_checkcycle.Location = new System.Drawing.Point(181, 288);
             this.tb_checkcycle.Name = "tb_checkcycle";
-            this.tb_checkcycle.Size = new System.Drawing.Size(84, 26);
+            this.tb_checkcycle.Size = new System.Drawing.Size(71, 26);
             this.tb_checkcycle.TabIndex = 49;
             // 
             // tb_position
             // 
             this.tb_position.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_position.Location = new System.Drawing.Point(608, 92);
+            this.tb_position.Location = new System.Drawing.Point(641, 92);
             this.tb_position.Name = "tb_position";
             this.tb_position.ReadOnly = true;
-            this.tb_position.Size = new System.Drawing.Size(105, 26);
+            this.tb_position.Size = new System.Drawing.Size(148, 26);
             this.tb_position.TabIndex = 47;
             // 
             // tb_serialnumber
@@ -162,13 +162,13 @@
             this.tb_serialnumber.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_serialnumber.Location = new System.Drawing.Point(354, 288);
             this.tb_serialnumber.Name = "tb_serialnumber";
-            this.tb_serialnumber.Size = new System.Drawing.Size(125, 26);
+            this.tb_serialnumber.Size = new System.Drawing.Size(183, 26);
             this.tb_serialnumber.TabIndex = 46;
             // 
             // tb_manufactor
             // 
             this.tb_manufactor.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_manufactor.Location = new System.Drawing.Point(608, 222);
+            this.tb_manufactor.Location = new System.Drawing.Point(641, 222);
             this.tb_manufactor.Name = "tb_manufactor";
             this.tb_manufactor.Size = new System.Drawing.Size(143, 26);
             this.tb_manufactor.TabIndex = 45;
@@ -178,7 +178,7 @@
             this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_model.Location = new System.Drawing.Point(354, 222);
             this.tb_model.Name = "tb_model";
-            this.tb_model.Size = new System.Drawing.Size(125, 26);
+            this.tb_model.Size = new System.Drawing.Size(183, 26);
             this.tb_model.TabIndex = 44;
             // 
             // tb_name
@@ -186,7 +186,7 @@
             this.tb_name.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_name.Location = new System.Drawing.Point(354, 153);
             this.tb_name.Name = "tb_name";
-            this.tb_name.Size = new System.Drawing.Size(125, 26);
+            this.tb_name.Size = new System.Drawing.Size(183, 26);
             this.tb_name.TabIndex = 43;
             // 
             // tb_tagid
@@ -194,8 +194,7 @@
             this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_tagid.Location = new System.Drawing.Point(354, 92);
             this.tb_tagid.Name = "tb_tagid";
-            this.tb_tagid.ReadOnly = true;
-            this.tb_tagid.Size = new System.Drawing.Size(125, 26);
+            this.tb_tagid.Size = new System.Drawing.Size(183, 26);
             this.tb_tagid.TabIndex = 42;
             // 
             // label12
@@ -212,7 +211,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.Location = new System.Drawing.Point(510, 291);
+            this.label11.Location = new System.Drawing.Point(543, 291);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(107, 20);
             this.label11.TabIndex = 40;
@@ -224,9 +223,9 @@
             this.label9.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label9.Location = new System.Drawing.Point(82, 291);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(79, 20);
+            this.label9.Size = new System.Drawing.Size(103, 20);
             this.label9.TabIndex = 39;
-            this.label9.Text = "检定周期：";
+            this.label9.Text = "检定周期(日)：";
             // 
             // label8
             // 
@@ -242,7 +241,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(510, 95);
+            this.label7.Location = new System.Drawing.Point(543, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(79, 20);
             this.label7.TabIndex = 37;
@@ -252,7 +251,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.Location = new System.Drawing.Point(510, 156);
+            this.label6.Location = new System.Drawing.Point(543, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 36;
@@ -262,7 +261,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(510, 225);
+            this.label5.Location = new System.Drawing.Point(543, 225);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(79, 20);
             this.label5.TabIndex = 35;
@@ -353,7 +352,7 @@
             // tb_lastCheckTimes
             // 
             this.tb_lastCheckTimes.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_lastCheckTimes.Location = new System.Drawing.Point(623, 288);
+            this.tb_lastCheckTimes.Location = new System.Drawing.Point(656, 288);
             this.tb_lastCheckTimes.Name = "tb_lastCheckTimes";
             this.tb_lastCheckTimes.Size = new System.Drawing.Size(128, 26);
             this.tb_lastCheckTimes.TabIndex = 62;
@@ -361,7 +360,7 @@
             // tb_productionDate
             // 
             this.tb_productionDate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_productionDate.Location = new System.Drawing.Point(608, 153);
+            this.tb_productionDate.Location = new System.Drawing.Point(641, 153);
             this.tb_productionDate.Name = "tb_productionDate";
             this.tb_productionDate.Size = new System.Drawing.Size(143, 26);
             this.tb_productionDate.TabIndex = 63;
@@ -370,7 +369,7 @@
             // 
             this.cb_allcheckdate.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.cb_allcheckdate.FormattingEnabled = true;
-            this.cb_allcheckdate.Location = new System.Drawing.Point(622, 355);
+            this.cb_allcheckdate.Location = new System.Drawing.Point(655, 355);
             this.cb_allcheckdate.Name = "cb_allcheckdate";
             this.cb_allcheckdate.Size = new System.Drawing.Size(128, 25);
             this.cb_allcheckdate.TabIndex = 66;
@@ -379,7 +378,7 @@
             // 
             this.la_allcheckdate.AutoSize = true;
             this.la_allcheckdate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_allcheckdate.Location = new System.Drawing.Point(510, 357);
+            this.la_allcheckdate.Location = new System.Drawing.Point(543, 357);
             this.la_allcheckdate.Name = "la_allcheckdate";
             this.la_allcheckdate.Size = new System.Drawing.Size(107, 20);
             this.la_allcheckdate.TabIndex = 67;
@@ -388,7 +387,7 @@
             // bt_showshelves
             // 
             this.bt_showshelves.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_showshelves.Location = new System.Drawing.Point(720, 92);
+            this.bt_showshelves.Location = new System.Drawing.Point(795, 92);
             this.bt_showshelves.Name = "bt_showshelves";
             this.bt_showshelves.Size = new System.Drawing.Size(30, 26);
             this.bt_showshelves.TabIndex = 68;
@@ -399,7 +398,7 @@
             // bt_selectduty
             // 
             this.bt_selectduty.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_selectduty.Location = new System.Drawing.Point(449, 354);
+            this.bt_selectduty.Location = new System.Drawing.Point(507, 355);
             this.bt_selectduty.Name = "bt_selectduty";
             this.bt_selectduty.Size = new System.Drawing.Size(30, 26);
             this.bt_selectduty.TabIndex = 69;
@@ -411,7 +410,7 @@
             // 
             this.la_state.AutoSize = true;
             this.la_state.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_state.Location = new System.Drawing.Point(510, 415);
+            this.la_state.Location = new System.Drawing.Point(543, 415);
             this.la_state.Name = "la_state";
             this.la_state.Size = new System.Drawing.Size(79, 20);
             this.la_state.TabIndex = 70;
@@ -440,7 +439,7 @@
             // tb_state
             // 
             this.tb_state.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_state.Location = new System.Drawing.Point(608, 412);
+            this.tb_state.Location = new System.Drawing.Point(641, 412);
             this.tb_state.Name = "tb_state";
             this.tb_state.ReadOnly = true;
             this.tb_state.Size = new System.Drawing.Size(84, 26);
@@ -452,7 +451,7 @@
             this.tb_department.Location = new System.Drawing.Point(167, 412);
             this.tb_department.Name = "tb_department";
             this.tb_department.ReadOnly = true;
-            this.tb_department.Size = new System.Drawing.Size(312, 26);
+            this.tb_department.Size = new System.Drawing.Size(370, 26);
             this.tb_department.TabIndex = 74;
             // 
             // tb_remarks
@@ -460,7 +459,7 @@
             this.tb_remarks.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tb_remarks.Location = new System.Drawing.Point(434, 465);
             this.tb_remarks.Name = "tb_remarks";
-            this.tb_remarks.Size = new System.Drawing.Size(316, 26);
+            this.tb_remarks.Size = new System.Drawing.Size(349, 26);
             this.tb_remarks.TabIndex = 75;
             // 
             // la_errortagidnull
@@ -504,7 +503,7 @@
             this.la_positionnull.AutoSize = true;
             this.la_positionnull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.la_positionnull.ForeColor = System.Drawing.Color.Red;
-            this.la_positionnull.Location = new System.Drawing.Point(605, 121);
+            this.la_positionnull.Location = new System.Drawing.Point(638, 121);
             this.la_positionnull.Name = "la_positionnull";
             this.la_positionnull.Size = new System.Drawing.Size(97, 17);
             this.la_positionnull.TabIndex = 80;
@@ -528,7 +527,7 @@
             this.la_checkcyclenull.AutoSize = true;
             this.la_checkcyclenull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.la_checkcyclenull.ForeColor = System.Drawing.Color.Red;
-            this.la_checkcyclenull.Location = new System.Drawing.Point(165, 317);
+            this.la_checkcyclenull.Location = new System.Drawing.Point(178, 317);
             this.la_checkcyclenull.Name = "la_checkcyclenull";
             this.la_checkcyclenull.Size = new System.Drawing.Size(97, 17);
             this.la_checkcyclenull.TabIndex = 82;
@@ -540,7 +539,7 @@
             this.la_manufactornull.AutoSize = true;
             this.la_manufactornull.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.la_manufactornull.ForeColor = System.Drawing.Color.Red;
-            this.la_manufactornull.Location = new System.Drawing.Point(605, 251);
+            this.la_manufactornull.Location = new System.Drawing.Point(638, 251);
             this.la_manufactornull.Name = "la_manufactornull";
             this.la_manufactornull.Size = new System.Drawing.Size(109, 17);
             this.la_manufactornull.TabIndex = 83;
@@ -567,7 +566,7 @@
             this.cb_state.Items.AddRange(new object[] {
             "启用",
             "禁用"});
-            this.cb_state.Location = new System.Drawing.Point(608, 415);
+            this.cb_state.Location = new System.Drawing.Point(641, 415);
             this.cb_state.Name = "cb_state";
             this.cb_state.Size = new System.Drawing.Size(84, 20);
             this.cb_state.TabIndex = 87;
@@ -594,7 +593,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 589);
+            this.ClientSize = new System.Drawing.Size(843, 589);
             this.Controls.Add(this.tb_usedmode);
             this.Controls.Add(this.la_usedmode);
             this.Controls.Add(this.cb_state);

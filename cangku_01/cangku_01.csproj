@@ -128,6 +128,7 @@
     <Compile Include="GateDrive\GateUHFv014.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
     <Compile Include="APEM5900Drive\IEvirmentMonitor.cs" />
+    <Compile Include="ImageManagement\GetSetImagePath.cs" />
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="entity\InstrumentInAndOutRecord.cs" />
@@ -158,11 +159,11 @@
     <Compile Include="view\AdminPage\Confirm.Designer.cs">
       <DependentUpon>Confirm.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EmployeesManagement\GetDepartmentNodeName.cs">
+    <Compile Include="view\EmployeesManagement\CreateDepartment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\EmployeesManagement\GetDepartmentNodeName.Designer.cs">
-      <DependentUpon>GetDepartmentNodeName.cs</DependentUpon>
+    <Compile Include="view\EmployeesManagement\CreateDepartment.Designer.cs">
+      <DependentUpon>CreateDepartment.cs</DependentUpon>
     </Compile>
     <Compile Include="view\InstrumentManagement\ShelvesTreeView.cs">
       <SubType>Form</SubType>
@@ -265,8 +266,8 @@
     <EmbeddedResource Include="view\AdminPage\Confirm.resx">
       <DependentUpon>Confirm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EmployeesManagement\GetDepartmentNodeName.resx">
-      <DependentUpon>GetDepartmentNodeName.cs</DependentUpon>
+    <EmbeddedResource Include="view\EmployeesManagement\CreateDepartment.resx">
+      <DependentUpon>CreateDepartment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\InstrumentManagement\ShelvesTreeView.resx">
       <DependentUpon>ShelvesTreeView.cs</DependentUpon>

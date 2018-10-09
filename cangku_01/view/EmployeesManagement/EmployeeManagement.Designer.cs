@@ -103,7 +103,7 @@
             this.dgv_employeeinformation.RowTemplate.Height = 23;
             this.dgv_employeeinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_employeeinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeinformation_CellContentClick);
-            this.dgv_employeeinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employeeinformation_CellContentDoubleClick);
+            this.dgv_employeeinformation.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_employeeinformation_CellMouseDoubleClick);
             // 
             // ID
             // 
@@ -312,15 +312,6 @@
         private System.Windows.Forms.Label la_foundname;
         private System.Windows.Forms.Label la_foundsex;
         private System.Windows.Forms.GroupBox gb_foundemployees;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 公司;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 部门;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 小组;
-        private System.Windows.Forms.DataGridViewButtonColumn del;
-        private System.Windows.Forms.DataGridViewButtonColumn update_;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 员工Id;
         private System.Windows.Forms.ContextMenuStrip cms_employeetreeview;
         private System.Windows.Forms.ToolStripMenuItem tsm_newcompany;
         private System.Windows.Forms.ToolStripMenuItem tsm_newdepartment;
@@ -330,5 +321,14 @@
         private System.Windows.Forms.CheckBox cb_querydepartment;
         private System.Windows.Forms.Label la_querydepartment;
         private System.Windows.Forms.Button bt_dgvchangexcel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 姓名;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 性别;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 公司;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 部门;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 小组;
+        private System.Windows.Forms.DataGridViewButtonColumn del;
+        private System.Windows.Forms.DataGridViewButtonColumn update_;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 员工Id;
     }
 }

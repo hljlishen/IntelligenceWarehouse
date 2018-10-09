@@ -2,7 +2,6 @@
 using DbLink;
 using System;
 using System.Data;
-using System.Windows.Forms;
 
 //仪器实体类
 
@@ -97,14 +96,16 @@ namespace cangku_01.entity
         }
 
         //仪器信息修改sql
-        public string UpdateInstrumentSql()
+        public void UpdateInstrument()
         {
-            string sql = "update t_instrument set in_name='" + Name + "',in_model='"
+            DataMysql dbo = DataMysql.GetDataMysqlGreateInstance(DataMysql.mysqldefaultconnection);
+            string sql = "update t_instrument set in_tagid='" + TagId + "', in_name='" + Name + "',in_model='"
                 + Model + "',in_manufactor='" + Manufactor + "',in_serialnumber='" + SerialNumber + "',in_productiondate='" 
                 + ProductionDate + "',in_position='" + Position + "',in_isinwarehouse='" + IsInWareHouse + "',in_checkcycle='"
                 + CheckCycle + "',in_lastchecktimes='" + LastCheckTime + "',in_duty='" + Duty + "',in_usedmode='" + UsedMode + "',in_state='" + State + "',in_remarks='" + Remarks + "'" +
-                "where in_tagid = '" + TagId + "'";
-            return sql;
+                "where in_id = '" + Id + "'";
+            dbo.WriteDB(sql);
+
         }
 
         //仪器在库状态的修改sql
@@ -150,7 +151,7 @@ namespace cangku_01.entity
         //仪器历次检查时间信息添加sql
         public string AddInstrumentAllPreviousCheckDateSql()
         {
-            string sql = "insert into t_checkdate (ch_instrumentid,ch_date) values('" + TagId + "','" + LastCheckTime + "')";
+            string sql = "insert into t_checkdate (ch_instrumentid,ch_date) values('" + Id + "','" + LastCheckTime + "')";
             return sql;
         }
 
@@ -158,7 +159,7 @@ namespace cangku_01.entity
         public string QueryAllCheckDateSql()
         {
             SetupCheckdate();
-            maker.AddAndCondition(new StringEqual("ch_instrumentid", TagId));
+            maker.AddAndCondition(new IntEqual("ch_instrumentid", Id));
             string sql = maker.MakeSelectSql();
             return sql;
         }

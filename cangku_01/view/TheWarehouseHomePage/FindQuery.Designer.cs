@@ -43,6 +43,8 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器tagid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentplace)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,7 +149,9 @@
             this.dgv_instrumentplace.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
-            this.Column3});
+            this.Column3,
+            this.仪器tagid,
+            this.仪器id});
             this.dgv_instrumentplace.Location = new System.Drawing.Point(356, 102);
             this.dgv_instrumentplace.Name = "dgv_instrumentplace";
             this.dgv_instrumentplace.ReadOnly = true;
@@ -155,6 +159,7 @@
             this.dgv_instrumentplace.RowTemplate.Height = 23;
             this.dgv_instrumentplace.Size = new System.Drawing.Size(410, 298);
             this.dgv_instrumentplace.TabIndex = 10;
+            this.dgv_instrumentplace.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_instrumentplace_CellMouseDoubleClick);
             // 
             // Column1
             // 
@@ -176,6 +181,20 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Width = 160;
+            // 
+            // 仪器tagid
+            // 
+            this.仪器tagid.HeaderText = "仪器tagid";
+            this.仪器tagid.Name = "仪器tagid";
+            this.仪器tagid.ReadOnly = true;
+            this.仪器tagid.Visible = false;
+            // 
+            // 仪器id
+            // 
+            this.仪器id.HeaderText = "仪器id";
+            this.仪器id.Name = "仪器id";
+            this.仪器id.ReadOnly = true;
+            this.仪器id.Visible = false;
             // 
             // Find_Items
             // 
@@ -220,5 +239,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器tagid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 仪器id;
     }
 }

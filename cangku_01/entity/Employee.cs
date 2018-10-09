@@ -87,7 +87,7 @@ namespace cangku_01.entity
                 AutoClosingMessageBox.Show("该员工有负责仪器！", "存在负责仪器", 1000);
                 return false;
             }
-            string sql = "delete from t_employee where em_id = " + Id + "";
+            string sql = "delete from t_employee where em_employeenumber = " + EmployeeNumber + "";
             dbo.WriteDB(sql);
             return true;
         }
