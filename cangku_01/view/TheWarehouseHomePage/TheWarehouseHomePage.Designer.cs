@@ -60,8 +60,6 @@ namespace cangku_01
             this.label16 = new System.Windows.Forms.Label();
             this.Hum_num = new System.Windows.Forms.Label();
             this.Tem_num = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
@@ -349,8 +347,6 @@ namespace cangku_01
             this.groupBox4.Controls.Add(this.label16);
             this.groupBox4.Controls.Add(this.Hum_num);
             this.groupBox4.Controls.Add(this.Tem_num);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.pictureBox2);
             this.groupBox4.Controls.Add(this.pictureBox1);
             this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -385,41 +381,21 @@ namespace cangku_01
             // 
             this.Hum_num.AutoSize = true;
             this.Hum_num.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Hum_num.Location = new System.Drawing.Point(261, 55);
+            this.Hum_num.Location = new System.Drawing.Point(258, 55);
             this.Hum_num.Name = "Hum_num";
-            this.Hum_num.Size = new System.Drawing.Size(36, 26);
+            this.Hum_num.Size = new System.Drawing.Size(28, 26);
             this.Hum_num.TabIndex = 5;
-            this.Hum_num.Text = "60";
+            this.Hum_num.Text = "--";
             // 
             // Tem_num
             // 
             this.Tem_num.AutoSize = true;
             this.Tem_num.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Tem_num.Location = new System.Drawing.Point(101, 55);
+            this.Tem_num.Location = new System.Drawing.Point(99, 55);
             this.Tem_num.Name = "Tem_num";
-            this.Tem_num.Size = new System.Drawing.Size(36, 26);
+            this.Tem_num.Size = new System.Drawing.Size(28, 26);
             this.Tem_num.TabIndex = 4;
-            this.Tem_num.Text = "15";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.Location = new System.Drawing.Point(303, 55);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(31, 26);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "％";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(143, 55);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 26);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "℃";
+            this.Tem_num.Text = "--";
             // 
             // pictureBox2
             // 
@@ -894,8 +870,6 @@ namespace cangku_01
         private Label label16;
         private Label Hum_num;
         private Label Tem_num;
-        private Label label13;
-        private Label label4;
         private NotifyIcon notifyIcon1;
         private PictureBox pictureBox3;
         private DataGridView Dgv_DueToSee;

@@ -27,7 +27,7 @@ namespace cangku_01
 
         private void Administration_Load(object sender, EventArgs e)
         {
-            仓库管理ToolStripMenuItem_Click(sender,e);
+            员工管理ToolStripMenuItem_Click(sender,e);
         }
 
         private void 员工管理ToolStripMenuItem_Click(object sender, EventArgs e)
