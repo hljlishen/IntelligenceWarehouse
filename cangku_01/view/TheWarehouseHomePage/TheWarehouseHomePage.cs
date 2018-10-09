@@ -12,18 +12,19 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01
 {
     public partial class Form1 : Form, IDataDisplayer
     {
+        delegate void UpdateEvirmentDataHandler(double temp, double humi);
         private static GateInterface gateDrive;
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         ConnectFingerprint connectFingerprint = ConnectFingerprint.GetInstance();
         delegate void EmployeeDataHandler(Fingerprint fingerprint);
         ListViewItem listView = new ListViewItem();
         IGateDataProcessor gateDataProcessor;
+        IEvirmentMonitor monitor;
 
         public Form1()
         {
@@ -37,9 +38,25 @@ namespace cangku_01
             gateDataProcessor = new JointProcessor();
             gateDataProcessor.NewGateDataEvent += NewGateDataHandler;
             gateDrive = new GateUhfv014(gateDataProcessor);
+            monitor = new Apem5900();
+            monitor.StartReading();
+            monitor.NewDataReceived += Monitor_NewDataReceived;
+            EvirmentDataRecorder recorder = new EvirmentDataRecorder(monitor);
         }
 
-        public void NewGateDataHandler(List<GateData> gateDatas)
+        //温湿度监控
+        private void Monitor_NewDataReceived(double temperature, double humidity)
+        {
+            Invoke(new UpdateEvirmentDataHandler(UpdateEvirmentData), new object[] { temperature, humidity });
+        }
+
+        private void UpdateEvirmentData(double temperature, double humidity)
+        {
+            Tem_num.Text = temperature.ToString() + "℃";
+            Hum_num.Text = humidity.ToString() + "％";
+        }
+
+        private void NewGateDataHandler(List<GateData> gateDatas)
         {
             for (int i = 0; i<gateDatas.Count; i++)
             {

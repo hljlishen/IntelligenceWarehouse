@@ -23,7 +23,7 @@ namespace cangku_01.interfaceImp
         //添加仪器出入记录
         public void AddInAndOutRecords(InstrumentInAndOutRecord record, Fingerprint fingerprint, GateData door)
         {
-            MergeInAndOutRecord(fingerprint, door, record);
+            JointInAndOutRecord(fingerprint, door, record);
             record.insr_direct = door.Direction;
             record.insr_time = door.Time;
             record.insr_tagid = door.TagId;
@@ -34,7 +34,8 @@ namespace cangku_01.interfaceImp
             }
         }
 
-        private void MergeInAndOutRecord(Fingerprint fingerprint, GateData door, InstrumentInAndOutRecord record)
+        //拼接出入库记录
+        private void JointInAndOutRecord(Fingerprint fingerprint, GateData door, InstrumentInAndOutRecord record)
         {
             DataTable findt = Fingerprint(fingerprint);
             DataTable insdt = InsBorrow(door);
@@ -48,7 +49,8 @@ namespace cangku_01.interfaceImp
                     DateTime insPassTime = door.Time;
                     TimeSpan td = emPassTime.Subtract(insPassTime).Duration();
                     double timeInterval = td.TotalSeconds;
-                    if (timeInterval <= 12000)
+                    //20分钟
+                    if (timeInterval <= 1200000)
                     {
                         record.insr_insborrowid = int.Parse(insmyDr["ins_borrowid"].ToString());
                         record.insr_fingerprintid = int.Parse(finmyDr["fi_id"].ToString());

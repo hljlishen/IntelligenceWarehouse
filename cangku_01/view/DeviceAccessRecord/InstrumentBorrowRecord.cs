@@ -112,7 +112,7 @@ namespace cangku_01.MH
         //员工信息查询
         private string SelectEmployee(int id)
         {
-            Fingerprint fingerprint = new Fingerprint(factory);
+            Fingerprint fingerprint = new Fingerprint(DbLinkManager.GetLinkFactory());
             fingerprint.fi_id = id;
             DataTable dt = fingerprint.FingerprinIdQueryEmployee(fingerprint);
             DataRow myDr = dt.Rows[0];

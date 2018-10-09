@@ -87,6 +87,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APEM5900Drive\APEM5900.cs" />
     <Compile Include="DataGridViewChangeExcel\ExcelOperator.cs" />
     <Compile Include="DblinkManager.cs" />
     <Compile Include="DbLink\AccessDrive.cs" />
@@ -116,7 +117,9 @@
     <Compile Include="DbLink\TableFieldManager.cs" />
     <Compile Include="DbLink\User.cs" />
     <Compile Include="entity\Fingerprint.cs" />
+    <Compile Include="entity\TemperatureAndHumidity.cs" />
     <Compile Include="entity\WarehouseLocation.cs" />
+    <Compile Include="APEM5900Drive\EvirmentDataRecorder.cs" />
     <Compile Include="FingerprintDrive\ConnectFingerprint.cs" />
     <Compile Include="GateDrive\GateDataProcessor.cs" />
     <Compile Include="GateDrive\GateData.cs" />
@@ -124,6 +127,7 @@
     <Compile Include="entity\Department.cs" />
     <Compile Include="GateDrive\GateUHFv014.cs" />
     <Compile Include="GateDrive\RWDev.cs" />
+    <Compile Include="APEM5900Drive\IEvirmentMonitor.cs" />
     <Compile Include="interfaces\IDataDisplayer.cs" />
     <Compile Include="MysqlConnection\DataMysql.cs" />
     <Compile Include="entity\InstrumentInAndOutRecord.cs" />
