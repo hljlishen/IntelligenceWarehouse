@@ -1,8 +1,10 @@
 ﻿using cangku_01.entity;
 using cangku_01.FingerprintDrive;
 using cangku_01.GateDrive;
+using cangku_01.ImageManagement;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
+using cangku_01.view.InstrumentManagement;
 using cangku_01.view.TheWarehouseHomePage;
 using DbLink;
 using System;
@@ -55,14 +57,14 @@ namespace cangku_01
                     tb_ShowState.Text = gateDatas[i].Direction;
                     tb_ShowTime.Text = gateDatas[i].Time.ToString();
                     //展示仪器照片
-                    FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
+                    FileInfo f = new FileInfo(Application.StartupPath + @"\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
                     if (f.Exists)
                     {
-                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
+                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
                     }
                     else
                     {
-                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\InstrumentPhoto\" + "仪器" + ".png");
+                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + "仪器" + ".png");
                     }
 
                     listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
@@ -93,9 +95,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gateDrive.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //gateDrive.Open();
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);
@@ -118,6 +120,8 @@ namespace cangku_01
                 Dgv_DueToSee.Rows[index].Cells[0].Value = dr["in_name"];
                 Dgv_DueToSee.Rows[index].Cells[1].Value = ins.NextCheckTimes();
                 Dgv_DueToSee.Rows[index].Cells[2].Value = ins.TimeRemaining();
+                Dgv_DueToSee.Rows[index].Cells[3].Value = dr["in_tagid"];
+                Dgv_DueToSee.Rows[index].Cells[4].Value = dr["in_id"];
             }
             Dgv_DueToSee.Sort(Dgv_DueToSee.Columns[2], ListSortDirection.Ascending);
         }
@@ -147,25 +151,15 @@ namespace cangku_01
             tb_employeename.Text = myDr["em_name"].ToString();
             Department department = new Department(factory);
             department.de_id = (int)myDr["em_departmentid"];
-            string departmentname = "";
             List<string> list = department.DepartmentName();
-            for (int i = list.Count-1; i >= 0; i--)
-            {
-                if (i == list.Count - 1)
-                {
-                    departmentname = list[i];
-                    continue;
-                }
-                departmentname += "-" + list[i];
-            }
-            tb_temp.Text = departmentname;
+            tb_temp.Text = list[0];
             tb_employeepassdoor.Text = fingerprint.fi_passtime.ToString();
             ShowEmployeePhoto(employee);
 
             listView = lv_employeepassdoor.Items.Add((lv_employeepassdoor.Items.Count + 1).ToString());
             listView.SubItems.Add(employee.EmployeeNumber);
             listView.SubItems.Add(myDr["em_name"].ToString());
-            listView.SubItems.Add(departmentname);
+            listView.SubItems.Add(list[0]);
             listView.SubItems.Add(fingerprint.fi_passtime.ToString());
             lv_employeepassdoor.EnsureVisible(lv_employeepassdoor.Items.Count - 1);
         }
@@ -173,15 +167,8 @@ namespace cangku_01
         //展示员工照片
         private void ShowEmployeePhoto(Employee em)
         {
-            FileInfo f = new FileInfo(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
-            if (f.Exists)
-            {
-                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + em.EmployeeNumber + ".png");
-            }
-            else
-            {
-                pb_employeephoto.Image = Image.FromFile(Application.StartupPath + @"\..\..\..\image\EmployeePhoto\" + "人员相片" + ".png");
-            }
+            ImageManager getSetImagePath = new ImageManager();
+            pb_employeephoto.Image = Image.FromFile(getSetImagePath.GetEmployeeImagePath(em.EmployeeNumber));
         }
 
         //点击关闭按钮
@@ -223,6 +210,16 @@ namespace cangku_01
         {
             Find_Items queryinstrument = new Find_Items();
             queryinstrument.ShowDialog();
+        }
+
+        //双击到期提醒
+        private void Dgv_DueToSee_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Instrument ins = new Instrument();
+            ins.TagId = Dgv_DueToSee.CurrentRow.Cells[3].Value.ToString();
+            ins.Id = (int)Dgv_DueToSee.CurrentRow.Cells[4].Value;
+            AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
+            add.ShowDialog();
         }
     }
 }

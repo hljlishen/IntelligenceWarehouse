@@ -64,9 +64,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(1266, 24);
+            this.button1.Location = new System.Drawing.Point(1266, 33);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 25);
+            this.button1.Size = new System.Drawing.Size(80, 45);
             this.button1.TabIndex = 0;
             this.button1.Text = "添加仪器";
             this.button1.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             // 
             this.la_instrumentname.AutoSize = true;
             this.la_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_instrumentname.Location = new System.Drawing.Point(277, 20);
+            this.la_instrumentname.Location = new System.Drawing.Point(310, 20);
             this.la_instrumentname.Name = "la_instrumentname";
             this.la_instrumentname.Size = new System.Drawing.Size(79, 20);
             this.la_instrumentname.TabIndex = 1;
@@ -85,7 +85,7 @@
             // tb_instrumentname
             // 
             this.tb_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_instrumentname.Location = new System.Drawing.Point(356, 17);
+            this.tb_instrumentname.Location = new System.Drawing.Point(389, 17);
             this.tb_instrumentname.Name = "tb_instrumentname";
             this.tb_instrumentname.Size = new System.Drawing.Size(120, 26);
             this.tb_instrumentname.TabIndex = 2;
@@ -125,7 +125,7 @@
             this.dgv_instrumentinformation.Name = "dgv_instrumentinformation";
             this.dgv_instrumentinformation.RowTemplate.Height = 23;
             this.dgv_instrumentinformation.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_instrumentinformation.Size = new System.Drawing.Size(1273, 684);
+            this.dgv_instrumentinformation.Size = new System.Drawing.Size(1273, 659);
             this.dgv_instrumentinformation.TabIndex = 4;
             this.dgv_instrumentinformation.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentClick);
             this.dgv_instrumentinformation.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_instrumentinformation_CellContentDoubleClick);
@@ -177,11 +177,13 @@
             // 
             this.仪器状态.HeaderText = "仪器状态";
             this.仪器状态.Name = "仪器状态";
+            this.仪器状态.ReadOnly = true;
             // 
             // 用于型号
             // 
             this.用于型号.HeaderText = "用于型号";
             this.用于型号.Name = "用于型号";
+            this.用于型号.ReadOnly = true;
             this.用于型号.Width = 145;
             // 
             // 负责人
@@ -216,6 +218,7 @@
             this.查看详情.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.查看详情.Text = "查看详情";
             this.查看详情.UseColumnTextForButtonValue = true;
+            this.查看详情.Width = 94;
             // 
             // 仪器id
             // 
@@ -248,7 +251,7 @@
             // 
             this.la_tagid.AutoSize = true;
             this.la_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_tagid.Location = new System.Drawing.Point(9, 20);
+            this.la_tagid.Location = new System.Drawing.Point(8, 20);
             this.la_tagid.Name = "la_tagid";
             this.la_tagid.Size = new System.Drawing.Size(79, 20);
             this.la_tagid.TabIndex = 71;
@@ -257,10 +260,10 @@
             // tb_tagid
             // 
             this.tb_tagid.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_tagid.Location = new System.Drawing.Point(88, 17);
+            this.tb_tagid.Location = new System.Drawing.Point(87, 17);
             this.tb_tagid.Name = "tb_tagid";
             this.tb_tagid.ReadOnly = true;
-            this.tb_tagid.Size = new System.Drawing.Size(183, 26);
+            this.tb_tagid.Size = new System.Drawing.Size(218, 26);
             this.tb_tagid.TabIndex = 72;
             // 
             // bt_selectduty
@@ -277,7 +280,7 @@
             // tb_model
             // 
             this.tb_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_model.Location = new System.Drawing.Point(577, 17);
+            this.tb_model.Location = new System.Drawing.Point(593, 17);
             this.tb_model.Name = "tb_model";
             this.tb_model.Size = new System.Drawing.Size(120, 26);
             this.tb_model.TabIndex = 22;
@@ -286,7 +289,7 @@
             // 
             this.la_model.AutoSize = true;
             this.la_model.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_model.Location = new System.Drawing.Point(492, 20);
+            this.la_model.Location = new System.Drawing.Point(517, 20);
             this.la_model.Name = "la_model";
             this.la_model.Size = new System.Drawing.Size(79, 20);
             this.la_model.TabIndex = 21;
@@ -301,7 +304,7 @@
             "全部",
             "在库",
             "不在库"});
-            this.cb_IsInWareHouse.Location = new System.Drawing.Point(794, 20);
+            this.cb_IsInWareHouse.Location = new System.Drawing.Point(797, 20);
             this.cb_IsInWareHouse.Name = "cb_IsInWareHouse";
             this.cb_IsInWareHouse.Size = new System.Drawing.Size(66, 20);
             this.cb_IsInWareHouse.TabIndex = 19;
@@ -310,7 +313,7 @@
             // 
             this.la_duty.AutoSize = true;
             this.la_duty.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_duty.Location = new System.Drawing.Point(867, 20);
+            this.la_duty.Location = new System.Drawing.Point(872, 20);
             this.la_duty.Name = "la_duty";
             this.la_duty.Size = new System.Drawing.Size(65, 20);
             this.la_duty.TabIndex = 8;
@@ -329,7 +332,7 @@
             // 
             this.la_IsInWareHouse.AutoSize = true;
             this.la_IsInWareHouse.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_IsInWareHouse.Location = new System.Drawing.Point(714, 20);
+            this.la_IsInWareHouse.Location = new System.Drawing.Point(721, 20);
             this.la_IsInWareHouse.Name = "la_IsInWareHouse";
             this.la_IsInWareHouse.Size = new System.Drawing.Size(79, 20);
             this.la_IsInWareHouse.TabIndex = 6;
@@ -338,7 +341,7 @@
             // bt_dgvchangeexcel
             // 
             this.bt_dgvchangeexcel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bt_dgvchangeexcel.Location = new System.Drawing.Point(1266, 54);
+            this.bt_dgvchangeexcel.Location = new System.Drawing.Point(1266, 760);
             this.bt_dgvchangeexcel.Name = "bt_dgvchangeexcel";
             this.bt_dgvchangeexcel.Size = new System.Drawing.Size(80, 25);
             this.bt_dgvchangeexcel.TabIndex = 6;
@@ -384,6 +387,7 @@
         private System.Windows.Forms.Button bt_selectduty;
         private System.Windows.Forms.Label la_tagid;
         private System.Windows.Forms.TextBox tb_tagid;
+        private System.Windows.Forms.Button bt_dgvchangeexcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn 型号规格;
@@ -397,6 +401,5 @@
         private System.Windows.Forms.DataGridViewButtonColumn Column2;
         private System.Windows.Forms.DataGridViewButtonColumn 查看详情;
         private System.Windows.Forms.DataGridViewTextBoxColumn 仪器id;
-        private System.Windows.Forms.Button bt_dgvchangeexcel;
     }
 }

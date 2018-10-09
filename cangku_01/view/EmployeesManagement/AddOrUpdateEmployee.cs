@@ -1,4 +1,5 @@
 ﻿using cangku_01.entity;
+using cangku_01.ImageManagement;
 using cangku_01.interfaceImp;
 using cangku_01.interfaces;
 using DbLink;
@@ -14,6 +15,7 @@ namespace cangku_01.view.EmployeesManagement
 {
     public partial class AddOrUpdateEmployee : Form
     {
+        ImageManager getSetImagePath = new ImageManager();
         static DbLinkFactory factory = DbLinkManager.GetLinkFactory();
         EmployeesInterface dao = new EmployeeDataManipulation();
         private Employee _employee = new Employee();
@@ -29,6 +31,7 @@ namespace cangku_01.view.EmployeesManagement
             InitializeComponent();
             bt_alteremployee.Visible = false;
             _employeefrom = form;
+            pb_employeephoto.Image = Image.FromFile(getSetImagePath.DefualtEmployeeImagePath);
         }
 
         //重写有参构造方法为修改状态
@@ -40,6 +43,7 @@ namespace cangku_01.view.EmployeesManagement
             _index = index;
             tb_employeesid.ReadOnly = true;
             La_addoralter.Text = "修改员工";
+            pb_employeephoto.Image = Image.FromFile(getSetImagePath.GetEmployeeImagePath(employee.EmployeeNumber));
             tb_employeesid.Text = employee.EmployeeNumber.ToString();
             tb_name.Text = employee.Name;
             if (employee.Sex.Equals("男"))
@@ -81,11 +85,11 @@ namespace cangku_01.view.EmployeesManagement
             _departmentname = la_department.Text;
             _groupname = la_group.Text;
             dao.AddEmployee(_employee);
+            getSetImagePath.SaveEmployeeImage(_employee.EmployeeNumber);
             AutoClosingMessageBox.Show("员工信息添加成功", "员工信息添加", 1000);
             _index = _employeefrom.dgv_employeeinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
             Close();
- 
         }
 
         //获取员工信息
@@ -123,6 +127,8 @@ namespace cangku_01.view.EmployeesManagement
             _departmentname = la_department.Text;
             _groupname = la_group.Text;
             dao.UpdateEmployee(_employee);
+            pb_employeephoto.Image.Dispose();
+            getSetImagePath.SaveEmployeeImage(_employee.EmployeeNumber);
             AutoClosingMessageBox.Show("员工信息修改成功", "员工信息修改", 1000);
             Employee employee = new Employee();
             DataTable datatable = employee.QueryAllEmployee();//将全部员工加载
@@ -170,6 +176,21 @@ namespace cangku_01.view.EmployeesManagement
             }
             else la_errorgroup.Visible = false;
             return validation;
+        }
+
+        //浏览图片
+        private void pb_employeephoto_MouseClick(object sender, MouseEventArgs e)
+        {
+            string imagepath = getSetImagePath.GetBrowseImagePath();
+            if (imagepath.Equals("")) return;
+            pb_employeephoto.Image.Dispose();
+            pb_employeephoto.Image = Image.FromFile(imagepath);
+        }
+
+        //清空图片组件缓存
+        private void AddOrUpdateEmployee_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            pb_employeephoto.Image.Dispose();
         }
     }
 }

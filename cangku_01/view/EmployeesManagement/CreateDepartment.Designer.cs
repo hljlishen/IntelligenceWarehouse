@@ -1,6 +1,6 @@
 ﻿namespace cangku_01.view.EmployeesManagement
 {
-    partial class GetDepartmentNodeName
+    partial class CreateDepartment
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GetDepartmentNodeName));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateDepartment));
             this.bt_alter = new System.Windows.Forms.Button();
             this.tb_nodename = new System.Windows.Forms.TextBox();
             this.bt_cancel = new System.Windows.Forms.Button();
@@ -101,7 +101,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GetDepartmentNodeName";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "输入节点名称";
+            this.Text = "部门编辑";
+            this.Load += new System.EventHandler(this.GetDepartmentNodeName_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

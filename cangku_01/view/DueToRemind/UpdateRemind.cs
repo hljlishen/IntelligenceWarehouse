@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using cangku_01.entity;
 using cangku_01.interfaceImp;
@@ -20,14 +13,16 @@ namespace cangku_01.view.DueToRemind
     {
         RemindInterface dao = new CheckTimeQueryAndUpdate();
         DateTime Lasttime;
+        int _id;
         //给UpdateRemind构造函数添加自定义参数，接受DueToRemind界面传来的数据
-        public UpdateRemind(string Remind_id,string Remind_name,string Remind_manufacturer,string Remind_lasttime)
+        public UpdateRemind(string Remind_id,string Remind_name,string Remind_manufacturer,string Remind_lasttime,int id)
         {
             InitializeComponent();
             //将数据赋值给修改页面
             la_tageid.Text = Remind_id;
             la_name.Text = Remind_name;
             la_manufacturer.Text = Remind_manufacturer;
+            _id = id;
             Lasttime = Convert.ToDateTime(Remind_lasttime);
         }
 
@@ -41,6 +36,7 @@ namespace cangku_01.view.DueToRemind
             Instrument ins = new Instrument();
             //获取到修改页面的仪器ID、转化为int
             ins.TagId = la_tageid.Text;
+            ins.Id = _id;
             //获取到修改页面的检查日期、转化为Datetime
             ins.LastCheckTime = Convert.ToDateTime(dtp_lasttime.Text);
             DateTime Nowtime = DateTime.Now;

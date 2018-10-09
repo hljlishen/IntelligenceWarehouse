@@ -55,9 +55,6 @@ namespace cangku_01
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.Dgv_DueToSee = new System.Windows.Forms.DataGridView();
-            this.DueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaysRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
@@ -106,6 +103,11 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DueTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaysRemaining = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器tagid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_employeephoto)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -328,7 +330,9 @@ namespace cangku_01
             this.Dgv_DueToSee.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DueName,
             this.DueTime,
-            this.DaysRemaining});
+            this.DaysRemaining,
+            this.仪器tagid,
+            this.仪器id});
             this.Dgv_DueToSee.GridColor = System.Drawing.Color.Black;
             this.Dgv_DueToSee.Location = new System.Drawing.Point(12, 28);
             this.Dgv_DueToSee.Name = "Dgv_DueToSee";
@@ -337,24 +341,7 @@ namespace cangku_01
             this.Dgv_DueToSee.RowTemplate.Height = 23;
             this.Dgv_DueToSee.Size = new System.Drawing.Size(353, 383);
             this.Dgv_DueToSee.TabIndex = 0;
-            // 
-            // DueName
-            // 
-            this.DueName.HeaderText = "名称";
-            this.DueName.Name = "DueName";
-            this.DueName.ReadOnly = true;
-            // 
-            // DueTime
-            // 
-            this.DueTime.HeaderText = "到期时间";
-            this.DueTime.Name = "DueTime";
-            this.DueTime.ReadOnly = true;
-            // 
-            // DaysRemaining
-            // 
-            this.DaysRemaining.HeaderText = "剩余天数";
-            this.DaysRemaining.Name = "DaysRemaining";
-            this.DaysRemaining.ReadOnly = true;
+            this.Dgv_DueToSee.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dgv_DueToSee_CellMouseDoubleClick);
             // 
             // groupBox4
             // 
@@ -802,6 +789,38 @@ namespace cangku_01
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // DueName
+            // 
+            this.DueName.HeaderText = "名称";
+            this.DueName.Name = "DueName";
+            this.DueName.ReadOnly = true;
+            // 
+            // DueTime
+            // 
+            this.DueTime.HeaderText = "到期时间";
+            this.DueTime.Name = "DueTime";
+            this.DueTime.ReadOnly = true;
+            // 
+            // DaysRemaining
+            // 
+            this.DaysRemaining.HeaderText = "剩余天数";
+            this.DaysRemaining.Name = "DaysRemaining";
+            this.DaysRemaining.ReadOnly = true;
+            // 
+            // 仪器tagid
+            // 
+            this.仪器tagid.HeaderText = "仪器tagid";
+            this.仪器tagid.Name = "仪器tagid";
+            this.仪器tagid.ReadOnly = true;
+            this.仪器tagid.Visible = false;
+            // 
+            // 仪器id
+            // 
+            this.仪器id.HeaderText = "仪器id";
+            this.仪器id.Name = "仪器id";
+            this.仪器id.ReadOnly = true;
+            this.仪器id.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -880,9 +899,6 @@ namespace cangku_01
         private NotifyIcon notifyIcon1;
         private PictureBox pictureBox3;
         private DataGridView Dgv_DueToSee;
-        private DataGridViewTextBoxColumn DueName;
-        private DataGridViewTextBoxColumn DueTime;
-        private DataGridViewTextBoxColumn DaysRemaining;
         private ToolStripMenuItem 归还ToolStripMenuItem;
         private Timer timer2;
         public PictureBox pb_employeephoto;
@@ -924,6 +940,11 @@ namespace cangku_01
         private ColumnHeader ch_number;
         private Button bt_emptyemployeepassdoor;
         private ColumnHeader column_postion;
+        private DataGridViewTextBoxColumn DueName;
+        private DataGridViewTextBoxColumn DueTime;
+        private DataGridViewTextBoxColumn DaysRemaining;
+        private DataGridViewTextBoxColumn 仪器tagid;
+        private DataGridViewTextBoxColumn 仪器id;
     }
 }
 

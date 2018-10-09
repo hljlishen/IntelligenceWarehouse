@@ -53,6 +53,7 @@ namespace cangku_01.interfaceImp
                         record.insr_insborrowid = int.Parse(insmyDr["ins_borrowid"].ToString());
                         record.insr_fingerprintid = int.Parse(finmyDr["fi_id"].ToString());
                         record.insr_emnumber = finmyDr["fi_employeenumber"].ToString();
+                        return;
                     }
                 }
             }
