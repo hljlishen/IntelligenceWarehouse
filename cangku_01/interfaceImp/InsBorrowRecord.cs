@@ -21,12 +21,13 @@ namespace cangku_01.interfaceImp
         }
 
         //添加仪器出入记录
-        public void AddInAndOutRecords(InstrumentInAndOutRecord record, Fingerprint fingerprint, GateData door)
+        public void AddInAndOutRecords(InstrumentInAndOutRecord record, Fingerprint fingerprint, GateData door, Instrument ins)
         {
             JointInAndOutRecord(fingerprint, door, record);
             record.insr_direct = door.Direction;
             record.insr_time = door.Time;
             record.insr_tagid = door.TagId;
+            record.insr_instrumentid = ins.Id;
             if (record.insr_insborrowid != null && record.insr_fingerprintid != null && record.insr_direct != null && record.insr_time != null)
             {
                 string sql = record.AddInstrumentRecordSql();

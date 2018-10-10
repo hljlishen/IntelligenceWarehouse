@@ -144,7 +144,8 @@ namespace cangku_01
             InstrumenBorrowRecord ibr = new InsBorrowRecord();
             InstrumentInAndOutRecord record = new InstrumentInAndOutRecord(factory);
             Fingerprint fingerprint = new Fingerprint(factory);
-            ibr.AddInAndOutRecords(record, fingerprint, gateDatas[i]);
+            Instrument ins = new Instrument();
+            ibr.AddInAndOutRecords(record, fingerprint, gateDatas[i], ins);
         }
 
         private void Initialiaze()
