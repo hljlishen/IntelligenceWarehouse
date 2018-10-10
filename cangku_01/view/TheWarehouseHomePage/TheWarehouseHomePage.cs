@@ -73,16 +73,7 @@ namespace cangku_01
                     tb_ShowName.Text = myDr["in_name"].ToString();
                     tb_ShowState.Text = gateDatas[i].Direction;
                     tb_ShowTime.Text = gateDatas[i].Time.ToString();
-                    //展示仪器照片
-                    FileInfo f = new FileInfo(Application.StartupPath + @"\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
-                    if (f.Exists)
-                    {
-                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + gateDatas[i].TagId + ".png");
-                    }
-                    else
-                    {
-                        pb_instrumentphoto.Image = Image.FromFile(Application.StartupPath + @"\image\InstrumentPhoto\" + "仪器" + ".png");
-                    }
+                    ShowEmployeePhoto(ins);
 
                     listView = lv_instrumrntinformation.Items.Add((lv_instrumrntinformation.Items.Count + 1).ToString());
                     listView.SubItems.Add(gateDatas[i].TagId);
@@ -104,6 +95,14 @@ namespace cangku_01
             }
         }
 
+        //展示仪器照片
+        private void ShowEmployeePhoto(Instrument ins)
+        {
+            ImageManager getSetImagePath = new ImageManager();
+            pb_instrumentphoto.Image = Image.FromFile(getSetImagePath.GetInstrumentPhotoPath(ins.TagId));
+
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = DateTime.Now.ToString();
@@ -112,9 +111,9 @@ namespace cangku_01
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gateDrive.Open();
-            connectFingerprint.GetIPConnect();
-            connectFingerprint.AddDisplayer(this);
+            //gateDrive.Open();
+            //connectFingerprint.GetIPConnect();
+            //connectFingerprint.AddDisplayer(this);
             DueToRemind();
             timer1.Interval = 1000;
             timer1.Tick += new EventHandler(timer1_Tick);

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using USBReader;
+using static cangku_01.view.AdminPage.AutoCloseMassageBox;
 
 namespace cangku_01.MH
 {
@@ -60,6 +61,7 @@ namespace cangku_01.MH
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[5].Value = dr["insr_direct"]; 
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[6].Value = SelectEmployee(int.Parse(dr["insr_fingerprintid"].ToString()));
                 dgv_InstrumentInAndOutrecord.Rows[index].Cells[7].Value = SelectDutyInstrument(int.Parse(dr["insr_insborrowid"].ToString()));
+                dgv_InstrumentInAndOutrecord.Rows[index].Cells[8].Value = dr["insr_instrumentid"];
             }
         }
             
@@ -198,6 +200,23 @@ namespace cangku_01.MH
         private void btn_exceloperator_Click(object sender, EventArgs e)
         {
             ExcelOperator.DataGridViewToExcel(dgv_InstrumentInAndOutrecord, true);
+        }
+
+        //双击查看仪器详情
+        private void dgv_InstrumentInAndOutrecord_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            InstrumentInterface dao = new InstrumentDataManipulation();
+            Instrument ins = new Instrument();
+            DataTable dt = dao.TagIdQueryInstrument(ins);
+            if (dt.Rows.Count <= 0)
+            {
+                AutoClosingMessageBox.Show("仪器已经被删除，无法查看", "仪器已删除", 1000);
+                return;
+            }
+            ins.TagId = dgv_InstrumentInAndOutrecord.CurrentRow.Cells[0].Value.ToString();
+            ins.Id = (int)dgv_InstrumentInAndOutrecord.CurrentRow.Cells[8].Value;
+            AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
+            add.ShowDialog();
         }
     }
 }

@@ -165,7 +165,7 @@ namespace cangku_01.view.InstrumentManagement
             time_productionDate.Text = myDr["in_productiondate"].ToString();
             time_lastCheckTimes.Text = myDr["in_lastchecktimes"].ToString();
             cb_isInWareHouse.Text = myDr["in_isinwarehouse"].ToString();
-            cb_state.Text = myDr["in_state"].ToString(); 
+            cb_state.Text = myDr["in_state"].ToString();
         }
 
         //取消按钮

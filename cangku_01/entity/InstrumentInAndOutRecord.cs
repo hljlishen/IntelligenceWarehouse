@@ -15,6 +15,7 @@ namespace cangku_01
         public DateTime? insr_time { get; set; }
         public string insr_tagid { get; set; }
         public string insr_emnumber { get; set; }
+        public int? insr_instrumentid { get; set; }
 
         public InstrumentInAndOutRecord(DbLinkFactory factory) : base("t_insinandoutrecords", "insr_recordsid", factory)
         {
@@ -36,6 +37,7 @@ namespace cangku_01
             record.insr_time = insr_time;
             record.insr_tagid = insr_tagid;
             record.insr_emnumber = insr_emnumber;
+            record.insr_instrumentid = insr_instrumentid;
             string sql = record.MakeInsertSqlCommand();
             return sql;
         }
