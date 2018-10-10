@@ -33,17 +33,6 @@
             this.tb_instrumentname = new System.Windows.Forms.TextBox();
             this.bt_queryinstrument = new System.Windows.Forms.Button();
             this.dgv_instrumentinformation = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.la_tagid = new System.Windows.Forms.Label();
-            this.tb_tagid = new System.Windows.Forms.TextBox();
-            this.bt_selectduty = new System.Windows.Forms.Button();
-            this.tb_model = new System.Windows.Forms.TextBox();
-            this.la_model = new System.Windows.Forms.Label();
-            this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
-            this.la_duty = new System.Windows.Forms.Label();
-            this.tb_duty = new System.Windows.Forms.TextBox();
-            this.la_IsInWareHouse = new System.Windows.Forms.Label();
-            this.bt_dgvchangeexcel = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.型号规格 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +46,17 @@
             this.Column2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.查看详情 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.仪器id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.la_tagid = new System.Windows.Forms.Label();
+            this.tb_tagid = new System.Windows.Forms.TextBox();
+            this.bt_selectduty = new System.Windows.Forms.Button();
+            this.tb_model = new System.Windows.Forms.TextBox();
+            this.la_model = new System.Windows.Forms.Label();
+            this.cb_IsInWareHouse = new System.Windows.Forms.ComboBox();
+            this.la_duty = new System.Windows.Forms.Label();
+            this.tb_duty = new System.Windows.Forms.TextBox();
+            this.la_IsInWareHouse = new System.Windows.Forms.Label();
+            this.bt_dgvchangeexcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_instrumentinformation)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +76,7 @@
             // 
             this.la_instrumentname.AutoSize = true;
             this.la_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.la_instrumentname.Location = new System.Drawing.Point(310, 20);
+            this.la_instrumentname.Location = new System.Drawing.Point(287, 20);
             this.la_instrumentname.Name = "la_instrumentname";
             this.la_instrumentname.Size = new System.Drawing.Size(79, 20);
             this.la_instrumentname.TabIndex = 1;
@@ -85,7 +85,7 @@
             // tb_instrumentname
             // 
             this.tb_instrumentname.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.tb_instrumentname.Location = new System.Drawing.Point(389, 17);
+            this.tb_instrumentname.Location = new System.Drawing.Point(366, 17);
             this.tb_instrumentname.Name = "tb_instrumentname";
             this.tb_instrumentname.Size = new System.Drawing.Size(120, 26);
             this.tb_instrumentname.TabIndex = 2;

@@ -256,6 +256,16 @@ namespace cangku_01.view.InstrumentManagement
         private void bt_alterinstrument_Click(object sender, EventArgs e)
         {
             if (!FormValidation()) return;
+            if (!ins.TagId.Equals(tb_tagid.Text))
+            {
+                InstrumentInterface dao = new InstrumentDataManipulation();
+                DataTable dt = dao.TagIdQueryInstrument(GetInstrumentInformation());
+                if (dt.Rows.Count != 0)
+                {
+                    AutoClosingMessageBox.Show("已存在该仪器TagId，误重复添加", "仪器信息添加重复", 1000);
+                    return;
+                }
+            }
             WarehouseLocation wa1 = new WarehouseLocation();
             string[] sArray1 = alterplaceidcoding.Split(new char[1] { '-' });
             int alterplaceid = int.Parse(sArray1[3]);
