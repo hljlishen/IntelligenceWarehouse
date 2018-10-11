@@ -237,5 +237,10 @@ namespace cangku_01
             AddOrUpdateInstrument add = new AddOrUpdateInstrument(ins);
             add.ShowDialog();
         }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            DueToRemind();
+        }
     }
 }
