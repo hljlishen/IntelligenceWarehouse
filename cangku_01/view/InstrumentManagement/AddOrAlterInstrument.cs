@@ -194,6 +194,7 @@ namespace cangku_01.view.InstrumentManagement
             dao.AddInstrument(GetInstrumentInformation());
             getSetImagePath.SaveInstrumentImage(ins.TagId);
             AutoClosingMessageBox.Show("仪器信息保存成功", "仪器信息添加", 1000);
+            GetWriteCardInformation();
             index = fr.dgv_instrumentinformation.Rows.Add();
             AddOneEmployeeToTheDataGridView();
             ResetPageInformation();

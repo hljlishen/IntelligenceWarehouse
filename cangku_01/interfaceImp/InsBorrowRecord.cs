@@ -51,12 +51,11 @@ namespace cangku_01.interfaceImp
                     TimeSpan td = emPassTime.Subtract(insPassTime).Duration();
                     double timeInterval = td.TotalSeconds;
                     //20分钟
-                    if (timeInterval <= 1200000)
+                    if (timeInterval <= 12000)
                     {
                         record.insr_insborrowid = int.Parse(insmyDr["ins_borrowid"].ToString());
                         record.insr_fingerprintid = int.Parse(finmyDr["fi_id"].ToString());
                         record.insr_emnumber = finmyDr["fi_employeenumber"].ToString();
-                        return;
                     }
                 }
             }
